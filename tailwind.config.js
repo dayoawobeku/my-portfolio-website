@@ -1,22 +1,32 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './components/**/*.{html,js,jsx,tsx}',
+    './pages/**/*.{html,js,jsx,tsx}',
+    './assets/**/*.{html,js,jsx,tsx}',
+  ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        30: '7.5rem',
+      },
+    },
     colors: {
-      brandBlue: '#3F7CDB',
-      secondaryBlue: '#1E2254',
-      brandBlue80: '#5F92E1',
-      brandBlue40: '#D9E5F8',
-      body: '#4A4A68',
-      white: '#FFF',
-      white80: '#F9F9F9',
-      grey: '#080917',
-      grey80: '#333442',
-      grey60: '#CECED2',
-      grey40: '#84858D',
-      grey20: '#8E90A9',
-      btnHover: '#5A8EE3',
+      body: '#686868',
+      white: {
+        DEFAULT: '#FFF',
+        800: '#F9F9F9',
+      },
+      black: {
+        DEFAULT: '#000',
+      },
+      grey: {
+        DEFAULT: '#0D0D0D',
+        800: '#333442',
+        600: '#CECED2',
+        400: '#84858D',
+      },
+      brown: '#6C5146',
     },
     fontFamily: {
       sans: ['Matter'],
@@ -24,21 +34,25 @@ module.exports = {
     fontSize: {
       base: ['1rem', '24px'], // 16px
 
-      lg: '1.25rem', // 20px
+      md: ['1.125rem'], // 18px
 
-      sm: ['.8125rem', '18px'], // 13px
+      '2md': ['1.25rem', '28px'], // 20px
 
-      small: ['.75rem', '17.38px'], // 12px
+      '3md': ['1.375rem', '32px'], // 22px
 
-      tiny: '.875rem', // 14px
+      '4md': ['1.5rem', '32px'], // 24px
 
-      xl: ['1.5625rem', '29px'], // 25px
+      '5md': ['1.5625rem'], // 25px
 
-      xs: ['.625rem', '11.72px'], // 10px
+      lg: '1.25rem', // 30px
 
-      xxl: '1.9375rem', // 31px
+      xl: ['1.5625rem', '29px'], // 40px
 
-      xxxl: ['2.5rem', '57.92px'], // 40px
+      '2xl': ['3rem', '57.6px'], // 48px
+
+      '3xl': ['3.5rem', '67.2px'], // 56px
+
+      '4xl': ['3.75rem', '72px'], // 72px
     },
   },
   plugins: [],
