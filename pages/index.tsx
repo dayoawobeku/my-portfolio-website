@@ -2,6 +2,7 @@ import type {NextPage} from 'next';
 import Head from 'next/head';
 import HeroSection from '../components/LandingPage/HeroSection';
 import Expertise from '../components/LandingPage/Expertise';
+import Projects from '../components/LandingPage/Projects';
 
 const Home: NextPage = () => {
   return (
@@ -13,8 +14,8 @@ const Home: NextPage = () => {
       </Head>
       <HeroSection />
       <Expertise />
-      {/* <Projects />
-      <Testimonials />
+      <Projects />
+      {/* <Testimonials />
       <AboutMe />
       <ContactMe /> 
       <Footer /> */}
