@@ -1,11 +1,11 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import {arrow, heroImage} from '../../assets/images/images';
 
 export default function HeroSection() {
   return (
-    <main className="mt-10 flex items-center justify-between">
+    <main className="flex items-center justify-between mt-10">
       <div className="max-w-[511px]">
         <h1 className="text-4xl text-black">Hi, I'm Dayo.</h1>
         <h1 className="text-4xl text-black">
@@ -17,8 +17,8 @@ export default function HeroSection() {
           the competition.
         </p>
         <Link href="/">
-          <a className="mt-8 inline-flex items-center gap-4">
-            <span className="text-4md text-grey font-medium">Contact me</span>
+          <a className="inline-flex items-center gap-4 mt-8">
+            <span className="font-medium text-4md text-grey">Contact me</span>
             <Image src={arrow} />
           </a>
         </Link>
