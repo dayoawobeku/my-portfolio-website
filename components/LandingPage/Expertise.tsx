@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
 import {rectangles} from '../../assets/images/images';
 
 export default function Expertise() {
@@ -7,7 +7,7 @@ export default function Expertise() {
     <section className="py-30">
       <h2 className="text-2xl text-grey">My Expertise</h2>
 
-      <div className="mt-4 flex justify-between">
+      <div className="flex justify-between mt-4">
         <div className="flex flex-col">
           <div className="py-10 pr-[18px] flex items-start">
             <div className="mt-[10px] mr-4">

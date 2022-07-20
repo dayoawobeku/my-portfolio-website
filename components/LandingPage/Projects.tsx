@@ -48,7 +48,7 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
     <div>
       <Image src={projectImg} />
       <div className="mt-10">
-        <h5 className="text-grey text-4md font-medium">{heading}</h5>
+        <h5 className="font-medium text-grey text-4md">{heading}</h5>
         <p className="max-w-lg mt-6 text-body text-2md">{body}</p>
         <div className="flex gap-4">
           {stack.map((r, index) => (
@@ -56,14 +56,14 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
               key={index}
               className="mt-6 bg-grey px-3 py-[10px] rounded-lg w-fit"
             >
-              <span className="text-white font-medium">{r}</span>
+              <span className="font-medium text-white">{r}</span>
             </div>
           ))}
         </div>
 
         <Link href="/">
-          <a className="mt-10 inline-flex items-center gap-4">
-            <span className="text-4md text-grey font-medium">Visit site</span>
+          <a className="inline-flex items-center gap-4 mt-10">
+            <span className="font-medium text-4md text-grey">Visit site</span>
             <Image src={arrow} />
           </a>
         </Link>
@@ -77,7 +77,7 @@ export default function Projects() {
     <section className="py-30">
       <h2 className="text-2xl text-grey">Past Projects</h2>
 
-      <div className="mt-14 flex flex-col gap-20">
+      <div className="flex flex-col gap-20 mt-14">
         {PROJECT_ARRAY.map((project, index) => (
           <Project
             key={index}

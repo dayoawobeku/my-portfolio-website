@@ -3,6 +3,9 @@ import Head from 'next/head';
 import HeroSection from '../components/LandingPage/HeroSection';
 import Expertise from '../components/LandingPage/Expertise';
 import Projects from '../components/LandingPage/Projects';
+import Testimonials from '../components/LandingPage/Testimonials';
+import AboutMe from '../components/LandingPage/AboutMe';
+import ContactMe from '../components/ContactMe';
 
 const Home: NextPage = () => {
   return (
@@ -15,10 +18,9 @@ const Home: NextPage = () => {
       <HeroSection />
       <Expertise />
       <Projects />
-      {/* <Testimonials />
+      <Testimonials />
       <AboutMe />
-      <ContactMe /> 
-      <Footer /> */}
+      <ContactMe />
     </div>
   );
 };

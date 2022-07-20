@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {darkMode, logo} from '../assets/images/images';
+import Newsletter from './Newsletter';
 
 interface Props {
   children?: ReactNode;
@@ -10,7 +11,7 @@ interface Props {
 function Layout({children}: Props) {
   return (
     <div className="max-w-[1168px] mx-auto px-4">
-      <nav className="py-8 flex items-center justify-between">
+      <nav className="flex items-center justify-between py-8">
         <Link href="/">
           <a className="leading-none">
             <Image src={logo} alt="logo" width={169} height={30} priority />
@@ -24,7 +25,7 @@ function Layout({children}: Props) {
             className="cursor-pointer"
             priority
           />
-          <div className="flex items-center gap-5 text-md text-grey">
+          <div className="flex items-center gap-5 text-md leading-[21.6px] text-grey">
             <Link href="/">Testimonials</Link>
             <Link href="/">Portfolio</Link>
             <Link href="/">Blog</Link>
@@ -32,7 +33,7 @@ function Layout({children}: Props) {
           </div>
           <Link href="/">
             <a>
-              <button className="px-6 py-4 text-md text-white bg-grey rounded-sm">
+              <button className="px-6 py-4 text-white rounded-sm text-md bg-grey">
                 Let's talk
               </button>
             </a>
@@ -42,20 +43,23 @@ function Layout({children}: Props) {
 
       <main>{children}</main>
 
-      <footer className="flex items-center justify-between uppercase text-brown font-medium mb-16">
-        <p>dayo awobeku</p>
-        <div className="flex items-center gap-5 underline">
-          <a href="/">mail</a>
-          <div className="relative">
-            <span className="absolute h-1 w-1 bg-brown rounded-full -left-3 top-1/2" />
-            <a href="/">twitter</a>
+      <footer className="mt-40 mb-16">
+        <Newsletter />
+        <div className="flex items-center justify-between font-medium uppercase mt-18 text-brown">
+          <p>dayo awobeku</p>
+          <div className="flex items-center gap-5 underline">
+            <a href="/">mail</a>
+            <div className="relative">
+              <span className="absolute w-1 h-1 rounded-full bg-brown -left-3 top-1/2" />
+              <a href="/">twitter</a>
+            </div>
+            <div className="relative">
+              <span className="absolute w-1 h-1 rounded-full bg-brown -left-3 top-1/2" />
+              <a href="/">linkedin</a>
+            </div>
           </div>
-          <div className="relative">
-            <span className="absolute h-1 w-1 bg-brown rounded-full -left-3 top-1/2" />
-            <a href="/">linkedin</a>
-          </div>
+          <p>2022 all rights reserved</p>
         </div>
-        <p>2022 all rights reserved</p>
       </footer>
     </div>
   );
