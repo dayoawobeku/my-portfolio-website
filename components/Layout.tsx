@@ -28,10 +28,10 @@ function Layout({children}: Props) {
           <div className="flex items-center gap-5 text-md leading-[21.6px] text-grey">
             <Link href="/">Testimonials</Link>
             <Link href="/">Portfolio</Link>
-            <Link href="/">Blog</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/">About</Link>
           </div>
-          <Link href="/">
+          <Link href="/contact">
             <a>
               <button className="px-6 py-4 text-white rounded-sm text-md bg-grey">
                 Let's talk

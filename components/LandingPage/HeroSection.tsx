@@ -16,7 +16,7 @@ export default function HeroSection() {
           experiences, and developing high-quality websites that stand out from
           the competition.
         </p>
-        <Link href="/">
+        <Link href="/contact">
           <a className="inline-flex items-center gap-4 mt-8">
             <span className="font-medium text-4md text-grey">Contact me</span>
             <Image src={arrow} />

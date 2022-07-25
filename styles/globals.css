@@ -6,6 +6,10 @@ html {
   font-family: 'Matter', sans-serif;
 }
 
+::-webkit-search-cancel-button {
+  display: none;
+}
+
 @layer base {
   @font-face {
     font-family: 'Matter';
