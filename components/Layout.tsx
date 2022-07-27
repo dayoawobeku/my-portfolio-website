@@ -48,14 +48,26 @@ function Layout({children}: Props) {
         <div className="flex items-center justify-between font-medium uppercase mt-18 text-brown">
           <p>dayo awobeku</p>
           <div className="flex items-center gap-5 underline">
-            <a href="/">mail</a>
+            <a href="mailto: dayoawobeku@gmail.com">mail</a>
             <div className="relative">
               <span className="absolute w-1 h-1 rounded-full bg-brown -left-3 top-1/2" />
-              <a href="/">twitter</a>
+              <a
+                href="https://twitter.com/dayoawobeku"
+                target="_blank"
+                rel="noreferrer"
+              >
+                twitter
+              </a>
             </div>
             <div className="relative">
               <span className="absolute w-1 h-1 rounded-full bg-brown -left-3 top-1/2" />
-              <a href="/">linkedin</a>
+              <a
+                href="https://linkedin.com/in/dayoawobeku/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                linkedin
+              </a>
             </div>
           </div>
           <p>2022 all rights reserved</p>

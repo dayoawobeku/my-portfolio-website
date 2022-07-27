@@ -28,7 +28,9 @@ const Contact: NextPage = () => {
             <div className="mt-6 text-2md">
               <span className="text-body">Or: </span>
               <a
-                href="/"
+                href="https://linkedin.com/in/dayoawobeku/"
+                target="_blank"
+                rel="noreferrer"
                 className="font-medium underline underline-offset-2 text-grey"
               >
                 LinkedIn

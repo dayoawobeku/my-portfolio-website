@@ -1,11 +1,49 @@
-import type {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import fs from 'fs';
+import * as path from 'path';
+import matter from 'gray-matter';
 import {arrow, blogHero, mainArticle, search} from '../../assets/images/images';
 import BlogPosts from '../../components/BlogPosts';
 
-const Blog: NextPage = () => {
+export const getStaticProps = async () => {
+  const files = fs.readdirSync(path.join('posts'));
+
+  const posts = files.map(filename => {
+    const markdownWithMeta = fs.readFileSync(
+      path.join('posts', filename),
+      'utf-8',
+    );
+    const {data: frontMatter} = matter(markdownWithMeta);
+
+    return {
+      frontMatter,
+      slug: filename.split('.')[0],
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+
+interface FrontMatter {
+  title: string;
+}
+
+interface ResponseObject {
+  slug: string;
+  frontMatter: FrontMatter;
+}
+
+interface BlogProps {
+  posts: Array<ResponseObject>;
+}
+
+function Blog({posts}: BlogProps) {
   return (
     <div>
       <Head>
@@ -40,6 +78,11 @@ const Blog: NextPage = () => {
       </div>
 
       <div className="mt-32 bg-white-700">
+        <div>
+          {posts.map((post, i) => (
+            <p key={i}>{post.frontMatter.title}</p>
+          ))}
+        </div>
         <Link href="/">
           <a className="flex items-center justify-between p-20 rounded-sm">
             <div>
@@ -77,6 +120,6 @@ const Blog: NextPage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Blog;
