@@ -19,7 +19,7 @@ export default function HeroSection() {
         <Link href="/contact">
           <a className="inline-flex items-center gap-4 mt-8">
             <span className="font-medium text-4md text-grey">Contact me</span>
-            <Image src={arrow} />
+            <Image alt="" src={arrow} width={48} height={48} />
           </a>
         </Link>
       </div>

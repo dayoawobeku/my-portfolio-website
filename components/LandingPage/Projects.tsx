@@ -46,7 +46,7 @@ interface ProjectProps {
 function Project({projectImg, heading, body, stack}: ProjectProps) {
   return (
     <div>
-      <Image src={projectImg} />
+      <Image alt="" src={projectImg} width={1168} height={800} />
       <div className="mt-10">
         <h5 className="font-medium text-grey text-4md">{heading}</h5>
         <p className="max-w-lg mt-6 text-body text-2md">{body}</p>
@@ -64,7 +64,7 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
         <Link href="/">
           <a className="inline-flex items-center gap-4 mt-10">
             <span className="font-medium text-4md text-grey">Visit site</span>
-            <Image src={arrow} />
+            <Image alt="" src={arrow} width={48} height={48} />
           </a>
         </Link>
       </div>

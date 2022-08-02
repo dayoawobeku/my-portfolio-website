@@ -23,6 +23,8 @@ function Layout({children}: Props) {
             src={darkMode}
             alt="mode"
             className="cursor-pointer"
+            width={40}
+            height={40}
             priority
           />
           <div className="flex items-center gap-5 text-md leading-[21.6px] text-grey">

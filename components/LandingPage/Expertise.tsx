@@ -11,7 +11,13 @@ export default function Expertise() {
         <div className="flex flex-col">
           <div className="py-10 pr-[18px] flex items-start">
             <div className="mt-[10px] mr-4">
-              <Image src={rectangles} width={17} height={18} layout="fixed" />
+              <Image
+                alt=""
+                src={rectangles}
+                width={17}
+                height={18}
+                layout="fixed"
+              />
             </div>
             <div className="max-w-[498px]">
               <h4 className="text-5md text-grey">
@@ -27,7 +33,13 @@ export default function Expertise() {
 
           <div className="py-10 pr-[18px] flex items-start">
             <div className="mt-[10px] mr-4 aspect-auto">
-              <Image src={rectangles} width={17} height={18} layout="fixed" />
+              <Image
+                alt=""
+                src={rectangles}
+                width={17}
+                height={18}
+                layout="fixed"
+              />
             </div>
             <div className="max-w-[498px]">
               <h4 className="text-5md text-grey">Accessibility</h4>
@@ -43,7 +55,13 @@ export default function Expertise() {
         <div className="flex flex-col">
           <div className="py-10 pr-[18px] flex items-start">
             <div className="mt-[10px] mr-4 aspect-auto">
-              <Image src={rectangles} width={17} height={18} layout="fixed" />
+              <Image
+                alt=""
+                src={rectangles}
+                width={17}
+                height={18}
+                layout="fixed"
+              />
             </div>
             <div className="max-w-[498px]">
               <h4 className="text-5md text-grey">UI/UX Design</h4>
@@ -56,7 +74,13 @@ export default function Expertise() {
           </div>
           <div className="py-10 pr-[18px] flex items-start">
             <div className="mt-[10px] mr-4 aspect-auto">
-              <Image src={rectangles} width={17} height={18} layout="fixed" />
+              <Image
+                alt=""
+                src={rectangles}
+                width={17}
+                height={18}
+                layout="fixed"
+              />
             </div>
             <div className="max-w-[498px]">
               <h4 className="text-5md text-grey">SEO </h4>

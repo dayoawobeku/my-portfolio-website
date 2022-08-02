@@ -1,13 +1,19 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import {GetStaticProps, NextPage} from 'next';
 import fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import {arrow, blogHero, mainArticle, search} from '../../assets/images/images';
-import BlogPosts from '../../components/BlogPosts';
+import {
+  arrow,
+  blogHero,
+  mainArticle,
+  postOne,
+  search,
+} from '../../assets/images/images';
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const files = fs.readdirSync(path.join('posts'));
 
   const posts = files.map(filename => {
@@ -32,6 +38,7 @@ export const getStaticProps = async () => {
 
 interface FrontMatter {
   title: string;
+  date: string;
 }
 
 interface ResponseObject {
@@ -43,7 +50,7 @@ interface BlogProps {
   posts: Array<ResponseObject>;
 }
 
-function Blog({posts}: BlogProps) {
+const Blog: NextPage<BlogProps> = ({posts}) => {
   return (
     <div>
       <Head>
@@ -78,48 +85,46 @@ function Blog({posts}: BlogProps) {
       </div>
 
       <div className="mt-32 bg-white-700">
-        <div>
-          {posts.map((post, i) => (
-            <p key={i}>{post.frontMatter.title}</p>
-          ))}
-        </div>
-        <Link href="/">
+        <Link href={`/blog/${posts[0].slug}`} passHref>
           <a className="flex items-center justify-between p-20 rounded-sm">
             <div>
               <p className="font-medium text-md text-grey">Featured article</p>
               <h3 className="mt-8 text-xl leading-[56px] text-grey max-w-lg">
-                How I built this website - my process, technologies, and much
-                more!
+                {posts[0].frontMatter.title}
               </h3>
               <p className="mt-8 font-medium text-body text-3md">
-                June 9th, 2022 - 5 min read
+                {posts[0].frontMatter.date} - 5 min read
               </p>
               <div className="inline-flex items-center gap-4 mt-16">
                 <span className="font-medium text-4md text-grey">
                   Read full article
                 </span>
-                <Image src={arrow} />
+                <Image alt="" src={arrow} width={48} height={48} />
               </div>
             </div>
-            <div>
-              <Image src={mainArticle} />
+            <div className="w-[342px] h-[401px]">
+              <Image alt="" src={mainArticle} priority />
             </div>
           </a>
         </Link>
       </div>
-
-      <div className="flex items-center gap-6 mt-16">
-        <BlogPosts />
-        <BlogPosts />
-        <BlogPosts />
-      </div>
-      <div className="flex items-center gap-6 mt-16">
-        <BlogPosts />
-        <BlogPosts />
-        <BlogPosts />
+      <div className="mt-16 grid grid-cols-3 gap-y-16 gap-x-6">
+        {posts.map((post, i) => (
+          <Link href={`/blog/${post.slug}`} key={i} passHref>
+            <a>
+              <Image alt="" src={postOne} width={373} height={458} />
+              <p className="mt-8 font-medium text-body text-3md">
+                {post.frontMatter.date} <span>- 5 min read</span>
+              </p>
+              <h4 className="mt-6 text-lg font-medium text-grey">
+                {post.frontMatter.title}
+              </h4>
+            </a>
+          </Link>
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default Blog;
