@@ -1,41 +1,70 @@
-import React, {ReactNode} from 'react';
+import {ReactNode, useEffect, useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {darkMode, logo} from '../assets/images/images';
+import {useTheme} from 'next-themes';
 import Newsletter from './Newsletter';
+import {
+  darkMode,
+  lightMode,
+  logoDark,
+  logoLight,
+} from '../assets/images/images';
 
 interface Props {
   children?: ReactNode;
 }
 
 function Layout({children}: Props) {
+  const {theme, setTheme} = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div className="max-w-[1168px] mx-auto px-4">
       <nav className="flex items-center justify-between py-8">
         <Link href="/">
           <a className="leading-none">
-            <Image src={logo} alt="logo" width={169} height={30} priority />
+            <Image
+              src={theme === 'light' ? logoLight : logoDark}
+              alt="logo"
+              width={169}
+              height={30}
+              priority
+            />
           </a>
         </Link>
 
         <div className="flex items-center gap-8">
-          <Image
-            src={darkMode}
-            alt="mode"
-            className="cursor-pointer"
-            width={40}
-            height={40}
-            priority
-          />
-          <div className="flex items-center gap-5 text-md leading-[21.6px] text-grey">
+          <button
+            className="w-10 h-10"
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            title={
+              theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
+            }
+          >
+            <Image
+              src={theme === 'light' ? darkMode : lightMode}
+              alt="mode"
+              className="cursor-pointer"
+              width={40}
+              height={40}
+              priority
+            />
+          </button>
+          <div className="flex items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white">
             <Link href="/">Testimonials</Link>
             <Link href="/">Portfolio</Link>
             <Link href="/blog">Blog</Link>
-            <Link href="/">About</Link>
+            <Link href="/about">About</Link>
           </div>
           <Link href="/contact">
             <a>
-              <button className="px-6 py-4 text-white rounded-sm text-md bg-grey">
+              <button className="px-6 py-4 text-white dark:text-grey rounded-sm text-md bg-grey dark:bg-white">
                 Let's talk
               </button>
             </a>

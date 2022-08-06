@@ -35,3 +35,13 @@ html {
     font-display: swap;
   }
 }
+
+@layer components {
+  .about-text-container {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .about-text-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}

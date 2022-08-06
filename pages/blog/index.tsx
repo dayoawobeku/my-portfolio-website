@@ -6,7 +6,7 @@ import fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
 import {
-  arrow,
+  arrowLight,
   blogHero,
   mainArticle,
   postOne,
@@ -99,7 +99,7 @@ const Blog: NextPage<BlogProps> = ({posts}) => {
                 <span className="font-medium text-4md text-grey">
                   Read full article
                 </span>
-                <Image alt="" src={arrow} width={48} height={48} />
+                <Image alt="" src={arrowLight} width={48} height={48} />
               </div>
             </div>
             <div className="w-[342px] h-[401px]">

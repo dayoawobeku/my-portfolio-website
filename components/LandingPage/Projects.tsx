@@ -1,8 +1,7 @@
-import React from 'react';
 import Link from 'next/link';
 import Image, {StaticImageData} from 'next/image';
 import {
-  arrow,
+  arrowLight,
   dodeel,
   dojahAdmin,
   dojahApp,
@@ -64,7 +63,7 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
         <Link href="/">
           <a className="inline-flex items-center gap-4 mt-10">
             <span className="font-medium text-4md text-grey">Visit site</span>
-            <Image alt="" src={arrow} width={48} height={48} />
+            <Image alt="" src={arrowLight} width={48} height={48} />
           </a>
         </Link>
       </div>

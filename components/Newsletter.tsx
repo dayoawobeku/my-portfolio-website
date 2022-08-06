@@ -1,4 +1,3 @@
-import React from 'react';
 import {SmallerInput} from './Input';
 
 export default function Newsletter() {
@@ -16,8 +15,8 @@ export default function Newsletter() {
       </p>
 
       <form className="flex items-end gap-6 mt-10">
-        <SmallerInput id="name_newsletter" label="First Name" />
-        <SmallerInput id="email_newsletter" label="Email" type="email" />
+        <SmallerInput id="first_name" label="First Name" required />
+        <SmallerInput id="email" label="Email" type="email" required />
 
         <button className="h-16 px-6 py-4 ml-6 text-white rounded-sm text-md bg-grey">
           Subscribe
