@@ -8,7 +8,6 @@ import matter from 'gray-matter';
 import {
   arrowLight,
   blogHero,
-  mainArticle,
   postOne,
   search,
 } from '../../assets/images/images';
@@ -39,6 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
 interface FrontMatter {
   title: string;
   date: string;
+  thumbnailUrl: string;
 }
 
 interface ResponseObject {
@@ -102,8 +102,14 @@ const Blog: NextPage<BlogProps> = ({posts}) => {
                 <Image alt="" src={arrowLight} width={48} height={48} />
               </div>
             </div>
-            <div className="w-[342px] h-[401px]">
-              <Image alt="" src={mainArticle} priority />
+            <div className="w-[342px] h-[401px] relative">
+              <Image
+                alt=""
+                src={posts[0].frontMatter.thumbnailUrl}
+                layout="fill"
+                objectFit="cover"
+                priority
+              />
             </div>
           </a>
         </Link>
@@ -112,7 +118,13 @@ const Blog: NextPage<BlogProps> = ({posts}) => {
         {posts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
             <a>
-              <Image alt="" src={postOne} width={373} height={458} />
+              <Image
+                alt=""
+                src={postOne}
+                width={373}
+                height={458}
+                title="something"
+              />
               <p className="mt-8 font-medium text-body text-3md">
                 {post.frontMatter.date} <span>- 5 min read</span>
               </p>

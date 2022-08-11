@@ -10,7 +10,7 @@ export default function Testimonials() {
     <section className="py-30">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-between w-full">
-          <h2 className="max-w-lg text-2xl text-grey">
+          <h2 className="max-w-lg text-2xl text-grey dark:text-white">
             What People Are Saying About My Work
           </h2>
 

@@ -13,6 +13,7 @@ export {default as nextArrowInactive} from './next-arrow-inactive.svg';
 export {default as avatar} from './avatar.svg';
 export {default as blogHero} from './blog-hero.svg';
 export {default as search} from './search.svg';
+export {default as arrowBack} from './arrow-back.svg';
 
 // PNGs
 export {default as heroImage} from './hero-image.png';
