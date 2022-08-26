@@ -4,6 +4,7 @@
 
 html {
   font-family: 'Matter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-search-cancel-button {

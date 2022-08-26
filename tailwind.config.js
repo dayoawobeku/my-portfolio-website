@@ -32,6 +32,18 @@ module.exports = {
         100: '#E5E5E5',
       },
       brown: '#6C5146',
+      success: {
+        DEFAULT: '#30c85e',
+        200: '#30c85e20',
+      },
+      danger: {
+        DEFAULT: '#A13E3F',
+        300: '#A13E3F30',
+      },
+      info: {
+        DEFAULT: '#3F7CDB',
+        100: '#3F7CDB10',
+      },
     },
     fontFamily: {
       sans: ['Matter'],

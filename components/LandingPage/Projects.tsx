@@ -98,7 +98,7 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
 export default function Projects() {
   return (
     <section className="py-30">
-      <h2 className="text-2xl text-grey dark:text-white">Past Projects</h2>
+      <h2 className="text-2xl text-grey dark:text-white">Selected Projects</h2>
 
       <div className="flex flex-col gap-20 mt-14">
         {PROJECT_ARRAY.map((project, index) => (

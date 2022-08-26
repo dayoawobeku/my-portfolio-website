@@ -1,0 +1,24 @@
+.cm-theme-light .ͼ1h {
+  background-color: #f3f3f3;
+}
+
+.cm-theme-dark .ͼo {
+  background-color: #011627;
+}
+
+.cm-scroller {
+  border-radius: 4px !important;
+}
+
+.ͼ1 .cm-gutter {
+  padding-right: 8px;
+  padding-left: 4px;
+}
+
+.cm-content {
+  padding: 2rem 1.5rem !important;
+}
+
+.ͼ1.cm-editor.cm-focused {
+  outline: none;
+}

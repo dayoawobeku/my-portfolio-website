@@ -11,16 +11,21 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.0.2",
+    "@mdx-js/loader": "^2.1.2",
+    "@mdx-js/react": "^2.1.2",
     "@next/eslint-plugin-next": "^12.2.3",
+    "@next/mdx": "^12.2.4",
     "@types/tailwindcss": "^3.0.10",
+    "@uiw/react-codemirror": "^4.11.6",
+    "eslint-plugin-mdx": "^2.0.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gray-matter": "^4.0.3",
     "next": "12.2",
     "next-mdx-remote": "^4.1.0",
     "next-themes": "^0.2.0",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.4",
