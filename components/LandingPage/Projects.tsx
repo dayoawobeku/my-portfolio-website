@@ -1,13 +1,15 @@
-import React from 'react';
 import Link from 'next/link';
 import Image, {StaticImageData} from 'next/image';
 import {
-  arrow,
+  arrowDark,
+  arrowLight,
   dodeel,
   dojahAdmin,
   dojahApp,
   dojahLanding,
 } from '../../assets/images/images';
+import {useTheme} from 'next-themes';
+import {useEffect, useState} from 'react';
 
 const PROJECT_ARRAY = [
   {
@@ -44,27 +46,48 @@ interface ProjectProps {
 }
 
 function Project({projectImg, heading, body, stack}: ProjectProps) {
+  const {theme} = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div>
-      <Image src={projectImg} />
+      <Image alt="" src={projectImg} width={1168} height={800} />
       <div className="mt-10">
-        <h5 className="font-medium text-grey text-4md">{heading}</h5>
-        <p className="max-w-lg mt-6 text-body text-2md">{body}</p>
+        <h5 className="font-medium text-grey dark:text-white text-4md">
+          {heading}
+        </h5>
+        <p className="max-w-lg mt-6 text-body dark:text-grey-600 text-2md">
+          {body}
+        </p>
         <div className="flex gap-4">
           {stack.map((r, index) => (
             <div
               key={index}
-              className="mt-6 bg-grey px-3 py-[10px] rounded-lg w-fit"
+              className="mt-6 bg-grey dark:bg-white-700 px-3 py-[10px] rounded-lg w-fit"
             >
-              <span className="font-medium text-white">{r}</span>
+              <span className="font-medium text-white dark:text-grey">{r}</span>
             </div>
           ))}
         </div>
 
         <Link href="/">
           <a className="inline-flex items-center gap-4 mt-10">
-            <span className="font-medium text-4md text-grey">Visit site</span>
-            <Image src={arrow} />
+            <span className="font-medium text-4md text-grey dark:text-white">
+              Visit site
+            </span>
+            <Image
+              alt=""
+              src={theme === 'light' ? arrowLight : arrowDark}
+              width={48}
+              height={48}
+            />
           </a>
         </Link>
       </div>
@@ -75,7 +98,7 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
 export default function Projects() {
   return (
     <section className="py-30">
-      <h2 className="text-2xl text-grey">Past Projects</h2>
+      <h2 className="text-2xl text-grey dark:text-white">Selected Projects</h2>
 
       <div className="flex flex-col gap-20 mt-14">
         {PROJECT_ARRAY.map((project, index) => (

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './components/**/*.{html,js,jsx,tsx}',
     './pages/**/*.{html,js,jsx,tsx}',
@@ -18,6 +19,7 @@ module.exports = {
         DEFAULT: '#FFF',
         800: '#F9F9F9',
         700: '#F7F7F7',
+        400: '#C2C2C2',
       },
       black: {
         DEFAULT: '#000',
@@ -30,6 +32,18 @@ module.exports = {
         100: '#E5E5E5',
       },
       brown: '#6C5146',
+      success: {
+        DEFAULT: '#30c85e',
+        200: '#30c85e20',
+      },
+      danger: {
+        DEFAULT: '#A13E3F',
+        300: '#A13E3F30',
+      },
+      info: {
+        DEFAULT: '#3F7CDB',
+        100: '#3F7CDB10',
+      },
     },
     fontFamily: {
       sans: ['Matter'],
@@ -58,5 +72,5 @@ module.exports = {
       '4xl': ['3.75rem', '72px'], // 60px h1
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

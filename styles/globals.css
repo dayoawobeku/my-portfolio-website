@@ -4,6 +4,7 @@
 
 html {
   font-family: 'Matter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-search-cancel-button {
@@ -33,5 +34,15 @@ html {
     font-weight: bold;
     font-style: normal;
     font-display: swap;
+  }
+}
+
+@layer components {
+  .about-text-container {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .about-text-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
   }
 }

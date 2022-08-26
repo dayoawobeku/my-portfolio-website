@@ -1,0 +1,246 @@
+export const meta = {
+  title: 'Simple ways to manage state in React',
+  date: 'Date',
+  time: '5 minute read',
+};
+
+<InfoNote note="TL:DR React is a state management library." />
+
+<Text>Hear me out.</Text>
+{
+  <Text>
+    Managing state is arguably one of the most difficult things to do in React.
+    State is data, usually data that can change. There are a plethora of options
+    and opinions. One of the reasons this is so is failure to separate concerns,
+    or better still, state type.
+  </Text>
+}
+{
+  <Text>
+    Most applications you will ever build will have 2 types of state: {''}
+    <QuoteText quote="client/application state" />; and <QuoteText quote="server cache." />
+    First step in managing state with React is knowing the difference between
+    these 2 types of state and where and how to manage them.
+  </Text>
+}
+{
+  <Text>
+    Client state refers to state that lives within your application, that is,
+    it’s only useful in the UI for controlling interactive parts (like modal{' '}
+    <QuoteText quote="isOpenstate" />, an active nav link, form input value).
+  </Text>
+}
+
+{<Text> Server cache on the other hand is state that's actually stored on the
+server and we store in the client for quick-access (like user data). Think of it
+this way: A list of articles that you fetch, the details of a User you want to
+display, ...), your app does not own it. We have only borrowed it to display the
+most recent version of it on the screen for the user. It is the server who owns
+the data.
+
+</Text>
+}
+
+{<Text>Server cache is not the same as UI state and should be handled
+differently.</Text>}
+
+{<Text>React has made state management simple (not easy, but
+
+<ItalicizedText text=" plain and basic enough to understand" /> ).
+
+Let’s talk about the client state first and ways to manage it.</Text>}
+
+<AnchorTag text="Client state" href="client-state" />
+
+{<Text>Client state is simply state managed inherently in the UI. It can be
+further separated into local client state and global client state.</Text>}
+
+{<Text>Local state is UI state that is used in a single or few components that
+are <QuoteText quote="colocated"/>. State colocation simply means to state as
+close to where it's relevant as possible. {''}
+
+<ExternalUrl href="https://kentcdodds.com/blog/colocation" text="See this article" /> by {''}
+<ExternalUrl
+  text="Kent C Dodds."
+  href="https://twitter.com/kentcdodds/"
+/> <ExternalUrl href="https://twitter.com/dan_abramov/" text="Dan Abramov" />{' '}
+said something similar: "Things that change together should be located as close
+as reasonable.”</Text>}
+
+{<Text>Colocation can improve the overall maintenance of our
+application.</Text>}
+
+{<Text>Let’s look at an example of <QuoteText quote='colocating'/> and {''}
+
+<QuoteText quote='lifting state.'/> </Text>}
+
+<CodeBlock
+  value={`function Name({ name, handleNameChange }) {
+  return (
+    <div>
+      <label>Name</label>
+      <input value={name} onChange={handleNameChange} />
+    </div>
+  );
+}
+  
+function BestFood() {
+  const [food, setFood] = useState("");
+  
+  function handleFoodChange(event) {
+    setFood(event.target.value);
+  }
+  
+  return (
+    <div>
+      <label>Food</label>
+      <input value={food} onChange={handleFoodChange} />
+    </div>
+  );
+}
+  
+function Display({ name }) {
+  return <div>Hey {name}, you are great.</div>;
+}
+  
+export default function App() {
+  const [name, setName] = useState("");
+  
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  
+  return (
+    <div className="App">
+      <Name name={name} handleNameChange={handleNameChange} />
+      <BestFood />
+      <Display name={name} />
+    </div>
+  );
+}`}
+/>
+
+{<Text>At the moment, we’re only rendering the name of the person in the {''}
+
+<QuoteText quote='app'/> component. What if we need to access the {''}
+<QuoteText quote='food'/> prop in the <QuoteText quote='app'/>
+component?</Text>}
+
+{<Text>How are we going to get access to the <QuoteText quote='food'/> if our
+state is living in the <QuoteText quote='Bestfood'/> component? Both {''}
+
+<QuoteText quote='Bestfood'/> and <QuoteText quote='Display'/> components are
+sibling components so the <QuoteText quote='BestFood'/> component cannot pass
+the food to the Display component.</Text>}
+
+{<Text>The solution is to do the same thing we’re currently doing for the {''}
+
+<QuoteText quote='Name'/> component; which is "lift the <QuoteText quote='food' /> state" from the <QuoteText quote='BestFood'/> component to the least common parent, the <QuoteText quote='App'/> component, and then
+pass the <QuoteText quote='food' /> state and the mechanism for updating that state as props to the
+component that needs it.</Text>}
+
+<CodeBlock
+  value={`...
+function BestFood({ food, handleFoodChange }) {
+  return (
+    <div>
+      <label>Food</label>
+      <input value={food} onChange={handleFoodChange} />
+      </div>
+  );
+}  
+...
+function Display({ name, food }) {
+  return <div>Hey {name}, you are great, and your favorite food is {food}.</div>;
+}
+  
+export default function App() {
+  const [name, setName] = useState("");
+  const [food, setFood] = useState("");
+  
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  
+  function handleFoodChange(event) {
+    setFood(event.target.value);
+  }
+  
+  return (
+    <div className="App">
+      <Name name={name} handleNameChange={handleNameChange} />
+      <BestFood food={food} handleFoodChange={handleFoodChange} />
+      <Display name={name} food={food} />
+    </div>
+  );
+}`}
+/>
+
+{<Text>Once you learn how to do this, it becomes second nature. But one thing
+we’re not quite as good as is pushing state back down, or {''}
+
+<QuoteText quote='colocating'/> state.</Text>}
+
+{<Text>Let’s say our <QuoteText quote='Display'/> use case gets changed and we
+no longer need to pass the food down.</Text>}
+
+{<Text>Often, people will actually just leave it right there without making any
+other changes. But we need to remember that we no longer need this {''}
+
+<QuoteText quote='food' /> prop on the <QuoteText quote='Display' /> where we’re
+rendering it. </Text>}
+
+{<Text>And because the <QuoteText quote='food' /> state is only being used by a
+single component, we can move it back to that component to get it
+colocated.</Text>}
+
+<CodeBlock
+  value={`...
+function BestFood() {
+  const [food, setFood] = useState("");
+      
+  function handleFoodChange(event) {
+    setFood(event.target.value);
+  }
+  
+  return (
+    <div>
+      <label>Food</label>
+      <input value={food} onChange={handleFoodChange} />
+    </div>
+  );
+}  
+...
+export default function App() {
+  const [name, setName] = useState("");
+  
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  
+  return (
+    <div className="App">
+      <Name name={name} handleNameChange={handleNameChange} />
+      <BestFood />
+      <Display name={name} />
+    </div>
+  );
+}`}
+/>
+
+<AnchorTag text="Conclusion" href="conclusion" />
+
+{<Text>And with that we’ve colocated our state, making the app more performant
+and easier to manage on the long run. </Text>}
+
+{<Text>Truth is there are only a few states that are considered truly global,
+{''} e.g. <QuoteText quote='theme' /> (light or dark mode), every other local
+state should either be stored in the function where it is called or colocated in
+the least common parent.</Text>}
+
+{<Text>This started out as one really long post but I decided to break it down
+into parts to make it easier to read and understand.</Text>}
+
+<LocalLink text="Check out the second part here." href="/" />
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

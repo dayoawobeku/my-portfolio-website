@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import {
   avatar,
@@ -11,16 +10,16 @@ export default function Testimonials() {
     <section className="py-30">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-between w-full">
-          <h2 className="max-w-lg text-2xl text-grey">
+          <h2 className="max-w-lg text-2xl text-grey dark:text-white">
             What People Are Saying About My Work
           </h2>
 
           <div className="flex items-center gap-8">
             <div className="-mt-[2px] p-2 cursor-pointer">
-              <Image src={prevArrowInactive} />
+              <Image alt="prev-arrow" src={prevArrowInactive} width={16} />
             </div>
             <div className="p-2 cursor-pointer">
-              <Image src={nextArrowActive} />
+              <Image alt="next-arrow" src={nextArrowActive} width={72} />
             </div>
           </div>
         </div>
@@ -37,7 +36,7 @@ export default function Testimonials() {
             Laborum magna nulla duis ullamco cillum dolor.{' '}
           </p>
           <div className="flex items-center gap-4 mt-4">
-            <Image src={avatar} />
+            <Image alt="portrait of ..." src={avatar} width={48} height={48} />
             <div>
               <p className="text-grey">Theresa Webb</p>
               <p className="text-body">President of Sales at Google</p>
@@ -56,7 +55,7 @@ export default function Testimonials() {
             Laborum magna nulla duis ullamco cillum dolor.{' '}
           </p>
           <div className="flex items-center gap-4 mt-4">
-            <Image src={avatar} />
+            <Image alt="portrait of ..." src={avatar} width={48} height={48} />
             <div>
               <p className="text-grey">Theresa Webb</p>
               <p className="text-body">President of Sales at Google</p>

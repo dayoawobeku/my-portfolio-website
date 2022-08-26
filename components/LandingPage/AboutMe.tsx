@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {aboutMe, arrow} from '../../assets/images/images';
+import {aboutMe} from '../../assets/images/images';
 
 export default function AboutMe() {
   return (
@@ -21,11 +21,11 @@ export default function AboutMe() {
               <span className="font-medium text-4md text-grey">
                 Get to know more about me
               </span>
-              <Image src={arrow} />
+              <Image alt="" src="/arrow-light.svg" width={48} height={48} />
             </a>
           </Link>
         </div>
-        <Image src={aboutMe} />
+        <Image alt="" src={aboutMe} width={536} height={328} />
       </div>
     </section>
   );

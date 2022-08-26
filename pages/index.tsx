@@ -1,7 +1,6 @@
 import type {NextPage} from 'next';
 import Head from 'next/head';
 import HeroSection from '../components/LandingPage/HeroSection';
-import Expertise from '../components/LandingPage/Expertise';
 import Projects from '../components/LandingPage/Projects';
 import Testimonials from '../components/LandingPage/Testimonials';
 import AboutMe from '../components/LandingPage/AboutMe';
@@ -16,7 +15,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeroSection />
-      <Expertise />
       <Projects />
       <Testimonials />
       <AboutMe />

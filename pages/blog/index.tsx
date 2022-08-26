@@ -1,9 +1,53 @@
-import type {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import {arrow, blogHero, mainArticle, search} from '../../assets/images/images';
-import BlogPosts from '../../components/BlogPosts';
+import {NextPage} from 'next';
+import {
+  arrowLight,
+  blogHero,
+  postOne,
+  search,
+} from '../../assets/images/images';
+
+const posts = [
+  {
+    slug: 'simple-ways-to-manage-state-in-react',
+    date: 'June 9th, 2022',
+    title: 'Simple ways to manage state in react',
+    image: postOne,
+    time: '5 min read',
+  },
+  {
+    slug: 'post-two',
+    date: 'June 9th, 2022',
+    title: 'Second Post',
+    image: postOne,
+    time: '5 min read',
+  },
+  {
+    slug: 'post-three',
+    date: 'June 9th, 2022',
+    title: 'Third Post',
+    image: postOne,
+    time: '5 min read',
+  },
+  {
+    slug: 'post-four',
+    date: 'June 9th, 2022',
+    title: 'Fourth post',
+    image: postOne,
+    time: '5 min read',
+  },
+  {
+    slug: 'post-five',
+    date: 'June 9th, 2022',
+    title: 'Fifth post',
+    image: postOne,
+    time: '5 min read',
+  },
+];
+
+const [, ...otherPosts] = posts;
 
 const Blog: NextPage = () => {
   return (
@@ -16,7 +60,7 @@ const Blog: NextPage = () => {
 
       <div className="flex items-center justify-between gap-8 mt-20">
         <div className="max-w-lg">
-          <h3 className="text-xl leading-[56px] text-grey mb-10">
+          <h3 className="text-xl leading-[56px] text-grey dark:text-white mb-10">
             Learn web development and get to know more about me here.
           </h3>
           <label htmlFor="search" className="relative">
@@ -24,13 +68,13 @@ const Blog: NextPage = () => {
               type="search"
               name="search"
               placeholder="Search posts"
-              className="max-w-full w-full text-md text-body sm:w-[473px] outline outline-1 outline-body h-18 rounded-[56px] pl-16 pr-8"
+              className="max-w-full w-full text-md text-body dark:text-white sm:w-[473px] outline outline-1 outline-body dark:outline-white h-18 rounded-[56px] pl-16 pr-12"
             />
             <div className="absolute w-6 h-6 -translate-y-1/2 left-6 top-1/2 aspect-auto">
               <Image src={search} alt="" width={24} height={24} />
             </div>
-            <div className="absolute font-semibold -translate-y-1/2 right-8 top-1/2 text-2md text-body">
-              11
+            <div className="absolute font-semibold -translate-y-1/2 right-8 top-1/2 text-2md text-body dark:text-white-400">
+              {posts.length}
             </div>
           </label>
         </div>
@@ -39,41 +83,57 @@ const Blog: NextPage = () => {
         </div>
       </div>
 
-      <div className="mt-32 bg-white-700">
-        <Link href="/">
-          <a className="flex items-center justify-between p-20 rounded-sm">
+      <div className="mt-32 bg-white-700 rounded hover:border-grey">
+        <Link href={`/blog/${posts[0].slug}`} passHref>
+          <a className="flex items-center justify-between p-20">
             <div>
               <p className="font-medium text-md text-grey">Featured article</p>
               <h3 className="mt-8 text-xl leading-[56px] text-grey max-w-lg">
-                How I built this website - my process, technologies, and much
-                more!
+                {posts[0].title}
               </h3>
               <p className="mt-8 font-medium text-body text-3md">
-                June 9th, 2022 - 5 min read
+                {posts[0].date} - 5 min read
               </p>
               <div className="inline-flex items-center gap-4 mt-16">
                 <span className="font-medium text-4md text-grey">
                   Read full article
                 </span>
-                <Image src={arrow} />
+                <Image alt="" src={arrowLight} width={48} height={48} />
               </div>
             </div>
-            <div>
-              <Image src={mainArticle} />
+            <div className="w-[342px] h-[401px] relative">
+              <Image
+                alt=""
+                src={posts[0].image}
+                layout="fill"
+                objectFit="cover"
+                priority
+              />
             </div>
           </a>
         </Link>
       </div>
-
-      <div className="flex items-center gap-6 mt-16">
-        <BlogPosts />
-        <BlogPosts />
-        <BlogPosts />
-      </div>
-      <div className="flex items-center gap-6 mt-16">
-        <BlogPosts />
-        <BlogPosts />
-        <BlogPosts />
+      <div className="mt-16 grid grid-cols-3 gap-y-16 gap-x-6">
+        {otherPosts.map((post, i) => (
+          <Link href={`/blog/${post.slug}`} key={i} passHref>
+            <a>
+              <Image
+                alt=""
+                src={postOne}
+                width={373}
+                height={458}
+                title="something"
+                className="rounded"
+              />
+              <p className="mt-8 font-medium text-body dark:text-white-400 text-3md">
+                {post.date} - <span>{post.time}</span>
+              </p>
+              <h4 className="mt-4 text-lg font-medium text-grey dark:text-white-700">
+                {post.title}
+              </h4>
+            </a>
+          </Link>
+        ))}
       </div>
     </div>
   );
