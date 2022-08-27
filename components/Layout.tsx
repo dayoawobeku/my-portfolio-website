@@ -77,12 +77,12 @@ function Layout({children}: Props) {
 
         <footer className="pb-16 mt-40">
           <Newsletter />
-          <div className="flex items-center justify-between font-medium uppercase mt-18 text-brown">
+          <div className="flex items-center justify-between font-medium uppercase mt-18 text-brown dark:text-grey-600">
             <p>dayo awobeku</p>
             <div className="flex items-center gap-5 underline">
               <a href="mailto: dayoawobeku@gmail.com">mail</a>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown -left-3 top-1/2" />
+                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
                 <a
                   href="https://twitter.com/dayoawobeku"
                   target="_blank"
@@ -92,7 +92,7 @@ function Layout({children}: Props) {
                 </a>
               </div>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown -left-3 top-1/2" />
+                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
                 <a
                   href="https://linkedin.com/in/dayoawobeku/"
                   target="_blank"

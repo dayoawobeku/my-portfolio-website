@@ -1,3 +1,7 @@
+import ComponentCompositionWithChildrenTemplate from '../../components/BlogPosts/Managing State/ComponentCompositionWithChildrenTemplate.tsx';
+import ComponentCompositionWithChildren from '../../components/BlogPosts/Managing State/ComponentCompositionWithChildren.tsx';
+import StateManagementWithContext from '../../components/BlogPosts/Managing State/StateManagementWithContext.tsx';
+
 export const meta = {
   title: 'Simple ways to manage state in React',
   date: 'Date',
@@ -75,7 +79,9 @@ application.</Text>}
 <QuoteText quote='lifting state.'/> </Text>}
 
 <CodeBlock
-  value={`function Name({ name, handleNameChange }) {
+  value={`import { useState } from 'react';
+  
+function Name({ name, handleNameChange }) {
   return (
     <div>
       <label>Name</label>
@@ -87,10 +93,7 @@ application.</Text>}
 function BestFood() {
   const [food, setFood] = useState("");
   
-  function handleFoodChange(event) {
-    setFood(event.target.value);
-  }
-  
+  const handleFoodChange = (event) => setFood(event.target.value);
   return (
     <div>
       <label>Food</label>
@@ -106,10 +109,7 @@ function Display({ name }) {
 export default function App() {
   const [name, setName] = useState("");
   
-  function handleNameChange(event) {
-    setName(event.target.value);
-  }
-  
+  const handleNameChange = (event) => setName(event.target.value);
   return (
     <div className="App">
       <Name name={name} handleNameChange={handleNameChange} />
@@ -146,7 +146,7 @@ function BestFood({ food, handleFoodChange }) {
     <div>
       <label>Food</label>
       <input value={food} onChange={handleFoodChange} />
-      </div>
+    </div>
   );
 }  
 ...
@@ -158,14 +158,8 @@ export default function App() {
   const [name, setName] = useState("");
   const [food, setFood] = useState("");
   
-  function handleNameChange(event) {
-    setName(event.target.value);
-  }
-  
-  function handleFoodChange(event) {
-    setFood(event.target.value);
-  }
-  
+  const handleNameChange = (event) => setName(event.target.value);
+  const handleFoodChange = (event) => setFood(event.target.value);
   return (
     <div className="App">
       <Name name={name} handleNameChange={handleNameChange} />
@@ -198,11 +192,7 @@ colocated.</Text>}
   value={`...
 function BestFood() {
   const [food, setFood] = useState("");
-      
-  function handleFoodChange(event) {
-    setFood(event.target.value);
-  }
-  
+  const handleFoodChange = (event) => setFood(event.target.value);
   return (
     <div>
       <label>Food</label>
@@ -213,11 +203,7 @@ function BestFood() {
 ...
 export default function App() {
   const [name, setName] = useState("");
-  
-  function handleNameChange(event) {
-    setName(event.target.value);
-  }
-  
+  const handleNameChange = (event) => setName(event.target.value);
   return (
     <div className="App">
       <Name name={name} handleNameChange={handleNameChange} />
@@ -228,19 +214,354 @@ export default function App() {
 }`}
 />
 
-<AnchorTag text="Conclusion" href="conclusion" />
+{/* <AnchorTag text="Conclusion" href="conclusion" /> */}
 
 {<Text>And with that we’ve colocated our state, making the app more performant
-and easier to manage on the long run. </Text>}
+and easier to maintain on the long run. </Text>}
 
 {<Text>Truth is there are only a few states that are considered truly global,
 {''} e.g. <QuoteText quote='theme' /> (light or dark mode), every other local
 state should either be stored in the function where it is called or colocated in
-the least common parent.</Text>}
+the nearest common parent.</Text>}
 
-{<Text>This started out as one really long post but I decided to break it down
-into parts to make it easier to read and understand.</Text>}
+<AnchorTag text="Prop Drilling" href="prop-drilling" />
 
-<LocalLink text="Check out the second part here." href="/" />
+{<Text>When building large applications, passing state can get a little
+complicated when you have many layers of components and you need to pass some
+piece of state deeply through the tree. The nearest common parent could be far
+removed from the components that need data, and lifting state up that high can
+lead to a situation sometimes called {''}
+
+<QuoteText quote='prop drilling.' /></Text>}
+
+{<Text>A simple way to look at prop drilling is that a parent creates a state,
+passes it down to “middle men”; components that do not require the state, and
+then down the tree eventually to the component(s) that needs it.</Text>}
+
+{<Text>In other words, a component receives a state or props just so that
+another component below it can access that. </Text>}
+
+{<Text>Most react devs avoid it and would reach for libraries such as {''}
+
+<QuoteText quote='redux' /> or <ExternalUrl text='React context' href='https://beta.reactjs.org/apis/react/useContext' /> the moment they encounter this problem.</Text>}
+
+<InfoNote note="Don't be afraid of prop drilling" />
+
+<Text>Let’s look at an example of prop drilling in action.</Text>
+
+<CodeBlock
+  value={`import {useState} from 'react';
+  
+export default function App() {
+  const [currentUser, setCurrentUser] = useState({name: ''});
+  
+  return (
+    <div>
+      <Header />
+      <main>
+        {currentUser.name !== '' ? (
+          <>
+            <Dashboard user={currentUser} />
+            <LogoutButton onLogout={() => setCurrentUser({name: ''})} />
+          </>
+        ) : (
+          <LoginScreen onLogin={() => setCurrentUser({name: 'Dayo'})} />
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+  
+function Dashboard({ user }) {
+  return (
+    <>
+      <h1>The Dashboard</h1>
+      <DashboardNav />
+      <DashboardContent user={user} />
+    </>
+  );
+}
+  
+function DashboardNav() {
+  return <h2>Dashboard Nav</h2>;
+}
+  
+function DashboardContent({ user }) {
+  return (
+    <>
+      <h2>Dashboard Content</h2>
+      <WelcomeMessage user={user} />
+    </>
+  );
+}
+  
+function WelcomeMessage({ user }) {
+  return <h3>Welcome, {user.name}!</h3>;
+}
+  
+function Header() {
+  return <h1>Header</h1>;
+}
+  
+function Footer() {
+  return <h1>Footer</h1>;
+}
+  
+function LoginScreen({ onLogin }) {
+  return (
+    <>
+      <h4>Please login</h4>
+      <button onClick={onLogin}>Login</button>
+    </>
+  );
+}
+  
+function LogoutButton({ onLogout }) {
+  return (
+    <button
+      className="my-2 text-white text-[0.875rem] bg-info rounded p-1 font-medium"
+      onClick={onLogout}
+    >
+      Logout
+    </button>
+  );
+}
+`}
+/>
+
+<ComponentCompositionWithChildrenTemplate />
+
+{<Text>Here, we have this Dashboard layout where the {''}
+
+<QuoteText quote='WelcomeMessage' /> is being displayed based on the current user's name. To get the value, we would need to prop drill the  {''}
+<QuoteText quote='user' /> object three levels deep until it gets to the <QuoteText quote='WelcomeMessage' /> component.</Text>}
+
+{<Text>This is a contrived example, and prop drilling may not be a big deal in
+such a scenario and in many instances for that matter, but it can be an
+annoyance in really complex state management architectures.</Text>}
+
+{<Text>When you truly encounter the latter and prop drilling may potentially
+complicate your state management, then there's a couple of other solutions we
+can use to avoid prop drilling. The first is {''}
+
+<QuoteText quote='component composition' />.</Text>}
+
+<AnchorTag text="Component Composition" href="component-composition" />
+
+{<Text>With composition, you basically make a prop that is the react element
+that you want to render in a specific place.</Text>}
+
+{<Text>Let's use the same prop drilling example and see how we can use
+composition instead.</Text>}
+
+<CodeBlock
+  value={`export default function App() {
+  const [currentUser, setCurrentUser] = useState({name: ''});
+  
+  return (
+    <div>
+      <Header />
+      <main>
+        {currentUser.name !== '' ? (
+          <>
+            <Dashboard>
+              <DashboardNav />
+              <DashboardContent user={currentUser} />
+            </Dashboard>
+            <LogoutButton onLogout={() => setCurrentUser({name: ''})} />
+          </>
+        ) : (
+          <LoginScreen onLogin={() => setCurrentUser({name: 'Dayo'})} />
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+...
+function Dashboard({ children }) {
+  return (
+    <>
+      <h1>The Dashboard</h1>
+      {children}
+    </>
+  );
+}
+...`}
+/>
+
+{<Text>We have eliminated one level of prop drilling. We no longer pass the {''}
+
+<QuoteText quote="DashboardNav" />
+and {''}
+<QuoteText quote="DashboardContent" /> inside the Dashboard, instead we pass it
+the special {''}
+
+<QuoteText quote='children' />
+prop and pass the <QuoteText quote='user' /> directly to the <QuoteText quote='DashboardContent' />.</Text>}
+
+{<Text>Let's take it a step further and do the same thing for the Dashboard
+content.</Text>}
+
+<CodeBlock
+  value={`export default function App() {
+  const [currentUser, setCurrentUser] = useState({name: ''});
+  
+  return (
+    <div>
+      <Header />
+      <main>
+        {currentUser.name !== '' ? (
+          <>
+            <Dashboard>
+              <DashboardNav />
+              <DashboardContent>
+                <WelcomeMessage user={currentUser} />
+              </DashboardContent>
+            </Dashboard>
+            <LogoutButton onLogout={() => setCurrentUser({name: ''})} />
+          </>
+        ) : (
+          <LoginScreen onLogin={() => setCurrentUser({name: 'Dayo'})} />
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+...  
+function DashboardContent({ children }) {
+  return (
+    <>
+      <h2>Dashboard Content</h2>
+      {children}
+    </>
+  );
+}
+...`}
+/>
+
+{<Text>And like that the Dashboard is more composable and customizable. And
+we're no longer prop drilling.</Text>}
+
+{<Text>Our app works like before too.</Text>}
+
+<ComponentCompositionWithChildren />
+
+{<Text>Sometimes you may need multiple “holes” in a component. Another way React
+composes is to make a component that is a wrapper for another component. In such
+cases you may come up with your own convention instead of using the {''}
+
+<QuoteText quote='children' /> prop.</Text>}
+
+<Text>Let's see it in action.</Text>
+
+<CodeBlock
+  value={`export default function App() {
+  return <ChatApp left={<Contacts />} right={<Chat />} />;
+}
+  
+function Contacts() {
+  return <div>Contacts</div>;
+}
+  
+function Chat() {
+  return <div>Chat</div>;
+}
+  
+function ChatApp({ left, right }) {
+  return (
+    <div>
+      <div>{left}</div>
+      <div>{right}</div>
+    </div>
+  );
+}`}
+/>
+
+{<Text>What we have simply done is pass arbitrary values as props to the {''}
+
+<QuoteText quote='ChatApp'/> component.</Text>}
+
+{<Text>React elements like <QuoteText quote='Contacts'/> and {''}
+
+<QuoteText quote='Chat'/> are just objects, so they can be passed as props like
+any other data. This is a very common use case for composition.</Text>}
+
+{<Text>The next solution is the {''}
+
+<ExternalUrl text='React context API' href='https://beta.reactjs.org/apis/react/useContext' />.</Text>}
+
+<AnchorTag text="React Context" href="react-context" />
+
+{<Text>We'll use {''}
+
+<ExternalUrl text='react context' href='https://beta.reactjs.org/apis/react/useContext' />
+to simplify the state management of our previous Dashboard app.</Text>}
+
+{<Text>What we simply need to do is create a context using the {''}
+
+<QuoteText quote='createContext'/> API, and wrap our <QuoteText quote='App'/> component with the
+context provider.</Text>}
+
+{<Text>We also removed the user object from the {''}
+
+<QuoteText quote='Dashboard'/>, {''}
+<QuoteText quote='DashboardContent'/>, and {''}
+<QuoteText quote='WelcomeMessage'/>
+ components.</Text>}
+
+{<Text>Lastly, we'll
+
+<ExternalUrl text='destructure' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment' />
+the currentUser object using the useContext API and use the user directly inside
+the WelcomeMessage component.</Text>}
+
+<Text>Here's what the implementation looks like.</Text>
+
+<CodeBlock
+  value={`const Context = React.createContext({
+  currentUser: {name: ''},
+});
+  
+  export default function App() {
+  const [currentUser, setCurrentUser] = useState({name: ''});
+  
+  return (
+    <Context.Provider value={{currentUser, setCurrentUser}}>
+      <div>
+        <Header />
+        <main>
+          {currentUser.name !== '' ? (
+            <>
+              <Dashboard>
+                <DashboardNav />
+                <DashboardContent>
+                  <WelcomeMessage />
+                </DashboardContent>
+              </Dashboard>
+              <LogoutButton />
+            </>
+          ) : (
+            <LoginScreen />
+          )}
+        </main>
+        <Footer />
+      </div>
+    </Context.Provider>
+  );
+}
+...  
+function WelcomeMessage() {
+  const {currentUser} = useContext(Context);
+  return <h3>Welcome, {currentUser.name}!</h3>;
+}
+...`}
+/>
+
+{<Text>And you guessed it, our app works still! 😉</Text>}
+
+<StateManagementWithContext />
 
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

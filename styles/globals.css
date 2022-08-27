@@ -38,11 +38,8 @@ html {
 }
 
 @layer components {
-  .about-text-container {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
-  }
-  .about-text-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+  input,
+  textarea {
+    @apply focus-visible:outline focus-visible:outline-grey-800 dark:focus-visible:outline-white-800 focus-visible:outline-offset-4;
   }
 }
