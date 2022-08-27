@@ -41,14 +41,17 @@ function SmallerInput({
 }: Props) {
   return (
     <div className="flex flex-col">
-      <label htmlFor={id} className={`flex flex-col text-body ${className}`}>
+      <label
+        htmlFor={id}
+        className={`flex flex-col text-body dark:text-white-700 ${className}`}
+      >
         {label}
       </label>
       <input
         type={type}
         id={id}
         placeholder={placeholder}
-        className="w-full h-16 px-4 mt-2 rounded-sm bg-white-800"
+        className="w-full h-16 px-4 mt-2 rounded-sm bg-white-800 dark:text-grey"
         required={required}
       />
     </div>

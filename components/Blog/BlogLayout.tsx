@@ -26,7 +26,7 @@ export default function Layout({meta, children}: Props) {
       </Head>
       <div>
         <Link href="/blog">
-          <a className="flex items-center gap-3 mt-18">
+          <a className="inline-flex items-center gap-3 mt-18">
             <Image alt="" src={theme === 'light' ? arrowBack : arrowBackDark} />
             <span className="text-2md text-grey dark:text-white">
               Back to posts
@@ -49,6 +49,7 @@ export default function Layout({meta, children}: Props) {
             objectPosition="center"
             quality={100}
             className="rounded"
+            // title={meta.image_title}
           />
         </div>
         <div className="post-content max-w-[848px] mx-auto">{children}</div>

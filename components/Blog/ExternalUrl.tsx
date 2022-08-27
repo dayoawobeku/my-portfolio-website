@@ -9,7 +9,7 @@ export default function ExternalUrl({text, href}: Props) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-block text-white-700 hover:underline hover:underline-offset-2"
+      className="inline-block text-grey font-medium dark:text-white-700 hover:underline hover:underline-offset-2"
     >
       {text}
     </a>
