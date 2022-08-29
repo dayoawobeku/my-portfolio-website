@@ -16,15 +16,15 @@ export default function HeroSection() {
   if (!mounted) return null;
 
   return (
-    <main className="flex items-center justify-between mt-10">
-      <div className="max-w-[511px]">
-        <h1 className="text-4xl text-black dark:text-white-700">
+    <main className="flex items-center gap-6 flex-wrap md:flex-nowrap justify-between mt-10">
+      <div className="md:max-w-[511px]">
+        <h1 className="text-xl lg:text-4xl text-black dark:text-white-700">
           Hi, I'm Dayo.
         </h1>
-        <h1 className="text-4xl text-black dark:text-white-700">
+        <h1 className="text-xl lg:text-4xl text-black dark:text-white-700">
           I build websites that your customers will love to use and pay for.
         </h1>
-        <p className="mt-8 text-3md text-body dark:text-grey-600">
+        <p className="mt-4 lg:mt-8 text-md lg:text-3md text-body dark:text-grey-600">
           By building value through strategic web design, people-centric digital
           experiences, and developing high-quality websites that stand out from
           the competition.
@@ -44,9 +44,7 @@ export default function HeroSection() {
         </Link>
       </div>
 
-      <div className="w-[557px] h-[783px]">
-        <Image src={heroImage} alt="Dayo" layout="responsive" priority />
-      </div>
+      <Image src={heroImage} alt="Dayo" width={557} height={783} priority />
     </main>
   );
 }

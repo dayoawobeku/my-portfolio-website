@@ -1,14 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {aboutMe} from '../../assets/images/images';
+import {aboutMe, arrowDark, arrowLight} from '../../assets/images/images';
+import {useTheme} from 'next-themes';
 
 export default function AboutMe() {
+  const {theme} = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <section className="py-18">
-      <div className="flex items-center justify-between">
-        <div className="max-w-[568px]">
-          <h2 className="text-2xl text-grey">Frontend React Developer</h2>
+      <div className="flex items-center gap-8 flex-wrap md:flex-nowrap justify-between">
+        <div className="md:max-w-[428px] lg:max-w-[568px]">
+          <h2 className="text-2lg md:text-2xl font-medium md:font-normal text-grey">
+            Frontend React Developer
+          </h2>
           <p className="mt-6 text-body text-2md">
             Hello again! I'm Dayo Awobeku.
           </p>
@@ -21,7 +34,12 @@ export default function AboutMe() {
               <span className="font-medium text-4md text-grey">
                 Get to know more about me
               </span>
-              <Image alt="" src="/arrow-light.svg" width={48} height={48} />
+              <Image
+                alt=""
+                src={theme === 'light' ? arrowLight : arrowDark}
+                width={48}
+                height={48}
+              />
             </a>
           </Link>
         </div>

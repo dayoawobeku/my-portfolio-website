@@ -24,7 +24,7 @@ function Input({
         type={type}
         id={id}
         placeholder={placeholder}
-        className="w-full h-20 px-10 mt-4 rounded-sm bg-white-800"
+        className="w-full h-20 px-10 mt-4 rounded-sm bg-white-700"
         required={required}
       />
     </>
@@ -51,7 +51,7 @@ function SmallerInput({
         type={type}
         id={id}
         placeholder={placeholder}
-        className="w-full h-16 px-4 mt-2 rounded-sm bg-white-800 dark:text-grey"
+        className="w-full h-16 px-4 mt-2 rounded-sm bg-white-700 dark:text-grey"
         required={required}
       />
     </div>
@@ -67,7 +67,7 @@ function Textarea({label, id, placeholder, className = '', required}: Props) {
       <textarea
         id={id}
         placeholder={placeholder}
-        className="w-full px-10 pt-8 mt-4 rounded-sm h-60 bg-white-800"
+        className="w-full px-10 pt-8 mt-4 rounded-sm h-60 bg-white-700"
         required={required}
       />
     </>

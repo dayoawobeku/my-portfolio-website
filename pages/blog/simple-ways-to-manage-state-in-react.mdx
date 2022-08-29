@@ -564,4 +564,23 @@ function WelcomeMessage() {
 
 <StateManagementWithContext />
 
+<AnchorTag text="Conclusion" href="conclusion" />
+
+{<Text>Essentially, with client/ui state, start with just react. Most apps
+barely have global app state after server state is handled. If you truly still
+need a global state in your app, try {''}
+
+<ExternalUrl text="zustand" href="https://www.npmjs.com/package/zustand" /> or{' '}
+
+<ExternalUrl text="jotai" href="https://jotai.org/" />.
+
+And for anything more complex, try {''}
+
+<ExternalUrl text="xstate" href="https://xstate.js.org/" />.
+
+</Text>}
+
+{<Text>This was meant to be one really long blog post, but I decided to break it
+into 2 parts. Read the second part where I talk about server cache here.</Text>}
+
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
