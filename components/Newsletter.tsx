@@ -16,11 +16,11 @@ export default function Newsletter() {
         No spam, unsubscribe at any time.
       </p>
 
-      <form className="flex items-end gap-6 mt-10">
+      <form className="flex flex-col md:flex-row items-start md:items-end gap-6 mt-10">
         <SmallerInput id="first_name" label="First Name" required />
         <SmallerInput id="email" label="Email" type="email" required />
 
-        <button className="h-16 px-6 py-4 ml-6 text-white rounded-sm text-md bg-grey">
+        <button className="h-16 px-6 py-4 ml-0 md:ml-6 text-white rounded-sm text-md bg-grey">
           Subscribe
         </button>
       </form>

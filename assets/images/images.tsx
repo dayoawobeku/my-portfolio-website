@@ -15,6 +15,8 @@ export {default as blogHero} from './blog-hero.svg';
 export {default as search} from './search.svg';
 export {default as arrowBack} from './arrow-back.svg';
 export {default as arrowBackDark} from './arrow-back-dark.svg';
+export {default as menuLight} from './menu-light.svg';
+export {default as menuDark} from './menu-dark.svg';
 
 // PNGs
 export {default as heroImage} from './hero-image.png';

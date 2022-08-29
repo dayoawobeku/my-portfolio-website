@@ -66,11 +66,11 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
         <p className="max-w-lg mt-6 text-body dark:text-grey-600 text-2md">
           {body}
         </p>
-        <div className="flex gap-4">
+        <div className="mt-6 flex flex-wrap gap-4">
           {stack.map((r, index) => (
             <div
               key={index}
-              className="mt-6 bg-grey dark:bg-white-700 px-3 py-[10px] rounded-lg w-fit"
+              className="bg-grey dark:bg-white-700 px-3 py-[10px] rounded-lg w-fit"
             >
               <span className="font-medium text-white dark:text-grey">{r}</span>
             </div>
@@ -98,9 +98,11 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
 export default function Projects() {
   return (
     <section className="py-30">
-      <h2 className="text-2xl text-grey dark:text-white">Selected Projects</h2>
+      <h2 className="text-2lg font-medium md:font-normal md:text-2xl text-grey dark:text-white">
+        Selected Projects
+      </h2>
 
-      <div className="flex flex-col gap-20 mt-14">
+      <div className="flex flex-col gap-20 mt-10 md:mt-14">
         {PROJECT_ARRAY.map((project, index) => (
           <Project
             key={index}

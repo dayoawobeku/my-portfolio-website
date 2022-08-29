@@ -40,6 +40,10 @@ html {
 @layer components {
   input,
   textarea {
-    @apply focus-visible:outline focus-visible:outline-grey-800 dark:focus-visible:outline-white-800 focus-visible:outline-offset-4;
+    @apply focus-visible:outline focus-visible:outline-grey-800 dark:focus-visible:outline-white-800 focus-visible:outline-offset-4 focus-visible:outline-2;
   }
+}
+
+.blog-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
