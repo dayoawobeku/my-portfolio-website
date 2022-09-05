@@ -1,3 +1,7 @@
+.cm-editor {
+  max-height: 500px;
+}
+
 .cm-theme-light .cm-editor {
   background-color: #f3f3f3;
 }

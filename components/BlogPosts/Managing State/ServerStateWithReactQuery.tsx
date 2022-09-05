@@ -41,7 +41,7 @@ function Sidebar({setPostId}: Props) {
 
   return (
     <aside className="basis-1/4">
-      <a
+      <button
         className="font-medium text-2md pb-2 border-b-2 border-white-400 cursor-pointer"
         onClick={e => {
           setPostId(-1);
@@ -49,7 +49,7 @@ function Sidebar({setPostId}: Props) {
         }}
       >
         All Posts
-      </a>
+      </button>
       <p className="mt-4">
         Total posts:{' '}
         <span className="font-semibold text-success">{data?.length}</span>
@@ -214,7 +214,7 @@ function Posts({setPostId}: Props) {
   return (
     <>
       {data.map((post: {id: number; title: string}) => (
-        <a
+        <button
           key={post.id}
           className={`hover:underline cursor-pointer w-fit ${
             queryClient.getQueryData(['post', post.id])
@@ -227,7 +227,7 @@ function Posts({setPostId}: Props) {
           }}
         >
           {post.title}
-        </a>
+        </button>
       ))}
     </>
   );
@@ -238,7 +238,7 @@ function Post({postId, setPostId}: Props) {
 
   return (
     <>
-      <a
+      <button
         className="cursor-pointer hover:underline text-[0.8125rem] font-medium w-fit"
         onClick={e => {
           setPostId(-1);
@@ -246,7 +246,7 @@ function Post({postId, setPostId}: Props) {
         }}
       >
         Back
-      </a>
+      </button>
       {!postId || status === 'loading' ? (
         'Loading...'
       ) : status === 'error' ? (

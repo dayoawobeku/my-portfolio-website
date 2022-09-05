@@ -41,8 +41,319 @@ According to their docs, React query (now, Tanstack Query) is a {''}
 <BoldText text='Powerful asynchronous state management for React.' />
 </Text>}
 
-<Text>Right away, let's look at an example.</Text>
+{<Text> Right away, let's look at an example. Feel free to play around with this
+app.</Text>}
 
 <ServerStateWithReactQuery />
+
+{<Text>Notice that the first time you visited the posts, you saw a {''}
+
+<QuoteText quote="loading state/spinner" /> which is the case with SPAs. However,
+after you returned to the post list and clicked on any posts you had already visited,
+you'll see them load instantly and background refresh right before your eyes! {
+  ''
+}
+
+<ItalicizedText text='(You may need to throttle your
+network speed to simulate longer loading sequences.)' /> </Text>}
+
+<SuccessNote note="React query is awesome!" />
+
+<Text>Here's what the code looks like.</Text>
+
+<CodeBlock lang="ts"
+value={`import {useState} from 'react';
+import axios from 'axios';
+import {
+  useQuery,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+  useMutation,
+} from '@tanstack/react-query';
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
+  
+const queryClient = new QueryClient();
+  
+interface Props {
+  postId: number;
+  setPostId: (postId: number) => void;
+}
+
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Wrapper />
+    </QueryClientProvider>
+  );
+}
+  
+function Wrapper() {
+  const [postId, setPostId] = useState(-1);
+  return (
+    <div>
+      <Sidebar setPostId={setPostId} postId={0} />
+      <Main postId={postId} setPostId={setPostId} />
+    </div>
+  );
+}
+  
+function Sidebar({setPostId}: Props) {
+  const {data} = usePosts();
+  return (
+    <aside>
+      <a
+        onClick={e => {
+          setPostId(-1);
+          e.preventDefault();
+        }}
+      >
+        All Posts
+      </a>
+      <p>
+        Total posts:{' '}
+        <span>{data?.length}</span>
+      </p>
+    </aside>
+  );
+}
+  
+function Main({postId, setPostId}: Props) {
+  return (
+    <main>
+      <h3>Posts</h3>
+      <div>
+        {postId > -1 ? (
+          <Post postId={postId} setPostId={setPostId} />
+        ) : (
+          <Posts setPostId={setPostId} postId={0} />
+        )}
+      </div>
+      {postId > -1 ? (
+        <EditPost postId={postId} setPostId={setPostId} />
+      ) : (
+        <CreatePost />
+      )}
+    </main>
+  );
+}
+  
+function CreatePost() {
+  const queryClient = useQueryClient();
+  const {mutate, isLoading, isSuccess} = useCreatePost();
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutate(
+      {id: Date.now(), title, body},
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries(['posts']);
+          setTitle('');
+          setBody('');
+        },
+      },
+    );
+  };
+  return (
+    <>
+      <h3>Create Post</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          onChange={e => setTitle(e.target.value)}
+          value={title}
+          required
+        />
+        <label htmlFor="body">
+          Body
+        </label>
+        <textarea
+          name="body"
+          id="body"
+          rows={2}
+          onChange={e => setBody(e.target.value)}
+          value={body}
+          required
+        />
+        <button>
+          {isLoading
+            ? 'Creating post...'
+            : isSuccess
+            ? 'Created successfully'
+            : 'Create Post'}
+        </button>
+      </form>
+    </>
+  );
+}
+  
+function EditPost({postId}: Props) {
+  const queryClient = useQueryClient();
+  const {mutate, isLoading, isSuccess} = useEditPost(postId);
+  const {data} = usePost(postId);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutate(
+      {id: Date.now(), title: data.title, body: data.body},
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries(['post']);
+        },
+      },
+    );
+  };
+  return (
+    <>
+      <h3>Edit Post</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          onChange={e => (data.title = e.target.value)}
+          defaultValue={data.title}
+        />
+        <label htmlFor="body">
+          Body
+        </label>
+        <textarea
+          name="body"
+          id="body"
+          rows={2}
+          onChange={e => (data.body = e.target.value)}
+          defaultValue={data.body}
+        />
+        <button>
+          {isLoading
+            ? 'Updating post...'
+            : isSuccess
+            ? 'Updated successfully'
+            : 'Edit Post'}
+        </button>
+      </form>
+    </>
+  );
+}
+  
+function Posts({setPostId}: Props) {
+  const queryClient = useQueryClient();
+  const {data, status} = usePosts();
+  if (status === 'loading') {
+    return <p>Loading...</p>;
+  }
+  if (status === 'error') {
+    return <p>There was an error</p>;
+  }
+  return (
+    <>
+      {data.map((post: {id: number, title: string}) => (
+        <a
+          key={post.id}
+          onClick={e => {
+            setPostId(post.id);
+            e.preventDefault();
+          }}
+        >
+          {post.title}
+        </a>
+      ))}
+    </>
+  );
+}
+  
+function Post({postId, setPostId}: Props) {
+  const {data, status, isFetching} = usePost(postId);
+  return (
+    <>
+      <a
+        onClick={e => {
+          setPostId(-1);
+          e.preventDefault();
+        }}
+      >
+        Back
+      </a>
+      {!postId || status === 'loading' ? (
+        'Loading...'
+      ) : status === 'error' ? (
+        'There was an error'
+      ) : (
+        <>
+          <h1>{data.title}</h1>
+          <div>
+            <p>{data.body}</p>
+          </div>
+          <p>
+            {isFetching ? 'Background Updating...' : ''}
+          </p>
+        </>
+      )}
+    </>
+  );
+}
+  
+const getPostById = async (id: number) => {
+  const {data} = await axios.get('/api/todo/' + id);
+  return data;
+};
+  
+function usePost(id: number) {
+  return useQuery(['post', id], () => getPostById(id), {
+    enabled: !!id,
+  });
+}
+  
+function usePosts() {
+  return useQuery(['posts'], () =>
+    axios.get('/api/todo').then(res => res.data),
+  );
+}
+  
+function useCreatePost() {
+  return useMutation((values: object) =>
+    axios.post('/api/todo', values).then(res => res.data),
+  );
+}
+  
+function useEditPost(id: number) {
+  return useMutation((values: object) =>
+    axios.put('/api/todo/' + id, values).then(res => res.data),
+  );
+}`} />
+
+{<Text>With way fewer lines of code, React query eliminated most of the loading
+spinners in our SPA (Spinner Page Application 😅). Our app is awesome, it feels
+great, very fast, and maintainable too.</Text>}
+
+<AnchorTag text="Conclusion" href="conclusion" />
+
+{<Text>I believe a tool like react query is the future for handling our
+asynchronous data. </Text>}
+
+{<Text>Not only does it solve the challenges with server state, but it also
+helps us model our global state and think about our global state with a new
+perspective, and in most cases, it even removes all of it, or most of it from
+our application.</Text>}
+
+{<Text>Here's what {''}
+
+<ExternalUrl text="Kent C Dodds." href="https://twitter.com/kentcdodds/" /> has to say about react query: </Text>}
+
+{<Text>"<ExternalUrl text='React Query' href='https://tanstack.com/query/v4/' />
+is the missing piece to React application development that I've been looking for
+after years of building React apps. Finally, I have a tool that gives me exactly
+what I need to solve my application state management problems without giving me
+more problems. It's fantastic."</Text>}
+
+{<Text>That's it for this post. Use {''}
+
+<ExternalUrl text='react query' href='https://tanstack.com/query/v4/' /> to manage your server cache. Thank me
+later.</Text>}
 
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
