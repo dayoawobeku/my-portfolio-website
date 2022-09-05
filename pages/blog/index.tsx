@@ -6,16 +6,16 @@ import {arrowLight, blogHero, postOne} from '../../assets/images/images';
 
 const posts = [
   {
-    slug: 'simple-ways-to-manage-state-in-react',
+    slug: 'simple-ways-to-manage-state-in-react-part-1',
     date: 'June 9th, 2022',
-    title: 'Simple ways to manage state in react',
+    title: 'Simple ways to manage state in react - Client state',
     image: postOne,
     time: '5 min read',
   },
   {
-    slug: 'post-two',
+    slug: 'simple-ways-to-manage-state-in-react-part-2',
     date: 'June 9th, 2022',
-    title: 'Second Post',
+    title: 'Simple ways to manage state in react - Server state',
     image: postOne,
     time: '5 min read',
   },

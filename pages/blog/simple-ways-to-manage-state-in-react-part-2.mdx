@@ -1,0 +1,48 @@
+import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State/ServerStateWithReactQuery.tsx';
+
+export const meta = {
+  title: 'Simple ways to manage state in React - Server state',
+  date: 'Date',
+  time: '5 minute read',
+};
+
+{<Text>In the first part of this series, I talk about {''}
+
+<LocalLink
+  text="managing the UI/Client state."
+  href="simple-ways-to-manage-state-in-react-part-1"
+/>
+
+You may wanna check that out before reading this post.
+
+</Text>}
+
+{<Text>Server state is state that is on the server, and is served/used on the
+user’s end, e.g, a list of posts, user’s records. It is different from client
+state and should be handled differently.</Text>}
+
+{<Text>Many React devs put all things state inside a library like {''}
+
+<ExternalUrl text='Redux.' href='https://redux.js.org/' />
+The
+idea is a single source of truth. This is not very ideal in a few ways. One of
+the primary attributors of a slow React application is global state. Not a lot
+of states need to be global. And the truth is, you don’t need Redux.</Text>}
+
+{<Text>Server state has a few challenges including caching, deduping requests,
+background updates, mutations, paginations, etc. Personally, I think caching is
+one of the hardest concepts in computer science.</Text>}
+
+{<Text>How then can we approach these problems? {''}
+
+<ExternalUrl text='React Query.' href='https://tanstack.com/query/v4/' />
+Yup, that’s it!
+According to their docs, React query (now, Tanstack Query) is a {''}
+<BoldText text='Powerful asynchronous state management for React.' />
+</Text>}
+
+<Text>Right away, let's look at an example.</Text>
+
+<ServerStateWithReactQuery />
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
