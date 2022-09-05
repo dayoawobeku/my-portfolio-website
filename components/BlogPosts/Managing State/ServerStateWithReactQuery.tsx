@@ -72,15 +72,18 @@ function Main({postId, setPostId}: Props) {
       </div>
 
       <div className="my-4 border-t-2 border-white-400" />
-
-      <CreatePost />
+      {postId > -1 ? (
+        <EditPost postId={postId} setPostId={setPostId} />
+      ) : (
+        <CreatePost />
+      )}
     </main>
   );
 }
 
 function CreatePost() {
   const queryClient = useQueryClient();
-  const {mutate} = useCreatePost();
+  const {mutate, isLoading, isSuccess} = useCreatePost();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
@@ -111,6 +114,7 @@ function CreatePost() {
           id="title"
           onChange={e => setTitle(e.target.value)}
           value={title}
+          required
         />
 
         <label className="mt-3" htmlFor="body">
@@ -123,10 +127,71 @@ function CreatePost() {
           rows={2}
           onChange={e => setBody(e.target.value)}
           value={body}
+          required
         />
 
         <button className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit">
-          Create Post
+          {isLoading
+            ? 'Creating post...'
+            : isSuccess
+            ? 'Created successfully'
+            : 'Create Post'}
+        </button>
+      </form>
+    </>
+  );
+}
+
+function EditPost({postId}: Props) {
+  const queryClient = useQueryClient();
+  const {mutate, isLoading, isSuccess} = useEditPost(postId);
+  const {data} = usePost(postId);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutate(
+      {id: Date.now(), title: data.title, body: data.body},
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries(['post']);
+        },
+      },
+    );
+  };
+
+  return (
+    <>
+      <h3 className="font-medium text-2md mb-4">Edit Post</h3>
+
+      <form onSubmit={handleSubmit} className="flex flex-col">
+        <label htmlFor="title">Title</label>
+        <input
+          className="bg-white-700 dark:bg-grey-800 mt-1 p-2 rounded-sm"
+          type="text"
+          name="title"
+          id="title"
+          onChange={e => (data.title = e.target.value)}
+          defaultValue={data?.title}
+        />
+
+        <label className="mt-3" htmlFor="body">
+          Body
+        </label>
+        <textarea
+          className="bg-white-700 dark:bg-grey-800 mt-1 p-2 rounded-sm"
+          name="body"
+          id="body"
+          rows={2}
+          onChange={e => (data.body = e.target.value)}
+          defaultValue={data?.body}
+        />
+
+        <button className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit">
+          {isLoading
+            ? 'Updating post...'
+            : isSuccess
+            ? 'Updated successfully'
+            : 'Edit Post'}
         </button>
       </form>
     </>
@@ -174,7 +239,7 @@ function Post({postId, setPostId}: Props) {
   return (
     <>
       <a
-        className="cursor-pointer hover:underline text-[0.875rem] font-medium"
+        className="cursor-pointer hover:underline text-[0.8125rem] font-medium w-fit"
         onClick={e => {
           setPostId(-1);
           e.preventDefault();
@@ -221,5 +286,11 @@ function usePosts() {
 function useCreatePost() {
   return useMutation((values: object) =>
     axios.post('/api/todo', values).then(res => res.data),
+  );
+}
+
+function useEditPost(id: number) {
+  return useMutation((values: object) =>
+    axios.put(`/api/todo/${id}`, values).then(res => res.data),
   );
 }
