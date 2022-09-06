@@ -70,9 +70,11 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
           {stack.map((r, index) => (
             <div
               key={index}
-              className="bg-grey dark:bg-white-700 px-3 py-[10px] rounded-lg w-fit"
+              className="bg-grey dark:bg-white-700 p-2 rounded-lg w-fit"
             >
-              <span className="font-medium text-white dark:text-grey">{r}</span>
+              <span className="text-[0.875rem] font-medium text-white dark:text-grey">
+                {r}
+              </span>
             </div>
           ))}
         </div>

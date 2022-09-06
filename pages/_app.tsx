@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import '../styles/editor.css';
 import '../styles/globals.css';
 import type {AppProps} from 'next/app';
@@ -19,6 +20,7 @@ import {
   ExternalUrl,
   LocalLink,
 } from '../components/Blog';
+import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 
 const components = {
   BlogLayout,
@@ -37,14 +39,18 @@ const components = {
 };
 
 function MyApp({Component, pageProps}: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
-      <Layout>
-        <MDXProvider components={components}>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </Layout>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider attribute="class" defaultTheme="system">
+        <Layout>
+          <MDXProvider components={components}>
+            <Component {...pageProps} />
+          </MDXProvider>
+        </Layout>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

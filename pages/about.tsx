@@ -13,36 +13,38 @@ const About: NextPage = () => {
       </Head>
 
       <section>
-        <div className="flex items-stretch gap-8 justify-between w-full mt-20">
-          <div className="w-[47.69%]">
+        <div className="flex items-stretch gap-8 justify-between w-full mt-20 flex-wrap lg:flex-nowrap">
+          <div className="w-full md:w-[47.69%]">
             <Image src={aboutImage} alt="Dayo" layout="responsive" priority />
           </div>
-          <div className="w-[49.32%] pt-18 -mt-18 about-text-container">
-            <p className="text-md text-grey font-medium">Get to know Dayo...</p>
-            <p className="text-md leading-[31px] text-body mt-8">
+          <div className="w-full lg:w-[49.32%] pt-18 -mt-18 about-text-container">
+            <p className="text-md text-grey font-medium dark:text-white-700">
+              Get to know Dayo...
+            </p>
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               I'm a UX designer that specializes in usability and minimalism. I
               got my start in the world of health science as a medical
               laboratory scientist, and I like bringing together physical and
               digital space. Check out my portfolio to see some of my work! For
               business enquiries, you can contact me here.
             </p>
-            <p className="text-md leading-[31px] text-body mt-8">
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               I recently earned my certificate in UX Design, but I first started
               thinking like a UX designer after my final year as a medical
               student.
             </p>
-            <p className="text-md leading-[31px] text-body mt-8">
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               I've worked in different hospitals and diagnostic centres for a
               while and all I had thought about was how much of a benefit
               digital tools would be to both the patients and the medical
               personnel.
             </p>
-            <p className="text-md leading-[31px] text-body mt-8">
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               My job made me think about how people in general navigate physical
               and virtual space. I enjoyed thinking this way so much that it
               inspired me to get my certificate in UX Design.
             </p>
-            <p className="text-md leading-[31px] text-body mt-8">
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               When I'm not working, I'm on my PlayStation.
             </p>
           </div>

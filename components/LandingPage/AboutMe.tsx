@@ -19,19 +19,19 @@ export default function AboutMe() {
     <section className="py-18">
       <div className="flex items-center gap-8 flex-wrap md:flex-nowrap justify-between">
         <div className="md:max-w-[428px] lg:max-w-[568px]">
-          <h2 className="text-2lg md:text-2xl font-medium md:font-normal text-grey">
+          <h2 className="text-2lg md:text-2xl font-medium md:font-normal text-grey dark:text-white-700">
             Frontend React Developer
           </h2>
-          <p className="mt-6 text-body text-2md">
+          <p className="mt-6 text-body dark:text-grey-600 text-2md">
             Hello again! I'm Dayo Awobeku.
           </p>
-          <p className="mt-4 text-body text-2md">
+          <p className="mt-4 text-body dark:text-grey-600 text-2md">
             I love creating, designing, and developing wow projects that drive
             businesses forward.
           </p>
-          <Link href="/">
+          <Link href="/about">
             <a className="inline-flex items-center gap-4 mt-6">
-              <span className="font-medium text-4md text-grey">
+              <span className="font-medium text-4md text-grey dark:text-white">
                 Get to know more about me
               </span>
               <Image

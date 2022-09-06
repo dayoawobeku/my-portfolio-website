@@ -1,15 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import {
-  useQuery,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-  useMutation,
-} from '@tanstack/react-query';
-import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
-
-const queryClient = new QueryClient();
+import {useQuery, useQueryClient, useMutation} from '@tanstack/react-query';
 
 interface Props {
   postId: number;
@@ -17,12 +8,7 @@ interface Props {
 }
 
 export default function ServerStateWithReactQuery() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Wrapper />
-      <ReactQueryDevtools initialIsOpen />
-    </QueryClientProvider>
-  );
+  return <Wrapper />;
 }
 
 function Wrapper() {
