@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import type {NextApiRequest, NextApiResponse} from 'next';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 
@@ -23,14 +24,19 @@ export default async function handler(
 
   try {
     await mailchimp.lists.addListMember(audienceId, {
-      // eslint-disable-next-line camelcase
       email_address: email,
       status: 'subscribed',
+      merge_fields: {
+        FNAME: req.body.firstName,
+      },
     });
 
     return res.status(201).json({error: ''});
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: string | any) {
+  } catch (error: any) {
+    if (error.response.body.title === 'Member Exists') {
+      return res.status(200).json({error: 'Already subscribed.'});
+    }
     return res.status(500).json({error: error.message || error.toString()});
   }
 }

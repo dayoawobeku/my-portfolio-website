@@ -21,10 +21,16 @@ export default function Newsletter() {
     mutate(
       {firstName, email},
       {
-        onSuccess: () => {
-          setMessage(`Thanks for subscribing, ${firstName}! 😉`);
+        onSuccess: res => {
+          console.log(res.error);
+          if (res.error) {
+            setMessage(res.error);
+          } else {
+            setMessage(`Thanks for subscribing, ${firstName}!`);
+          }
         },
-        onError: () => {
+        onError: res => {
+          console.log(res, 'errres');
           setMessage('Something went wrong. Please try again.');
         },
       },

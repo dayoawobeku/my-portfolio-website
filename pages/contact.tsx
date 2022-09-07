@@ -74,7 +74,10 @@ const Contact: NextPage = () => {
             className="mt-10"
           />
 
-          <button className="px-6 py-4 mt-10 text-grey rounded-sm text-md dark:text-white-700 dark:outline-white-400 outline outline-2 outline-grey-800 hover:outline-offset-2 transition-all">
+          <button
+            className="px-6 py-4 mt-10 text-grey rounded-sm dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 transition-all disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
+            // disabled={isLoading}
+          >
             Send message
           </button>
         </form>
