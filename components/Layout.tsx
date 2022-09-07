@@ -44,7 +44,7 @@ function Layout({children}: Props) {
 
           <div className="flex items-center gap-6 md:gap-8">
             <button
-              className="w-10 h-10"
+              className="w-10 h-10 outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] rounded-full"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               title={
                 theme === 'light' ? 'Activate dark mode' : 'Activate light mode'
@@ -68,14 +68,46 @@ function Layout({children}: Props) {
               />
             </button>
             <div className="hidden md:flex items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white">
-              <Link href="/">Testimonials</Link>
-              <Link href="/">Portfolio</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/about">About</Link>
+              <Link href="/#testimonials">
+                <a
+                  className={`nav-link ${
+                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+                  }`}
+                >
+                  Testimonials
+                </a>
+              </Link>
+              <Link href="/">
+                <a
+                  className={`nav-link ${
+                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+                  }`}
+                >
+                  Portfolio
+                </a>
+              </Link>
+              <Link href="/blog">
+                <a
+                  className={`nav-link ${
+                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+                  }`}
+                >
+                  Blog
+                </a>
+              </Link>
+              <Link href="/about">
+                <a
+                  className={`nav-link ${
+                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+                  }`}
+                >
+                  About
+                </a>
+              </Link>
             </div>
             <Link href="/contact">
               <a className="hidden md:block">
-                <button className="px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white">
+                <button className="px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 hover:outline-grey hover:dark:outline-white-700">
                   Let's talk
                 </button>
               </a>

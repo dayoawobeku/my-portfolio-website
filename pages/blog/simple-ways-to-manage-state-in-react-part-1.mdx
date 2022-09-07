@@ -516,11 +516,11 @@ context provider.</Text>}
 <QuoteText quote='WelcomeMessage'/>
  components.</Text>}
 
-{<Text>Lastly, we'll
+{<Text>Lastly, we'll {''}
 
 <ExternalUrl text='destructure' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment' />
-the currentUser object using the useContext API and use the user directly inside
-the WelcomeMessage component.</Text>}
+the <QuoteText quote='currentUser' /> object using the useContext API and use the <QuoteText quote='user' /> directly inside
+the <QuoteText quote='WelcomeMessage' /> component.</Text>}
 
 <Text>Here's what the implementation looks like.</Text>
 
@@ -585,6 +585,13 @@ And for anything more complex, try {''}
 </Text>}
 
 {<Text>This was meant to be one really long blog post, but I decided to break it
-into 2 parts. Read the second part where I talk about server cache here.</Text>}
+into 2 parts. Read the second part {''}
+
+<LocalLink
+  text="here"
+  href="simple-ways-to-manage-state-in-react-part-2"
+/>
+where I talk about managing server
+state.</Text>}
 
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

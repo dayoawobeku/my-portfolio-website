@@ -1,8 +1,15 @@
+import {useState, useEffect} from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import {NextPage} from 'next';
-import {arrowLight, blogHero, postOne} from '../../assets/images/images';
+import {useTheme} from 'next-themes';
+import {
+  arrowLight,
+  blogHero,
+  blogHeroDark,
+  postOne,
+} from '../../assets/images/images';
 
 const posts = [
   {
@@ -45,6 +52,15 @@ const posts = [
 const [, ...otherPosts] = posts;
 
 const Blog: NextPage = () => {
+  const {theme} = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <div>
       <Head>
@@ -59,10 +75,16 @@ const Blog: NextPage = () => {
             Learn web development and get to know more about me here.
           </h3>
         </div>
-        <Image src={blogHero} alt="" width={506} height={387} priority />
+        <Image
+          src={theme === 'light' ? blogHero : blogHeroDark}
+          alt=""
+          width={506}
+          height={387}
+          priority
+        />
       </div>
 
-      <div className="mt-20 bg-white-700 rounded hover:border-grey">
+      <div className="mt-20 bg-white-700 rounded outline-none outline-4 outline-offset-4 transition-all duration-300 hover:outline-info">
         <Link href={`/blog/${posts[0].slug}`} passHref>
           <a className="flex items-center justify-between p-6 md:p-20">
             <div>
@@ -95,7 +117,7 @@ const Blog: NextPage = () => {
       <div className="mt-16 grid blog-grid sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-6">
         {otherPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a>
+            <a className="rounded outline-none outline-4 outline-offset-4 transition-all duration-300 hover:outline-info">
               <Image
                 alt=""
                 src={postOne}
