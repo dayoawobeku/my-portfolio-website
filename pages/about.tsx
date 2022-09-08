@@ -13,12 +13,12 @@ const About: NextPage = () => {
       </Head>
 
       <section>
-        <div className="flex items-stretch gap-8 justify-between w-full mt-20 flex-wrap lg:flex-nowrap">
+        <div className="flex flex-wrap items-stretch justify-between w-full gap-8 mt-20 lg:flex-nowrap">
           <div className="w-full md:w-[47.69%]">
             <Image src={aboutImage} alt="Dayo" layout="responsive" priority />
           </div>
           <div className="w-full lg:w-[49.32%] pt-18 -mt-18 about-text-container">
-            <p className="text-md text-grey font-medium dark:text-white-700">
+            <p className="font-medium text-md text-grey dark:text-white-700">
               Get to know Dayo...
             </p>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">

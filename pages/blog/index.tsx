@@ -69,9 +69,9 @@ const Blog: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex basis-full items-center flex-wrap md:flex-nowrap justify-between gap-4 lg:gap-8 mt-10 md:mt-20">
+      <div className="flex flex-wrap items-center justify-between gap-4 mt-10 basis-full md:flex-nowrap lg:gap-8 md:mt-20">
         <div className="md:basis-2/3 lg:basis-auto lg:max-w-lg">
-          <h3 className="text-xl md:text-2xl lg:text-4xl text-grey dark:text-white mb-10">
+          <h3 className="mb-10 text-xl md:text-2xl lg:text-4xl text-grey dark:text-white">
             Learn web development and get to know more about me here.
           </h3>
         </div>
@@ -84,7 +84,7 @@ const Blog: NextPage = () => {
         />
       </div>
 
-      <div className="mt-20 bg-white-700 rounded outline-none outline-4 outline-offset-4 transition-all duration-300 hover:outline-info">
+      <div className="mt-20 transition-all duration-300 rounded outline-none bg-white-700 outline-4 outline-offset-4 hover:outline-info">
         <Link href={`/blog/${posts[0].slug}`} passHref>
           <a className="flex items-center justify-between p-6 md:p-20">
             <div>
@@ -92,7 +92,7 @@ const Blog: NextPage = () => {
               <h3 className="mt-6 md:mt-8 text-2lg md:text-xl md:leading-[56px] text-grey max-w-lg">
                 {posts[0].title}
               </h3>
-              <p className="mt-6 md:mt-8 font-medium text-body text-3md">
+              <p className="mt-6 font-medium md:mt-8 text-body text-3md">
                 {posts[0].date} - 5 min read
               </p>
               <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
@@ -114,10 +114,10 @@ const Blog: NextPage = () => {
           </a>
         </Link>
       </div>
-      <div className="mt-16 grid blog-grid sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-6">
+      <div className="grid mt-16 blog-grid sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-6">
         {otherPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a className="rounded outline-none outline-4 outline-offset-4 transition-all duration-300 hover:outline-info">
+            <a className="transition-all duration-300 rounded outline-none outline-4 outline-offset-4 hover:outline-info">
               <Image
                 alt=""
                 src={postOne}

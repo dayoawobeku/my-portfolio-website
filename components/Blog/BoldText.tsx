@@ -4,7 +4,7 @@ interface Props {
 
 export default function BoldText({text}: Props) {
   return (
-    <strong className="text-grey font-medium dark:text-white mb-4">
+    <strong className="mb-4 font-medium text-grey dark:text-white">
       {text}
     </strong>
   );

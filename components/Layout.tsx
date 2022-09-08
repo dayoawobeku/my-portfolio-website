@@ -119,7 +119,7 @@ function Layout({children}: Props) {
 
         <footer className="pb-16 mt-18 md:mt-40">
           <Newsletter />
-          <div className="flex items-center justify-between flex-wrap gap-4 font-medium uppercase mt-18 text-brown dark:text-grey-600">
+          <div className="flex flex-wrap items-center justify-between gap-4 font-medium uppercase mt-18 text-brown dark:text-grey-600">
             <p>dayo awobeku</p>
             <div className="flex items-center gap-5 underline">
               <a href="mailto: dayoawobeku@gmail.com">mail</a>

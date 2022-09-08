@@ -35,7 +35,7 @@ export default function Layout({meta, children}: Props) {
         </Link>
         <div className="max-w-[848px] mt-[104px] mx-auto">
           <h1 className="text-xl">{meta.title}</h1>
-          <p className="mt-6 text-2md text-body dark:text-white-400 font-medium">
+          <p className="mt-6 font-medium text-2md text-body dark:text-white-400">
             {meta.date} - {meta.time}
           </p>
         </div>
