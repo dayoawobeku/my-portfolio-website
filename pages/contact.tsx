@@ -1,8 +1,44 @@
+import {useState} from 'react';
 import type {NextPage} from 'next';
 import Head from 'next/head';
 import {Input, Textarea} from '../components/Input';
+import {useMutation} from '@tanstack/react-query';
+import axios from 'axios';
+
+function useContact() {
+  return useMutation((values: object) =>
+    axios.post('/api/contact', values).then(res => res.data),
+  );
+}
 
 const Contact: NextPage = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [body, setBody] = useState('');
+  const [message, setMessage] = useState('');
+
+  const {mutate, isSuccess, isLoading, isError} = useContact();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutate(
+      {name, email, subject, body},
+      {
+        onSuccess: () => {
+          setName('');
+          setEmail('');
+          setSubject('');
+          setBody('');
+          setMessage('Thanks for reaching out! I’ll get back to you soon.');
+        },
+        onError: () => {
+          setMessage('Something went wrong. Please try again.');
+        },
+      },
+    );
+  };
+
   return (
     <div>
       <Head>
@@ -52,34 +88,55 @@ const Contact: NextPage = () => {
           </div>
         </div>
 
-        <form className="w-full max-w-xl">
-          <Input id="name" label="Name" placeholder="Your name" />
+        <form onSubmit={handleSubmit} className="w-full max-w-xl">
+          <Input
+            id="name"
+            label="Name"
+            placeholder="Your name"
+            required
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
           <Input
             id="email"
             label="Email"
             placeholder="person.doe@example.com"
             type="email"
             className="mt-10"
+            required
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
           <Input
             id="subject"
             label="Subject"
             placeholder="No subject"
             className="mt-10"
+            value={subject}
+            onChange={e => setSubject(e.target.value)}
           />
           <Textarea
             id="body"
             label="Body"
             placeholder="A clear and concise message works wonders."
             className="mt-10"
+            required
+            value={body}
+            onChange={e => setBody(e.target.value)}
           />
 
           <button
-            className="px-6 py-4 mt-10 text-grey rounded-sm dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 transition-all disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
-            // disabled={isLoading}
+            className="px-6 py-4 mt-10 transition-all rounded-sm text-grey dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
+            disabled={isLoading}
           >
             Send message
           </button>
+
+          {isSuccess ? (
+            <p className="mt-4 font-medium text-md text-info">{message}</p>
+          ) : isError ? (
+            <p className="mt-4 font-medium text-md text-danger">{message}</p>
+          ) : null}
         </form>
       </div>
     </div>

@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function Heading({text}: Props) {
-  return <h3 className="text-4md text-grey dark:text-white mb-4">{text}</h3>;
+  return <h3 className="mb-4 text-4md text-grey dark:text-white">{text}</h3>;
 }

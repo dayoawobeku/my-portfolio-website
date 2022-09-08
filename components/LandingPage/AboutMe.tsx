@@ -17,9 +17,9 @@ export default function AboutMe() {
 
   return (
     <section className="py-18">
-      <div className="flex items-center gap-8 flex-wrap md:flex-nowrap justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-8 md:flex-nowrap">
         <div className="md:max-w-[428px] lg:max-w-[568px]">
-          <h2 className="text-2lg md:text-2xl font-medium md:font-normal text-grey dark:text-white-700">
+          <h2 className="font-medium text-2lg md:text-2xl md:font-normal text-grey dark:text-white-700">
             Frontend React Developer
           </h2>
           <p className="mt-6 text-body dark:text-grey-600 text-2md">

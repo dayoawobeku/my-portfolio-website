@@ -37,23 +37,23 @@ export default function Testimonials() {
   return (
     <section className="py-30" id="testimonials" tabIndex={-1}>
       <div className="flex items-center justify-between">
-        <div className="flex items-center justify-between w-full relative">
-          <h2 className="max-w-lg text-2lg font-medium md:font-normal md:text-2xl text-grey dark:text-white z-10">
+        <div className="relative flex items-center justify-between w-full">
+          <h2 className="z-10 max-w-lg font-medium text-2lg md:font-normal md:text-2xl text-grey dark:text-white">
             What People Are Saying About My Work
           </h2>
           <div className="absolute -left-4 -bottom-4 w-20 h-20 bg-[#FFCF68] dark:bg-brown rounded-full" />
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-col md:flex-row items-center justify-between mt-18 gap-10">
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row mt-18">
           <Testimonial />
-          <div className="border-b w-full md:w-0 md:border-l md:border-b-0 border-grey-100 dark:border-grey-800 md:h-96" />
+          <div className="w-full border-b md:w-0 md:border-l md:border-b-0 border-grey-100 dark:border-grey-800 md:h-96" />
           <Testimonial />
         </div>
-        <div className="md:hidden my-10 border-b w-full md:border-l md:border-b-0 border-grey-100 dark:border-grey-800 md:h-96" />
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="w-full my-10 border-b md:hidden md:border-l md:border-b-0 border-grey-100 dark:border-grey-800 md:h-96" />
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row">
           <Testimonial />
-          <div className="border-b w-full md:w-0 md:border-l md:border-b-0 border-grey-100 dark:border-grey-800 md:h-96" />
+          <div className="w-full border-b md:w-0 md:border-l md:border-b-0 border-grey-100 dark:border-grey-800 md:h-96" />
           <Testimonial />
         </div>
       </div>

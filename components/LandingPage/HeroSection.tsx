@@ -16,12 +16,12 @@ export default function HeroSection() {
   if (!mounted) return null;
 
   return (
-    <main className="flex items-center gap-6 flex-wrap md:flex-nowrap justify-between mt-10">
+    <main className="flex flex-wrap items-center justify-between gap-6 mt-10 md:flex-nowrap">
       <div className="md:max-w-[511px]">
-        <h1 className="text-xl lg:text-4xl text-black dark:text-white-700">
+        <h1 className="text-xl text-black lg:text-4xl dark:text-white-700">
           Hi, I'm Dayo.
         </h1>
-        <h1 className="text-xl lg:text-4xl text-black dark:text-white-700">
+        <h1 className="text-xl text-black lg:text-4xl dark:text-white-700">
           I build websites that your customers will love to use and pay for.
         </h1>
         <p className="mt-4 lg:mt-8 text-md lg:text-3md text-body dark:text-grey-600">

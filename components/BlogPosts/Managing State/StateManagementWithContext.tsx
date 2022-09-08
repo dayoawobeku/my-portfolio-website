@@ -9,7 +9,7 @@ export default function StateManagementWithContext() {
 
   return (
     <Context.Provider value={{currentUser}}>
-      <div className="w-fit py-4 pl-4 pr-20 rounded border-2 border-white-700 my-8">
+      <div className="py-4 pl-4 pr-20 my-8 border-2 rounded w-fit border-white-700">
         <Header />
         <main>
           {currentUser.name !== '' ? (

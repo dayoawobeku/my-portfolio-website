@@ -22,15 +22,13 @@ export default function Newsletter() {
       {firstName, email},
       {
         onSuccess: res => {
-          console.log(res.error);
           if (res.error) {
             setMessage(res.error);
           } else {
             setMessage(`Thanks for subscribing, ${firstName}!`);
           }
         },
-        onError: res => {
-          console.log(res, 'errres');
+        onError: () => {
           setMessage('Something went wrong. Please try again.');
         },
       },
@@ -54,10 +52,10 @@ export default function Newsletter() {
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col md:flex-row items-start md:items-end gap-6 mt-10"
+        className="flex flex-col items-start gap-6 mt-10 md:flex-row md:items-end"
       >
         {isSuccess ? (
-          <p className="text-md font-medium text-info">{message}</p>
+          <p className="font-medium text-md text-info">{message}</p>
         ) : (
           <>
             <SmallerInput
@@ -76,7 +74,7 @@ export default function Newsletter() {
               required
             />
             <button
-              className="h-16 px-6 py-4 ml-0 md:ml-6 text-grey rounded-sm dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 transition-all disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
+              className="h-16 px-6 py-4 ml-0 transition-all rounded-sm md:ml-6 text-grey dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
               disabled={isLoading}
             >
               Subscribe

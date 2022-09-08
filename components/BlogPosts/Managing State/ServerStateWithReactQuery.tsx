@@ -15,7 +15,7 @@ function Wrapper() {
   const [postId, setPostId] = useState(-1);
 
   return (
-    <div className="flex items-start gap-6 basis-full py-4 px-4 rounded border-2 dark:border-white-700 my-8">
+    <div className="flex items-start gap-6 px-4 py-4 my-8 border-2 rounded basis-full dark:border-white-700">
       <Sidebar setPostId={setPostId} postId={0} />
       <Main postId={postId} setPostId={setPostId} />
     </div>
@@ -28,7 +28,7 @@ function Sidebar({setPostId}: Props) {
   return (
     <aside className="basis-1/4">
       <button
-        className="font-medium text-2md pb-2 border-b-2 border-white-400 cursor-pointer"
+        className="pb-2 font-medium border-b-2 cursor-pointer text-2md border-white-400"
         onClick={e => {
           setPostId(-1);
           e.preventDefault();
@@ -47,7 +47,7 @@ function Sidebar({setPostId}: Props) {
 function Main({postId, setPostId}: Props) {
   return (
     <main className="basis-3/4">
-      <h3 className="font-medium text-2md mb-4">Posts</h3>
+      <h3 className="mb-4 font-medium text-2md">Posts</h3>
 
       <div className="flex flex-col gap-2">
         {postId > -1 ? (
@@ -89,12 +89,12 @@ function CreatePost() {
 
   return (
     <>
-      <h3 className="font-medium text-2md mb-4">Create Post</h3>
+      <h3 className="mb-4 font-medium text-2md">Create Post</h3>
 
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label htmlFor="title">Title</label>
         <input
-          className="bg-white-700 dark:bg-grey-800 mt-1 p-2 rounded-sm"
+          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
           type="text"
           name="title"
           id="title"
@@ -107,7 +107,7 @@ function CreatePost() {
           Body
         </label>
         <textarea
-          className="bg-white-700 dark:bg-grey-800 mt-1 p-2 rounded-sm"
+          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
           name="body"
           id="body"
           rows={2}
@@ -147,12 +147,12 @@ function EditPost({postId}: Props) {
 
   return (
     <>
-      <h3 className="font-medium text-2md mb-4">Edit Post</h3>
+      <h3 className="mb-4 font-medium text-2md">Edit Post</h3>
 
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label htmlFor="title">Title</label>
         <input
-          className="bg-white-700 dark:bg-grey-800 mt-1 p-2 rounded-sm"
+          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
           type="text"
           name="title"
           id="title"
@@ -164,7 +164,7 @@ function EditPost({postId}: Props) {
           Body
         </label>
         <textarea
-          className="bg-white-700 dark:bg-grey-800 mt-1 p-2 rounded-sm"
+          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
           name="body"
           id="body"
           rows={2}
