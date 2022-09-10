@@ -6,7 +6,6 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const {name, email, subject, body} = req.body;
-  console.log(name, email, subject, body);
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -21,7 +20,7 @@ export default async function handler(
       from: email,
       to: process.env.SMTP_USER,
       subject: `Contact form submission from ${name}`,
-      html: `<p>You have a contact form submission</p><br>
+      html: `<h1>You have a contact form submission.</h1><br>
         <p><strong>Email: </strong> ${email}</p><br>
         <p><strong>Subject: </strong> ${subject}</p><br>
         <p><strong>Body: </strong> ${body}</p><br>

@@ -24,7 +24,7 @@ export default function HeroSection() {
         <h1 className="text-xl text-black lg:text-4xl dark:text-white-700">
           I build websites that your customers will love to use and pay for.
         </h1>
-        <p className="mt-4 lg:mt-8 text-md lg:text-3md text-body dark:text-grey-600">
+        <p className="mt-4 lg:mt-8 text-md lg:text-4md text-grey-800 dark:text-grey-600">
           By building value through strategic web design, people-centric digital
           experiences, and developing high-quality websites that stand out from
           the competition.

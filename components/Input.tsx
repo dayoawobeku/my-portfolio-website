@@ -35,7 +35,7 @@ function Input({
         type={type}
         id={id}
         placeholder={placeholder}
-        className="w-full h-20 px-10 mt-4 rounded-sm bg-white-700 dark:text-grey"
+        className="w-full h-20 px-6 mt-4 rounded-sm lg:px-10 bg-white-700 dark:text-grey"
         required={required}
         value={value}
         onChange={onChange}
@@ -95,7 +95,7 @@ function Textarea({
       <textarea
         id={id}
         placeholder={placeholder}
-        className="w-full px-10 pt-8 mt-4 rounded-sm h-60 bg-white-700 dark:text-grey"
+        className="w-full px-6 pt-8 mt-4 rounded-sm lg:px-10 h-60 bg-white-700 dark:text-grey"
         required={required}
         value={value}
         onChange={onChange}
