@@ -1,6 +1,4 @@
 // SVGs
-export {default as logoLight} from './logo-light.svg';
-export {default as logoDark} from './logo-dark.svg';
 export {default as darkMode} from './dark-mode.svg';
 export {default as lightMode} from './light-mode.svg';
 export {default as arrowLight} from './arrow-light.svg';

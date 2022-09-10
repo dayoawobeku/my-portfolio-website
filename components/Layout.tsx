@@ -6,8 +6,6 @@ import Newsletter from './Newsletter';
 import {
   darkMode,
   lightMode,
-  logoDark,
-  logoLight,
   menuDark,
   menuLight,
 } from '../assets/images/images';
@@ -31,20 +29,14 @@ function Layout({children}: Props) {
       <div className="max-w-[1168px] mx-auto px-4">
         <nav className="flex items-center justify-between py-8">
           <Link href="/">
-            <a className="leading-none h-[30px]">
-              <Image
-                src={theme === 'light' ? logoLight : logoDark}
-                alt="logo"
-                width={169}
-                height={30}
-                priority
-              />
+            <a className="font-medium text-grey dark:text-white-800 text-5md">
+              Dayo Awobeku
             </a>
           </Link>
 
           <div className="flex items-center gap-6 md:gap-8">
             <button
-              className="w-10 h-10 outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] rounded-full"
+              className="w-10 h-10 outline-none outline-offset-4 transition-all duration-300 focus:outline-[#d1d1d1] hover:outline-[#d1d1d1] focus:dark:outline-[#EAEAEA] hover:dark:outline-[#EAEAEA] rounded-full"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               title={
                 theme === 'light' ? 'Activate dark mode' : 'Activate light mode'
@@ -106,11 +98,9 @@ function Layout({children}: Props) {
               </Link>
             </div>
             <Link href="/contact">
-              <a className="hidden md:block">
-                <button className="px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 hover:outline-grey hover:dark:outline-white-700">
-                  Let's talk
-                </button>
-              </a>
+              <button className="hidden md:block px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
+                Let's talk
+              </button>
             </Link>
           </div>
         </nav>

@@ -14,7 +14,7 @@ export default function Newsletter() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const {mutate, isSuccess, isLoading} = useSubscribe();
+  const {mutate, isLoading} = useSubscribe();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,6 +25,8 @@ export default function Newsletter() {
           if (res.error) {
             setMessage(res.error);
           } else {
+            setFirstName('');
+            setEmail('');
             setMessage(`Thanks for subscribing, ${firstName}!`);
           }
         },
@@ -54,34 +56,27 @@ export default function Newsletter() {
         onSubmit={handleSubmit}
         className="flex flex-col items-start gap-6 mt-10 md:flex-row md:items-end"
       >
-        {isSuccess ? (
-          <p className="font-medium text-md text-info">{message}</p>
-        ) : (
-          <>
-            <SmallerInput
-              id="first_name"
-              label="First Name"
-              value={firstName}
-              onChange={e => setFirstName(e.target.value)}
-              required
-            />
-            <SmallerInput
-              id="email"
-              label="Email"
-              type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-            />
-            <button
-              className="h-16 px-6 py-4 ml-0 transition-all rounded-sm md:ml-6 text-grey dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
-              disabled={isLoading}
-            >
-              Subscribe
-            </button>
-          </>
-        )}
+        <SmallerInput
+          id="first_name"
+          label="First Name"
+          value={firstName}
+          onChange={e => setFirstName(e.target.value)}
+          required
+        />
+        <SmallerInput
+          id="email"
+          label="Email"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+        <button className="h-16 btn" disabled={isLoading}>
+          Subscribe
+        </button>
       </form>
+
+      <p className="mt-4 font-medium text-md text-info">{message}</p>
     </div>
   );
 }

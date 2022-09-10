@@ -47,7 +47,7 @@ const Contact: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex items-start justify-between mt-24">
+      <div className="flex flex-wrap items-start justify-between gap-12 mt-10 lg:gap-6 lg:mt-24 lg:flex-nowrap">
         <div>
           <h1 className="text-4xl text-grey dark:text-white-700">
             Get in touch
@@ -88,7 +88,7 @@ const Contact: NextPage = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="w-full max-w-xl">
+        <form onSubmit={handleSubmit} className="w-full lg:max-w-xl">
           <Input
             id="name"
             label="Name"
@@ -125,10 +125,7 @@ const Contact: NextPage = () => {
             onChange={e => setBody(e.target.value)}
           />
 
-          <button
-            className="px-6 py-4 mt-10 transition-all rounded-sm text-grey dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0"
-            disabled={isLoading}
-          >
+          <button className="mt-10 btn" disabled={isLoading}>
             Send message
           </button>
 

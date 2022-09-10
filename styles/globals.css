@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  font-family: 'Matter', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   scroll-behavior: auto;
 }
 
@@ -13,24 +13,24 @@ html {
 
 @layer base {
   @font-face {
-    font-family: 'Matter';
-    src: url('../assets/fonts/Matter-Regular.ttf') format('truetype');
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/Satoshi-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Matter';
-    src: url('../assets/fonts/Matter-Medium.ttf') format('truetype');
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/Satoshi-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Matter';
-    src: url('../assets/fonts/Matter-Bold.ttf') format('truetype');
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/Satoshi-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -40,7 +40,15 @@ html {
 @layer components {
   input,
   textarea {
-    @apply focus-visible:outline focus-visible:outline-grey-800 dark:focus-visible:outline-white-800 focus-visible:outline-offset-4 focus-visible:outline-2;
+    @apply font-medium focus-visible:outline focus-visible:outline-grey-800 dark:focus-visible:outline-white-800 focus-visible:outline-offset-4 focus-visible:outline-2;
+  }
+
+  label {
+    @apply font-medium;
+  }
+
+  .btn {
+    @apply px-6 py-4 font-medium transition-all rounded-sm text-grey dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0;
   }
 }
 
@@ -50,6 +58,7 @@ html {
 
 .nav-link {
   position: relative;
+  font-weight: 500;
 }
 
 .nav-link::before {

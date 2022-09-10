@@ -69,7 +69,7 @@ function Main({postId, setPostId}: Props) {
 
 function CreatePost() {
   const queryClient = useQueryClient();
-  const {mutate, isLoading, isSuccess} = useCreatePost();
+  const {mutate, isLoading} = useCreatePost();
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
@@ -116,12 +116,11 @@ function CreatePost() {
           required
         />
 
-        <button className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit">
-          {isLoading
-            ? 'Creating post...'
-            : isSuccess
-            ? 'Created successfully'
-            : 'Create Post'}
+        <button
+          className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit disabled:bg-info-100 disabled:text-body"
+          disabled={isLoading}
+        >
+          Create Post
         </button>
       </form>
     </>
@@ -130,7 +129,7 @@ function CreatePost() {
 
 function EditPost({postId}: Props) {
   const queryClient = useQueryClient();
-  const {mutate, isLoading, isSuccess} = useEditPost(postId);
+  const {mutate, isLoading} = useEditPost(postId);
   const {data} = usePost(postId);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -172,12 +171,11 @@ function EditPost({postId}: Props) {
           defaultValue={data?.body}
         />
 
-        <button className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit">
-          {isLoading
-            ? 'Updating post...'
-            : isSuccess
-            ? 'Updated successfully'
-            : 'Edit Post'}
+        <button
+          className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit disabled:bg-info-100 disabled:text-body"
+          disabled={isLoading}
+        >
+          Edit Post
         </button>
       </form>
     </>
