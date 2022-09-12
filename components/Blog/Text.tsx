@@ -4,6 +4,6 @@ interface Props {
 
 export default function Text({children}: Props) {
   return (
-    <p className="mb-6 text-md text-grey dark:text-white-400">{children}</p>
+    <p className="mb-6 text-md text-grey dark:text-grey-600">{children}</p>
   );
 }

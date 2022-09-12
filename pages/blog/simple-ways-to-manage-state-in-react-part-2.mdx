@@ -1,9 +1,11 @@
 import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State/ServerStateWithReactQuery.tsx';
 
 export const meta = {
-  title: 'Simple ways to manage state in React - Server state',
+  postTitle: 'Simple ways to manage state in React - Server state',
   date: 'Date',
   time: '5 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995775/seth-cottle-On-Fsm5G52g-unsplash_3_1_fxrjwr.jpg',
+  title: 'aerial photo of waterfalls, by Seth Cottle',
 };
 
 {<Text>In the first part of this series, I talk about {''}
@@ -11,56 +13,24 @@ export const meta = {
 <LocalLink
   text="managing the UI/Client state."
   href="simple-ways-to-manage-state-in-react-part-1"
-/>
-
-You may wanna check that out before reading this post.
-
-</Text>}
-
-{<Text>Server state is state that is on the server, and is served/used on the
-user’s end, e.g, a list of posts, user’s records. It is different from client
-state and should be handled differently.</Text>}
-
+/> You may wanna check that out before reading this post.</Text>}
+{<Text>Server state is state that is on the server, and is served/used on the user’s end, e.g, a list of posts, user’s records. It is different from client state and should be handled differently.</Text>}
 {<Text>Many React devs put all things state inside a library like {''}
-
 <ExternalUrl text='Redux.' href='https://redux.js.org/' />
-The
-idea is a single source of truth. This is not very ideal in a few ways. One of
-the primary attributors of a slow React application is global state. Not a lot
-of states need to be global. And the truth is, you don’t need Redux.</Text>}
-
-{<Text>Server state has a few challenges including caching, deduping requests,
-background updates, mutations, paginations, etc. Personally, I think caching is
-one of the hardest concepts in computer science.</Text>}
-
+The idea is a single source of truth. This is not very ideal in a few ways. One of the primary attributors of a slow React application is global state. Not a lot of states need to be global. And the truth is, you don’t need Redux.</Text>}
+{<Text>Server state has a few challenges including caching, deduping requests, background updates, mutations, paginations, etc. Personally, I think caching is one of the hardest concepts in computer science.</Text>}
 {<Text>How then can we approach these problems? {''}
-
-<ExternalUrl text='React Query.' href='https://tanstack.com/query/v4/' />
-Yup, that’s it!
-According to their docs, React query (now, Tanstack Query) is a {''}
+<ExternalUrl text='React Query.' href='https://tanstack.com/query/v4/' /> Yup, that’s it! According to their docs, React query (now, Tanstack Query) is a {''}
 <BoldText text='Powerful asynchronous state management for React.' />
 </Text>}
-
-{<Text> Right away, let's look at an example. Feel free to play around with this
-app.</Text>}
-
+{<Text> Right away, let's look at an example. Feel free to play around with this app.</Text>}
 <ServerStateWithReactQuery />
-
 {<Text>Notice that the first time you visited the posts, you saw a {''}
-
-<QuoteText quote="loading state/spinner" /> which is the case with SPAs. However,
-after you returned to the post list and clicked on any posts you had already visited,
-you'll see them load instantly and background refresh right before your eyes! {
-  ''
-}
-
+<QuoteText quote="loading state/spinner" /> which is the case with SPAs. However, after you returned to the post list and clicked on any posts you had already visited, you'll see them load instantly and background refresh right before your eyes! {''}
 <ItalicizedText text='(You may need to throttle your
 network speed to simulate longer loading sequences.)' /> </Text>}
-
 <SuccessNote note="React query is awesome!" />
-
 <Text>Here's what the code looks like.</Text>
-
 <CodeBlock lang="ts"
 value={`import {useState} from 'react';
 import axios from 'axios';
@@ -326,34 +296,15 @@ function useEditPost(id: number) {
     axios.put('/api/todo/' + id, values).then(res => res.data),
   );
 }`} />
-
-{<Text>With way fewer lines of code, React query eliminated most of the loading
-spinners in our SPA (Spinner Page Application 😅). Our app is awesome, it feels
-great, very fast, and maintainable too.</Text>}
-
+{<Text>Just like that, React query eliminated most of the loading
+spinners in our SPA (Spinner Page Application 😅). Our app is awesome, it feels great, very fast, and maintainable too.</Text>}
 <AnchorTag text="Conclusion" href="conclusion" />
-
 {<Text>I believe a tool like react query is the future for handling our
 asynchronous data. </Text>}
-
-{<Text>Not only does it solve the challenges with server state, but it also
-helps us model our global state and think about our global state with a new
-perspective, and in most cases, it even removes all of it, or most of it from
-our application.</Text>}
-
-{<Text>Here's what {''}
-
-<ExternalUrl text="Kent C Dodds." href="https://twitter.com/kentcdodds/" /> has to say about react query: </Text>}
-
-{<Text>"<ExternalUrl text='React Query' href='https://tanstack.com/query/v4/' />
-is the missing piece to React application development that I've been looking for
-after years of building React apps. Finally, I have a tool that gives me exactly
-what I need to solve my application state management problems without giving me
+{<Text>Not only does it solve the challenges with server state, but it also helps us model our global state and think about our global state with a new perspective, and in most cases, it even removes all of it, or most of it from our application.</Text>}
+{<Text>Here's what {''} <ExternalUrl text="Kent C Dodds." href="https://twitter.com/kentcdodds/" /> has to say about react query: </Text>}
+{<Text>"<ExternalUrl text='React Query' href='https://tanstack.com/query/v4/' /> is the missing piece to React application development that I've been looking for after years of building React apps. Finally, I have a tool that gives me exactly what I need to solve my application state management problems without giving me
 more problems. It's fantastic."</Text>}
-
 {<Text>That's it for this post. Use {''}
-
-<ExternalUrl text='react query' href='https://tanstack.com/query/v4/' /> to manage your server cache. Thank me
-later.</Text>}
-
+<ExternalUrl text='react query' href='https://tanstack.com/query/v4/' /> to manage your server cache. Thank me later.</Text>}
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

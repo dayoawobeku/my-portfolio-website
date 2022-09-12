@@ -72,5 +72,8 @@ module.exports = {
       '4xl': ['3.75rem', '72px'], // 60px h1
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };

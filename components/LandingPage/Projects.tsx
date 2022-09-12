@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image, {StaticImageData} from 'next/image';
 import {
   arrowDark,
@@ -16,12 +15,14 @@ const PROJECT_ARRAY = [
     heading: 'Dojah - Identification and Verification Solution for Africa',
     body: 'Built a fast, accessible, mobile responsive, and highly SEO-friendly landing page with sub-routes.',
     image: dojahLanding,
+    url: 'https://dojah.io',
     stack: ['react', 'seo'],
   },
   {
     heading: 'Dojah User Application',
     body: 'Built a fast, mobile responsive, and highly SEO-friendly landing page.',
     image: dojahApp,
+    url: 'https://app.dojah.io',
     stack: ['react', 'redux', 'react-query', 'bootstrap'],
   },
   {
@@ -34,6 +35,7 @@ const PROJECT_ARRAY = [
     heading: 'Do-Deel CDS',
     body: 'Built a web application for a digital onboarding CDS (Community Development Service) in Nigeria that automates the total user experience from registration to completion during his/her service year as a digital onboarder.',
     image: dodeel,
+    url: 'https://dodeelcds.com.ng/',
     stack: ['ui design', 'tailwindcss', 'gatsby'],
   },
 ];
@@ -43,9 +45,10 @@ interface ProjectProps {
   heading: string;
   body: string;
   stack: Array<string>;
+  url?: string;
 }
 
-function Project({projectImg, heading, body, stack}: ProjectProps) {
+function Project({projectImg, heading, body, stack, url}: ProjectProps) {
   const {theme} = useTheme();
 
   const [mounted, setMounted] = useState(false);
@@ -78,9 +81,13 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
             </div>
           ))}
         </div>
-
-        <Link href="/">
-          <a className="inline-flex items-center gap-4 mt-10">
+        {url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-4 mt-10"
+          >
             <span className="font-medium text-4md text-grey dark:text-white">
               Visit site
             </span>
@@ -91,7 +98,7 @@ function Project({projectImg, heading, body, stack}: ProjectProps) {
               height={48}
             />
           </a>
-        </Link>
+        )}
       </div>
     </div>
   );
@@ -112,6 +119,7 @@ export default function Projects() {
             heading={project.heading}
             body={project.body}
             stack={project.stack}
+            url={project.url}
           />
         ))}
       </div>

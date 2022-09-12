@@ -43,7 +43,7 @@ export default function AboutMe() {
             </a>
           </Link>
         </div>
-        <Image alt="" src={aboutMe} width={536} height={328} />
+        <Image alt="" src={aboutMe} width={536} height={350} />
       </div>
     </section>
   );
