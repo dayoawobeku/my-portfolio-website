@@ -69,7 +69,7 @@ function Layout({children}: Props) {
                   Testimonials
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/#portfolio">
                 <a
                   className={`nav-link ${
                     theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'

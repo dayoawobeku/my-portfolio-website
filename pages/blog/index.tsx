@@ -64,6 +64,8 @@ const Blog: NextPage<{images: any}> = ({images}) => {
           width={506}
           height={387}
           priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
         />
       </div>
 
@@ -92,6 +94,8 @@ const Blog: NextPage<{images: any}> = ({images}) => {
                 layout="fill"
                 objectFit="cover"
                 priority
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
               />
             </div>
           </a>
@@ -110,6 +114,8 @@ const Blog: NextPage<{images: any}> = ({images}) => {
                 className="rounded"
                 objectFit="cover"
                 quality={100}
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
               />
               <p className="mt-8 font-medium text-body dark:text-white-400 text-3md">
                 {post.date} - <span>{post.time}</span>

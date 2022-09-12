@@ -44,7 +44,17 @@ export default function HeroSection() {
         </Link>
       </div>
 
-      <Image src={heroImage} alt="Dayo" width={557} height={783} priority />
+      <div className="aspect-w-7 aspect-h-10">
+        <Image
+          src={heroImage}
+          alt="Dayo"
+          width={557}
+          height={783}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+          priority
+        />
+      </div>
     </main>
   );
 }

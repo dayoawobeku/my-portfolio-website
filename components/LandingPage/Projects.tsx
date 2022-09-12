@@ -61,7 +61,14 @@ function Project({projectImg, heading, body, stack, url}: ProjectProps) {
 
   return (
     <div>
-      <Image alt="" src={projectImg} width={1168} height={800} />
+      <Image
+        alt=""
+        src={projectImg}
+        width={1168}
+        height={800}
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+      />
       <div className="mt-10">
         <h5 className="font-medium text-grey dark:text-white text-4md">
           {heading}
@@ -106,7 +113,7 @@ function Project({projectImg, heading, body, stack, url}: ProjectProps) {
 
 export default function Projects() {
   return (
-    <section className="py-30">
+    <section id="portfolio" className="py-30">
       <h2 className="font-medium text-2lg md:font-normal md:text-2xl text-grey dark:text-white">
         Selected Projects
       </h2>

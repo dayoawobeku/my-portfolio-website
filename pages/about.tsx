@@ -15,7 +15,14 @@ const About: NextPage = () => {
       <section>
         <div className="flex flex-wrap items-stretch justify-between w-full gap-8 mt-20 lg:flex-nowrap">
           <div className="w-full md:w-[47.69%]">
-            <Image src={aboutImage} alt="Dayo" layout="responsive" priority />
+            <Image
+              src={aboutImage}
+              alt="Dayo"
+              layout="responsive"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+              priority
+            />
           </div>
           <div className="w-full lg:w-[49.32%] pt-18 -mt-18 about-text-container">
             <p className="font-medium text-md text-grey dark:text-white-700">
