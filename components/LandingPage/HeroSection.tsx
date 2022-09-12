@@ -44,7 +44,7 @@ export default function HeroSection() {
         </Link>
       </div>
 
-      <div className="aspect-w-7 aspect-h-10">
+      <div className="aspect-w-[557px] aspect-h-[783px]">
         <Image
           src={heroImage}
           alt="Dayo"
