@@ -1,64 +1,47 @@
-import {useState, useEffect} from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, {useState, useEffect} from 'react';
+import {GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import {NextPage} from 'next';
 import {useTheme} from 'next-themes';
-import {
-  arrowLight,
-  blogHero,
-  blogHeroDark,
-  postOne,
-} from '../../assets/images/images';
+import {useRouter} from 'next/router';
+import {posts} from '../../data/posts';
+import {getCloudinaryImages, mapImageResources} from '../../lib/cloudinary';
+import {arrowLight, blogHero, blogHeroDark} from '../../assets/images/images';
 
-const posts = [
-  {
-    slug: 'simple-ways-to-manage-state-in-react-part-1',
-    date: 'June 9th, 2022',
-    title: 'Simple ways to manage state in react - Client state',
-    image: postOne,
-    time: '5 min read',
-  },
-  {
-    slug: 'simple-ways-to-manage-state-in-react-part-2',
-    date: 'June 9th, 2022',
-    title: 'Simple ways to manage state in react - Server state',
-    image: postOne,
-    time: '5 min read',
-  },
-  {
-    slug: 'post-three',
-    date: 'June 9th, 2022',
-    title: 'Third Post',
-    image: postOne,
-    time: '5 min read',
-  },
-  {
-    slug: 'post-four',
-    date: 'June 9th, 2022',
-    title: 'Fourth post',
-    image: postOne,
-    time: '5 min read',
-  },
-  {
-    slug: 'post-five',
-    date: 'June 9th, 2022',
-    title: 'Fifth post',
-    image: postOne,
-    time: '5 min read',
-  },
-];
+export const getStaticProps: GetStaticProps = async () => {
+  const results = await getCloudinaryImages();
+  const images = mapImageResources(results.resources);
 
-const [, ...otherPosts] = posts;
+  return {
+    props: {images},
+  };
+};
 
-const Blog: NextPage = () => {
+const Blog: NextPage<{images: any}> = ({images}) => {
   const {theme} = useTheme();
+
+  const cloudinaryImages = images.map((image: any) => {
+    return image;
+  });
+
+  const allPosts = posts.map((item, i) =>
+    Object.assign({}, item, cloudinaryImages[i]),
+  );
+
+  const firstPost = allPosts.shift();
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const router = useRouter();
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
   if (!mounted) return null;
 
   return (
@@ -84,16 +67,16 @@ const Blog: NextPage = () => {
         />
       </div>
 
-      <div className="mt-20 transition-all duration-300 rounded outline-none bg-white-700 outline-4 outline-offset-4 hover:outline-info">
-        <Link href={`/blog/${posts[0].slug}`} passHref>
+      <div className="mt-20 transition-all duration-300 rounded outline-none bg-white-700 outline-[3px] outline-offset-4 hover:outline-info">
+        <Link href={`/blog/${firstPost.slug}`} passHref>
           <a className="flex items-center justify-between p-6 md:p-20">
             <div>
               <p className="font-medium text-md text-grey">Featured article</p>
               <h3 className="mt-6 md:mt-8 text-2lg md:text-xl md:leading-[56px] text-grey max-w-lg">
-                {posts[0].title}
+                {firstPost.postTitle}
               </h3>
               <p className="mt-6 font-medium md:mt-8 text-body text-3md">
-                {posts[0].date} - 5 min read
+                {firstPost.date} - 5 min read
               </p>
               <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
                 <span className="font-medium text-4md text-grey">
@@ -104,8 +87,8 @@ const Blog: NextPage = () => {
             </div>
             <div className="hidden md:block w-[342px] h-[401px] relative">
               <Image
-                alt=""
-                src={posts[0].image}
+                alt={firstPost.imageTitle}
+                src={firstPost.url}
                 layout="fill"
                 objectFit="cover"
                 priority
@@ -115,22 +98,24 @@ const Blog: NextPage = () => {
         </Link>
       </div>
       <div className="grid mt-16 blog-grid sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-6">
-        {otherPosts.map((post, i) => (
+        {allPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a className="transition-all duration-300 rounded outline-none outline-4 outline-offset-4 hover:outline-info">
+            <a className="transition-all duration-300 rounded outline-none outline-[3px] outline-offset-4 hover:outline-info">
               <Image
-                alt=""
-                src={postOne}
+                alt={post.imageTitle}
+                src={post.url}
                 width={373}
                 height={458}
-                title="something"
+                title={post.imageTitle}
                 className="rounded"
+                objectFit="cover"
+                quality={100}
               />
               <p className="mt-8 font-medium text-body dark:text-white-400 text-3md">
                 {post.date} - <span>{post.time}</span>
               </p>
               <h4 className="mt-4 text-lg font-medium text-grey dark:text-white-700">
-                {post.title}
+                {post.postTitle}
               </h4>
             </a>
           </Link>

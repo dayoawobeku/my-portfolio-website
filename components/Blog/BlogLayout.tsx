@@ -1,14 +1,16 @@
 import {ReactNode} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {arrowBack, arrowBackDark, postOne} from '../../assets/images/images';
+import {arrowBack, arrowBackDark} from '../../assets/images/images';
 import Head from 'next/head';
 import {useTheme} from 'next-themes';
 
 interface MetaProps {
-  title: string;
+  postTitle: string;
   date: string;
   time: string;
+  title: string;
+  url: string;
 }
 
 interface Props {
@@ -22,7 +24,7 @@ export default function Layout({meta, children}: Props) {
   return (
     <>
       <Head>
-        <title>{meta.title}</title>
+        <title>{meta.postTitle}</title>
       </Head>
       <div>
         <Link href="/blog">
@@ -34,7 +36,7 @@ export default function Layout({meta, children}: Props) {
           </a>
         </Link>
         <div className="max-w-[848px] mt-[104px] mx-auto">
-          <h1 className="text-xl">{meta.title}</h1>
+          <h1 className="text-xl">{meta.postTitle}</h1>
           <p className="mt-6 font-medium text-2md text-body dark:text-white-400">
             {meta.date} - {meta.time}
           </p>
@@ -43,16 +45,16 @@ export default function Layout({meta, children}: Props) {
           <Image
             alt=""
             priority
-            src={postOne}
+            src={meta.url}
             layout="fill"
             objectFit="cover"
             objectPosition="center"
             quality={100}
             className="rounded"
-            // title={meta.image_title}
+            title={meta.title}
           />
         </div>
-        <div className="post-content max-w-[848px] mx-auto">{children}</div>
+        <div className="max-w-[848px] mx-auto">{children}</div>
       </div>
     </>
   );

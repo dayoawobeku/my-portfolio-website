@@ -3,13 +3,14 @@ import ComponentCompositionWithChildren from '../../components/BlogPosts/Managin
 import StateManagementWithContext from '../../components/BlogPosts/Managing State/StateManagementWithContext.tsx';
 
 export const meta = {
-  title: 'Simple ways to manage state in React - Client state',
+  postTitle: 'Simple ways to manage state in React - Client state',
   date: 'Date',
   time: '5 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995946/kit-suman-WQwtk_t4oJI-unsplash_2_1_vixke5.jpg',
+  title: 'gray high-rise building, by Kit Suman',
 };
 
 <InfoNote note="TL:DR React is a state management library." />
-
 <Text>Hear me out.</Text>
 {
   <Text>
@@ -34,50 +35,65 @@ export const meta = {
     <QuoteText quote="isOpenstate" />, an active nav link, form input value).
   </Text>
 }
-
-{<Text> Server cache on the other hand is state that's actually stored on the
-server and we store in the client for quick-access (like user data). Think of it
-this way: A list of articles that you fetch, the details of a User you want to
-display, ...), your app does not own it. We have only borrowed it to display the
-most recent version of it on the screen for the user. It is the server who owns
-the data.
-
-</Text>
+{
+  <Text>
+    {' '}
+    Server cache on the other hand is state that's actually stored on the server
+    and we store in the client for quick-access (like user data). Think of it this
+    way: A list of articles that you fetch, the details of a User you want to display,
+    etc), your app does not own it. We have only borrowed it to display the most
+    recent version of it on the screen for the user. It is the server who owns the
+    data.
+  </Text>
 }
-
-{<Text>Server cache is not the same as UI state and should be handled
-differently.</Text>}
-
-{<Text>React has made state management simple (not easy, but
-
-<ItalicizedText text=" plain and basic enough to understand" /> ).
-
-Let’s talk about the client state first and ways to manage it.</Text>}
-
+{
+  <Text>
+    Server cache is not the same as UI state and should be handled differently.
+  </Text>
+}
+{
+  <Text>
+    React has made state management simple (not easy, but
+    <ItalicizedText text=" plain and basic enough to understand" /> ). Let’s talk
+    about the client state first and ways to manage it.
+  </Text>
+}
 <AnchorTag text="Client state" href="client-state" />
-
-{<Text>Client state is simply state managed inherently in the UI. It can be
-further separated into local client state and global client state.</Text>}
-
-{<Text>Local state is UI state that is used in a single or few components that
-are <QuoteText quote="colocated"/>. State colocation simply means to state as
-close to where it's relevant as possible. {''}
-
-<ExternalUrl href="https://kentcdodds.com/blog/colocation" text="See this article" /> by {''}
-<ExternalUrl
-  text="Kent C Dodds."
-  href="https://twitter.com/kentcdodds/"
-/> <ExternalUrl href="https://twitter.com/dan_abramov/" text="Dan Abramov" />{' '}
-said something similar: "Things that change together should be located as close
-as reasonable.”</Text>}
-
-{<Text>Colocation can improve the overall maintenance of our
-application.</Text>}
-
-{<Text>Let’s look at an example of <QuoteText quote='colocating'/> and {''}
-
-<QuoteText quote='lifting state.'/> </Text>}
-
+{
+  <Text>
+    Client state is simply state managed inherently in the UI. It can be further
+    separated into local client state and global client state.
+  </Text>
+}
+{
+  <Text>
+    Local state is UI state that is used in a single or few components that are{' '}
+    <QuoteText quote="colocated" />. State colocation simply means to state as
+    close to where it's relevant as possible. {''}
+    <ExternalUrl
+      href="https://kentcdodds.com/blog/colocation"
+      text="See this article"
+    /> by {''}
+    <ExternalUrl
+      text="Kent C Dodds."
+      href="https://twitter.com/kentcdodds/"
+    />{' '}
+    <ExternalUrl href="https://twitter.com/dan_abramov/" text="Dan Abramov" />{' '}
+    said something similar: "Things that change together should be located as
+    close as reasonable.”
+  </Text>
+}
+{
+  <Text>
+    Colocation can improve the overall maintenance of our application.
+  </Text>
+}
+{
+  <Text>
+    Let’s look at an example of <QuoteText quote="colocating" /> and {''}
+    <QuoteText quote="lifting state." />{' '}
+  </Text>
+}
 <CodeBlock
   value={`import { useState } from 'react';
   
@@ -119,26 +135,33 @@ export default function App() {
   );
 }`}
 />
-
-{<Text>At the moment, we’re only rendering the name of the person in the {''}
-
-<QuoteText quote='app'/> component. What if we need to access the {''}
-<QuoteText quote='food'/> prop in the <QuoteText quote='app'/>
-component?</Text>}
-
-{<Text>How are we going to get access to the <QuoteText quote='food'/> if our
-state is living in the <QuoteText quote='Bestfood'/> component? Both {''}
-
-<QuoteText quote='Bestfood'/> and <QuoteText quote='Display'/> components are
-sibling components so the <QuoteText quote='BestFood'/> component cannot pass
-the food to the Display component.</Text>}
-
-{<Text>The solution is to do the same thing we’re currently doing for the {''}
-
-<QuoteText quote='Name'/> component; which is "lift the <QuoteText quote='food' /> state" from the <QuoteText quote='BestFood'/> component to the least common parent, the <QuoteText quote='App'/> component, and then
-pass the <QuoteText quote='food' /> state and the mechanism for updating that state as props to the
-component that needs it.</Text>}
-
+{
+  <Text>
+    At the moment, we’re only rendering the name of the person in the {''}
+    <QuoteText quote="app" /> component. What if we need to access the {''}
+    <QuoteText quote="food" /> prop in the <QuoteText quote="app" />
+    component?
+  </Text>
+}
+{
+  <Text>
+    How are we going to get access to the <QuoteText quote="food" /> if our
+    state is living in the <QuoteText quote="Bestfood" /> component? Both {''}
+    <QuoteText quote="Bestfood" /> and <QuoteText quote="Display" /> components are
+    sibling components so the <QuoteText quote="BestFood" /> component cannot pass
+    the food to the Display component.
+  </Text>
+}
+{
+  <Text>
+    The solution is to do the same thing we’re currently doing for the {''}
+    <QuoteText quote="Name" /> component; which is "lift the <QuoteText quote="food" />{' '}
+    state" from the <QuoteText quote="BestFood" /> component to the least common
+    parent, the <QuoteText quote="App" /> component, and then pass the <QuoteText quote="food" />{' '}
+    state and the mechanism for updating that state as props to the component that
+    needs it.
+  </Text>
+}
 <CodeBlock
   value={`...
 function BestFood({ food, handleFoodChange }) {
@@ -169,25 +192,33 @@ export default function App() {
   );
 }`}
 />
-
-{<Text>Once you learn how to do this, it becomes second nature. But one thing
-we’re not quite as good as is pushing state back down, or {''}
-
-<QuoteText quote='colocating'/> state.</Text>}
-
-{<Text>Let’s say our <QuoteText quote='Display'/> use case gets changed and we
-no longer need to pass the food down.</Text>}
-
-{<Text>Often, people will actually just leave it right there without making any
-other changes. But we need to remember that we no longer need this {''}
-
-<QuoteText quote='food' /> prop on the <QuoteText quote='Display' /> where we’re
-rendering it. </Text>}
-
-{<Text>And because the <QuoteText quote='food' /> state is only being used by a
-single component, we can move it back to that component to get it
-colocated.</Text>}
-
+{
+  <Text>
+    Once you learn how to do this, it becomes second nature. But one thing we’re
+    not quite as good as is pushing state back down, or {''}
+    <QuoteText quote="colocating" /> state.
+  </Text>
+}
+{
+  <Text>
+    Let’s say our <QuoteText quote="Display" /> use case gets changed and we no
+    longer need to pass the food down.
+  </Text>
+}
+{
+  <Text>
+    Often, people will actually just leave it right there without making any
+    other changes. But we need to remember that we no longer need this {''}
+    <QuoteText quote="food" /> prop on the <QuoteText quote="Display" /> where we’re
+    rendering it.{' '}
+  </Text>
+}
+{
+  <Text>
+    And because the <QuoteText quote="food" /> state is only being used by a
+    single component, we can move it back to that component to get it colocated.
+  </Text>
+}
 <CodeBlock
   value={`...
 function BestFood() {
@@ -213,42 +244,55 @@ export default function App() {
   );
 }`}
 />
-
-{/* <AnchorTag text="Conclusion" href="conclusion" /> */}
-
-{<Text>And with that we’ve colocated our state, making the app more performant
-and easier to maintain on the long run. </Text>}
-
-{<Text>Truth is there are only a few states that are considered truly global,
-{''} e.g. <QuoteText quote='theme' /> (light or dark mode), every other local
-state should either be stored in the function where it is called or colocated in
-the nearest common parent.</Text>}
-
+{
+  <Text>
+    And with that we’ve colocated our state, making the app more performant and
+    easier to maintain on the long run.{' '}
+  </Text>
+}
+{
+  <Text>
+    Truth is there are only a few states that are considered truly global,
+    {''} e.g. <QuoteText quote="theme" /> (light or dark mode), every other local
+    state should either be stored in the function where it is called or colocated
+    in the nearest common parent.
+  </Text>
+}
 <AnchorTag text="Prop Drilling" href="prop-drilling" />
-
-{<Text>When building large applications, passing state can get a little
-complicated when you have many layers of components and you need to pass some
-piece of state deeply through the tree. The nearest common parent could be far
-removed from the components that need data, and lifting state up that high can
-lead to a situation sometimes called {''}
-
-<QuoteText quote='prop drilling.' /></Text>}
-
-{<Text>A simple way to look at prop drilling is that a parent creates a state,
-passes it down to “middle men”; components that do not require the state, and
-then down the tree eventually to the component(s) that needs it.</Text>}
-
-{<Text>In other words, a component receives a state or props just so that
-another component below it can access that. </Text>}
-
-{<Text>Most react devs avoid it and would reach for libraries such as {''}
-
-<QuoteText quote='redux' /> or <ExternalUrl text='React context' href='https://beta.reactjs.org/apis/react/useContext' /> the moment they encounter this problem.</Text>}
-
+{
+  <Text>
+    When building large applications, passing state can get a little complicated
+    when you have many layers of components and you need to pass some piece of
+    state deeply through the tree. The nearest common parent could be far
+    removed from the components that need data, and lifting state up that high
+    can lead to a situation sometimes called {''}
+    <QuoteText quote="prop drilling." />
+  </Text>
+}
+{
+  <Text>
+    A simple way to look at prop drilling is that a parent creates a state,
+    passes it down to “middle men”; components that do not require the state,
+    and then down the tree eventually to the component(s) that needs it.
+  </Text>
+}
+{
+  <Text>
+    In other words, a component receives a state or props just so that another
+    component below it can access that.{' '}
+  </Text>
+}
+{
+  <Text>
+    Most react devs avoid it and would reach for libraries such as {''}
+    <QuoteText quote="redux" /> or <ExternalUrl
+      text="React context"
+      href="https://beta.reactjs.org/apis/react/useContext"
+    /> the moment they encounter this problem.
+  </Text>
+}
 <InfoNote note="Don't be afraid of prop drilling" />
-
 <Text>Let’s look at an example of prop drilling in action.</Text>
-
 <CodeBlock
   value={`import {useState} from 'react';
   
@@ -329,32 +373,44 @@ function LogoutButton({ onLogout }) {
 }
 `}
 />
-
 <ComponentCompositionWithChildrenTemplate />
-
-{<Text>Here, we have this Dashboard layout where the {''}
-
-<QuoteText quote='WelcomeMessage' /> is being displayed based on the current user's name. To get the value, we would need to prop drill the  {''}
-<QuoteText quote='user' /> object three levels deep until it gets to the <QuoteText quote='WelcomeMessage' /> component.</Text>}
-
-{<Text>This is a contrived example, and prop drilling may not be a big deal in
-such a scenario and in many instances for that matter, but it can be an
-annoyance in really complex state management architectures.</Text>}
-
-{<Text>When you truly encounter the latter and prop drilling may potentially
-complicate your state management, then there's a couple of other solutions we
-can use to avoid prop drilling. The first is {''}
-
-<QuoteText quote='component composition' />.</Text>}
-
+{
+  <Text>
+    Here, we have this Dashboard layout where the {''}
+    <QuoteText quote="WelcomeMessage" /> is being displayed based on the current
+    user's name. To get the value, we would need to prop drill the {''}
+    <QuoteText quote="user" /> object three levels deep until it gets to the{' '}
+    <QuoteText quote="WelcomeMessage" /> component.
+  </Text>
+}
+{
+  <Text>
+    This is a contrived example, and prop drilling may not be a big deal in such
+    a scenario and in many instances for that matter, but it can be an annoyance
+    in really complex state management architectures.
+  </Text>
+}
+{
+  <Text>
+    When you truly encounter the latter and prop drilling may potentially
+    complicate your state management, then there's a couple of other solutions
+    we can use to avoid prop drilling. The first is {''}
+    <QuoteText quote="component composition" />.
+  </Text>
+}
 <AnchorTag text="Component Composition" href="component-composition" />
-
-{<Text>With composition, you basically make a prop that is the react element
-that you want to render in a specific place.</Text>}
-
-{<Text>Let's use the same prop drilling example and see how we can use
-composition instead.</Text>}
-
+{
+  <Text>
+    With composition, you basically make a prop that is the react element that
+    you want to render in a specific place.
+  </Text>
+}
+{
+  <Text>
+    Let's use the same prop drilling example and see how we can use composition
+    instead.
+  </Text>
+}
 <CodeBlock
   value={`export default function App() {
   const [currentUser, setCurrentUser] = useState({name: ''});
@@ -390,20 +446,26 @@ function Dashboard({ children }) {
 }
 ...`}
 />
+{
+  <Text>
+    We have eliminated one level of prop drilling. We no longer pass the {''}
+    <QuoteText quote="DashboardNav" />
+    and {''}
+    <QuoteText quote="DashboardContent" /> inside the Dashboard, instead we pass
+    it the special {''}
+    <QuoteText quote="children" />
+    prop and pass the <QuoteText quote="user" /> directly to the <QuoteText quote="DashboardContent" />
 
-{<Text>We have eliminated one level of prop drilling. We no longer pass the {''}
+    .
 
-<QuoteText quote="DashboardNav" />
-and {''}
-<QuoteText quote="DashboardContent" /> inside the Dashboard, instead we pass it
-the special {''}
-
-<QuoteText quote='children' />
-prop and pass the <QuoteText quote='user' /> directly to the <QuoteText quote='DashboardContent' />.</Text>}
-
-{<Text>Let's take it a step further and do the same thing for the Dashboard
-content.</Text>}
-
+  </Text>
+}
+{
+  <Text>
+    Let's take it a step further and do the same thing for the Dashboard
+    content.
+  </Text>
+}
 <CodeBlock
   value={`export default function App() {
   const [currentUser, setCurrentUser] = useState({name: ''});
@@ -441,22 +503,24 @@ function DashboardContent({ children }) {
 }
 ...`}
 />
-
-{<Text>And like that the Dashboard is more composable and customizable. And
-we're no longer prop drilling.</Text>}
-
+{
+  <Text>
+    And like that the Dashboard is more composable and customizable. And we're
+    no longer prop drilling.
+  </Text>
+}
 {<Text>Our app works like before too.</Text>}
-
 <ComponentCompositionWithChildren />
-
-{<Text>Sometimes you may need multiple “holes” in a component. Another way React
-composes is to make a component that is a wrapper for another component. In such
-cases you may come up with your own convention instead of using the {''}
-
-<QuoteText quote='children' /> prop.</Text>}
-
+{
+  <Text>
+    Sometimes you may need multiple “holes” in a component. Another way React
+    composes is to make a component that is a wrapper for another component. In
+    such cases you may come up with your own convention instead of using the{' '}
+    {''}
+    <QuoteText quote="children" /> prop.
+  </Text>
+}
 <Text>Let's see it in action.</Text>
-
 <CodeBlock
   value={`export default function App() {
   return <ChatApp left={<Contacts />} right={<Chat />} />;
@@ -479,51 +543,75 @@ function ChatApp({ left, right }) {
   );
 }`}
 />
-
-{<Text>What we have simply done is pass arbitrary values as props to the {''}
-
-<QuoteText quote='ChatApp'/> component.</Text>}
-
-{<Text>React elements like <QuoteText quote='Contacts'/> and {''}
-
-<QuoteText quote='Chat'/> are just objects, so they can be passed as props like
-any other data. This is a very common use case for composition.</Text>}
-
-{<Text>The next solution is the {''}
-
-<ExternalUrl text='React context API' href='https://beta.reactjs.org/apis/react/useContext' />.</Text>}
-
+{
+  <Text>
+    What we have simply done is pass arbitrary values as props to the {''}
+    <QuoteText quote="ChatApp" /> component.
+  </Text>
+}
+{
+  <Text>
+    React elements like <QuoteText quote="Contacts" /> and {''}
+    <QuoteText quote="Chat" /> are just objects, so they can be passed as props like
+    any other data. This is a very common use case for composition.
+  </Text>
+}
+{
+  <Text>
+    The next solution is the {''}
+    <ExternalUrl
+      text="React context API"
+      href="https://beta.reactjs.org/apis/react/useContext"
+    />.
+  </Text>
+}
 <AnchorTag text="React Context" href="react-context" />
-
-{<Text> Context is useful when you have some value that you want to make
-accessible to a portion of your React component tree, without passing that value
-down as props through each level of components.</Text>}
-
-{<Text>We'll use {''}
-
-<ExternalUrl text='react context' href='https://beta.reactjs.org/apis/react/useContext' />
-to simplify the state management of our previous Dashboard app.</Text>}
-
-{<Text>What we simply need to do is create a context using the {''}
-
-<QuoteText quote='createContext'/> API, and wrap our <QuoteText quote='App'/> component with the
-context provider.</Text>}
-
-{<Text>We also removed the user object from the {''}
-
-<QuoteText quote='Dashboard'/>, {''}
-<QuoteText quote='DashboardContent'/>, and {''}
-<QuoteText quote='WelcomeMessage'/>
- components.</Text>}
-
-{<Text>Lastly, we'll {''}
-
-<ExternalUrl text='destructure' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment' />
-the <QuoteText quote='currentUser' /> object using the useContext API and use the <QuoteText quote='user' /> directly inside
-the <QuoteText quote='WelcomeMessage' /> component.</Text>}
-
+{
+  <Text>
+    {' '}
+    Context is useful when you have some value that you want to make accessible to
+    a portion of your React component tree, without passing that value down as props
+    through each level of components.
+  </Text>
+}
+{
+  <Text>
+    We'll use {''}
+    <ExternalUrl
+      text="react context"
+      href="https://beta.reactjs.org/apis/react/useContext"
+    /> to simplify the state management of our previous Dashboard app.
+  </Text>
+}
+{
+  <Text>
+    What we simply need to do is create a context using the {''}
+    <QuoteText quote="createContext" /> API, and wrap our <QuoteText quote="App" />{' '}
+    component with the context provider.
+  </Text>
+}
+{
+  <Text>
+    We also removed the user object from the {''}
+    <QuoteText quote="Dashboard" />, {''}
+    <QuoteText quote="DashboardContent" />, and {''}
+    <QuoteText quote="WelcomeMessage" />
+    components.
+  </Text>
+}
+{
+  <Text>
+    Lastly, we'll {''}
+    <ExternalUrl
+      text="destructure"
+      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"
+    />
+    the <QuoteText quote="currentUser" /> object using the useContext API and
+    use the <QuoteText quote="user" /> directly inside the{' '}
+    <QuoteText quote="WelcomeMessage" /> component.
+  </Text>
+}
 <Text>Here's what the implementation looks like.</Text>
-
 <CodeBlock
   value={`const Context = React.createContext({
   currentUser: {name: ''},
@@ -563,35 +651,30 @@ function WelcomeMessage() {
 }
 ...`}
 />
-
 {<Text>And you guessed it, our app works still! 😉</Text>}
-
 <StateManagementWithContext />
-
 <AnchorTag text="Conclusion" href="conclusion" />
-
-{<Text>Essentially, with client/ui state, start with just react. Most apps
-barely have global app state after server state is handled. If you truly still
-need a global state in your app, try {''}
-
-<ExternalUrl text="zustand" href="https://www.npmjs.com/package/zustand" /> or{' '}
-
-<ExternalUrl text="jotai" href="https://jotai.org/" />.
-
-And for anything more complex, try {''}
-
-<ExternalUrl text="xstate" href="https://xstate.js.org/" />.
-
-</Text>}
-
-{<Text>This was meant to be one really long blog post, but I decided to break it
-into 2 parts. Read the second part {''}
-
-<LocalLink
-  text="here"
-  href="simple-ways-to-manage-state-in-react-part-2"
-/>
-where I talk about managing server
-state.</Text>}
-
+{
+  <Text>
+    Essentially, with client/ui state, start with just react. Most apps barely
+    have global app state after server state is handled. If you truly still need
+    a global state in your app, try {''}
+    <ExternalUrl
+      text="zustand"
+      href="https://www.npmjs.com/package/zustand"
+    /> or <ExternalUrl text="jotai" href="https://jotai.org/" />. And for anything
+    more complex, try {''}
+    <ExternalUrl text="xstate" href="https://xstate.js.org/" />.
+  </Text>
+}
+{
+  <Text>
+    This was meant to be one really long blog post, but I decided to break it
+    into 2 parts. Read the second part {''}
+    <LocalLink
+      text="here"
+      href="simple-ways-to-manage-state-in-react-part-2"
+    /> where I talk about managing server state.
+  </Text>
+}
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
