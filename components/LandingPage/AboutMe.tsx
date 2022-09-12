@@ -43,7 +43,14 @@ export default function AboutMe() {
             </a>
           </Link>
         </div>
-        <Image alt="" src={aboutMe} width={536} height={350} />
+        <Image
+          alt=""
+          src={aboutMe}
+          width={536}
+          height={350}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+        />
       </div>
     </section>
   );

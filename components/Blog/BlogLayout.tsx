@@ -52,6 +52,8 @@ export default function Layout({meta, children}: Props) {
             quality={100}
             className="rounded"
             title={meta.title}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           />
         </div>
         <div className="max-w-[848px] mx-auto">{children}</div>
