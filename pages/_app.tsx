@@ -12,6 +12,7 @@ import {
   ItalicizedText,
   QuoteText,
   CodeBlock,
+  NoCodeBlock,
   BlogLayout,
   SuccessNote,
   DangerNote,
@@ -19,6 +20,7 @@ import {
   AnchorTag,
   ExternalUrl,
   LocalLink,
+  ListNumber,
 } from '../components/Blog';
 import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 
@@ -30,12 +32,14 @@ const components = {
   ItalicizedText,
   QuoteText,
   CodeBlock,
+  NoCodeBlock,
   SuccessNote,
   DangerNote,
   InfoNote,
   AnchorTag,
   ExternalUrl,
   LocalLink,
+  ListNumber,
 };
 
 function MyApp({Component, pageProps}: AppProps) {

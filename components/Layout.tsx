@@ -10,6 +10,45 @@ import {
   menuLight,
 } from '../assets/images/images';
 
+const NAV_LINKS = [
+  {
+    href: '/#testimonials',
+    text: 'Testimonials',
+  },
+  {
+    href: '/#portfolio',
+    text: 'Portfolio',
+  },
+  {
+    href: '/blog',
+    text: 'Blog',
+  },
+  {
+    href: '/about',
+    text: 'About',
+  },
+];
+
+interface NavLinkProps {
+  href: string;
+  text: string;
+}
+
+function NavLink({href = '', text}: NavLinkProps) {
+  const {theme} = useTheme();
+  return (
+    <Link href={href}>
+      <a
+        className={`nav-link ${
+          theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+        }`}
+      >
+        {text}
+      </a>
+    </Link>
+  );
+}
+
 interface Props {
   children?: ReactNode;
 }
@@ -60,42 +99,9 @@ function Layout({children}: Props) {
               />
             </button>
             <div className="hidden md:flex items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white">
-              <Link href="/#testimonials">
-                <a
-                  className={`nav-link ${
-                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-                  }`}
-                >
-                  Testimonials
-                </a>
-              </Link>
-              <Link href="/#portfolio">
-                <a
-                  className={`nav-link ${
-                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-                  }`}
-                >
-                  Portfolio
-                </a>
-              </Link>
-              <Link href="/blog">
-                <a
-                  className={`nav-link ${
-                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-                  }`}
-                >
-                  Blog
-                </a>
-              </Link>
-              <Link href="/about">
-                <a
-                  className={`nav-link ${
-                    theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-                  }`}
-                >
-                  About
-                </a>
-              </Link>
+              {NAV_LINKS.map(({href, text}, index) => (
+                <NavLink key={index} href={href} text={text} />
+              ))}
             </div>
             <Link href="/contact">
               <button className="hidden md:block px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
@@ -112,13 +118,19 @@ function Layout({children}: Props) {
           <div className="flex flex-wrap items-center justify-between gap-4 font-medium uppercase mt-18 text-brown dark:text-grey-600">
             <p>dayo awobeku</p>
             <div className="flex items-center gap-5 underline">
-              <a href="mailto: dayoawobeku@gmail.com">mail</a>
+              <a
+                href="mailto: dayoawobeku@gmail.com"
+                className="hover:text-danger transition-all duration-300"
+              >
+                mail
+              </a>
               <div className="relative">
                 <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
                 <a
                   href="https://twitter.com/dayoawobeku"
                   target="_blank"
                   rel="noreferrer"
+                  className="hover:text-success transition-all duration-300"
                 >
                   twitter
                 </a>
@@ -129,6 +141,7 @@ function Layout({children}: Props) {
                   href="https://linkedin.com/in/dayoawobeku/"
                   target="_blank"
                   rel="noreferrer"
+                  className="hover:text-info transition-all duration-300"
                 >
                   linkedin
                 </a>

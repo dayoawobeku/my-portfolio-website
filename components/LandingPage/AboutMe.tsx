@@ -30,16 +30,18 @@ export default function AboutMe() {
             businesses forward.
           </p>
           <Link href="/about">
-            <a className="inline-flex items-center gap-4 mt-6">
-              <span className="font-medium text-4md text-grey dark:text-white">
+            <a className="inline-flex items-center gap-4 mt-6 group">
+              <span className="font-medium text-4md text-grey dark:text-white mb-1">
                 Get to know more about me
               </span>
-              <Image
-                alt=""
-                src={theme === 'light' ? arrowLight : arrowDark}
-                width={48}
-                height={48}
-              />
+              <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
+                <Image
+                  alt=""
+                  src={theme === 'light' ? arrowLight : arrowDark}
+                  width={20}
+                  height={20}
+                />
+              </div>
             </a>
           </Link>
         </div>

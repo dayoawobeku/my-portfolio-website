@@ -1,0 +1,115 @@
+import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State/ServerStateWithReactQuery.tsx';
+
+export const meta = {
+  postTitle: 'Why I now use Tailwind in all my new projects.',
+  date: 'Date',
+  time: '5 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995775/seth-cottle-On-Fsm5G52g-unsplash_3_1_fxrjwr.jpg',
+  title: 'aerial photo of waterfalls, by Seth Cottle',
+};
+
+<InfoNote note="Tailwind CSS is awesome!" />
+
+{<Text>In simple terms, {''}
+
+<ExternalUrl href='https://tailwindcss.com/' text='Tailwindcss' /> is a
+utility-first CSS framework.</Text>}
+
+{<Text>Utility-first CSS is the notion of composing many small classes together
+such as <BoldText text='flex' />, <BoldText text='pt-4' />, {''}
+
+<BoldText text='text-center' />.</Text>}
+
+{<Text>Tailwind is an excellent solution for developers familiar with CSS who
+want to speed up the creation and design process in the long run.</Text>}
+
+{<Text>While Tailwind helps you get better with CSS, I would still argue that
+you need to learn CSS at least to a basic extent before picking up a tool like
+Tailwind. And by "basic", I mean you should be familiar with stuff like the {''}
+
+<ExternalUrl
+  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
+  text="box-model"
+/>
+{','} {''}
+<ExternalUrl
+  href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+  text="using flexbox"
+/>
+{','} and the basics of CSS{' '}
+
+<ExternalUrl
+  href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations"
+  text="animations"
+/> and <ExternalUrl
+  href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions"
+  text="transitions"
+/>
+
+transitions.</Text>}
+
+<DangerNote note="I do not think it’s such a great idea to use Tailwind if you are not familiar with plain old vanilla CSS." />
+
+{<Text>Like many people, the first time I used {''}
+
+<ExternalUrl href='https://tailwindcss.com/' text='Tailwind' />, I didn’t
+exactly understand all that was happening. It felt too easy and difficult at the
+same time. I left it for a while, and came back to it and I totally loved
+it.</Text>}
+
+{<Text>I'm not saying {''}
+
+<ExternalUrl href='https://tailwindcss.com/' text='Tailwind' /> is the best
+thing to happen to humanity after sliced bread? But, {''}
+<ExternalUrl href='https://tailwindcss.com/' text='Tailwind' /> does make your
+life significantly simpler.</Text>}
+
+<AnchorTag
+  text="Here are a few reasons why I love and use Tailwind"
+  href="why-I-love-and-use-Tailwind"
+/>
+
+{<ListNumber>1. It is simple to set up and highly customizable.</ListNumber>}
+
+{<Text>Before I got into {''}
+
+<ExternalUrl href='https://tailwindcss.com/' text='Tailwind' />, I’d used {''}
+<ExternalUrl href='https://getbootstrap.com/' text='Bootstrap' /> for a while and {''}
+<ExternalUrl href='https://getbootstrap.com/' text='Bootstrap' /> is great, no
+doubt. But the major issue I had was customization. At the company I work with at the moment, <ExternalUrl href='https://dojah.io/' text='Dojah' />,
+we use a lot of custom designs, spacing, and components.</Text>}
+
+{<Text>And many times, we would revert to using the <QuoteText quote='style' />
+prop to add an extra layer of styling because
+{''}<ExternalUrl href='https://getbootstrap.com/' text='Bootstrap' /> wasn’t
+just enough! Did I even mention the numerous extra classes we added in the {''}
+
+<QuoteText quote="global.css" /> file because {''}
+
+<ExternalUrl href='https://getbootstrap.com/' text='Bootstrap' /> didn’t give us
+the measurements we needed out of the box?</Text>}
+
+<InfoNote
+  note="I'm not comparing both tools because they are intrinsically different.
+Bootstrap is great if you need an already built set of tools and components to
+plug in to. Tailwind on the other hand provides you with the utilities and you
+build every other thing yourself."
+/>
+
+{<Text>And that's where Tailwind shines. You can easily add your own extra layer
+of configuration in the {''} <QuoteText quote="tailwind.config" /> file and the
+balance of the earth remains the same. And if peradventure you need an
+{''}<ExternalUrl
+  href="https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values"
+  text="arbitrary value"
+/> {','} you can easily add it to your className prop like so: {''}
+
+<QuoteText quote="top-[117px]" />. Easy.</Text>}
+
+{<ListNumber>2. Tailwind's Responsive Design is just awesome.</ListNumber>}
+
+{<Text>Every utility class in Tailwind can be applied conditionally at different
+breakpoints, which makes it super simple to build complex responsive interfaces
+without ever leaving your HTML.</Text>}
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
