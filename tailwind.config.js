@@ -37,7 +37,7 @@ module.exports = {
         200: '#30c85e20',
       },
       danger: {
-        DEFAULT: '#A13E3F',
+        DEFAULT: '#D53F41',
         300: '#A13E3F30',
       },
       info: {

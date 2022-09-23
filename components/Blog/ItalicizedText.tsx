@@ -1,7 +1,3 @@
-interface Props {
-  text: string;
-}
-
-export default function ItalicizedText({text}: Props) {
+export default function ItalicizedText({text}: {text: string}) {
   return <i className="italic dark:text-white-800">{text}</i>;
 }

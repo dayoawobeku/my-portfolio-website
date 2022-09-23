@@ -93,17 +93,19 @@ function Project({projectImg, heading, body, stack, url}: ProjectProps) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 mt-10"
+            className="inline-flex items-center gap-4 mt-10 transition-all duration-300 group"
           >
-            <span className="font-medium text-4md text-grey dark:text-white">
+            <span className="font-medium text-4md text-grey dark:text-white underline mb-1">
               Visit site
             </span>
-            <Image
-              alt=""
-              src={theme === 'light' ? arrowLight : arrowDark}
-              width={48}
-              height={48}
-            />
+            <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
+              <Image
+                alt=""
+                src={theme === 'light' ? arrowLight : arrowDark}
+                width={20}
+                height={20}
+              />
+            </div>
           </a>
         )}
       </div>

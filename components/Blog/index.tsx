@@ -4,6 +4,7 @@ import BoldText from './BoldText';
 import QuoteText from './QuoteText';
 import ItalicizedText from './ItalicizedText';
 import CodeBlock from './CodeBlock';
+import NoCodeBlock from './NoCodeBlock';
 import BlogLayout from './BlogLayout';
 import DangerNote from './DangerNote';
 import SuccessNote from './SuccessNote';
@@ -11,6 +12,7 @@ import InfoNote from './InfoNote';
 import AnchorTag from './AnchorTag';
 import ExternalUrl from './ExternalUrl';
 import LocalLink from './LocalLink';
+import ListNumber from './ListNumber';
 
 export {
   Heading,
@@ -19,6 +21,7 @@ export {
   QuoteText,
   ItalicizedText,
   CodeBlock,
+  NoCodeBlock,
   BlogLayout,
   DangerNote,
   SuccessNote,
@@ -26,4 +29,5 @@ export {
   AnchorTag,
   ExternalUrl,
   LocalLink,
+  ListNumber,
 };

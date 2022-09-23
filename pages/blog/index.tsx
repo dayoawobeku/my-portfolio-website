@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useState, useEffect} from 'react';
 import {GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
@@ -19,10 +18,11 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Blog: NextPage<{images: any}> = ({images}) => {
   const {theme} = useTheme();
 
-  const cloudinaryImages = images.map((image: any) => {
+  const cloudinaryImages = images.map((image: unknown) => {
     return image;
   });
 

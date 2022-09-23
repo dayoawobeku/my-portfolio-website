@@ -1,0 +1,179 @@
+import Interface from '../../components/BlogPosts/DarkMode/Interface.tsx';
+import InterfaceIntegrated from '../../components/BlogPosts/DarkMode/InterfaceIntegrated.tsx';
+
+export const meta = {
+  postTitle: 'Super easy way to integrate dark mode in your Next js app.',
+  date: 'Date',
+  time: '5 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995775/seth-cottle-On-Fsm5G52g-unsplash_3_1_fxrjwr.jpg',
+  title: 'aerial photo of waterfalls, by Seth Cottle',
+};
+
+{<Text>Almost all apps these days have dark mode.</Text>}  
+{<Text>In approximately 2 minutes, I'll show you how you can add the beloved
+dark mode to your next Next js app.</Text>}  
+{<Text>Studies show that dark mode may work to decrease eye strain and dry eye
+for some people who spend a lot of time staring at screens.</Text>}  
+{<Text> Also, not surprisingly so, dark mode helps to extend the battery life of
+your device. It doesn’t cost a lot and will be very nice to give dark mode a try
+in your next app.</Text>}  
+{<Text> We'll use {''}
+
+<ExternalUrl text='next-themes' href='https://www.npmjs.com/package/next-themes' />, and {''}
+<ExternalUrl text='Tailwindcss' href='https://tailwindcss.com/' />. But feel free to use any styling libraries or methodologies you
+like, the underlying principles are the same.</Text>}
+
+<Text>Let's get straight into it!</Text>
+
+{<Text> First, install {''} <QuoteText quote="next-themes" />{' '}
+
+<BoldText text="(npm i next-themes)" />, and <ExternalUrl
+  href="https://tailwindcss.com/docs/installation"
+  text="add Tailwindcss as a dev
+dependency."
+/>{' '}</Text>}
+
+<Text>Next, we'll create a simple interface for our UI.</Text>
+
+<Interface />
+
+{<Text>Next, we'll go to our <QuoteText quote="_app.tsx" /> file and import
+next-themes at the top level. We'll also wrap whatever nested elements we have
+in the file with a <QuoteText quote="ThemeProvider" /> component that
+next-themes gives us. </Text>}
+
+{<Text>Our <QuoteText quote="_app.tsx" /> file should look like this:</Text>}
+
+<CodeBlock
+  lang="ts"
+  value={`import type {AppProps} from 'next/app';
+import {ThemeProvider} from 'next-themes';
+import Layout from '../components/Layout';
+  
+function MyApp({Component, pageProps}: AppProps) {
+return (
+  <ThemeProvider attribute="class" defaultTheme="system">
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  </ThemeProvider>
+  );
+} `}
+/>
+
+{<Text><QuoteText quote="next-themes" /> provides us with different props and
+options including the class type and the default theme.</Text>}
+
+{<Text>For the sake of this tutorial, we'll set the {''}
+
+<QuoteText quote="attribute" /> property on the {''}
+<QuoteText quote="ThemeProvider" /> to <QuoteText quote="class" />, and the {''}
+<QuoteText quote="defaultTheme" /> to <QuoteText quote="system" />. Feel free to read their docs <ExternalUrl href='https://github.com/pacocoursey/next-themes' text='here'/>  for more explanation. </Text>}
+
+{<Text>What's left at this point is to modify our UI to display the way we want
+it to when either light or dark mode is toggled.</Text>}
+
+{<Text><QuoteText quote="next-themes" /> also provides us with a {''}
+
+<QuoteText quote="useTheme" /> function from which we'll <ExternalUrl text="destructure" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"/> the <QuoteText quote="theme" /> and <QuoteText quote="setTheme" /> objects from.</Text>}
+
+{<Text>For our styling, Tailwind helps us with this part. All you need to do is
+add {''}
+
+<QuoteText quote="dark:..." /> to your className, and Tailwind will do the
+rest. </Text>}
+
+{<Text>This is what the final interface looks like:</Text>}
+
+<InterfaceIntegrated />
+
+<Text>This is the final code for the interface:</Text>
+
+<CodeBlock
+  lang="ts"
+  value={`import {useTheme} from 'next-themes';
+  
+export default function App() {
+  const {theme, setTheme} = useTheme();
+  
+  return (
+    <section className="flex flex-col items-start gap-6 px-4 py-4 my-8 border-2 rounded basis-full dark:border-white-700 dark:text-white text-grey-800">
+      <div className="flex gap-5 items-center justify-between">
+        <h1 className="text-md">Our Awesome dark mode app!</h1>
+        <button
+          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          className="text-[0.875rem] font-medium text-success flex items-center gap-2"
+        >
+          <span>Toggle dark/light mode</span>
+          {theme === 'light' ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z" />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="#fff"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z" />
+            </svg>
+          )}
+        </button>
+      </div>
+      <div className="w-20 h-20 rounded-full bg-info dark:bg-brown" />
+      <p className="font-medium">
+        Creating a dark theme is so easy with next-themes and Tailwindcss!
+      </p>
+      <a
+        href="https://www.npmjs.com/package/next-themes"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline"
+      >
+        Learn more about next-themes here.
+      </a>
+      <p>Yada yada yada.</p>
+    </section>
+  );
+}`}
+/>
+
+{<Text>Lastly, because we cannot know the theme on the server, the values
+returned from useTheme will be undefined until mounted on the client, and if you
+stop here, you'll get a
+
+<ExternalUrl href='https://nextjs.org/docs/messages/react-hydration-error' text='hydration mismatch' />
+error by Next js.</Text>}
+
+{<Text>Basically, what we want to do is create a state that checks if our app is
+mounted on the client. The state is false to begin with. Then if the app is
+mounted, we set it to true.</Text>}
+
+{<Text>Add this to the top of your component and the error should
+disappear.</Text>}
+
+<CodeBlock lang="ts" value={`import {useState, useEffect} from 'react';
+  
+const [mounted, setMounted] = useState(false);
+  
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+if (!mounted) return null;`} />
+
+{<Text>And that's it! You've added dark mode to your app in a matter of a few
+minutes.</Text>}
+
+{<Text>Thanks for reading!</Text>}
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

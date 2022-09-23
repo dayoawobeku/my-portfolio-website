@@ -1,0 +1,19 @@
+import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State/ServerStateWithReactQuery.tsx';
+
+export const meta = {
+  postTitle:
+    'How I built this website - my process, technologies, and much more!',
+  date: 'Date',
+  time: '5 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995775/seth-cottle-On-Fsm5G52g-unsplash_3_1_fxrjwr.jpg',
+  title: 'aerial photo of waterfalls, by Seth Cottle',
+};
+
+{<Text>In the first part of this series, I talk about {''}
+
+<LocalLink
+  text="managing the UI/Client state."
+  href="simple-ways-to-manage-state-in-react-part-1"
+/> You may wanna check that out before reading this post.</Text>}
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
