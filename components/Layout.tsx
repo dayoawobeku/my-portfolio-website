@@ -2,12 +2,15 @@ import {ReactNode, useEffect, useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useTheme} from 'next-themes';
+import {useQuery} from '@tanstack/react-query';
+import axios from 'axios';
 import Newsletter from './Newsletter';
 import {
   darkMode,
   lightMode,
   menuDark,
   menuLight,
+  spotifyLogo,
 } from '../assets/images/images';
 
 const NAV_LINKS = [
@@ -56,6 +59,32 @@ interface Props {
 function Layout({children}: Props) {
   const {theme, setTheme} = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short',
+      hourCycle: 'h23',
+    }),
+  );
+
+  const {data: spotifyData} = useSpotify();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+          hourCycle: 'h23',
+        }),
+      );
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -115,7 +144,35 @@ function Layout({children}: Props) {
 
         <footer className="pb-16 mt-18 md:mt-40">
           <Newsletter />
-          <div className="flex flex-wrap items-center justify-between gap-4 font-medium uppercase mt-18 text-brown dark:text-grey-600">
+
+          <div className="flex justify-between gap-2 flex-wrap mt-18">
+            <div className="inline-flex items-center gap-2">
+              <Image
+                src={spotifyLogo}
+                alt="spotify icon logo"
+                width={16}
+                height={16}
+              />
+
+              {!spotifyData?.isPlaying ? (
+                <p className="font-medium">Not Playing</p>
+              ) : (
+                <Link href={spotifyData.songUrl}>
+                  <a target="_blank" className="font-medium hover:underline">
+                    {spotifyData.title}, {spotifyData.artist}
+                  </a>
+                </Link>
+              )}
+              <p className="font-medium">-</p>
+              <p className="text-grey-800 dark:text-grey-600">Spotify</p>
+            </div>
+            <div className="inline-flex items-center gap-2 text-grey-800 dark:text-grey-600">
+              <p>{Intl.DateTimeFormat().resolvedOptions().timeZone},</p>
+              <p>{currentTime}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown mt-10 dark:text-grey-600">
             <p>dayo awobeku</p>
             <div className="flex items-center gap-5 underline">
               <a
@@ -156,3 +213,9 @@ function Layout({children}: Props) {
 }
 
 export default Layout;
+
+function useSpotify() {
+  return useQuery(['spotify'], () =>
+    axios.get('/api/spotify').then(res => res.data),
+  );
+}
