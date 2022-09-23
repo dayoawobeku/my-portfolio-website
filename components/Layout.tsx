@@ -40,7 +40,7 @@ interface NavLinkProps {
 function NavLink({href = '', text}: NavLinkProps) {
   const {theme} = useTheme();
   return (
-    <Link href={href}>
+    <Link href={href} passHref shallow>
       <a
         className={`nav-link ${
           theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
@@ -68,7 +68,7 @@ function Layout({children}: Props) {
     }),
   );
 
-  const {data: spotifyData} = useSpotify();
+  const {data: spotifyNowPlaying} = useSpotifyNowPlaying();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -154,12 +154,12 @@ function Layout({children}: Props) {
                 height={16}
               />
 
-              {!spotifyData?.isPlaying ? (
+              {!spotifyNowPlaying?.isPlaying ? (
                 <p className="font-medium">Not Playing</p>
               ) : (
-                <Link href={spotifyData.songUrl}>
+                <Link href={spotifyNowPlaying.songUrl}>
                   <a target="_blank" className="font-medium hover:underline">
-                    {spotifyData.title}, {spotifyData.artist}
+                    {spotifyNowPlaying.title}, {spotifyNowPlaying.artist}
                   </a>
                 </Link>
               )}
@@ -214,8 +214,12 @@ function Layout({children}: Props) {
 
 export default Layout;
 
-function useSpotify() {
-  return useQuery(['spotify'], () =>
-    axios.get('/api/spotify').then(res => res.data),
+function useSpotifyNowPlaying() {
+  return useQuery(
+    ['spotify-now-playing'],
+    () => axios.get('/api/spotify/now-playing').then(res => res.data),
+    {
+      refetchInterval: 1000 * 60,
+    },
   );
 }

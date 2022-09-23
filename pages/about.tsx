@@ -1,9 +1,20 @@
+import {useQuery} from '@tanstack/react-query';
+import axios from 'axios';
 import type {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import {aboutImage} from '../assets/images/images';
 
+interface Track {
+  title: string;
+  artist: string;
+  songUrl: string;
+}
+
 const About: NextPage = () => {
+  const {data: spotifyTopTracks} = useSpotifyTopTracks();
+
   return (
     <div>
       <Head>
@@ -57,8 +68,53 @@ const About: NextPage = () => {
           </div>
         </div>
       </section>
+
+      <section className="mt-28">
+        <h2 className="text-4md font-bold">Top Tracks</h2>
+        <p className="mt-4 text-md text-grey-800 dark:text-white-400">
+          Curious what I'm currently jamming to? Here's my top tracks on Spotify
+          updated daily.
+        </p>
+
+        <div>
+          <div className="mt-6 divide-y divide-grey-800 flex flex-col gap-4">
+            {spotifyTopTracks?.tracks?.map((track: Track, index: number) => (
+              <div key={index} className="flex flex-col pt-4">
+                <div className="flex items-start gap-3">
+                  <p className="text-[0.875rem] text-grey-400 font-bold mt-1">
+                    {index + 1}
+                  </p>
+                  <div>
+                    <Link href={track.songUrl}>
+                      <a
+                        className="text-grey-100 text-md font-medium"
+                        target="_blank"
+                      >
+                        {track.title}
+                      </a>
+                    </Link>
+                    <p className="text-base text-grey-400 dark:font-medium">
+                      {track.artist}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
 export default About;
+
+function useSpotifyTopTracks() {
+  return useQuery(
+    ['spotify-top-tracks'],
+    () => axios.get('/api/spotify/top-tracks').then(res => res.data),
+    {
+      staleTime: 1000 * 60 * 60 * 24,
+    },
+  );
+}

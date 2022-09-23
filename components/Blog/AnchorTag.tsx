@@ -1,9 +1,4 @@
-interface Props {
-  text: string;
-  href: string;
-}
-
-export default function AnchorTag({text, href}: Props) {
+export default function AnchorTag({text, href}: {text: string; href: string}) {
   return (
     <h2 id={href}>
       <a

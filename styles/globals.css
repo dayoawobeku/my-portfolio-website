@@ -4,7 +4,6 @@
 
 html {
   font-family: 'Satoshi', sans-serif;
-  scroll-behavior: auto;
 }
 
 ::-webkit-search-cancel-button {
