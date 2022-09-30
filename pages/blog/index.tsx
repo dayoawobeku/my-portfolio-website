@@ -54,9 +54,9 @@ const Blog: NextPage<{images: any}> = ({images}) => {
 
       <div className="flex flex-wrap items-center justify-between gap-4 mt-10 basis-full md:flex-nowrap lg:gap-8 md:mt-20">
         <div className="md:basis-2/3 lg:basis-auto lg:max-w-lg">
-          <h3 className="mb-10 text-xl md:text-2xl lg:text-4xl text-grey dark:text-white">
+          <h1 className="mb-10 text-xl md:text-2xl lg:text-4xl text-grey dark:text-white">
             Learn web development and get to know more about me here.
-          </h3>
+          </h1>
         </div>
         <Image
           src={theme === 'light' ? blogHero : blogHeroDark}
@@ -70,9 +70,9 @@ const Blog: NextPage<{images: any}> = ({images}) => {
       </div>
 
       <div className="mt-20 transition-all duration-300 rounded outline-none bg-white-700 outline-[3px] outline-offset-4 hover:outline-info">
-        <Link href={`/blog/${firstPost.slug}`} passHref>
-          <a className="flex items-center justify-between p-6 md:p-20">
-            <div>
+        <Link href={`/blog/${firstPost.slug}`}>
+          <a className="flex items-center justify-between p-6 md:p-20 group">
+            <article>
               <p className="font-medium text-md text-grey">Featured article</p>
               <h3 className="mt-6 md:mt-8 text-2lg md:text-xl md:leading-[56px] text-grey max-w-lg">
                 {firstPost.postTitle}
@@ -81,12 +81,14 @@ const Blog: NextPage<{images: any}> = ({images}) => {
                 {firstPost.date} - 5 min read
               </p>
               <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
-                <span className="font-medium text-4md text-grey">
+                <span className="font-medium text-4md text-grey mb-1">
                   Read full article
                 </span>
-                <Image alt="" src={arrowLight} width={48} height={48} />
+                <div className="transition-all duration-300 group-hover:translate-x-2 w-5 h-5">
+                  <Image alt="" src={arrowLight} width={20} height={20} />
+                </div>
               </div>
-            </div>
+            </article>
             <div className="hidden md:block w-[342px] h-[401px] relative">
               <Image
                 alt={firstPost.imageTitle}

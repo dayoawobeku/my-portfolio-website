@@ -43,7 +43,7 @@ export default function Layout({meta, children}: Props) {
         </div>
         <div className="my-14 w-full h-[576px] relative">
           <Image
-            alt=""
+            alt={meta.title}
             priority
             src={meta.url}
             layout="fill"

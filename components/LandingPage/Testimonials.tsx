@@ -19,7 +19,15 @@ function Testimonial({heading, body, name, job}: Props) {
           'Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor.'}
       </p>
       <div className="flex items-center gap-4 mt-4">
-        <Image alt="portrait of ..." src={avatar} width={48} height={48} />
+        <div className="w-12 h-12">
+          <Image
+            alt="portrait of ..."
+            src={avatar}
+            width={48}
+            height={48}
+            layout="responsive"
+          />
+        </div>
         <div>
           <p className="text-grey dark:font-medium dark:text-grey-100">
             {name ?? 'Theresa Webb'}
