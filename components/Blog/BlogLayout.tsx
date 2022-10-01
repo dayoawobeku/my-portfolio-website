@@ -28,8 +28,15 @@ export default function Layout({meta, children}: Props) {
       </Head>
       <div>
         <Link href="/blog">
-          <a className="inline-flex items-center gap-3 mt-18">
-            <Image alt="" src={theme === 'light' ? arrowBack : arrowBackDark} />
+          <a className="inline-flex items-center gap-3 mt-18 group">
+            <div className="w-6 h-6 transition-all duration-300 group-hover:-translate-x-2">
+              <Image
+                alt=""
+                src={theme === 'light' ? arrowBack : arrowBackDark}
+                width={24}
+                height={24}
+              />
+            </div>
             <span className="text-2md text-grey dark:text-white">
               Back to posts
             </span>
