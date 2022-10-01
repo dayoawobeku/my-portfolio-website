@@ -14,12 +14,8 @@ export default function handler(
   if (req.method === 'GET') {
     res.status(200).json(todos);
   } else if (req.method === 'POST') {
-    const todo = req.body;
-    const newTodo = {
-      id: Date.now(),
-      title: todo.title,
-      body: todo.body,
-    };
+    const {id, title, body} = req.body;
+    const newTodo = {id, title, body};
     todos.push(newTodo);
     res.status(201).json(newTodo);
   }

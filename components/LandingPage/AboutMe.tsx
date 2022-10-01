@@ -1,20 +1,7 @@
-import React, {useEffect, useState} from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import {aboutMe, arrowDark, arrowLight} from '../../assets/images/images';
-import {useTheme} from 'next-themes';
+import CustomLink from '../CustomLink';
 
 export default function AboutMe() {
-  const {theme} = useTheme();
-
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <section className="py-18">
       <div className="flex flex-wrap items-center justify-between gap-8 md:flex-nowrap">
@@ -29,30 +16,19 @@ export default function AboutMe() {
             I love creating, designing, and developing wow projects that drive
             businesses forward.
           </p>
-          <Link href="/about">
-            <a className="inline-flex items-center gap-4 mt-6 group">
-              <span className="font-medium text-4md text-grey dark:text-white mb-1">
-                Get to know more about me
-              </span>
-              <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
-                <Image
-                  alt=""
-                  src={theme === 'light' ? arrowLight : arrowDark}
-                  width={20}
-                  height={20}
-                />
-              </div>
-            </a>
-          </Link>
+          <CustomLink href="/about" text="Get to know more about me" />
         </div>
-        <Image
-          alt=""
-          src={aboutMe}
-          width={536}
-          height={350}
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-        />
+        <div className="w-full">
+          <Image
+            alt="dayo"
+            src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577695/website-images/about-me_f9g5hw.png"
+            width={536}
+            height={350}
+            layout="responsive"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+          />
+        </div>
       </div>
     </section>
   );

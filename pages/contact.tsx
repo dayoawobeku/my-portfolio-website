@@ -1,9 +1,9 @@
 import {useState} from 'react';
 import type {NextPage} from 'next';
 import Head from 'next/head';
-import {Input, Textarea} from '../components/Input';
-import {useMutation} from '@tanstack/react-query';
 import axios from 'axios';
+import {useMutation} from '@tanstack/react-query';
+import {Input, Textarea} from '../components/Input';
 
 function useContact() {
   return useMutation((values: object) =>

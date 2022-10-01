@@ -110,19 +110,22 @@ function Layout({children}: Props) {
                 theme === 'light' ? 'Activate dark mode' : 'Activate light mode'
               }
             >
-              <Image
-                src={theme === 'light' ? darkMode : lightMode}
-                alt="mode"
-                className="cursor-pointer"
-                width={40}
-                height={40}
-                priority
-              />
+              <div className="w-full">
+                <Image
+                  src={theme === 'light' ? darkMode : lightMode}
+                  alt="light/dark mode toggle"
+                  className="cursor-pointer"
+                  width={40}
+                  height={40}
+                  layout="responsive"
+                  priority
+                />
+              </div>
             </button>
             <button className="w-8 h-8 md:hidden">
               <Image
                 src={theme === 'light' ? menuLight : menuDark}
-                alt=""
+                alt="menu"
                 width={32}
                 height={32}
               />
@@ -147,12 +150,15 @@ function Layout({children}: Props) {
 
           <div className="flex justify-between gap-2 flex-wrap mt-18">
             <div className="inline-flex items-center gap-2">
-              <Image
-                src={spotifyLogo}
-                alt="spotify icon logo"
-                width={16}
-                height={16}
-              />
+              <div className="w-4 h-4">
+                <Image
+                  src={spotifyLogo}
+                  alt="spotify icon logo"
+                  width={16}
+                  height={16}
+                  layout="fixed"
+                />
+              </div>
 
               {!spotifyNowPlaying?.isPlaying ? (
                 <p className="font-medium">Not Playing</p>
