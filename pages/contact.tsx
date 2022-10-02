@@ -60,7 +60,7 @@ const Contact: NextPage = () => {
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="mailto: dayoawobeku@gmail.com"
-                className="font-medium underline underline-offset-2 text-grey dark:text-white-700"
+                className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
               >
                 dayoawobeku@gmail.com
               </a>
@@ -71,7 +71,7 @@ const Contact: NextPage = () => {
                 href="https://linkedin.com/in/dayoawobeku/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium underline underline-offset-2 text-grey dark:text-white-700"
+                className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
               >
                 LinkedIn
               </a>
@@ -80,7 +80,7 @@ const Contact: NextPage = () => {
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="tel: +234-818-194-2332"
-                className="font-medium underline underline-offset-2 text-grey dark:text-white-700"
+                className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
               >
                 +234-818-194-2332
               </a>
