@@ -1,14 +1,9 @@
 import type {NextPage} from 'next';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
+import HeroSection from '../components/LandingPage/HeroSection';
 import Projects from '../components/LandingPage/Projects';
-const HeroSection = dynamic(
-  () => import('../components/LandingPage/HeroSection'),
-);
-const Testimonials = dynamic(
-  () => import('../components/LandingPage/Testimonials'),
-);
-const AboutMe = dynamic(() => import('../components/LandingPage/AboutMe'));
+import Testimonials from '../components/LandingPage/Testimonials';
+import AboutMe from '../components/LandingPage/AboutMe';
 
 const Home: NextPage = () => {
   return (

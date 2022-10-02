@@ -18,17 +18,14 @@ export default function AboutMe() {
           </p>
           <CustomLink href="/about" text="Get to know more about me" />
         </div>
-        <div className="w-full">
-          <Image
-            alt="dayo"
-            src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577695/website-images/about-me_f9g5hw.png"
-            width={536}
-            height={350}
-            layout="responsive"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-          />
-        </div>
+        <Image
+          alt="dayo"
+          src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577695/website-images/about-me_f9g5hw.png"
+          width={536}
+          height={350}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+        />
       </div>
     </section>
   );
