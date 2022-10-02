@@ -3,8 +3,8 @@ import CustomLink from '../CustomLink';
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-wrap items-center justify-between gap-6 mt-10 md:flex-nowrap">
-      <div className="md:max-w-[511px]">
+    <section className="flex flex-wrap items-center justify-between gap-6 mt-10 md:flex-nowrap min-h-[400px]">
+      <div className="md:max-w-[511px] h-full">
         <h1 className="text-xl text-black lg:text-4xl dark:text-white-700">
           Hi, I'm Dayo.
         </h1>
@@ -19,18 +19,15 @@ export default function HeroSection() {
         <CustomLink href="/contact" text="Contact me" />
       </div>
 
-      <div className="w-full md:w-[47.69%] h-[611px]">
-        <Image
-          src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577699/website-images/about-image_t8x9sg.png"
-          alt="Dayo"
-          layout="responsive"
-          width={542}
-          height={611}
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-          priority
-        />
-      </div>
+      <Image
+        src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577699/website-images/about-image_t8x9sg.png"
+        alt="Dayo"
+        width={542}
+        height={611}
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+        priority
+      />
     </section>
   );
 }
