@@ -20,7 +20,7 @@ export default function HeroSection() {
       </div>
 
       <Image
-        src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577699/website-images/about-image_t8x9sg.png"
+        src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664732945/website-images/dayo-hero_vafht5.png"
         alt="Dayo"
         width={542}
         height={611}
