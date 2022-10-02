@@ -90,7 +90,7 @@ const Contact: NextPage = () => {
 
         <form onSubmit={handleSubmit} className="w-full lg:max-w-xl">
           <Input
-            id="name"
+            id="contact_name"
             label="Name"
             placeholder="Your name"
             required
@@ -98,7 +98,7 @@ const Contact: NextPage = () => {
             onChange={e => setName(e.target.value)}
           />
           <Input
-            id="email"
+            id="contact_email"
             label="Email"
             placeholder="person.doe@example.com"
             type="email"
@@ -108,7 +108,7 @@ const Contact: NextPage = () => {
             onChange={e => setEmail(e.target.value)}
           />
           <Input
-            id="subject"
+            id="contact_subject"
             label="Subject"
             placeholder="No subject"
             className="mt-10"
@@ -116,7 +116,7 @@ const Contact: NextPage = () => {
             onChange={e => setSubject(e.target.value)}
           />
           <Textarea
-            id="body"
+            id="contact_body"
             label="Body"
             placeholder="A clear and concise message works wonders."
             className="mt-10"

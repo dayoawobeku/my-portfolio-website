@@ -57,14 +57,14 @@ export default function Newsletter() {
         className="flex flex-col items-start gap-6 mt-10 md:flex-row md:items-end"
       >
         <SmallerInput
-          id="first_name"
+          id="newsletter_first_name"
           label="First Name"
           value={firstName}
           onChange={e => setFirstName(e.target.value)}
           required
         />
         <SmallerInput
-          id="email"
+          id="newsletter_email"
           label="Email"
           type="email"
           value={email}
