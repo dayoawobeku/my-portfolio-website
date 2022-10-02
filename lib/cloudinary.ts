@@ -11,7 +11,7 @@ export async function getCloudinaryImages() {
       },
     },
   ).then(res => res.json());
-
+  console.log(typeof results, 'what tiy');
   return results;
 }
 

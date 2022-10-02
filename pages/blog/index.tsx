@@ -1,36 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import {GetStaticProps, NextPage} from 'next';
+import {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useTheme} from 'next-themes';
 import {useRouter} from 'next/router';
 import {posts} from '../../data/posts';
-import {getCloudinaryImages, mapImageResources} from '../../lib/cloudinary';
-import {arrowLight, blogHero, blogHeroDark} from '../../assets/images/images';
+import {arrowLight} from '../../assets/images/images';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const results = await getCloudinaryImages();
-  const images = mapImageResources(results.resources);
-
-  return {
-    props: {images},
-  };
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Blog: NextPage<{images: any}> = ({images}) => {
+const Blog: NextPage = () => {
   const {theme} = useTheme();
 
-  const cloudinaryImages = images.map((image: unknown) => {
-    return image;
-  });
+  const allPosts = posts.map(item => item);
 
-  const allPosts = posts.map((item, i) =>
-    Object.assign({}, item, cloudinaryImages[i]),
-  );
-
-  const firstPost = allPosts.shift();
+  const firstPost = allPosts?.shift();
 
   const [mounted, setMounted] = useState(false);
 
@@ -53,50 +36,65 @@ const Blog: NextPage<{images: any}> = ({images}) => {
       </Head>
 
       <div className="flex flex-wrap items-center justify-between gap-4 mt-10 basis-full md:flex-nowrap lg:gap-8 md:mt-20">
-        <div className="md:basis-2/3 lg:basis-auto lg:max-w-lg">
-          <h3 className="mb-10 text-xl md:text-2xl lg:text-4xl text-grey dark:text-white">
-            Learn web development and get to know more about me here.
-          </h3>
+        <h1 className="md:basis-2/3 lg:basis-auto lg:max-w-lg mb-10 text-2lg md:text-2xl lg:text-4xl text-grey dark:text-white">
+          Learn web development and get to know more about me here.
+        </h1>
+        <div className="w-[506px] h-[387px]">
+          <Image
+            src={
+              theme === 'light'
+                ? 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664933/website-images/blog-hero_hxpyqo.svg'
+                : 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664933/website-images/blog-hero-dark_b5o1xe.svg'
+            }
+            alt="illustration of someone reading a book"
+            width={506}
+            height={387}
+            layout="responsive"
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+          />
         </div>
-        <Image
-          src={theme === 'light' ? blogHero : blogHeroDark}
-          alt=""
-          width={506}
-          height={387}
-          priority
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-        />
       </div>
 
       <div className="mt-20 transition-all duration-300 rounded outline-none bg-white-700 outline-[3px] outline-offset-4 hover:outline-info">
-        <Link href={`/blog/${firstPost.slug}`} passHref>
-          <a className="flex items-center justify-between p-6 md:p-20">
-            <div>
+        <Link href={`/blog/${firstPost?.slug}`}>
+          <a className="flex items-center justify-between p-6 md:p-20 group">
+            <article>
               <p className="font-medium text-md text-grey">Featured article</p>
-              <h3 className="mt-6 md:mt-8 text-2lg md:text-xl md:leading-[56px] text-grey max-w-lg">
-                {firstPost.postTitle}
-              </h3>
+              <h2 className="mt-6 md:mt-8 text-2lg md:text-xl md:leading-[56px] text-grey max-w-lg">
+                {firstPost?.postTitle}
+              </h2>
               <p className="mt-6 font-medium md:mt-8 text-body text-3md">
-                {firstPost.date} - 5 min read
+                {firstPost?.date} - 5 min read
               </p>
               <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
-                <span className="font-medium text-4md text-grey">
+                <span className="font-medium text-4md text-grey mb-1">
                   Read full article
                 </span>
-                <Image alt="" src={arrowLight} width={48} height={48} />
+                <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
+                  <Image
+                    alt=""
+                    src={arrowLight}
+                    width={20}
+                    height={20}
+                    layout="fixed"
+                  />
+                </div>
               </div>
-            </div>
+            </article>
             <div className="hidden md:block w-[342px] h-[401px] relative">
-              <Image
-                alt={firstPost.imageTitle}
-                src={firstPost.url}
-                layout="fill"
-                objectFit="cover"
-                priority
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-              />
+              {firstPost?.imageUrl && (
+                <Image
+                  alt={firstPost?.imageDescription}
+                  src={firstPost?.imageUrl}
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+                />
+              )}
             </div>
           </a>
         </Link>
@@ -105,24 +103,26 @@ const Blog: NextPage<{images: any}> = ({images}) => {
         {allPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
             <a className="transition-all duration-300 rounded outline-none outline-[3px] outline-offset-4 hover:outline-info">
-              <Image
-                alt={post.imageTitle}
-                src={post.url}
-                width={373}
-                height={458}
-                title={post.imageTitle}
-                className="rounded"
-                objectFit="cover"
-                quality={100}
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-              />
+              <div className="w-full">
+                <Image
+                  alt={post.imageDescription}
+                  src={post.imageUrl}
+                  width={373}
+                  height={458}
+                  layout="responsive"
+                  className="rounded"
+                  objectFit="cover"
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+                />
+              </div>
               <p className="mt-8 font-medium text-body dark:text-white-400 text-3md">
                 {post.date} - <span>{post.time}</span>
               </p>
-              <h4 className="mt-4 text-lg font-medium text-grey dark:text-white-700">
+              <h3 className="mt-4 text-lg font-medium text-grey dark:text-white-700">
                 {post.postTitle}
-              </h4>
+              </h3>
             </a>
           </Link>
         ))}

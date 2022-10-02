@@ -1,14 +1,11 @@
 import Image, {StaticImageData} from 'next/image';
 import {
-  arrowDark,
-  arrowLight,
   dodeel,
   dojahAdmin,
   dojahApp,
   dojahLanding,
 } from '../../assets/images/images';
-import {useTheme} from 'next-themes';
-import {useEffect, useState} from 'react';
+import CustomLink from '../CustomLink';
 
 const PROJECT_ARRAY = [
   {
@@ -49,26 +46,19 @@ interface ProjectProps {
 }
 
 function Project({projectImg, heading, body, stack, url}: ProjectProps) {
-  const {theme} = useTheme();
-
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <div>
-      <Image
-        alt=""
-        src={projectImg}
-        width={1168}
-        height={800}
-        placeholder="blur"
-        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-      />
+      <div className="w-full">
+        <Image
+          alt=""
+          src={projectImg}
+          layout="responsive"
+          width={1168}
+          height={800}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+        />
+      </div>
       <div className="mt-10">
         <h5 className="font-medium text-grey dark:text-white text-4md">
           {heading}
@@ -88,26 +78,7 @@ function Project({projectImg, heading, body, stack, url}: ProjectProps) {
             </div>
           ))}
         </div>
-        {url && (
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 mt-10 transition-all duration-300 group"
-          >
-            <span className="font-medium text-4md text-grey dark:text-white underline mb-1">
-              Visit site
-            </span>
-            <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
-              <Image
-                alt=""
-                src={theme === 'light' ? arrowLight : arrowDark}
-                width={20}
-                height={20}
-              />
-            </div>
-          </a>
-        )}
+        {url && <CustomLink externalUrl={url} text="Visit site" />}
       </div>
     </div>
   );

@@ -1,22 +1,9 @@
-import {useEffect, useState} from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import {useTheme} from 'next-themes';
-import {arrowDark, arrowLight, heroImage} from '../../assets/images/images';
+import CustomLink from '../CustomLink';
 
 export default function HeroSection() {
-  const {theme} = useTheme();
-
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
-    <main className="flex flex-wrap items-center justify-between gap-6 mt-10 md:flex-nowrap">
+    <section className="flex flex-wrap items-center justify-between gap-6 mt-10 md:flex-nowrap">
       <div className="md:max-w-[511px]">
         <h1 className="text-xl text-black lg:text-4xl dark:text-white-700">
           Hi, I'm Dayo.
@@ -29,32 +16,21 @@ export default function HeroSection() {
           experiences, and developing high-quality websites that stand out from
           the competition.
         </p>
-        <Link href="/contact">
-          <a className="inline-flex items-center gap-4 mt-8">
-            <span className="font-medium text-4md text-grey dark:text-white">
-              Contact me
-            </span>
-            <Image
-              alt=""
-              src={theme === 'light' ? arrowLight : arrowDark}
-              width={48}
-              height={48}
-            />
-          </a>
-        </Link>
+        <CustomLink href="/contact" text="Contact me" />
       </div>
 
-      <div className="aspect-w-[557px] aspect-h-[783px]">
+      <div className="w-full md:w-[47.69%] h-[611px]">
         <Image
-          src={heroImage}
+          src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577699/website-images/about-image_t8x9sg.png"
           alt="Dayo"
-          width={557}
-          height={783}
+          layout="responsive"
+          width={542}
+          height={611}
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           priority
         />
       </div>
-    </main>
+    </section>
   );
 }

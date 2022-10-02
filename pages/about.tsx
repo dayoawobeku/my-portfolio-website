@@ -4,7 +4,6 @@ import type {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import {aboutImage} from '../assets/images/images';
 
 interface Track {
   title: string;
@@ -27,18 +26,19 @@ const About: NextPage = () => {
         <div className="flex flex-wrap items-stretch justify-between w-full gap-8 mt-20 lg:flex-nowrap">
           <div className="w-full md:w-[47.69%]">
             <Image
-              src={aboutImage}
+              src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577700/website-images/hero-image_o8kibz.png"
+              width={542}
+              height={762}
               alt="Dayo"
-              layout="responsive"
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
               priority
             />
           </div>
           <div className="w-full lg:w-[49.32%] pt-18 -mt-18 about-text-container">
-            <p className="font-medium text-md text-grey dark:text-white-700">
+            <h1 className="font-medium text-md text-grey dark:text-white-700">
               Get to know Dayo...
-            </p>
+            </h1>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               I'm a UX designer that specializes in usability and minimalism. I
               got my start in the world of health science as a medical

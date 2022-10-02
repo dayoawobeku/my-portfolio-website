@@ -192,7 +192,7 @@ function Posts({setPostId}: Props) {
   }
 
   if (status === 'error') {
-    return <p>There was an error</p>;
+    return <p className="text-danger">There was an error</p>;
   }
 
   return (
@@ -268,8 +268,14 @@ function usePosts() {
 }
 
 function useCreatePost() {
-  return useMutation((values: object) =>
-    axios.post('/api/todo', values).then(res => res.data),
+  const queryClient = useQueryClient();
+  return useMutation(
+    (values: object) => axios.post('/api/todo', values).then(res => res.data),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(['posts']);
+      },
+    },
   );
 }
 
