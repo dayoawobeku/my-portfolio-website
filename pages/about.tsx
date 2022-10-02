@@ -26,9 +26,9 @@ const About: NextPage = () => {
         <div className="flex flex-wrap items-stretch justify-between w-full gap-8 mt-20 lg:flex-nowrap">
           <div className="w-full md:w-[47.69%]">
             <Image
-              src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664577700/website-images/hero-image_o8kibz.png"
-              width={542}
-              height={762}
+              src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664732973/website-images/dayo-about_k5zazt.png"
+              width={557}
+              height={662}
               alt="Dayo"
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
