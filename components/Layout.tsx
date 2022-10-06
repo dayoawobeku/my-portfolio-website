@@ -45,7 +45,7 @@ function NavLink({href = '', text, className}: NavLinkProps) {
   return (
     <Link href={href} passHref shallow>
       <a
-        className={`md:nav-link ${className} ${
+        className={`nav-link ${className} ${
           theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
         }`}
       >
