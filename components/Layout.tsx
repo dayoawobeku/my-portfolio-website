@@ -107,26 +107,6 @@ function Layout({children}: Props) {
               </a>
             </Link>
 
-            <div
-              className={`z-50 ${
-                menuOpen ? 'min-h-[400px]' : 'h-0 hidden'
-              } top-20 flex flex-col gap-6 pb-6 divide-y divide-grey-600 dark:divide-grey-800 absolute left-4 w-full -mx-4 bg-white dark:bg-[#131920]`}
-            >
-              {NAV_LINKS.map(({href, text}, index) => (
-                <NavLink
-                  className="pt-6 text-md font-medium"
-                  key={index}
-                  href={href}
-                  text={text}
-                />
-              ))}
-              <Link href="/contact">
-                <button className="inline-flex w-fit px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
-                  Let's talk
-                </button>
-              </Link>
-            </div>
-
             <div className="flex items-center gap-6 md:gap-8">
               <button
                 className="w-10 h-10 outline-none outline-offset-4 transition-all duration-300 focus:outline-[#d1d1d1] hover:outline-[#d1d1d1] focus:dark:outline-[#EAEAEA] hover:dark:outline-[#EAEAEA] rounded-full"
@@ -169,6 +149,25 @@ function Layout({children}: Props) {
                   />
                 )}
               </button>
+              <div
+                className={`z-50 md:hidden ${
+                  menuOpen ? 'min-h-[400px]' : 'h-0 hidden'
+                } top-20 flex flex-col divide-y divide-grey-600 dark:divide-grey-800 absolute left-4 w-full -mx-4 bg-white dark:bg-[#131920]`}
+              >
+                {NAV_LINKS.map(({href, text}, index) => (
+                  <NavLink
+                    className="py-6 text-md font-medium"
+                    key={index}
+                    href={href}
+                    text={text}
+                  />
+                ))}
+                <Link href="/contact">
+                  <button className="inline-flex w-fit px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
+                    Let's talk
+                  </button>
+                </Link>
+              </div>
               <div className="hidden md:flex items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white">
                 {NAV_LINKS.map(({href, text}, index) => (
                   <NavLink key={index} href={href} text={text} />
