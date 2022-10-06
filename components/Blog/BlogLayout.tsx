@@ -11,6 +11,8 @@ interface MetaProps {
   time: string;
   title: string;
   url: string;
+  metaDescription: string;
+  slug: string;
 }
 
 interface Props {
@@ -25,6 +27,35 @@ export default function Layout({meta, children}: Props) {
     <>
       <Head>
         <title>{meta.postTitle}</title>
+        <meta name="description" content={meta.metaDescription} />
+        <link rel="icon" href="/favicon.ico" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://dayoawobeku.com/${meta.slug}`}
+        />
+        <meta property="og:title" content={meta.postTitle} />
+        <meta property="og:description" content={meta.metaDescription} />
+        <meta property="og:site_name" content="Dayo Awobeku" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
+        />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`https://dayoawobeku.com/${meta.slug}`}
+        />
+        <meta property="twitter:site" content="@dayoawobeku" />
+        <meta property="twitter:title" content={meta.postTitle} />
+        <meta property="twitter:description" content={meta.metaDescription} />
+        <meta
+          property="twitter:image"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
+        />
       </Head>
       <div>
         <Link href="/blog">
