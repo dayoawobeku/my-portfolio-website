@@ -4,7 +4,6 @@ import '../styles/globals.css';
 import type {AppProps} from 'next/app';
 import {ThemeProvider} from 'next-themes';
 import {MDXProvider} from '@mdx-js/react';
-import Layout from '../components/Layout';
 import {
   Heading,
   Text,
@@ -48,11 +47,9 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <Layout>
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </Layout>
+        <MDXProvider components={components}>
+          <Component {...pageProps} />
+        </MDXProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
