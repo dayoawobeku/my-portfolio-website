@@ -40,30 +40,103 @@ const About: NextPage = () => {
               Get to know Dayo...
             </h1>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
-              I'm a UX designer that specializes in usability and minimalism. I
-              got my start in the world of health science as a medical
-              laboratory scientist, and I like bringing together physical and
-              digital space. Check out my portfolio to see some of my work! For
-              business enquiries, you can contact me here.
+              Dayo is a graduate of Medical Laboratory Science at the University
+              of Ibadan in Nigeria. He currently works as a Frontend Engineer at{' '}
+              {''}
+              <a
+                href="https://dojah.io"
+                target="_blank"
+                rel="noreferrer"
+                className="text-grey dark:text-white-800 font-medium hover:underline"
+              >
+                Dojah
+              </a>
+              , a Y Combinator startup in Nigeria, managing and working on
+              several projects across the company.
             </p>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
-              I recently earned my certificate in UX Design, but I first started
-              thinking like a UX designer after my final year as a medical
-              student.
+              At the height of the pandemic, while working at a government
+              hospital in Lagos, Nigeria, he went all in self-development and
+              building skills he always dreamed of having. He started learning
+              to code with
+              <a
+                href="https://www.codecademy.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-grey dark:text-white-800 font-medium hover:underline"
+              >
+                {' '}
+                Codecademy.
+              </a>{' '}
+              He also started learning to design beautiful interfaces from the
+              YouTube channels of design experts like
+              <a
+                href="https://www.youtube.com/c/DesignCourse"
+                target="_blank"
+                rel="noreferrer"
+                className="text-grey dark:text-white-800 font-medium hover:underline"
+              >
+                {' '}
+                Design Course,
+              </a>{' '}
+              <a
+                href="https://www.youtube.com/c/FluxWithRanSegall"
+                target="_blank"
+                rel="noreferrer"
+                className="text-grey dark:text-white-800 font-medium hover:underline"
+              >
+                {' '}
+                Flux Academy,
+              </a>{' '}
+              and
+              <a
+                href="https://www.youtube.com/c/JesseShowalter"
+                target="_blank"
+                rel="noreferrer"
+                className="text-grey dark:text-white-800 font-medium hover:underline"
+              >
+                {' '}
+                Jesse Showalter.
+              </a>{' '}
             </p>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
-              I've worked in different hospitals and diagnostic centres for a
-              while and all I had thought about was how much of a benefit
-              digital tools would be to both the patients and the medical
-              personnel.
+              Before working at Dojah, he worked as a contract Product Designer
+              for Decasoft and Outlierz. He still designs user interfaces now
+              and then, and this portfolio website is the latest in that stack.
             </p>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
-              My job made me think about how people in general navigate physical
-              and virtual space. I enjoyed thinking this way so much that it
-              inspired me to get my certificate in UX Design.
+              Over the past two years as a Frontend Engineer, he's worked on
+              some fascinating projects including building Dojah's 3rd version
+              of their website and web app.
             </p>
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
-              When I'm not working, I'm on my PlayStation.
+              When he isn't working, he spends time on his Playstation or
+              YouTube watching criminal investigations.
+            </p>
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+              If you'd like to hire him, enquire about his rates or give him any
+              kind of feedback, he'll be delighted to hear from you. He's
+              hanging out a lot on
+              <a
+                href="https://twitter.com/dayoawobeku"
+                target="_blank"
+                rel="noreferrer"
+                className="text-grey dark:text-white-800 font-medium hover:underline"
+              >
+                {' '}
+                Twitter{' '}
+              </a>
+              these days, and will answer all your questions through a DM if
+              that is more practical for you!
+            </p>
+            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+              If you want to learn about Javascript and web development, he has
+              a blog on this website. Check it out{' '}
+              <Link href="/blog">
+                <a className="text-grey dark:text-white-800 font-medium hover:underline">
+                  here!
+                </a>
+              </Link>
             </p>
           </div>
         </div>

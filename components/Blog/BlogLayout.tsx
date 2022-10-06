@@ -42,7 +42,7 @@ export default function Layout({meta, children}: Props) {
             </span>
           </a>
         </Link>
-        <div className="max-w-[848px] mt-[104px] mx-auto">
+        <div className=" mt-[104px] mx-auto text-center">
           <h1 className="text-xl">{meta.postTitle}</h1>
           <p className="mt-6 font-medium text-2md text-body dark:text-white-400">
             {meta.date} - {meta.time}

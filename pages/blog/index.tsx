@@ -66,7 +66,7 @@ const Blog: NextPage = () => {
                 {firstPost?.postTitle}
               </h2>
               <p className="mt-6 font-medium md:mt-8 text-body text-3md">
-                {firstPost?.date} - 5 min read
+                {firstPost?.date} - {firstPost?.time}
               </p>
               <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
                 <span className="font-medium text-4md text-grey mb-1">
@@ -99,30 +99,49 @@ const Blog: NextPage = () => {
           </a>
         </Link>
       </div>
-      <div className="grid mt-16 blog-grid sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-6">
+      <div className="mt-16 flex flex-col gap-16">
         {allPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a className="transition-all duration-300 rounded outline-none outline-[3px] outline-offset-4 hover:outline-info">
-              <div className="w-full">
-                <Image
-                  alt={post.imageDescription}
-                  src={post.imageUrl}
-                  width={373}
-                  height={458}
-                  layout="responsive"
-                  className="rounded"
-                  objectFit="cover"
-                  quality={100}
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-                />
-              </div>
-              <p className="mt-8 font-medium text-body dark:text-white-400 text-3md">
-                {post.date} - <span>{post.time}</span>
-              </p>
-              <h3 className="mt-4 text-lg font-medium text-grey dark:text-white-700">
-                {post.postTitle}
-              </h3>
+            <a className="transition-all duration-300 rounded outline-none outline-[3px] outline-offset-4 hover:outline-info group">
+              <article className="h-80 bg-white-800 flex items-center gap-10 rounded">
+                <div className="w-[389px]">
+                  <Image
+                    alt={post.imageDescription}
+                    src={post.imageUrl}
+                    width={389}
+                    height={320}
+                    layout="responsive"
+                    objectFit="cover"
+                    className="rounded-l"
+                    quality={100}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+                  />
+                </div>
+
+                <div className="flex flex-col gap-8">
+                  <p className="font-medium text-body dark:text-grey-400 text-2md">
+                    {post.date} - <span>{post.time}</span>
+                  </p>
+                  <h3 className="text-lg font-medium text-grey dark:text-grey-800 max-w-[530px]">
+                    {post.postTitle}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="w-fit text-base text-grey font-medium">
+                      Continue reading
+                    </span>
+                    <div className="w-4 h-4 transition-all duration-300 group-hover:translate-x-2">
+                      <Image
+                        alt=""
+                        src={arrowLight}
+                        width={16}
+                        height={16}
+                        layout="fixed"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </article>
             </a>
           </Link>
         ))}
