@@ -9,22 +9,22 @@ import CustomLink from '../CustomLink';
 
 const PROJECT_ARRAY = [
   {
-    heading: 'Dojah - Identification and Verification Solution for Africa',
-    body: 'Built a fast, accessible, mobile responsive, and highly SEO-friendly landing page with sub-routes.',
+    heading: 'Dojah Website',
+    body: 'Built a fast, accessible, mobile responsive, and highly SEO-friendly landing page with sub-routes from start to finish.',
     image: dojahLanding,
     url: 'https://dojah.io',
-    stack: ['react', 'seo'],
+    stack: ['next js', 'seo'],
   },
   {
     heading: 'Dojah User Application',
-    body: 'Built a fast, mobile responsive, and highly SEO-friendly landing page.',
+    body: 'Built a fast, accessible user application which increased conversion rates by 20%.',
     image: dojahApp,
     url: 'https://app.dojah.io',
-    stack: ['react', 'redux', 'react-query', 'bootstrap'],
+    stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
   {
     heading: 'Dojah Admin Application',
-    body: 'Built a fast, mobile responsive, and highly SEO-friendly landing page.',
+    body: 'Built the admin dashboard, ensuring the implementation of user-friendly designs to enable administrators to execute app management tasks quickly and efficiently.',
     image: dojahAdmin,
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },

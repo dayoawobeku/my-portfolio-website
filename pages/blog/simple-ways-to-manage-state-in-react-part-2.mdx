@@ -2,8 +2,8 @@ import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State
 
 export const meta = {
   postTitle: 'Simple ways to manage state in React - Server state',
-  date: 'Date',
-  time: '5 minute read',
+  date: 'July 30th, 2022',
+  time: '4 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663533/blog/fanny-gustafsson-E_kbqdUZ4vU-unsplash_bzkf4o.jpg',
   title: 'Winter Wonderland in Sweden, by Fanny Gustafsson',
 };
@@ -288,6 +288,11 @@ function usePosts() {
 function useCreatePost() {
   return useMutation((values: object) =>
     axios.post('/api/todo', values).then(res => res.data),
+      {
+      onSuccess: () => {
+        queryClient.invalidateQueries(['posts']);
+      },
+    },
   );
 }
   
@@ -302,7 +307,7 @@ spinners in our SPA (Spinner Page Application 😅). Our app is awesome, it feel
 {<Text>I believe a tool like react query is the future for handling our
 asynchronous data. </Text>}
 {<Text>Not only does it solve the challenges with server state, but it also helps us model our global state and think about our global state with a new perspective, and in most cases, it even removes all of it, or most of it from our application.</Text>}
-{<Text>Here's what {''} <ExternalUrl text="Kent C Dodds." href="https://twitter.com/kentcdodds/" /> has to say about react query: </Text>}
+{<Text>Here's what {''} <ExternalUrl text="Kent C Dodds" href="https://twitter.com/kentcdodds/" /> has to say about react query: </Text>}
 {<Text>"<ExternalUrl text='React Query' href='https://tanstack.com/query/v4/' /> is the missing piece to React application development that I've been looking for after years of building React apps. Finally, I have a tool that gives me exactly what I need to solve my application state management problems without giving me
 more problems. It's fantastic."</Text>}
 {<Text>That's it for this post. Use {''}
