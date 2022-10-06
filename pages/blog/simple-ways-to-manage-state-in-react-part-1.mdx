@@ -4,8 +4,8 @@ import StateManagementWithContext from '../../components/BlogPosts/Managing Stat
 
 export const meta = {
   postTitle: 'Simple ways to manage state in React - Client state',
-  date: 'Date',
-  time: '5 minute read',
+  date: 'July 9th, 2022',
+  time: '13 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995946/blog/kit-suman-WQwtk_t4oJI-unsplash_2_1_vixke5.jpg',
   title: 'gray high-rise building, by Kit Suman',
 };
@@ -173,9 +173,13 @@ function BestFood({ food, handleFoodChange }) {
   );
 }  
 ...
-
-function Display({ name, food }) { return <div>Hey {name}, you are great, and
-your favorite food is {food}.</div>; }
+  
+function Display({ name, food }) { 
+  return (
+    <div>Hey {name}, you are great, and your 
+    favorite food is {food}.</div>
+  );
+ }
 
 export default function App() {
   const [name, setName] = useState("");

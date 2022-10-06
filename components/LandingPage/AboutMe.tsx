@@ -9,12 +9,12 @@ export default function AboutMe() {
           <h2 className="font-medium text-2lg md:text-2xl md:font-normal text-grey dark:text-white-700">
             Frontend React Developer
           </h2>
-          <p className="mt-6 text-body dark:text-grey-600 text-2md">
+          <p className="mt-6 text-body dark:text-grey-100 text-2md">
             Hello again! I'm Dayo Awobeku.
           </p>
-          <p className="mt-4 text-body dark:text-grey-600 text-2md">
-            I love creating, designing, and developing wow projects that drive
-            businesses forward.
+          <p className="mt-4 text-body dark:text-grey-100 text-2md">
+            I love to solve real problems with friendly professionals and
+            wonderful people!
           </p>
           <CustomLink href="/about" text="Get to know more about me" />
         </div>
