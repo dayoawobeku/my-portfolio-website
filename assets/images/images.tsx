@@ -15,9 +15,3 @@ export {default as arrowBackDark} from './arrow-back-dark.svg';
 export {default as menuLight} from './menu-light.svg';
 export {default as menuDark} from './menu-dark.svg';
 export {default as spotifyLogo} from './spotify-logo.svg';
-
-// PNGs
-export {default as dojahLanding} from './project-dojah-landing.png';
-export {default as dojahApp} from './project-dojah-app.png';
-export {default as dojahAdmin} from './project-dojah-admin.png';
-export {default as dodeel} from './project-dodeel.png';
