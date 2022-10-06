@@ -1,44 +1,42 @@
-import Image, {StaticImageData} from 'next/image';
-import {
-  dodeel,
-  dojahAdmin,
-  dojahApp,
-  dojahLanding,
-} from '../../assets/images/images';
+import Image from 'next/image';
 import CustomLink from '../CustomLink';
 
 const PROJECT_ARRAY = [
   {
     heading: 'Dojah Website',
     body: 'Built a fast, accessible, mobile responsive, and highly SEO-friendly landing page with sub-routes from start to finish.',
-    image: dojahLanding,
+    image:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064003/website-images/project-dojah-landing_qxbexl.png',
     url: 'https://dojah.io',
     stack: ['next js', 'seo'],
   },
   {
     heading: 'Dojah User Application',
     body: 'Built a fast, accessible user application which increased conversion rates by 20%.',
-    image: dojahApp,
+    image:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064003/website-images/project-dojah-app_u2fjgy.png',
     url: 'https://app.dojah.io',
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
   {
     heading: 'Dojah Admin Application',
     body: 'Built the admin dashboard, ensuring the implementation of user-friendly designs to enable administrators to execute app management tasks quickly and efficiently.',
-    image: dojahAdmin,
+    image:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064001/website-images/project-dojah-admin_ydqdox.png',
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
   {
     heading: 'Do-Deel CDS',
     body: 'Built a web application for a digital onboarding CDS (Community Development Service) in Nigeria that automates the total user experience from registration to completion during his/her service year as a digital onboarder.',
-    image: dodeel,
+    image:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064002/website-images/project-dodeel_d40ux9.png',
     url: 'https://dodeelcds.com.ng/',
     stack: ['ui design', 'tailwindcss', 'gatsby'],
   },
 ];
 
 interface ProjectProps {
-  projectImg: StaticImageData;
+  projectImg: string;
   heading: string;
   body: string;
   stack: Array<string>;
