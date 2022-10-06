@@ -4,6 +4,7 @@ import HeroSection from '../components/LandingPage/HeroSection';
 import Projects from '../components/LandingPage/Projects';
 import Testimonials from '../components/LandingPage/Testimonials';
 import AboutMe from '../components/LandingPage/AboutMe';
+import Layout from '../components/Layout';
 
 const Home: NextPage = () => {
   return (
@@ -46,10 +47,12 @@ const Home: NextPage = () => {
           content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
         />
       </Head>
-      <HeroSection />
-      <Projects />
-      <Testimonials />
-      <AboutMe />
+      <Layout>
+        <HeroSection />
+        <Projects />
+        <Testimonials />
+        <AboutMe />
+      </Layout>
     </div>
   );
 };

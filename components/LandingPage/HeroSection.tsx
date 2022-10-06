@@ -11,7 +11,7 @@ export default function HeroSection() {
         <h1 className="text-xl text-black lg:text-4xl dark:text-white-700">
           I build websites that your customers will love to use and pay for.
         </h1>
-        <p className="mt-4 lg:mt-8 text-base lg:text-3md text-grey dark:text-grey-600">
+        <p className="mt-4 lg:mt-8 text-2md lg:text-3md text-grey dark:text-grey-600">
           I focus on creating value through craftsmanship of high-quality,
           pixel-perfect, and user-friendly applications using well-written {''}
           <span className="text-grey-800 dark:text-white">

@@ -48,11 +48,9 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <Layout>
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </Layout>
+        <MDXProvider components={components}>
+          <Component {...pageProps} />
+        </MDXProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
