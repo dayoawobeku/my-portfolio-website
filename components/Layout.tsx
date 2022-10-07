@@ -17,12 +17,12 @@ import {
 
 const NAV_LINKS = [
   {
-    href: '/#testimonials',
-    text: 'Testimonials',
-  },
-  {
     href: '/#portfolio',
     text: 'Portfolio',
+  },
+  {
+    href: '/#testimonials',
+    text: 'Testimonials',
   },
   {
     href: '/blog',
@@ -38,9 +38,10 @@ interface NavLinkProps {
   href: string;
   text: string;
   className?: string;
+  onClick?: () => void;
 }
 
-function NavLink({href = '', text, className}: NavLinkProps) {
+function NavLink({href = '', text, className, onClick}: NavLinkProps) {
   const {theme} = useTheme();
   return (
     <Link href={href} passHref shallow>
@@ -48,6 +49,7 @@ function NavLink({href = '', text, className}: NavLinkProps) {
         className={`nav-link ${className} ${
           theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
         }`}
+        onClick={onClick}
       >
         {text}
       </a>
@@ -160,10 +162,14 @@ function Layout({children}: Props) {
                     key={index}
                     href={href}
                     text={text}
+                    onClick={() => setMenuOpen(false)}
                   />
                 ))}
                 <Link href="/contact">
-                  <button className="inline-flex w-fit px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
+                  <button
+                    className="inline-flex w-fit px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Let's talk
                   </button>
                 </Link>
