@@ -4,7 +4,6 @@ import Head from 'next/head';
 import axios from 'axios';
 import {useMutation} from '@tanstack/react-query';
 import {Input, Textarea} from '../components/Input';
-import Layout from '../components/Layout';
 
 function useContact() {
   return useMutation((values: object) =>
@@ -81,97 +80,95 @@ const Contact: NextPage = () => {
         />
       </Head>
 
-      <Layout>
-        <div className="flex flex-wrap items-start justify-between gap-12 mt-10 lg:gap-6 lg:mt-24 lg:flex-nowrap">
-          <div>
-            <h1 className="text-4xl text-grey dark:text-white-700">
-              Get in touch
-            </h1>
-            <p className="mt-4 text-grey text-2md dark:text-white-700">
-              By filling the contact form
-            </p>
-            <div className="mt-12">
-              <div className="text-2md">
-                <span className="text-body dark:text-white-400">Or: </span>
-                <a
-                  href="mailto: dayoawobeku@gmail.com"
-                  className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
-                >
-                  dayoawobeku@gmail.com
-                </a>
-              </div>
-              <div className="mt-6 text-2md">
-                <span className="text-body dark:text-white-400">Or: </span>
-                <a
-                  href="https://linkedin.com/in/dayoawobeku/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
-                >
-                  LinkedIn
-                </a>
-              </div>
-              <div className="mt-6 text-2md">
-                <span className="text-body dark:text-white-400">Or: </span>
-                <a
-                  href="tel: +234-818-194-2332"
-                  className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
-                >
-                  +234-818-194-2332
-                </a>
-              </div>
+      <div className="flex flex-wrap items-start justify-between gap-12 mt-10 lg:gap-6 lg:mt-24 lg:flex-nowrap">
+        <div>
+          <h1 className="text-4xl text-grey dark:text-white-700">
+            Get in touch
+          </h1>
+          <p className="mt-4 text-grey text-2md dark:text-white-700">
+            By filling the contact form
+          </p>
+          <div className="mt-12">
+            <div className="text-2md">
+              <span className="text-body dark:text-white-400">Or: </span>
+              <a
+                href="mailto: dayoawobeku@gmail.com"
+                className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
+              >
+                dayoawobeku@gmail.com
+              </a>
+            </div>
+            <div className="mt-6 text-2md">
+              <span className="text-body dark:text-white-400">Or: </span>
+              <a
+                href="https://linkedin.com/in/dayoawobeku/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
+              >
+                LinkedIn
+              </a>
+            </div>
+            <div className="mt-6 text-2md">
+              <span className="text-body dark:text-white-400">Or: </span>
+              <a
+                href="tel: +234-818-194-2332"
+                className="font-medium text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600 transition-all duration-150"
+              >
+                +234-818-194-2332
+              </a>
             </div>
           </div>
-
-          <form onSubmit={handleSubmit} className="w-full lg:max-w-xl">
-            <Input
-              id="contact_name"
-              label="Name"
-              placeholder="Your name"
-              required
-              value={name}
-              onChange={e => setName(e.target.value)}
-            />
-            <Input
-              id="contact_email"
-              label="Email"
-              placeholder="person.doe@example.com"
-              type="email"
-              className="mt-10"
-              required
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <Input
-              id="contact_subject"
-              label="Subject"
-              placeholder="No subject"
-              className="mt-10"
-              value={subject}
-              onChange={e => setSubject(e.target.value)}
-            />
-            <Textarea
-              id="contact_body"
-              label="Body"
-              placeholder="A clear and concise message works wonders."
-              className="mt-10"
-              required
-              value={body}
-              onChange={e => setBody(e.target.value)}
-            />
-
-            <button className="mt-10 btn" disabled={isLoading}>
-              Send message
-            </button>
-
-            {isSuccess ? (
-              <p className="mt-4 font-medium text-md text-info">{message}</p>
-            ) : isError ? (
-              <p className="mt-4 font-medium text-md text-danger">{message}</p>
-            ) : null}
-          </form>
         </div>
-      </Layout>
+
+        <form onSubmit={handleSubmit} className="w-full lg:max-w-xl">
+          <Input
+            id="contact_name"
+            label="Name"
+            placeholder="Your name"
+            required
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+          <Input
+            id="contact_email"
+            label="Email"
+            placeholder="person.doe@example.com"
+            type="email"
+            className="mt-10"
+            required
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <Input
+            id="contact_subject"
+            label="Subject"
+            placeholder="No subject"
+            className="mt-10"
+            value={subject}
+            onChange={e => setSubject(e.target.value)}
+          />
+          <Textarea
+            id="contact_body"
+            label="Body"
+            placeholder="A clear and concise message works wonders."
+            className="mt-10"
+            required
+            value={body}
+            onChange={e => setBody(e.target.value)}
+          />
+
+          <button className="mt-10 btn" disabled={isLoading}>
+            Send message
+          </button>
+
+          {isSuccess ? (
+            <p className="mt-4 font-medium text-md text-info">{message}</p>
+          ) : isError ? (
+            <p className="mt-4 font-medium text-md text-danger">{message}</p>
+          ) : null}
+        </form>
+      </div>
     </div>
   );
 };
