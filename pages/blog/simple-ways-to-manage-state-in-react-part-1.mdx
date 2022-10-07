@@ -19,7 +19,7 @@ export const meta = {
   <Text>
     Managing state is arguably one of the most difficult things to do in React.
     State is data, usually data that can change. There are a plethora of options
-    and opinions. One of the reasons this is so is failure to separate concerns,
+    and opinions. One of the reasons this is so is the failure to separate concerns,
     or better still, state type.
   </Text>
 }
@@ -27,7 +27,7 @@ export const meta = {
   <Text>
     Most applications you will ever build will have 2 types of state: {''}
     <QuoteText quote="client/application state" />; and <QuoteText quote="server cache." />
-    First step in managing state with React is knowing the difference between
+    The first step in managing state with React is knowing the difference between
     these 2 types of state and where and how to manage them.
   </Text>
 }
@@ -41,11 +41,11 @@ export const meta = {
 {
   <Text>
     {' '}
-    Server cache on the other hand is state that's actually stored on the server
-    and we store in the client for quick-access (like user data). Think of it this
+    Server cache, on the other hand, is state that's actually stored on the server
+    and we request it in the client for quick access (like user data). Think of it this
     way: A list of articles that you fetch, the details of a User you want to display,
     etc), your app does not own it. We have only borrowed it to display the most
-    recent version of it on the screen for the user. It is the server who owns the
+    recent version of it on the screen for the user. It is the server that owns the
     data.
   </Text>
 }
@@ -254,12 +254,12 @@ export default function App() {
 {
   <Text>
     And with that we’ve colocated our state, making the app more performant and
-    easier to maintain on the long run.{' '}
+    easier to maintain in the long run.{' '}
   </Text>
 }
 {
   <Text>
-    Truth is there are only a few states that are considered truly global,
+    The truth is there are only a few states that are considered truly global,
     {''} e.g. <QuoteText quote="theme" /> (light or dark mode), every other local
     state should either be stored in the function where it is called or colocated
     in the nearest common parent.
@@ -279,7 +279,7 @@ export default function App() {
 {
   <Text>
     A simple way to look at prop drilling is that a parent creates a state,
-    passes it down to “middle men”; components that do not require the state,
+    passes it down to “middlemen”; components that do not require the state,
     and then down the tree eventually to the component(s) that needs it.
   </Text>
 }
@@ -384,7 +384,7 @@ function LogoutButton({ onLogout }) {
 {
   <Text>
     Here, we have this Dashboard layout where the {''}
-    <QuoteText quote="WelcomeMessage" /> is being displayed based on the current
+    <QuoteText quote="WelcomeMessage" /> is displayed based on the current
     user's name. To get the value, we would need to prop drill the {''}
     <QuoteText quote="user" /> object three levels deep until it gets to the{' '}
     <QuoteText quote="WelcomeMessage" /> component.
@@ -400,7 +400,7 @@ function LogoutButton({ onLogout }) {
 {
   <Text>
     When you truly encounter the latter and prop drilling may potentially
-    complicate your state management, then there's a couple of other solutions
+    complicate your state management, then there are a couple of other solutions
     we can use to avoid prop drilling. The first is {''}
     <QuoteText quote="component composition" />.
   </Text>
@@ -458,13 +458,10 @@ function Dashboard({ children }) {
     We have eliminated one level of prop drilling. We no longer pass the {''}
     <QuoteText quote="DashboardNav" />
     and {''}
-    <QuoteText quote="DashboardContent" /> inside the Dashboard, instead we pass
+    <QuoteText quote="DashboardContent" /> inside the Dashboard, instead, we pass
     it the special {''}
     <QuoteText quote="children" />
-    prop and pass the <QuoteText quote="user" /> directly to the <QuoteText quote="DashboardContent" />
-
-    .
-
+    prop and pass the <QuoteText quote="user" /> directly to the <QuoteText quote="DashboardContent" />.
   </Text>
 }
 {
@@ -522,12 +519,12 @@ function DashboardContent({ children }) {
   <Text>
     Sometimes you may need multiple “holes” in a component. Another way React
     composes is to make a component that is a wrapper for another component. In
-    such cases you may come up with your own convention instead of using the{' '}
+    such cases, you may come up with your own convention instead of using the{' '}
     {''}
     <QuoteText quote="children" /> prop.
   </Text>
 }
-<Text>Let's see it in action.</Text>
+<Text>Let's see it in action with this contrived chat app.</Text>
 <CodeBlock
   value={`export default function App() {
   return <ChatApp left={<Contacts />} right={<Chat />} />;
@@ -664,7 +661,7 @@ function WelcomeMessage() {
 {
   <Text>
     Essentially, with client/ui state, start with just react. Most apps barely
-    have global app state after server state is handled. If you truly still need
+    have any global app state after server state is handled. If you truly still need
     a global state in your app, try {''}
     <ExternalUrl
       text="zustand"

@@ -78,12 +78,12 @@ it to when either light or dark mode is toggled.</Text>}
 
 {<Text><QuoteText quote="next-themes" /> also provides us with a {''}
 
-<QuoteText quote="useTheme" /> function from which we'll <ExternalUrl text="destructure" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"/> the <QuoteText quote="theme" /> and <QuoteText quote="setTheme" /> objects from.</Text>}
+<QuoteText quote="useTheme" /> function from which we'll <ExternalUrl text="destructure" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"/> the <QuoteText quote="theme" /> and <QuoteText quote="setTheme" /> objects.</Text>}
 
 {<Text>For our styling, Tailwind helps us with this part. All you need to do is
 add {''}
 
-<QuoteText quote="dark:..." /> to your className, and Tailwind will do the
+<QuoteText quote="dark:mt-2 ..." /> to your className, and Tailwind will do the
 rest. </Text>}
 
 {<Text>This is what the final interface looks like:</Text>}
@@ -152,13 +152,13 @@ export default function App() {
 
 {<Text>Lastly, because we cannot know the theme on the server, the values
 returned from useTheme will be undefined until mounted on the client, and if you
-stop here, you'll get a
+stop here, you'll get a {''}
 
 <ExternalUrl href='https://nextjs.org/docs/messages/react-hydration-error' text='hydration mismatch' />
 error by Next js.</Text>}
 
 {<Text>Basically, what we want to do is create a state that checks if our app is
-mounted on the client. The state is false to begin with. Then if the app is
+mounted on the client. The state is false, to begin with. Then if the app is
 mounted, we set it to true.</Text>}
 
 {<Text>Add this to the top of your component and the error should

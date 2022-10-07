@@ -62,7 +62,7 @@ const About: NextPage = () => {
               priority
             />
           </div>
-          <div className="w-full lg:w-[49.32%] pt-18 -mt-18 about-text-container">
+          <div className="w-full lg:w-[49.32%] overflow-y-auto h-[662px] pr-4 pb-4 about-text">
             <h1 className="font-medium text-md text-grey dark:text-white-700">
               Get to know Dayo...
             </h1>
@@ -85,25 +85,23 @@ const About: NextPage = () => {
               At the height of the pandemic, while working at a government
               hospital in Lagos, Nigeria, he went all in self-development and
               building skills he always dreamed of having. He started learning
-              to code with
+              to code with {''}
               <a
                 href="https://www.codecademy.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="text-grey dark:text-white-800 font-medium hover:underline"
               >
-                {' '}
                 Codecademy.
               </a>{' '}
               He also started learning to design beautiful interfaces from the
-              YouTube channels of design experts like
+              YouTube channels of design experts like {''}
               <a
                 href="https://www.youtube.com/c/DesignCourse"
                 target="_blank"
                 rel="noreferrer"
                 className="text-grey dark:text-white-800 font-medium hover:underline"
               >
-                {' '}
                 Design Course,
               </a>{' '}
               <a
@@ -115,14 +113,13 @@ const About: NextPage = () => {
                 {' '}
                 Flux Academy,
               </a>{' '}
-              and
+              and {''}
               <a
                 href="https://www.youtube.com/c/JesseShowalter"
                 target="_blank"
                 rel="noreferrer"
                 className="text-grey dark:text-white-800 font-medium hover:underline"
               >
-                {' '}
                 Jesse Showalter.
               </a>{' '}
             </p>
@@ -143,14 +140,13 @@ const About: NextPage = () => {
             <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
               If you'd like to hire him, enquire about his rates or give him any
               kind of feedback, he'll be delighted to hear from you. He's
-              hanging out a lot on
+              hanging out a lot on {''}
               <a
                 href="https://twitter.com/dayoawobeku"
                 target="_blank"
                 rel="noreferrer"
                 className="text-grey dark:text-white-800 font-medium hover:underline"
               >
-                {' '}
                 Twitter{' '}
               </a>
               these days, and will answer all your questions through a DM if
@@ -166,6 +162,20 @@ const About: NextPage = () => {
               </Link>
             </p>
           </div>
+        </div>
+        <div className="flex items-center gap-9">
+          <a
+            href="/dayo-awobeku-resume.pdf"
+            download
+            className="items-center justify-center rounded-full inline-flex mt-10 w-full btn"
+          >
+            Download my Resume
+          </a>
+          <Link href="/contact">
+            <a className="items-center justify-center rounded-full inline-flex mt-10 w-full btn">
+              Contact me
+            </a>
+          </Link>
         </div>
       </section>
 
