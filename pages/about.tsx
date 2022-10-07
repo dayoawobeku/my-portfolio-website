@@ -163,16 +163,16 @@ const About: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-9">
+        <div className="flex flex-col sm:flex-row gap-6 items-center sm:gap-9 mt-8 sm:mt-10">
           <a
             href="/dayo-awobeku-resume.pdf"
             download
-            className="items-center justify-center rounded-full inline-flex mt-10 w-full btn"
+            className="items-center justify-center rounded-full inline-flex w-full btn"
           >
             Download my Resume
           </a>
           <Link href="/contact">
-            <a className="items-center justify-center rounded-full inline-flex mt-10 w-full btn">
+            <a className="items-center justify-center rounded-full inline-flex w-full btn">
               Contact me
             </a>
           </Link>
