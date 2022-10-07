@@ -254,6 +254,17 @@ function Layout({children}: Props) {
                   linkedin
                 </a>
               </div>
+              <div className="relative">
+                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <a
+                  href="https://github.com/dayoawobeku/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#EBFAFF] transition-all duration-300"
+                >
+                  github
+                </a>
+              </div>
             </div>
             <p>2022 all rights reserved</p>
           </div>

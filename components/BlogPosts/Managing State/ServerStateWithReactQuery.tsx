@@ -200,7 +200,7 @@ function Posts({setPostId}: Props) {
       {data.map((post: {id: number; title: string}) => (
         <button
           key={post.id}
-          className={`hover:underline cursor-pointer w-fit ${
+          className={`hover:underline cursor-pointer text-start w-fit ${
             queryClient.getQueryData(['post', post.id])
               ? 'font-bold text-info'
               : ''

@@ -80,4 +80,21 @@ html {
     transform-origin: left;
     transform: scaleX(1);
   }
+
+  .about-text::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .about-text::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .about-text::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+  }
+
+  .about-text::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+  }
 }
