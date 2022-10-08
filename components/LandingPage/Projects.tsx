@@ -14,7 +14,7 @@ const PROJECT_ARRAY = [
     heading: 'Dojah User Application',
     body: 'Built a fast, reliable, accessible, and UX-friendly user application to enable users carry out actions with ease.',
     image:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064003/website-images/project-dojah-app_u2fjgy.png',
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665264220/website-images/app_n0nu4w.png',
     url: 'https://app.dojah.io',
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
