@@ -2,7 +2,7 @@ import type {NextPage} from 'next';
 import Head from 'next/head';
 import HeroSection from '../components/LandingPage/HeroSection';
 import Projects from '../components/LandingPage/Projects';
-import Testimonials from '../components/LandingPage/Testimonials';
+// import Testimonials from '../components/LandingPage/Testimonials';
 import AboutMe from '../components/LandingPage/AboutMe';
 
 const Home: NextPage = () => {
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       </Head>
       <HeroSection />
       <Projects />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <AboutMe />
     </div>
   );
