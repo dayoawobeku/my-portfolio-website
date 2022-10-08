@@ -12,7 +12,7 @@ export default function HeroSection() {
           I build websites that your customers will love to use and pay for.
         </h1>
         <p className="mt-4 lg:mt-8 text-2md lg:text-3md text-grey dark:text-grey-600">
-          I focus on creating value through craftsmanship of high-quality,
+          I focus on creating value through the craftsmanship of high-quality,
           pixel-perfect, and user-friendly applications using well-written {''}
           <span className="text-grey-800 dark:text-white">
             React JS
