@@ -20,10 +20,10 @@ const NAV_LINKS = [
     href: '/#portfolio',
     text: 'Portfolio',
   },
-  {
-    href: '/#testimonials',
-    text: 'Testimonials',
-  },
+  // {
+  //   href: '/#testimonials',
+  //   text: 'Testimonials',
+  // },
   {
     href: '/blog',
     text: 'Blog',
