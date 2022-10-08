@@ -6,6 +6,9 @@ export const meta = {
   time: '4 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663533/blog/fanny-gustafsson-E_kbqdUZ4vU-unsplash_bzkf4o.jpg',
   title: 'Winter Wonderland in Sweden, by Fanny Gustafsson',
+  description:
+    "Managing state is arguably one of the most difficult things to do in React. Here's how you can manage your server state.",
+  slug: 'simple-ways-to-manage-state-in-react-part-2',
 };
 
 {<Text>In the first part of this series, I talk about {''}
@@ -14,10 +17,10 @@ export const meta = {
   text="managing the UI/Client state."
   href="simple-ways-to-manage-state-in-react-part-1"
 /> You may wanna check that out before reading this post.</Text>}
-{<Text>Server state is state that is on the server, and is served/used on the user’s end, e.g, a list of posts, user’s records. It is different from client state and should be handled differently.</Text>}
+{<Text>Server state is state that is on the server and is served/used on the user’s end, e.g, a list of posts, user’s records. It is different from client state and should be handled differently.</Text>}
 {<Text>Many React devs put all things state inside a library like {''}
 <ExternalUrl text='Redux.' href='https://redux.js.org/' />
-The idea is a single source of truth. This is not very ideal in a few ways. One of the primary attributors of a slow React application is global state. Not a lot of states need to be global. And the truth is, you don’t need Redux.</Text>}
+The idea is a single source of truth. This is not very ideal in a few ways. One of the primary sources of a slow React application is global state. Not a lot of states need to be global. And the truth is, you don’t need Redux.</Text>}
 {<Text>Server state has a few challenges including caching, deduping requests, background updates, mutations, paginations, etc. Personally, I think caching is one of the hardest concepts in computer science.</Text>}
 {<Text>How then can we approach these problems? {''}
 <ExternalUrl text='React Query.' href='https://tanstack.com/query/v4/' /> Yup, that’s it! According to their docs, React query (now, Tanstack Query) is a {''}
@@ -302,11 +305,11 @@ function useEditPost(id: number) {
   );
 }`} />
 {<Text>Just like that, React query eliminated most of the loading
-spinners in our SPA (Spinner Page Application 😅). Our app is awesome, it feels great, very fast, and maintainable too.</Text>}
+spinners in our SPA (Spinner Page Application 😅). Our app is awesome, it feels great, is very fast, and is maintainable too.</Text>}
 <AnchorTag text="Conclusion" href="conclusion" />
 {<Text>I believe a tool like react query is the future for handling our
 asynchronous data. </Text>}
-{<Text>Not only does it solve the challenges with server state, but it also helps us model our global state and think about our global state with a new perspective, and in most cases, it even removes all of it, or most of it from our application.</Text>}
+{<Text>Not only does it solve the challenges with server state, but it also helps us model our global state and think about our global state with a new perspective, and in most cases, it even removes all of it or most of it from our application.</Text>}
 {<Text>Here's what {''} <ExternalUrl text="Kent C Dodds" href="https://twitter.com/kentcdodds/" /> has to say about react query: </Text>}
 {<Text>"<ExternalUrl text='React Query' href='https://tanstack.com/query/v4/' /> is the missing piece to React application development that I've been looking for after years of building React apps. Finally, I have a tool that gives me exactly what I need to solve my application state management problems without giving me
 more problems. It's fantastic."</Text>}

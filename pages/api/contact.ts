@@ -26,9 +26,9 @@ export default async function handler(
         <p><strong>Body: </strong> ${body}</p><br>
       `,
     });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    return res.status(500).json({error: error.message || error.toString()});
+  } catch (error: unknown) {
+    const msg = error as Error;
+    return res.status(500).json({error: msg.message || msg.toString()});
   }
   return res.status(200).json({error: ''});
 }

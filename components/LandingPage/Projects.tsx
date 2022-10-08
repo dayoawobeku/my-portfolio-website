@@ -12,7 +12,7 @@ const PROJECT_ARRAY = [
   },
   {
     heading: 'Dojah User Application',
-    body: 'Built a fast, accessible user application which increased conversion rates by 20%.',
+    body: 'Built a fast, reliable, accessible, and UX-friendly user application to enable users carry out actions with ease.',
     image:
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064003/website-images/project-dojah-app_u2fjgy.png',
     url: 'https://app.dojah.io',

@@ -13,5 +13,7 @@ export {default as search} from './search.svg';
 export {default as arrowBack} from './arrow-back.svg';
 export {default as arrowBackDark} from './arrow-back-dark.svg';
 export {default as menuLight} from './menu-light.svg';
+export {default as closeMenuLight} from './close-menu-light.svg';
+export {default as closeMenuDark} from './close-menu-dark.svg';
 export {default as menuDark} from './menu-dark.svg';
 export {default as spotifyLogo} from './spotify-logo.svg';
