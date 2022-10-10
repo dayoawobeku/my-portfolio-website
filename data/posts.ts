@@ -20,7 +20,7 @@ export const posts = [
   {
     slug: 'super-easy-way-to-integrate-dark-mode-in-your-nextjs-app',
     date: 'August 15th, 2022',
-    postTitle: 'Super easy way to integrate dark mode in your next app.',
+    postTitle: 'Super easy way to integrate dark mode in your Next js app.',
     time: '5 min read',
     imageUrl:
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663325/blog/sies-kranen-HOYiBqdiHx0-unsplash_hbz0i7.jpg',
