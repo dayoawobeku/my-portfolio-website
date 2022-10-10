@@ -25,14 +25,14 @@ const PROJECT_ARRAY = [
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064001/website-images/project-dojah-admin_ydqdox.png',
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
-  {
-    heading: 'Do-Deel CDS',
-    body: 'Built a web application for a digital onboarding CDS (Community Development Service) in Nigeria that automates the total user experience from registration to completion during his/her service year as a digital onboarder.',
-    image:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064002/website-images/project-dodeel_d40ux9.png',
-    url: 'https://dodeelcds.com.ng/',
-    stack: ['ui design', 'tailwindcss', 'gatsby'],
-  },
+  // {
+  //   heading: 'Do-Deel CDS',
+  //   body: 'Built a web application for a digital onboarding CDS (Community Development Service) in Nigeria that automates the total user experience from registration to completion during his/her service year as a digital onboarder.',
+  //   image:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064002/website-images/project-dodeel_d40ux9.png',
+  //   url: 'https://dodeelcds.com.ng/',
+  //   stack: ['ui design', 'tailwindcss', 'gatsby'],
+  // },
 ];
 
 interface ProjectProps {
