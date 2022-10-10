@@ -14,7 +14,7 @@ const PROJECT_ARRAY = [
     heading: 'Dojah User Application',
     body: 'Built a fast, reliable, accessible, and UX-friendly user application to enable users carry out actions with ease.',
     image:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665264220/website-images/app_n0nu4w.png',
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665360941/website-images/dojah-app_clveq4.png',
     url: 'https://app.dojah.io',
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
@@ -25,14 +25,14 @@ const PROJECT_ARRAY = [
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064001/website-images/project-dojah-admin_ydqdox.png',
     stack: ['react', 'redux', 'react-query', 'tailwindcss'],
   },
-  {
-    heading: 'Do-Deel CDS',
-    body: 'Built a web application for a digital onboarding CDS (Community Development Service) in Nigeria that automates the total user experience from registration to completion during his/her service year as a digital onboarder.',
-    image:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064002/website-images/project-dodeel_d40ux9.png',
-    url: 'https://dodeelcds.com.ng/',
-    stack: ['ui design', 'tailwindcss', 'gatsby'],
-  },
+  // {
+  //   heading: 'Do-Deel CDS',
+  //   body: 'Built a web application for a digital onboarding CDS (Community Development Service) in Nigeria that automates the total user experience from registration to completion during his/her service year as a digital onboarder.',
+  //   image:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1665064002/website-images/project-dodeel_d40ux9.png',
+  //   url: 'https://dodeelcds.com.ng/',
+  //   stack: ['ui design', 'tailwindcss', 'gatsby'],
+  // },
 ];
 
 interface ProjectProps {
