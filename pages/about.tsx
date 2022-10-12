@@ -81,7 +81,7 @@ const About: NextPage = () => {
                 href="https://dojah.io"
                 target="_blank"
                 rel="noreferrer"
-                className="text-grey dark:text-white-800 font-medium hover:underline"
+                className="font-medium text-grey dark:text-white-800 hover:underline"
               >
                 Dojah
               </a>
@@ -97,7 +97,7 @@ const About: NextPage = () => {
                 href="https://www.codecademy.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-grey dark:text-white-800 font-medium hover:underline"
+                className="font-medium text-grey dark:text-white-800 hover:underline"
               >
                 Codecademy.
               </a>{' '}
@@ -107,7 +107,7 @@ const About: NextPage = () => {
                 href="https://www.youtube.com/c/DesignCourse"
                 target="_blank"
                 rel="noreferrer"
-                className="text-grey dark:text-white-800 font-medium hover:underline"
+                className="font-medium text-grey dark:text-white-800 hover:underline"
               >
                 Design Course,
               </a>{' '}
@@ -115,7 +115,7 @@ const About: NextPage = () => {
                 href="https://www.youtube.com/c/FluxWithRanSegall"
                 target="_blank"
                 rel="noreferrer"
-                className="text-grey dark:text-white-800 font-medium hover:underline"
+                className="font-medium text-grey dark:text-white-800 hover:underline"
               >
                 {' '}
                 Flux Academy,
@@ -125,7 +125,7 @@ const About: NextPage = () => {
                 href="https://www.youtube.com/c/JesseShowalter"
                 target="_blank"
                 rel="noreferrer"
-                className="text-grey dark:text-white-800 font-medium hover:underline"
+                className="font-medium text-grey dark:text-white-800 hover:underline"
               >
                 Jesse Showalter.
               </a>{' '}
@@ -152,7 +152,7 @@ const About: NextPage = () => {
                 href="https://twitter.com/dayoawobeku"
                 target="_blank"
                 rel="noreferrer"
-                className="text-grey dark:text-white-800 font-medium hover:underline"
+                className="font-medium text-grey dark:text-white-800 hover:underline"
               >
                 Twitter{' '}
               </a>
@@ -163,23 +163,23 @@ const About: NextPage = () => {
               If you want to learn about Javascript and web development, he has
               a blog on this website. Check it out{' '}
               <Link href="/blog">
-                <a className="text-grey dark:text-white-800 font-medium hover:underline">
+                <a className="font-medium text-grey dark:text-white-800 hover:underline">
                   here!
                 </a>
               </Link>
             </p>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-6 items-center sm:gap-9 mt-8 sm:mt-10">
+        <div className="flex flex-col items-center gap-6 mt-8 sm:flex-row sm:gap-9 sm:mt-10">
           <a
             href="/dayo-awobeku-resume.pdf"
             download
-            className="items-center justify-center rounded-full inline-flex w-full btn"
+            className="inline-flex items-center justify-center w-full rounded-full btn"
           >
             Download my Resume
           </a>
           <Link href="/contact">
-            <a className="items-center justify-center rounded-full inline-flex w-full btn">
+            <a className="inline-flex items-center justify-center w-full rounded-full btn">
               Contact me
             </a>
           </Link>
@@ -187,14 +187,14 @@ const About: NextPage = () => {
       </section>
 
       <section className="mt-28">
-        <h2 className="text-4md font-bold">Top Tracks</h2>
+        <h2 className="font-bold text-4md">Top Tracks</h2>
         <p className="mt-4 text-md text-grey-800 dark:text-white-400">
           Curious what I'm currently jamming to? Here's my top tracks on Spotify
           updated daily.
         </p>
 
         <div>
-          <div className="mt-6 divide-y divide-grey-800 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 mt-6 divide-y divide-grey-800">
             {spotifyTopTracks?.tracks?.map((track: Track, index: number) => (
               <div key={index} className="flex flex-col pt-4">
                 <div className="flex items-start gap-3">
@@ -204,7 +204,7 @@ const About: NextPage = () => {
                   <div>
                     <Link href={track.songUrl}>
                       <a
-                        className="text-grey-100 text-md font-medium"
+                        className="font-medium text-grey-100 text-md"
                         target="_blank"
                       >
                         {track.title}
