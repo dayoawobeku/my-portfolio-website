@@ -31,6 +31,7 @@ const Blog: NextPage = () => {
     <div>
       <Head>
         <title>Dayo Awobeku's Blog</title>
+        <meta name="title" property="og:title" content="Dayo Awobeku's Blog" />
         <meta
           name="description"
           content="Learn web development and get to know more about me here."
@@ -41,15 +42,16 @@ const Blog: NextPage = () => {
         <meta property="og:url" content="https://dayoawobeku.com/blog" />
         <meta property="og:title" content="Dayo Awobeku's Blog" />
         <meta
+          name="description"
           property="og:description"
           content="Learn web development and get to know more about me here."
         />
         <meta property="og:site_name" content="Dayo Awobeku" />
         <meta
+          name="image"
           property="og:image"
           content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
         />
-
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://dayoawobeku.com/blog" />
