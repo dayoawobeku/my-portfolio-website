@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -15,17 +15,10 @@ const Blog: NextPage = () => {
 
   const firstPost = allPosts?.shift();
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const router = useRouter();
   if (router.isFallback) {
     return <h1>Loading...</h1>;
   }
-  if (!mounted) return null;
 
   return (
     <div>
@@ -68,7 +61,7 @@ const Blog: NextPage = () => {
       </Head>
 
       <div className="flex flex-wrap items-center justify-between gap-4 mt-10 basis-full md:flex-nowrap lg:gap-8 md:mt-20">
-        <h1 className="md:basis-2/3 lg:basis-auto lg:max-w-lg mb-10 text-2lg md:text-2xl lg:text-4xl text-grey dark:text-white">
+        <h1 className="mb-10 md:basis-2/3 lg:basis-auto lg:max-w-lg text-2lg md:text-2xl lg:text-4xl text-grey dark:text-white">
           Learn web development and get to know more about me here.
         </h1>
         <div className="w-[506px] h-[387px]">
@@ -101,10 +94,10 @@ const Blog: NextPage = () => {
                 {firstPost?.date} - {firstPost?.time}
               </p>
               <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
-                <span className="font-medium text-4md text-grey mb-1">
+                <span className="mb-1 font-medium text-4md text-grey">
                   Read full article
                 </span>
-                <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
+                <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
                   <Image
                     alt=""
                     src={arrowLight}
@@ -131,11 +124,11 @@ const Blog: NextPage = () => {
           </a>
         </Link>
       </div>
-      <div className="mt-8 sm:mt-16 flex flex-col gap-8 sm:gap-16">
+      <div className="flex flex-col gap-8 mt-8 sm:mt-16 sm:gap-16">
         {allPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
             <a className="transition-all duration-300 rounded outline-none outline-[3px] outline-offset-4 hover:outline-info group">
-              <article className="py-6 sm:py-0 sm:h-80 bg-white-800 flex items-center gap-10 rounded pl-4 sm:pl-0 pr-10">
+              <article className="flex items-center gap-10 py-6 pl-4 pr-10 rounded sm:py-0 sm:h-80 bg-white-800 sm:pl-0">
                 <div className="hidden sm:block h-80 w-[389px] relative">
                   <Image
                     alt={post.imageDescription}
@@ -159,7 +152,7 @@ const Blog: NextPage = () => {
                     {post.postTitle}
                   </h3>
                   <div className="flex items-center gap-2">
-                    <span className="w-fit text-base text-grey font-medium">
+                    <span className="text-base font-medium w-fit text-grey">
                       Continue reading
                     </span>
                     <div className="w-4 h-4 transition-all duration-300 group-hover:translate-x-2">
