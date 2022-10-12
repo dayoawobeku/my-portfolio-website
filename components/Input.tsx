@@ -2,6 +2,7 @@ interface Props {
   label: string;
   id: string;
   type?: string;
+  name?: string;
   placeholder?: string;
   className?: string;
   required?: boolean;
@@ -22,6 +23,7 @@ function Input({
   required,
   value,
   onChange,
+  name,
 }: Props) {
   return (
     <>
@@ -39,6 +41,7 @@ function Input({
         required={required}
         value={value}
         onChange={onChange}
+        name={name}
       />
     </>
   );
@@ -83,6 +86,7 @@ function Textarea({
   required,
   value,
   onChange,
+  name,
 }: Props) {
   return (
     <>
@@ -99,6 +103,7 @@ function Textarea({
         required={required}
         value={value}
         onChange={onChange}
+        name={name}
       />
     </>
   );
