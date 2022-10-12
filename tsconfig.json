@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Blog/Text.tsx"
+    "components/Blog/Text.tsx",
+    "/public/robots.txt"
   ],
   "exclude": ["node_modules"]
 }
