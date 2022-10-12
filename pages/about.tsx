@@ -18,6 +18,11 @@ const About: NextPage = () => {
     <div>
       <Head>
         <title>Dayo Awobeku - About me</title>
+        <meta
+          name="title"
+          property="og:title"
+          content="Dayo Awobeku - About me"
+        />
         <meta name="description" content="Get to know more about Dayo." />
         <link rel="icon" href="/favicon.ico" />
         {/* Open Graph / Facebook */}
@@ -25,11 +30,13 @@ const About: NextPage = () => {
         <meta property="og:url" content="https://dayoawobeku.com/about" />
         <meta property="og:title" content="Dayo Awobeku - About me" />
         <meta
+          name="description"
           property="og:description"
           content="Get to know more about Dayo."
         />
         <meta property="og:site_name" content="Dayo Awobeku" />
         <meta
+          name="image"
           property="og:image"
           content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
         />

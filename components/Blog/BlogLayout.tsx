@@ -27,6 +27,7 @@ export default function Layout({meta, children}: Props) {
     <>
       <Head>
         <title>{meta.postTitle}</title>
+        <meta name="title" property="og:title" content={meta.postTitle} />
         <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
         {/* Open Graph / Facebook */}
@@ -36,9 +37,13 @@ export default function Layout({meta, children}: Props) {
           content={`https://dayoawobeku/blog/${meta.slug}`}
         />
         <meta property="og:title" content={meta.postTitle} />
-        <meta property="og:description" content={meta.description} />
+        <meta
+          name="description"
+          property="og:description"
+          content={meta.description}
+        />
         <meta property="og:site_name" content="Dayo Awobeku" />
-        <meta property="og:image" content={meta.url} />
+        <meta name="image" property="og:image" content={meta.url} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />

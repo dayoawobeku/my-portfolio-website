@@ -64,7 +64,6 @@ interface Props {
 function Layout({children}: Props) {
   const {theme, setTheme} = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: '2-digit',
@@ -91,12 +90,6 @@ function Layout({children}: Props) {
       clearInterval(timer);
     };
   }, []);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <div className="dark:bg-[#131920]">

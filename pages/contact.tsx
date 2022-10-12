@@ -43,6 +43,7 @@ const Contact: NextPage = () => {
     <div>
       <Head>
         <title>Contact Dayo Awobeku</title>
+        <meta name="title" property="og:title" content="Contact Dayo Awobeku" />
         <meta
           name="description"
           content="If you'd like to hire me, enquire about my rates or give me any kind of feedback, I'll be delighted to hear from you."
@@ -53,11 +54,13 @@ const Contact: NextPage = () => {
         <meta property="og:url" content="https://dayoawobeku.com/contact" />
         <meta property="og:title" content="Contact Dayo Awobeku" />
         <meta
+          name="description"
           property="og:description"
           content="If you'd like to hire me, enquire about my rates or give me any kind of feedback, I'll be delighted to hear from you."
         />
         <meta property="og:site_name" content="Dayo Awobeku" />
         <meta
+          name="image"
           property="og:image"
           content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
         />
