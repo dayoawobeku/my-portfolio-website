@@ -54,10 +54,7 @@ export default function Layout({meta, children}: Props) {
         <meta property="twitter:site" content="@dayoawobeku" />
         <meta property="twitter:title" content={meta.postTitle} />
         <meta property="twitter:description" content={meta.description} />
-        <meta
-          property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
-        />
+        <meta property="twitter:image" content={meta.url} />
       </Head>
 
       <div>
