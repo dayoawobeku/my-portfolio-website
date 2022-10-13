@@ -62,7 +62,7 @@ const Contact: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665675249/website-images/og-image_lct9wy.png"
         />
 
         {/* Twitter */}
@@ -79,7 +79,7 @@ const Contact: NextPage = () => {
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665675249/website-images/og-image_lct9wy.png"
         />
       </Head>
 

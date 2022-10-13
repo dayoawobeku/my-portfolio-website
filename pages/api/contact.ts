@@ -21,7 +21,9 @@ export default async function handler(
       to: process.env.SMTP_USER,
       subject: `Contact form submission from ${name}`,
       html: `<h1>You have a contact form submission.</h1><br>
-        <p><strong>Email: </strong> ${email}</p><br>
+        <p><strong>Name: </strong> ${name}</p><br>
+        <p><strong>Email: </strong> 
+        ${email}</p><br>
         <p><strong>Subject: </strong> ${subject}</p><br>
         <p><strong>Body: </strong> ${body}</p><br>
       `,
