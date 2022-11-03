@@ -37,7 +37,7 @@ function Input({
         type={type}
         id={id}
         placeholder={placeholder}
-        className="w-full h-20 px-6 mt-4 rounded-sm lg:px-10 bg-white-700 dark:text-grey"
+        className="mt-4 h-20 w-full rounded-sm bg-white-700 px-6 dark:text-grey lg:px-10"
         required={required}
         value={value}
         onChange={onChange}
@@ -69,7 +69,7 @@ function SmallerInput({
         type={type}
         id={id}
         placeholder={placeholder}
-        className="w-full h-16 px-4 mt-2 rounded-sm bg-white-700 dark:text-grey"
+        className="mt-2 h-16 w-full rounded-sm bg-white-700 px-4 dark:text-grey"
         required={required}
         value={value}
         onChange={onChange}
@@ -99,7 +99,7 @@ function Textarea({
       <textarea
         id={id}
         placeholder={placeholder}
-        className="w-full px-6 pt-8 mt-4 rounded-sm lg:px-10 h-60 bg-white-700 dark:text-grey"
+        className="mt-4 h-60 w-full rounded-sm bg-white-700 px-6 pt-8 dark:text-grey lg:px-10"
         required={required}
         value={value}
         onChange={onChange}

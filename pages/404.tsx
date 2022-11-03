@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665675249/website-images/og-image_lct9wy.png"
         />
 
         {/* Twitter */}
@@ -34,12 +34,12 @@ const Home: NextPage = () => {
         <meta property="twitter:description" content="404 - Page Not Found" />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665066117/website-images/og-image_awxqmx.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665675249/website-images/og-image_lct9wy.png"
         />
       </Head>
       <section className="flex flex-col items-center">
         <p className="my-8 text-md font-medium">Page not found</p>
-        <h1 className="font-bold text-[10rem]">404</h1>
+        <h1 className="text-[10rem] font-bold">404</h1>
         <CustomLink text="Go back home" href="/" />
       </section>
     </div>

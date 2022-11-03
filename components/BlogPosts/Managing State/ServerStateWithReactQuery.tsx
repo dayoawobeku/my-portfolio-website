@@ -15,7 +15,7 @@ function Wrapper() {
   const [postId, setPostId] = useState(-1);
 
   return (
-    <div className="flex items-start gap-6 px-4 py-4 my-8 border-2 rounded basis-full dark:border-white-700">
+    <div className="my-8 flex basis-full items-start gap-6 rounded border-2 px-4 py-4 dark:border-white-700">
       <Sidebar setPostId={setPostId} postId={0} />
       <Main postId={postId} setPostId={setPostId} />
     </div>
@@ -28,7 +28,7 @@ function Sidebar({setPostId}: Props) {
   return (
     <aside className="basis-1/4">
       <button
-        className="pb-2 font-medium border-b-2 cursor-pointer text-2md border-white-400"
+        className="cursor-pointer border-b-2 border-white-400 pb-2 text-2md font-medium"
         onClick={e => {
           setPostId(-1);
           e.preventDefault();
@@ -47,7 +47,7 @@ function Sidebar({setPostId}: Props) {
 function Main({postId, setPostId}: Props) {
   return (
     <main className="basis-3/4">
-      <h3 className="mb-4 font-medium text-2md">Posts</h3>
+      <h3 className="mb-4 text-2md font-medium">Posts</h3>
 
       <div className="flex flex-col gap-2">
         {postId > -1 ? (
@@ -89,12 +89,12 @@ function CreatePost() {
 
   return (
     <>
-      <h3 className="mb-4 font-medium text-2md">Create Post</h3>
+      <h3 className="mb-4 text-2md font-medium">Create Post</h3>
 
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label htmlFor="title">Title</label>
         <input
-          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
+          className="mt-1 rounded-sm bg-white-700 p-2 dark:bg-grey-800"
           type="text"
           name="title"
           id="title"
@@ -107,7 +107,7 @@ function CreatePost() {
           Body
         </label>
         <textarea
-          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
+          className="mt-1 rounded-sm bg-white-700 p-2 dark:bg-grey-800"
           name="body"
           id="body"
           rows={2}
@@ -117,7 +117,7 @@ function CreatePost() {
         />
 
         <button
-          className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit disabled:bg-info-100 disabled:text-body"
+          className="mt-3 w-fit rounded-sm bg-info p-2 text-[0.875rem] text-white disabled:bg-info-100 disabled:text-body"
           disabled={isLoading}
         >
           Create Post
@@ -146,12 +146,12 @@ function EditPost({postId}: Props) {
 
   return (
     <>
-      <h3 className="mb-4 font-medium text-2md">Edit Post</h3>
+      <h3 className="mb-4 text-2md font-medium">Edit Post</h3>
 
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label htmlFor="title">Title</label>
         <input
-          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
+          className="mt-1 rounded-sm bg-white-700 p-2 dark:bg-grey-800"
           type="text"
           name="title"
           id="title"
@@ -163,7 +163,7 @@ function EditPost({postId}: Props) {
           Body
         </label>
         <textarea
-          className="p-2 mt-1 rounded-sm bg-white-700 dark:bg-grey-800"
+          className="mt-1 rounded-sm bg-white-700 p-2 dark:bg-grey-800"
           name="body"
           id="body"
           rows={2}
@@ -172,7 +172,7 @@ function EditPost({postId}: Props) {
         />
 
         <button
-          className="mt-3 p-2 rounded-sm bg-info text-white text-[0.875rem] w-fit disabled:bg-info-100 disabled:text-body"
+          className="mt-3 w-fit rounded-sm bg-info p-2 text-[0.875rem] text-white disabled:bg-info-100 disabled:text-body"
           disabled={isLoading}
         >
           Edit Post
@@ -200,7 +200,7 @@ function Posts({setPostId}: Props) {
       {data.map((post: {id: number; title: string}) => (
         <button
           key={post.id}
-          className={`hover:underline cursor-pointer text-start w-fit ${
+          className={`w-fit cursor-pointer text-start hover:underline ${
             queryClient.getQueryData(['post', post.id])
               ? 'font-bold text-info'
               : ''
@@ -223,7 +223,7 @@ function Post({postId, setPostId}: Props) {
   return (
     <>
       <button
-        className="cursor-pointer hover:underline text-[0.8125rem] font-medium w-fit"
+        className="w-fit cursor-pointer text-[0.8125rem] font-medium hover:underline"
         onClick={e => {
           setPostId(-1);
           e.preventDefault();
