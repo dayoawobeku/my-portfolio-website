@@ -57,7 +57,7 @@ const About: NextPage = () => {
       </Head>
 
       <section>
-        <div className="flex flex-wrap items-stretch justify-between w-full gap-8 mt-10 md:mt-20 lg:flex-nowrap">
+        <div className="mt-10 flex w-full flex-wrap items-stretch justify-between gap-8 md:mt-20 lg:flex-nowrap">
           <div className="w-full md:w-[47.69%]">
             <Image
               src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664732973/website-images/dayo-about_k5zazt.png"
@@ -69,11 +69,11 @@ const About: NextPage = () => {
               priority
             />
           </div>
-          <div className="w-full lg:w-[49.32%] overflow-y-auto h-[662px] pr-4 pb-4 about-text">
-            <h1 className="font-medium text-md text-grey dark:text-white-700">
+          <div className="about-text h-[662px] w-full overflow-y-auto pr-4 pb-4 lg:w-[49.32%]">
+            <h1 className="text-md font-medium text-grey dark:text-white-700">
               Get to know Dayo...
             </h1>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               Dayo is a graduate of Medical Laboratory Science at the University
               of Ibadan in Nigeria. He currently works as a Frontend Engineer at{' '}
               {''}
@@ -81,14 +81,14 @@ const About: NextPage = () => {
                 href="https://dojah.io"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-grey dark:text-white-800 hover:underline"
+                className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 Dojah
               </a>
               , a Y Combinator startup in Nigeria, managing and working on
               several projects across the company.
             </p>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               At the height of the pandemic, while working at a government
               hospital in Lagos, Nigeria, he went all in self-development and
               building skills he always dreamed of having. He started learning
@@ -97,7 +97,7 @@ const About: NextPage = () => {
                 href="https://www.codecademy.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-grey dark:text-white-800 hover:underline"
+                className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 Codecademy.
               </a>{' '}
@@ -107,7 +107,7 @@ const About: NextPage = () => {
                 href="https://www.youtube.com/c/DesignCourse"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-grey dark:text-white-800 hover:underline"
+                className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 Design Course,
               </a>{' '}
@@ -115,7 +115,7 @@ const About: NextPage = () => {
                 href="https://www.youtube.com/c/FluxWithRanSegall"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-grey dark:text-white-800 hover:underline"
+                className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 {' '}
                 Flux Academy,
@@ -125,26 +125,26 @@ const About: NextPage = () => {
                 href="https://www.youtube.com/c/JesseShowalter"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-grey dark:text-white-800 hover:underline"
+                className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 Jesse Showalter.
               </a>{' '}
             </p>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               Before working at Dojah, he worked as a contract Product Designer
               for Decasoft and Outlierz. He still designs user interfaces now
               and then, and this portfolio website is the latest in that stack.
             </p>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               Over the past two years as a Frontend Engineer, he's worked on
               some fascinating projects including building Dojah's 3rd version
               of their website and web app.
             </p>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               When he isn't working, he spends time on his Playstation or
               YouTube watching criminal investigations.
             </p>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               If you'd like to hire him, enquire about his rates or give him any
               kind of feedback, he'll be delighted to hear from you. He's
               hanging out a lot on {''}
@@ -152,34 +152,34 @@ const About: NextPage = () => {
                 href="https://twitter.com/dayoawobeku"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-grey dark:text-white-800 hover:underline"
+                className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 Twitter{' '}
               </a>
               these days, and will answer all your questions through a DM if
               that is more practical for you!
             </p>
-            <p className="text-md leading-[31px] text-body dark:text-grey-600 mt-8">
+            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               If you want to learn about Javascript and web development, he has
               a blog on this website. Check it out{' '}
               <Link href="/blog">
-                <a className="font-medium text-grey dark:text-white-800 hover:underline">
+                <a className="font-medium text-grey hover:underline dark:text-white-800">
                   here!
                 </a>
               </Link>
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center gap-6 mt-8 sm:flex-row sm:gap-9 sm:mt-10">
+        <div className="mt-8 flex flex-col items-center gap-6 sm:mt-10 sm:flex-row sm:gap-9">
           <a
             href="/dayo-awobeku-resume.pdf"
             download
-            className="inline-flex items-center justify-center w-full rounded-full btn"
+            className="btn inline-flex w-full items-center justify-center rounded-full"
           >
             Download my Resume
           </a>
           <Link href="/contact">
-            <a className="inline-flex items-center justify-center w-full rounded-full btn">
+            <a className="btn inline-flex w-full items-center justify-center rounded-full">
               Contact me
             </a>
           </Link>
@@ -187,24 +187,24 @@ const About: NextPage = () => {
       </section>
 
       <section className="mt-28">
-        <h2 className="font-bold text-4md">Top Tracks</h2>
+        <h2 className="text-4md font-bold">Top Tracks</h2>
         <p className="mt-4 text-md text-grey-800 dark:text-white-400">
           Curious what I'm currently jamming to? Here's my top tracks on Spotify
           updated daily.
         </p>
 
         <div>
-          <div className="flex flex-col gap-4 mt-6 divide-y divide-grey-800">
+          <div className="mt-6 flex flex-col gap-4 divide-y divide-grey-800">
             {spotifyTopTracks?.tracks?.map((track: Track, index: number) => (
               <div key={index} className="flex flex-col pt-4">
                 <div className="flex items-start gap-3">
-                  <p className="text-[0.875rem] text-grey-400 font-bold mt-1">
+                  <p className="mt-1 text-[0.875rem] font-bold text-grey-400">
                     {index + 1}
                   </p>
                   <div>
                     <Link href={track.songUrl}>
                       <a
-                        className="font-medium text-grey-100 text-md"
+                        className="text-md font-medium text-grey-100"
                         target="_blank"
                       >
                         {track.title}

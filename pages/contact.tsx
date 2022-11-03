@@ -83,12 +83,12 @@ const Contact: NextPage = () => {
         />
       </Head>
 
-      <div className="flex flex-wrap items-start justify-between gap-12 mt-10 lg:gap-6 lg:mt-24 lg:flex-nowrap">
+      <div className="mt-10 flex flex-wrap items-start justify-between gap-12 lg:mt-24 lg:flex-nowrap lg:gap-6">
         <div>
           <h1 className="text-4xl text-grey dark:text-white-700">
             Get in touch
           </h1>
-          <p className="mt-4 text-grey text-2md dark:text-white-700">
+          <p className="mt-4 text-2md text-grey dark:text-white-700">
             By filling the contact form
           </p>
           <div className="mt-12">
@@ -96,7 +96,7 @@ const Contact: NextPage = () => {
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="mailto: dayoawobeku@gmail.com"
-                className="font-medium transition-all duration-150 text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600"
+                className="font-medium text-grey transition-all duration-150 hover:text-grey-800 dark:text-white-700 dark:hover:text-grey-600"
               >
                 dayoawobeku@gmail.com
               </a>
@@ -107,7 +107,7 @@ const Contact: NextPage = () => {
                 href="https://linkedin.com/in/dayoawobeku/"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium transition-all duration-150 text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600"
+                className="font-medium text-grey transition-all duration-150 hover:text-grey-800 dark:text-white-700 dark:hover:text-grey-600"
               >
                 LinkedIn
               </a>
@@ -116,7 +116,7 @@ const Contact: NextPage = () => {
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="tel: +234-818-194-2332"
-                className="font-medium transition-all duration-150 text-grey dark:text-white-700 hover:text-grey-800 dark:hover:text-grey-600"
+                className="font-medium text-grey transition-all duration-150 hover:text-grey-800 dark:text-white-700 dark:hover:text-grey-600"
               >
                 +234-818-194-2332
               </a>
@@ -161,14 +161,14 @@ const Contact: NextPage = () => {
             onChange={e => setBody(e.target.value)}
           />
 
-          <button className="mt-10 btn" disabled={isLoading}>
+          <button className="btn mt-10" disabled={isLoading}>
             Send message
           </button>
 
           {isSuccess ? (
-            <p className="mt-4 font-medium text-md text-info">{message}</p>
+            <p className="mt-4 text-md font-medium text-info">{message}</p>
           ) : isError ? (
-            <p className="mt-4 font-medium text-md text-danger">{message}</p>
+            <p className="mt-4 text-md font-medium text-danger">{message}</p>
           ) : null}
         </form>
       </div>

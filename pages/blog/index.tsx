@@ -60,11 +60,11 @@ const Blog: NextPage = () => {
         />
       </Head>
 
-      <div className="flex flex-wrap items-center justify-between gap-4 mt-10 basis-full md:flex-nowrap lg:gap-8 md:mt-20">
-        <h1 className="mb-10 md:basis-2/3 lg:basis-auto lg:max-w-lg text-2lg md:text-2xl lg:text-4xl text-grey dark:text-white">
+      <div className="mt-10 flex basis-full flex-wrap items-center justify-between gap-4 md:mt-20 md:flex-nowrap lg:gap-8">
+        <h1 className="mb-10 text-2lg text-grey dark:text-white md:basis-2/3 md:text-2xl lg:max-w-lg lg:basis-auto lg:text-4xl">
           Learn web development and get to know more about me here.
         </h1>
-        <div className="w-[506px] h-[387px]">
+        <div className="h-[387px] w-[506px]">
           <Image
             src={
               theme === 'light'
@@ -82,22 +82,22 @@ const Blog: NextPage = () => {
         </div>
       </div>
 
-      <div className="mt-20 transition-all duration-300 rounded outline-none bg-white-700 outline-[3px] outline-offset-4 hover:outline-info">
+      <div className="mt-20 rounded bg-white-700 outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
         <Link href={`/blog/${firstPost?.slug}`}>
-          <a className="flex items-center justify-between p-6 md:p-20 group">
+          <a className="group flex items-center justify-between p-6 md:p-20">
             <article>
-              <p className="font-medium text-md text-grey">Featured article</p>
-              <h2 className="mt-6 md:mt-8 text-2lg md:text-xl md:leading-[56px] text-grey max-w-lg">
+              <p className="text-md font-medium text-grey">Featured article</p>
+              <h2 className="mt-6 max-w-lg text-2lg text-grey md:mt-8 md:text-xl md:leading-[56px]">
                 {firstPost?.postTitle}
               </h2>
-              <p className="mt-6 font-medium md:mt-8 text-body text-3md">
+              <p className="mt-6 text-3md font-medium text-body md:mt-8">
                 {firstPost?.date} - {firstPost?.time}
               </p>
-              <div className="inline-flex items-center gap-4 mt-10 md:mt-16">
-                <span className="mb-1 font-medium text-4md text-grey">
+              <div className="mt-10 inline-flex items-center gap-4 md:mt-16">
+                <span className="mb-1 text-4md font-medium text-grey">
                   Read full article
                 </span>
-                <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
+                <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
                   <Image
                     alt=""
                     src={arrowLight}
@@ -108,7 +108,7 @@ const Blog: NextPage = () => {
                 </div>
               </div>
             </article>
-            <div className="hidden md:block w-[342px] h-[401px] relative">
+            <div className="relative hidden h-[401px] w-[342px] md:block">
               {firstPost?.imageUrl && (
                 <Image
                   alt={firstPost?.imageDescription}
@@ -124,12 +124,12 @@ const Blog: NextPage = () => {
           </a>
         </Link>
       </div>
-      <div className="flex flex-col gap-8 mt-8 sm:mt-16 sm:gap-16">
+      <div className="mt-8 flex flex-col gap-8 sm:mt-16 sm:gap-16">
         {allPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a className="transition-all duration-300 rounded outline-none outline-[3px] outline-offset-4 hover:outline-info group">
-              <article className="flex items-center gap-10 py-6 pl-4 pr-10 rounded sm:py-0 sm:h-80 bg-white-800 sm:pl-0">
-                <div className="hidden sm:block h-80 w-[389px] relative">
+            <a className="group rounded outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
+              <article className="flex items-center gap-10 rounded bg-white-800 py-6 pl-4 pr-10 sm:h-80 sm:py-0 sm:pl-0">
+                <div className="relative hidden h-80 w-[389px] sm:block">
                   <Image
                     alt={post.imageDescription}
                     src={post.imageUrl}
@@ -145,17 +145,17 @@ const Blog: NextPage = () => {
                 </div>
 
                 <div className="flex flex-col gap-4 sm:gap-8">
-                  <p className="font-medium text-body dark:text-grey-400 text-2md">
+                  <p className="text-2md font-medium text-body dark:text-grey-400">
                     {post.date} - <span>{post.time}</span>
                   </p>
-                  <h3 className="text-lg font-medium text-grey dark:text-grey-800 max-w-[530px]">
+                  <h3 className="max-w-[530px] text-lg font-medium text-grey dark:text-grey-800">
                     {post.postTitle}
                   </h3>
                   <div className="flex items-center gap-2">
-                    <span className="text-base font-medium w-fit text-grey">
+                    <span className="w-fit text-base font-medium text-grey">
                       Continue reading
                     </span>
-                    <div className="w-4 h-4 transition-all duration-300 group-hover:translate-x-2">
+                    <div className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2">
                       <Image
                         alt=""
                         src={arrowLight}

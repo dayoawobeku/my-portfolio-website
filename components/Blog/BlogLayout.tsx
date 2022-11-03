@@ -55,12 +55,17 @@ export default function Layout({meta, children}: Props) {
         <meta property="twitter:title" content={meta.postTitle} />
         <meta property="twitter:description" content={meta.description} />
         <meta property="twitter:image" content={meta.url} />
+        <link
+          rel="canonical"
+          href={`https://dayoawobeku.com/blog/${meta.slug}`}
+          key="canonical"
+        />
       </Head>
 
       <div>
         <Link href="/blog">
-          <a className="inline-flex items-center gap-3 mt-18 group">
-            <div className="w-6 h-6 transition-all duration-300 group-hover:-translate-x-2">
+          <a className="group mt-18 inline-flex items-center gap-3">
+            <div className="h-6 w-6 transition-all duration-300 group-hover:-translate-x-2">
               <Image
                 alt=""
                 src={theme === 'light' ? arrowBack : arrowBackDark}
@@ -73,13 +78,13 @@ export default function Layout({meta, children}: Props) {
             </span>
           </a>
         </Link>
-        <div className="mt-[104px] mx-auto text-center">
+        <div className="mx-auto mt-[104px] text-center">
           <h1 className="text-2lg md:text-xl">{meta.postTitle}</h1>
-          <p className="mt-6 font-medium text-2md text-body dark:text-white-400">
+          <p className="mt-6 text-2md font-medium text-body dark:text-white-400">
             {meta.date} - {meta.time}
           </p>
         </div>
-        <div className="my-14 w-full h-[576px] relative">
+        <div className="relative my-14 h-[576px] w-full">
           <Image
             alt={meta.title}
             priority
@@ -94,7 +99,7 @@ export default function Layout({meta, children}: Props) {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           />
         </div>
-        <div className="max-w-[848px] mx-auto">{children}</div>
+        <div className="mx-auto max-w-[848px]">{children}</div>
       </div>
     </>
   );

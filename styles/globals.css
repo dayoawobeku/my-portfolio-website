@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-family: 'Satoshi', sans-serif;
-}
-
 @layer base {
+  html {
+    font-family: 'Satoshi', sans-serif;
+  }
+
   @font-face {
     font-family: 'Satoshi';
     src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2'),
@@ -41,7 +41,7 @@ html {
 @layer components {
   input,
   textarea {
-    @apply font-medium focus-visible:outline focus-visible:outline-grey-800 dark:focus-visible:outline-white-800 focus-visible:outline-offset-4 focus-visible:outline-2;
+    @apply font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-grey-800 dark:focus-visible:outline-white-800;
   }
 
   label {
@@ -49,7 +49,7 @@ html {
   }
 
   .btn {
-    @apply px-6 py-4 font-medium transition-all rounded-sm text-grey dark:text-white-700 text-md dark:outline-white-400 outline outline-2 outline-grey-800 focus:outline-offset-2 hover:outline-offset-2 disabled:dark:outline-grey-800 disabled:dark:text-grey-400 disabled:outline-white-400 disabled:text-white-400 disabled:cursor-not-allowed hover:disabled:outline-offset-0;
+    @apply rounded-sm px-6 py-4 text-md font-medium text-grey outline outline-2 outline-grey-800 transition-all hover:outline-offset-2 focus:outline-offset-2 disabled:cursor-not-allowed disabled:text-white-400 disabled:outline-white-400 hover:disabled:outline-offset-0 dark:text-white-700 dark:outline-white-400 disabled:dark:text-grey-400 disabled:dark:outline-grey-800;
   }
 }
 
