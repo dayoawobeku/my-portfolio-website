@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import type {AppProps} from 'next/app';
 import {ThemeProvider} from 'next-themes';
 import {MDXProvider} from '@mdx-js/react';
+import {Analytics} from '@vercel/analytics/react';
 import Layout from '../components/Layout';
 import {
   Heading,
@@ -63,6 +64,7 @@ function MyApp({Component, pageProps}: AppProps) {
           </MDXProvider>
         </Layout>
       </ThemeProvider>
+      <Analytics />
     </QueryClientProvider>
   );
 }
