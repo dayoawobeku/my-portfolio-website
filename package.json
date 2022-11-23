@@ -21,6 +21,7 @@
     "@tanstack/react-query-devtools": "^4.2.3",
     "@types/tailwindcss": "^3.0.10",
     "@uiw/react-codemirror": "^4.11.6",
+    "@vercel/analytics": "^0.1.5",
     "axios": "^0.27.2",
     "eslint-plugin-mdx": "^2.0.2",
     "eslint-plugin-react-hooks": "^4.6.0",
