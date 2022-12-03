@@ -2,8 +2,8 @@ import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State
 
 export const meta = {
   postTitle: 'Why I now use Tailwind in all my new projects.',
-  date: 'Date',
-  time: '5 minute read',
+  date: 'December 3rd, 2022',
+  time: '4 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664740/blog/fredrik-solli-wandem-uNnN7IBN9As-unsplash_nzmhas.jpg',
   title: 'The vast landscapes of Svalbard, Fredrik Solli Wandem',
 };
@@ -29,7 +29,7 @@ Tailwind. And by "basic", I mean you should be familiar with stuff like the {''}
 
 <ExternalUrl
   href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
-  text="box-model"
+  text="box model"
 />
 {','} {''}
 <ExternalUrl
@@ -44,9 +44,7 @@ Tailwind. And by "basic", I mean you should be familiar with stuff like the {''}
 /> and <ExternalUrl
   href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions"
   text="transitions"
-/>
-
-transitions.</Text>}
+/>.</Text>}
 
 <DangerNote note="I do not think it’s such a great idea to use Tailwind if you are not familiar with plain old vanilla CSS." />
 
@@ -54,13 +52,13 @@ transitions.</Text>}
 
 <ExternalUrl href='https://tailwindcss.com/' text='Tailwind' />, I didn’t
 exactly understand all that was happening. It felt too easy and difficult at the
-same time. I left it for a while, and came back to it and I totally loved
+same time. I left it for a while and came back to it and I loved
 it.</Text>}
 
 {<Text>I'm not saying {''}
 
 <ExternalUrl href='https://tailwindcss.com/' text='Tailwind' /> is the best
-thing to happen to humanity after sliced bread? But, {''}
+thing to happen to humanity after sliced bread. But {''}
 <ExternalUrl href='https://tailwindcss.com/' text='Tailwind' /> does make your
 life significantly simpler.</Text>}
 
@@ -69,7 +67,7 @@ life significantly simpler.</Text>}
   href="why-I-love-and-use-Tailwind"
 />
 
-{<ListNumber>1. It is simple to set up and highly customizable.</ListNumber>}
+{<ListNumber>1. It is simple to set up and highly customizable</ListNumber>}
 
 {<Text>Before I got into {''}
 
@@ -80,9 +78,10 @@ doubt. But the major issue I had was with customization. At the company I work w
 we use a lot of custom designs, spacing, and components.</Text>}
 
 {<Text>And many times, we would revert to using the <QuoteText quote='style' />
-prop to add an extra layer of styling because
-{''}<ExternalUrl href='https://getbootstrap.com/' text='Bootstrap' /> wasn’t
-just enough! Did I even mention the numerous extra classes we added in the {''}
+prop in React to add an extra layer of styling because {''}
+
+<ExternalUrl href="https://getbootstrap.com/" text="Bootstrap" /> wasn’t just enough!
+Did I even mention the numerous extra classes we added in the {''}
 
 <QuoteText quote="global.css" /> file because {''}
 
@@ -91,26 +90,130 @@ the measurements we needed out of the box?</Text>}
 
 <InfoNote
   note="I'm not comparing both tools because they are intrinsically different.
-Bootstrap is great if you need an already built set of tools and components to
-plug in to. Tailwind on the other hand provides you with the utilities and you
+Bootstrap is great if you need an already-built set of tools and components to
+plug into. Tailwind on the other hand provides you with the utilities and you
 build every other thing yourself."
 />
 
-{<Text>And that's where Tailwind shines. You can easily add your own extra layer
-of configuration in the {''} <QuoteText quote="tailwind.config" /> file and the
-balance of the earth remains the same. And if peradventure you need an
-{''}<ExternalUrl
+{<Text>And that's where Tailwind shines. You can easily add your extra layer of
+configuration by {''}
+
+<ExternalUrl
+  href="https://tailwindcss.com/docs/customizing-spacing#extending-the-default-spacing-scale"
+  text="extending"
+/> the {''} <QuoteText quote="tailwind.config" /> file and the balance of the earth
+remains the same. </Text>}
+
+{<Text>If you want to add your custom components, you can do that too by using
+the {' '}
+
+<ExternalUrl
+  href="https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply"
+  text="@apply"
+/> directive.</Text>}
+
+{<Text> And if peradventure you need an {''}<ExternalUrl
   href="https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values"
   text="arbitrary value"
-/> {','} you can easily add it to your className prop like so: {''}
+/>, you can easily add it to your className prop like so: {''}
 
 <QuoteText quote="top-[117px]" />. Easy.</Text>}
 
 {<ListNumber extraMarginTop>2. Tailwind's Responsive Design is just
-awesome.</ListNumber>}
+awesome</ListNumber>}
 
 {<Text>Every utility class in Tailwind can be applied conditionally at different
 breakpoints, which makes it super simple to build complex responsive interfaces
 without ever leaving your HTML.</Text>}
 
+{<Text>For example, if you want to change the background color of a div at a
+{''} <ExternalUrl
+  href="https://tailwindcss.com/docs/responsive-design#responsive-design"
+  text="specific breakpoint" />, you can do that by adding the {''}
+
+<QuoteText quote="md" /> {''} prefix to the {''} <QuoteText quote="bg" /> {''}
+class like so: {''} <QuoteText quote="bg-red-500 md:bg-blue-500 text-white xl:text-grey" />.</Text>}
+
+{<Text> Tailwind uses a mobile-first approach to responsive design, which means
+that by default, all of your utility classes apply at all screen sizes unless
+you specify otherwise. This is a great default because it means you spend less
+time writing CSS.</Text>}
+
+{<Text>This is a lot easier than using media queries in CSS. And if you are
+familiar with CSS, you can easily use Tailwind's responsive design to your
+advantage.</Text>}
+
+{<ListNumber extraMarginTop>3. Tailwind is incredibly performance
+focused</ListNumber>}
+
+{<Text>By default, CSS is treated as a render-blocking resource, which means
+that the browser won't render any processed content until the {''}
+
+<ExternalUrl
+  href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model"
+  text="CSSOM" />
+{''} is ready. This is a problem because the browser has to wait for the CSS to be parsed and applied before it can start rendering the page.</Text>}
+
+{<Text>And this is where Tailwind shines, yet again. Tailwind aims to produce
+the smallest CSS file possible by only generating the CSS you are actually using
+in your project. See how they do it {''}
+
+<ExternalUrl
+  href="https://tailwindcss.com/docs/optimizing-for-production#removing-unused-css"
+  text="here" />.
+</Text>}
+
+{<ListNumber extraMarginTop> 4. Pairs well with component-based UI
+frameworks/libraries</ListNumber>}
+
+{<Text>Asides from the fact that you can use Tailwind in a regular HTML file,
+you can also use it with any UI framework/library of your choice.</Text>}
+
+{<Text>I have used Tailwind with {''}
+
+<ExternalUrl href="https://reactjs.org/" text="React" />, {''}
+<ExternalUrl href="https://nextjs.org/" text="Next js" />, and {''}
+<ExternalUrl href="https://kit.svelte.dev/" text="SvelteKit" />, and it works
+like a charm. Their{' '}
+
+<ExternalUrl href="https://tailwindcss.com/docs/installation" text="documentation" />
+is also very detailed and easy to follow.</Text>}
+
+{<ListNumber extraMarginTop> 5. Tailwind has a great community</ListNumber>}
+
+{<Text>One of the things I love about Tailwind is the very active and helpful
+community. There's a plethora of resources on the internet to help you get
+started with Tailwind, and if you are stuck, you can always ask for help on the
+Tailwind{' '}
+
+<ExternalUrl href="https://discord.com/invite/7NF8GNe" text="Discord" />. </Text>}
+
+{<Text> Their community is also very active on Twitter. The creator, Adam Wathan
+posts a lot of useful tips, tricks, and new updates. You can follow him{' '}
+
+<ExternalUrl href="https://twitter.com/adamwathan" text="@adamwathan" />.</Text>}
+
+{<Text>And if you are looking for a job, you can also check out the{' '}
+
+<ExternalUrl
+  href="https://jobs.tailwindcss.com/"
+  text="Tailwind Jobs" /> website.</Text>}
+
+<AnchorTag text="Conclusion" href="conclusion" />
+
+{<Text>Tailwind is great, again. But not every project requires Tailwind CSS.
+Sometimes, you’re just better off with plain old vanilla CSS, or a UI framework
+like {''}<ExternalUrl
+  href="https://getbootstrap.com/docs/5.0/getting-started/introduction/
+" text="Bootstrap"
+/> or {''} <ExternalUrl href="https://chakra-ui.com/" text="Chakra UI" />.
+Tailwind also has its UI framework called {''}
+
+<ExternalUrl href="https://tailwindui.com/" text="Tailwind UI" />{' '}
+{''} which is a collection of pre-built, fully responsive, fully accessible UI components that you can drop into your projects.</Text>}
+
+{<Text>And that's it for this article. I hope you enjoyed it. If you have any
+questions, feel free to reach out to me on Twitter {' '}
+
+<ExternalUrl href="https://twitter.com/dayoawobeku" text="@dayoawobeku" />.</Text>}
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

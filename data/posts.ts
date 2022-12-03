@@ -36,22 +36,13 @@ export const posts = [
   //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
   //   imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
   // },
-  // {
-  //   slug: 'why-i-now-use-tailwind-in-all-my-new-projects',
-  //   date: 'June 9th, 2022',
-  //   postTitle: 'Why I now use Tailwind in all my new projects.',
-  //   time: '5 min read',
-  //   imageUrl:
-  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664740/blog/fredrik-solli-wandem-uNnN7IBN9As-unsplash_nzmhas.jpg',
-  //   imageDescription: 'The vast landscapes of Svalbard, Fredrik Solli Wandem',
-  // },
-  // {
-  //   slug: 'why-i-now-use-tailwind-in-all-my-new-projects',
-  //   date: 'June 9th, 2022',
-  //   postTitle: 'Why Keys are more important than you think',
-  //   time: '5 min read',
-  //   imageUrl:
-  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664740/blog/fredrik-solli-wandem-uNnN7IBN9As-unsplash_nzmhas.jpg',
-  //   imageDescription: 'The vast landscapes of Svalbard, Fredrik Solli Wandem',
-  // },
+  {
+    slug: 'why-i-now-use-tailwind-in-all-my-new-projects',
+    date: 'December 3rd, 2022',
+    postTitle: 'Why I now use Tailwind in all my new projects.',
+    time: '4 min read',
+    imageUrl:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664740/blog/fredrik-solli-wandem-uNnN7IBN9As-unsplash_nzmhas.jpg',
+    imageDescription: 'The vast landscapes of Svalbard, Fredrik Solli Wandem',
+  },
 ];
