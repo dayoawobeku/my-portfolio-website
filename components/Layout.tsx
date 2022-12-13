@@ -159,7 +159,7 @@ function Layout({children}: Props) {
             </Link>
             <button
               onClick={letItSnow}
-              title="Let it snow"
+              title="Snow away!"
               className="animate-spin-slow"
             >
               ❄️
