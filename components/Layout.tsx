@@ -93,18 +93,19 @@ function Layout({children}: Props) {
 
   return (
     <div className="dark:bg-[#131920]">
-      <div className="max-w-[1168px] mx-auto px-4">
-        <nav className="py-8 relative bg-white dark:bg-[#131920]">
-          <div className="flex items-center justify-between">
+      <div className="mx-auto max-w-[1168px] px-4">
+        <nav className="relative bg-white py-8 dark:bg-[#131920]">
+          <div className="relative flex items-center justify-between">
             <Link href="/">
-              <a className="font-medium text-grey dark:text-white-800 text-5md">
+              <a className="text-5md font-medium text-grey dark:text-white-800">
                 Dayo Awobeku
               </a>
             </Link>
+            {/* <button className="font-medium text-info">snow</button> */}
 
             <div className="flex items-center gap-6 md:gap-8">
               <button
-                className="w-10 h-10 outline-none outline-offset-4 transition-all duration-300 focus:outline-[#d1d1d1] hover:outline-[#d1d1d1] focus:dark:outline-[#EAEAEA] hover:dark:outline-[#EAEAEA] rounded-full"
+                className="h-10 w-10 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA]"
                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                 title={
                   theme === 'light'
@@ -125,7 +126,7 @@ function Layout({children}: Props) {
                 </div>
               </button>
               <button
-                className="w-8 h-8 md:hidden outline-none outline-offset-4 transition-all duration-300 focus:outline-[#d1d1d1] hover:outline-[#d1d1d1] focus:dark:outline-[#EAEAEA] hover:dark:outline-[#EAEAEA] rounded-full"
+                className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
                 {menuOpen ? (
@@ -146,8 +147,8 @@ function Layout({children}: Props) {
               </button>
               <div
                 className={`z-50 md:hidden ${
-                  menuOpen ? 'min-h-[400px]' : 'h-0 hidden'
-                } top-20 flex flex-col divide-y divide-grey-600 dark:divide-grey-800 absolute left-4 w-full -mx-4 bg-white dark:bg-[#131920]`}
+                  menuOpen ? 'min-h-[400px]' : 'hidden h-0'
+                } absolute top-20 left-4 -mx-4 flex w-full flex-col divide-y divide-grey-600 bg-white dark:divide-grey-800 dark:bg-[#131920]`}
               >
                 {NAV_LINKS.map(({href, text}, index) => (
                   <NavLink
@@ -160,20 +161,20 @@ function Layout({children}: Props) {
                 ))}
                 <Link href="/contact">
                   <button
-                    className="inline-flex w-fit px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
+                    className="inline-flex w-fit rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
                     onClick={() => setMenuOpen(false)}
                   >
                     Let's talk
                   </button>
                 </Link>
               </div>
-              <div className="hidden md:flex items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white">
+              <div className="hidden items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white md:flex">
                 {NAV_LINKS.map(({href, text}, index) => (
                   <NavLink key={index} href={href} text={text} />
                 ))}
               </div>
               <Link href="/contact">
-                <button className="hidden md:block px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
+                <button className="hidden rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700 md:block">
                   Let's talk
                 </button>
               </Link>
@@ -183,12 +184,12 @@ function Layout({children}: Props) {
 
         <main>{children}</main>
 
-        <footer className="pb-16 mt-18 md:mt-40">
+        <footer className="mt-18 pb-16 md:mt-40">
           <Newsletter />
 
-          <div className="flex justify-between gap-2 flex-wrap mt-18">
+          <div className="mt-18 flex flex-wrap justify-between gap-2">
             <div className="inline-flex items-center gap-2">
-              <div className="w-4 h-4">
+              <div className="h-4 w-4">
                 <Image
                   src={spotifyLogo}
                   alt="spotify icon logo"
@@ -216,44 +217,44 @@ function Layout({children}: Props) {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown mt-10 dark:text-grey-600">
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown dark:text-grey-600">
             <p>dayo awobeku</p>
             <div className="flex items-center gap-5 underline">
               <a
                 href="mailto: dayoawobeku@gmail.com"
-                className="hover:text-danger transition-all duration-300"
+                className="transition-all duration-300 hover:text-danger"
               >
                 mail
               </a>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <span className="absolute -left-3 top-1/2 h-1 w-1 rounded-full bg-brown dark:bg-grey-600" />
                 <a
                   href="https://twitter.com/dayoawobeku"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-success transition-all duration-300"
+                  className="transition-all duration-300 hover:text-success"
                 >
                   twitter
                 </a>
               </div>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <span className="absolute -left-3 top-1/2 h-1 w-1 rounded-full bg-brown dark:bg-grey-600" />
                 <a
                   href="https://linkedin.com/in/dayoawobeku/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-info transition-all duration-300"
+                  className="transition-all duration-300 hover:text-info"
                 >
                   linkedin
                 </a>
               </div>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <span className="absolute -left-3 top-1/2 h-1 w-1 rounded-full bg-brown dark:bg-grey-600" />
                 <a
                   href="https://github.com/dayoawobeku/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-[#EBFAFF] transition-all duration-300"
+                  className="transition-all duration-300 hover:text-[#EBFAFF]"
                 >
                   github
                 </a>
