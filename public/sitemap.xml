@@ -1,0 +1,28 @@
+<xml version="1.0" encoding="UTF-8">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://dayoawobeku.com</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/contact</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/about</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/blog</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/blog/simple-ways-to-manage-state-in-react-part-1</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/blog/simple-ways-to-manage-state-in-react-part-2</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/blog/super-easy-way-to-integrate-dark-mode-in-your-nextjs-app</loc>
+      </url>
+      <url>
+        <loc>https://dayoawobeku.com/blog/why-i-now-use-tailwind-in-all-my-new-projects</loc>
+      </url>
+    </urlset>
+</xml>
