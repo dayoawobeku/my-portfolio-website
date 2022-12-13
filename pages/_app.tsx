@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import Script from 'next/script';
 import type {AppProps} from 'next/app';
 import {ThemeProvider} from 'next-themes';
 import {MDXProvider} from '@mdx-js/react';
@@ -57,19 +56,16 @@ function MyApp({Component, pageProps}: AppProps) {
   );
 
   return (
-    <>
-      <Script src="https://app.embed.im/snow.js" defer />
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider attribute="class" defaultTheme="system">
-          <Layout>
-            <MDXProvider components={components}>
-              <Component {...pageProps} />
-            </MDXProvider>
-          </Layout>
-        </ThemeProvider>
-        <Analytics />
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider attribute="class" defaultTheme="dark">
+        <Layout>
+          <MDXProvider components={components}>
+            <Component {...pageProps} />
+          </MDXProvider>
+        </Layout>
+      </ThemeProvider>
+      <Analytics />
+    </QueryClientProvider>
   );
 }
 
