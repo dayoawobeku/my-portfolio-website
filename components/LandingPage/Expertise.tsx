@@ -1,14 +1,14 @@
 import Image from 'next/image';
-import {rectangles} from '../../assets/images/images';
+import {rectangles} from '../../assets/images';
 
 export default function Expertise() {
   return (
     <section className="py-30">
       <h2 className="text-2xl text-grey dark:text-white">My Expertise</h2>
 
-      <div className="flex justify-between mt-4">
+      <div className="mt-4 flex justify-between">
         <div className="flex flex-col">
-          <div className="py-10 pr-[18px] flex items-start">
+          <div className="flex items-start py-10 pr-[18px]">
             <div className="mt-[10px] mr-4">
               <Image
                 alt=""
@@ -30,8 +30,8 @@ export default function Expertise() {
             </div>
           </div>
 
-          <div className="py-10 pr-[18px] flex items-start">
-            <div className="mt-[10px] mr-4 aspect-auto">
+          <div className="flex items-start py-10 pr-[18px]">
+            <div className="aspect-auto mt-[10px] mr-4">
               <Image
                 alt=""
                 src={rectangles}
@@ -54,8 +54,8 @@ export default function Expertise() {
         </div>
 
         <div className="flex flex-col">
-          <div className="py-10 pr-[18px] flex items-start">
-            <div className="mt-[10px] mr-4 aspect-auto">
+          <div className="flex items-start py-10 pr-[18px]">
+            <div className="aspect-auto mt-[10px] mr-4">
               <Image
                 alt=""
                 src={rectangles}
@@ -75,8 +75,8 @@ export default function Expertise() {
               </p>
             </div>
           </div>
-          <div className="py-10 pr-[18px] flex items-start">
-            <div className="mt-[10px] mr-4 aspect-auto">
+          <div className="flex items-start py-10 pr-[18px]">
+            <div className="aspect-auto mt-[10px] mr-4">
               <Image
                 alt=""
                 src={rectangles}

@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {arrowBack, arrowBackDark} from '../../assets/images/images';
+import {arrowBack, arrowBackDark} from '../../assets/images';
 import Head from 'next/head';
 import {useTheme} from 'next-themes';
 

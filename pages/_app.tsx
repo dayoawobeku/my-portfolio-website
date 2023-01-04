@@ -1,12 +1,23 @@
 import {useState} from 'react';
 import type {AppProps} from 'next/app';
+import dynamic from 'next/dynamic';
 import {ThemeProvider} from 'next-themes';
 import {MDXProvider} from '@mdx-js/react';
 import {Analytics} from '@vercel/analytics/react';
-import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
+import {
+  QueryClientProvider,
+  QueryClient,
+  Hydrate,
+  DehydratedState,
+} from '@tanstack/react-query';
 import '../styles/globals.css';
 import '../styles/editor.css';
-import Layout from '../components/Layout';
+const Layout = dynamic(() => import('../components/Layout'));
+
+interface MyAppProps extends AppProps {
+  dehydratedState: DehydratedState;
+}
+
 import {
   Heading,
   Text,
@@ -43,7 +54,7 @@ const components = {
   ListNumber,
 };
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -55,15 +66,18 @@ function MyApp({Component, pageProps}: AppProps) {
       }),
   );
 
+  console.log(pageProps);
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="dark">
-        <Layout>
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </Layout>
-      </ThemeProvider>
+      <Hydrate state={pageProps.dehydratedState}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <Layout>
+            <MDXProvider components={components}>
+              <Component {...pageProps} />
+            </MDXProvider>
+          </Layout>
+        </ThemeProvider>
+      </Hydrate>
       <Analytics />
     </QueryClientProvider>
   );

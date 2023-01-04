@@ -9,7 +9,7 @@ export default function ListNumber({
     <p
       className={`${
         extraMarginTop ? 'mt-8' : 'mt-6'
-      } inline-flex font-semibold text-md text-grey dark:text-grey-100 mb-6`}
+      } mb-6 inline-flex text-md font-semibold text-grey dark:text-grey-100`}
     >
       {children}
     </p>

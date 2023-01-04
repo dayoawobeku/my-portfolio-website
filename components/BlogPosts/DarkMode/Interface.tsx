@@ -1,9 +1,9 @@
 export default function Interface() {
   return (
-    <section className="bg-white flex flex-col items-start gap-6 px-4 py-4 my-8 border-2 rounded basis-full dark:border-white-700 text-grey-800">
-      <div className="flex gap-5 items-center justify-between">
+    <section className="my-8 flex basis-full flex-col items-start gap-6 rounded border-2 bg-white px-4 py-4 text-grey-800 dark:border-white-700">
+      <div className="flex items-center justify-between gap-5">
         <h1 className="text-md">Our Awesome dark mode app!</h1>
-        <button className="text-[0.875rem] font-medium text-success flex items-center gap-2">
+        <button className="flex items-center gap-2 text-[0.875rem] font-medium text-success">
           <span>Toggle dark/light mode</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ export default function Interface() {
           </svg>
         </button>
       </div>
-      <div className="w-20 h-20 rounded-full bg-info" />
+      <div className="h-20 w-20 rounded-full bg-info" />
       <p className="font-medium">
         Creating a dark theme is so easy with next-themes and Tailwindcss!
       </p>
