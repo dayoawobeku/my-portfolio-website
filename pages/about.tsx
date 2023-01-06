@@ -1,8 +1,8 @@
-import type {NextPage} from 'next';
+import type {GetServerSideProps, NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import {useQuery} from '@tanstack/react-query';
+import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 import axios from 'axios';
 
 interface Track {
@@ -12,7 +12,11 @@ interface Track {
 }
 
 const About: NextPage = () => {
-  const {data: spotifyTopTracks} = useSpotifyTopTracks();
+  const {data: spotifyTopTracks} = useQuery({
+    queryKey: ['spotify-top-tracks'],
+    queryFn: getSpotifyTopTracks,
+    staleTime: 1000 * 60 * 60 * 24,
+  });
 
   return (
     <div>
@@ -136,9 +140,26 @@ const About: NextPage = () => {
               and then, and this portfolio website is the latest in that stack.
             </p>
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              Over the past two years as a Frontend Engineer, he's worked on
-              some fascinating projects including building Dojah's 3rd version
-              of their website and web app.
+              With almost 3 years experience as a Frontend Engineer, he's worked
+              on some fascinating projects including building Dojah's 3rd
+              version of their{' '}
+              <a
+                href="https://dojah.io"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-grey hover:underline dark:text-white-800"
+              >
+                website
+              </a>{' '}
+              and{' '}
+              <a
+                href="https://app.dojah.io"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-grey hover:underline dark:text-white-800"
+              >
+                web app.
+              </a>
             </p>
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               When he isn't working, he spends time on his Playstation or
@@ -226,12 +247,16 @@ const About: NextPage = () => {
 
 export default About;
 
-function useSpotifyTopTracks() {
-  return useQuery(
-    ['spotify-top-tracks'],
-    () => axios.get('/api/spotify/top-tracks').then(res => res.data),
-    {
-      staleTime: 1000 * 60 * 60 * 24,
-    },
-  );
+function getSpotifyTopTracks() {
+  return axios.get('/api/spotify/top-tracks').then(res => res.data);
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(['spotify-top-tracks'], getSpotifyTopTracks);
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};

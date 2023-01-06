@@ -6,13 +6,13 @@ export default function AboutMe() {
     <section className="py-18">
       <div className="flex flex-wrap items-center justify-between gap-8 md:flex-nowrap">
         <div className="md:max-w-[428px] lg:max-w-[568px]">
-          <h2 className="font-medium text-2lg md:text-2xl md:font-normal text-grey dark:text-white-700">
+          <h2 className="text-2lg font-medium text-grey dark:text-white-700 md:text-2xl md:font-normal">
             Frontend React Developer
           </h2>
-          <p className="mt-6 text-body dark:text-grey-100 text-2md">
+          <p className="mt-6 text-2md text-body dark:text-grey-100">
             Hello again! I'm Dayo Awobeku.
           </p>
-          <p className="mt-4 text-body dark:text-grey-100 text-2md">
+          <p className="mt-4 text-2md text-body dark:text-grey-100">
             I love to solve real problems with friendly professionals and
             wonderful people!
           </p>

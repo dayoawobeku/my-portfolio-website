@@ -25,7 +25,7 @@ export default function CodeBlock({value, lang}: Props) {
         readOnly
         basicSetup={options}
       />
-      <span className="absolute bottom-4 right-8 lowercase text-[12px] text-grey-800 dark:text-white-400">
+      <span className="absolute bottom-4 right-8 text-[12px] lowercase text-grey-800 dark:text-white-400">
         {lang ?? 'js'}
       </span>
     </pre>

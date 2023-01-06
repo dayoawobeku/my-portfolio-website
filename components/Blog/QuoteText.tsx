@@ -1,6 +1,6 @@
 export default function QuoteText({quote}: {quote: string}) {
   return (
-    <code className="dark:text-white text-[0.9375rem] font-semibold">
+    <code className="text-[0.9375rem] font-semibold dark:text-white">
       `{quote}`
     </code>
   );
