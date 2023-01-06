@@ -4,12 +4,12 @@ export default function InterfaceIntegrated() {
   const {theme, setTheme} = useTheme();
 
   return (
-    <section className="flex flex-col items-start gap-6 px-4 py-4 my-8 border-2 rounded basis-full dark:border-white-700 dark:text-white text-grey-800">
-      <div className="flex gap-5 items-center justify-between">
+    <section className="my-8 flex basis-full flex-col items-start gap-6 rounded border-2 px-4 py-4 text-grey-800 dark:border-white-700 dark:text-white">
+      <div className="flex items-center justify-between gap-5">
         <h1 className="text-md">Our Awesome dark mode app!</h1>
         <button
           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-          className="text-[0.875rem] font-medium text-success flex items-center gap-2"
+          className="flex items-center gap-2 text-[0.875rem] font-medium text-success"
         >
           <span>Toggle dark/light mode</span>
           {theme === 'light' ? (
@@ -36,7 +36,7 @@ export default function InterfaceIntegrated() {
           )}
         </button>
       </div>
-      <div className="w-20 h-20 rounded-full bg-info dark:bg-brown" />
+      <div className="h-20 w-20 rounded-full bg-info dark:bg-brown" />
       <p className="font-medium">
         Creating a dark theme is so easy with next-themes and Tailwindcss!
       </p>

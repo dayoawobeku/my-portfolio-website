@@ -1,8 +1,9 @@
 import {ReactNode, useEffect, useState} from 'react';
 import Image from 'next/image';
+import type {GetStaticProps} from 'next';
 import Link from 'next/link';
 import {useTheme} from 'next-themes';
-import {useQuery} from '@tanstack/react-query';
+import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 import axios from 'axios';
 import Newsletter from './Newsletter';
 import {
@@ -13,7 +14,7 @@ import {
   menuDark,
   menuLight,
   spotifyLogo,
-} from '../assets/images/images';
+} from '../assets/images';
 
 const NAV_LINKS = [
   {
@@ -74,7 +75,11 @@ function Layout({children}: Props) {
     }),
   );
 
-  const {data: spotifyNowPlaying} = useSpotifyNowPlaying();
+  const {data: spotifyNowPlaying} = useQuery({
+    queryKey: ['spotify-now-playing'],
+    queryFn: getSpotifyNowPlaying,
+    refetchInterval: 1000 * 60,
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -332,12 +337,19 @@ function Layout({children}: Props) {
 
 export default Layout;
 
-function useSpotifyNowPlaying() {
-  return useQuery(
-    ['spotify-now-playing'],
-    () => axios.get('/api/spotify/now-playing').then(res => res.data),
-    {
-      refetchInterval: 1000 * 60,
-    },
-  );
+function getSpotifyNowPlaying() {
+  return axios.get('/api/spotify/now-playing').then(res => res.data);
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(
+    ['spotify-now-playing'],
+    getSpotifyNowPlaying,
+  );
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};

@@ -9,14 +9,14 @@ export default function StateManagementWithContext() {
 
   return (
     <Context.Provider value={{currentUser}}>
-      <div className="py-4 pl-4 pr-20 my-8 border-2 rounded w-fit border-white-700">
+      <div className="my-8 w-fit rounded border-2 border-white-700 py-4 pl-4 pr-20">
         <Header />
         <main>
           {currentUser.name !== '' ? (
             <>
               <Dashboard />
               <button
-                className="my-2 text-white text-[0.875rem] bg-info rounded p-1 font-medium"
+                className="my-2 rounded bg-info p-1 text-[0.875rem] font-medium text-white"
                 onClick={() => setCurrentUser({name: ''})}
               >
                 Logout
@@ -45,7 +45,7 @@ function LoginScreen({onLogin}: {onLogin: () => void}) {
     <>
       <h4 className="mt-2">Please login</h4>
       <button
-        className="my-2 text-white text-[0.875rem] bg-info rounded p-1 font-medium"
+        className="my-2 rounded bg-info p-1 text-[0.875rem] font-medium text-white"
         onClick={onLogin}
       >
         Login

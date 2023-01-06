@@ -1,7 +1,7 @@
 export default function DangerNote({note}: {note: string}) {
   return (
-    <div className="before:content-[''] before:w-1 before:h-full before:top-0 before:bg-danger before:absolute mb-8 bg-danger-300 relative rounded-r py-2">
-      <p className="pl-4 font-medium text-md text-danger">{note}</p>
+    <div className="relative mb-8 rounded-r bg-danger-300 py-2 before:absolute before:top-0 before:h-full before:w-1 before:bg-danger before:content-['']">
+      <p className="pl-4 text-md font-medium text-danger">{note}</p>
     </div>
   );
 }
