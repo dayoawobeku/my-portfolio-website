@@ -3,17 +3,38 @@ import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State
 export const meta = {
   postTitle:
     'How I built this website - my process, technologies, and much more!',
-  date: 'Date',
+  date: 'January 4th, 2023',
   time: '5 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
   title: 'lady riding her bike, by Philippe Murray-Pietsch',
 };
 
-{<Text>In the first part of this series, I talk about {''}
+{<Text>Sometime in January last year along with all the new year fever, I
+thought it’d be cool to have a website of my own. TL:DR I completed and took it
+live in September.</Text>} {<Text>Have you tried toggling the dark/light mode?
+Depending on what time of the year you read this, have you clicked on the tiny
+snow (❄️) icon on the navigation? These are great, no doubt, but this blog post
+is majorly about the <BoldText text='‘how’' /> I built the website.</Text>}
 
-<LocalLink
-  text="managing the UI/Client state."
-  href="simple-ways-to-manage-state-in-react-part-1"
-/> You may wanna check that out before reading this post.</Text>}
+<AnchorTag
+  text="Why did it take 9 long months?"
+  href="why-did-it-take-9-long-months"
+/>
+
+{<Text>First, I had big aspirations. I wanted my website to be sick! Yeah! Like
+all those fancy websites on
+{''}<ExternalUrl href='https://awwwards.com/' text='awwwards.com' />.</Text>}
+{<Text>Second, I paid someone to design a logo and brand identity. I still don’t
+have any.</Text>}
+
+{<Text>By February, I started designing the website myself. Yup, I have {''}
+
+<LocalLink text="a background in product design." href="/about" /></Text>}
+
+{<Text>After designing and prototyping on {''}
+
+<ExternalUrl href='https://figma.com/' text='Figma' /> for a couple of weeks, I
+was proud of what I had done and I asked some of my friends for feedback. Boy, my <BoldText text='“tech”' /> friends loved it! My <BoldText text='“non-tech”' /> friends on the other hand had almost no clue what was going
+on.</Text>}
 
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

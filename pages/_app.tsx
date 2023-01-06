@@ -35,6 +35,7 @@ import {
   LocalLink,
   ListNumber,
 } from '../components/Blog';
+import Script from 'next/script';
 
 const components = {
   BlogLayout,
@@ -66,20 +67,27 @@ function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
       }),
   );
 
-  console.log(pageProps);
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <Layout>
-            <MDXProvider components={components}>
-              <Component {...pageProps} />
-            </MDXProvider>
-          </Layout>
-        </ThemeProvider>
-      </Hydrate>
-      <Analytics />
-    </QueryClientProvider>
+    <>
+      <Script id="mcjs" strategy="afterInteractive">
+        {`
+            !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b773097a8c325ea0d7965495e/84d063328ae2a1b5299b0a160.js");
+          `}
+      </Script>
+
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <Layout>
+              <MDXProvider components={components}>
+                <Component {...pageProps} />
+              </MDXProvider>
+            </Layout>
+          </ThemeProvider>
+        </Hydrate>
+        <Analytics />
+      </QueryClientProvider>
+    </>
   );
 }
 
