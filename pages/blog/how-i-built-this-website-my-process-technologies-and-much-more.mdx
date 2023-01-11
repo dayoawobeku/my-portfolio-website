@@ -10,11 +10,16 @@ export const meta = {
 };
 
 {<Text>Sometime in January last year along with all the new year fever, I
-thought it’d be cool to have a website of my own. TL:DR I completed and took it
-live in September.</Text>} {<Text>Have you tried toggling the dark/light mode?
-Depending on what time of the year you read this, have you clicked on the tiny
-snow (❄️) icon on the navigation? These are great, no doubt, but this blog post
-is majorly about the <BoldText text='‘how’' /> I built the website.</Text>}
+thought it’d be cool to have a website of my own. <BoldText text='TL:DR' /> I
+completed and took it live in September.</Text>}
+
+{<Text>Have you tried toggling the dark/light mode? Depending on what time of
+the year you read this, have you clicked on the tiny snow (❄️) icon on the
+navigation? These are great, no doubt, but this blog post is majorly about the
+
+<BoldText text="‘how’" /> I built the website.
+
+</Text>}
 
 <AnchorTag
   text="Why did it take 9 long months?"
@@ -22,10 +27,14 @@ is majorly about the <BoldText text='‘how’' /> I built the website.</Text>}
 />
 
 {<Text>First, I had big aspirations. I wanted my website to be sick! Yeah! Like
-all those fancy websites on
-{''}<ExternalUrl href='https://awwwards.com/' text='awwwards.com' />.</Text>}
-{<Text>Second, I paid someone to design a logo and brand identity. I still don’t
-have any.</Text>}
+all those fancy websites on {' '}
+
+<ExternalUrl href='https://awwwards.com/' text='awwwards.com' />. Most of all, I
+wanted it to be <BoldText text='unique' />. It’s my space on {' '}
+<ExternalUrl href='https://en.wikipedia.org/wiki/Tim_Berners-Lee' text='Sir
+Tim-Berners-Lee' />'s World Wide Web after all!</Text>} 
+{<Text>Second, I paid
+someone to design a logo and brand identity. I still don’t have any.</Text>}
 
 {<Text>By February, I started designing the website myself. Yup, I have {''}
 
@@ -36,5 +45,52 @@ have any.</Text>}
 <ExternalUrl href='https://figma.com/' text='Figma' /> for a couple of weeks, I
 was proud of what I had done and I asked some of my friends for feedback. Boy, my <BoldText text='“tech”' /> friends loved it! My <BoldText text='“non-tech”' /> friends on the other hand had almost no clue what was going
 on.</Text>}
+
+{<Text> That was more than enough feedback for me. One of my primary goals for
+the website was to provide recruiters a means to find and reach out to me. And
+since a large percentage of recruiters are non-technical, they’d probably find
+the website a little bit not too {' '}
+
+<ItalicizedText text="friendly" />.</Text>}
+
+{<Text>So, I went back to the drawing board and started designing the website
+from scratch. Did I mention that I already started to build the previous design?
+Yep. Had to throw all that away too. </Text>}
+
+<AnchorTag text="The redesign" href="the-redesign" />
+
+{<Text> I started the redesign in the middle of April. I spent the first week
+looking at other websites and trying to figure out what I liked and what I
+didn’t. I also spent a lot of time on {' '}
+
+<ExternalUrl href='https://dribbble.com/' text='Dribbble' />. I was looking for a design that was simple, clean, and easy to navigate. I
+also wanted it to be unique. I wanted it to be me. </Text>}
+
+{<Text> I stumbled upon this {''}
+
+<ExternalUrl
+  href="https://github.com/Evavic44/portfolio-ideas"
+  text="github repository"
+/>
+that is a curation of really nice portfolio websites.
+I screenshotted a few and started to play around with them. By the end of April, I had a direction and I was happy with it. I created some
+mockups and wireframes and started hacking away.</Text>}
+
+{<Text>Choosing a color palette was easy. Monochrome 💀. 100% white and black
+with the lightness value
+
+<ExternalUrl
+  href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl"
+  text="(from HSL)"
+/>
+tweaked a little.</Text>}
+{<Text>For choice of font, my priority was something that was easy to read. And cute. I ended up choosing {''} <ExternalUrl href="https://www.fontshare.com/fonts/satoshi" text="Satoshi"/>. 
+<ExternalUrl href="https://displaay.net/typeface/matter-collection/matter/" text="Matter"/>
+ is a great alternative too if you’re looking for something similar.</Text>}
+
+{<Text> I completed the redesign 2 months later in July and started building in
+August.</Text>}
+
+<AnchorTag text="The development" href="the-development" />
 
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
