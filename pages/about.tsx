@@ -1,9 +1,19 @@
-import type {GetServerSideProps, NextPage} from 'next';
+import type {GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
-import axios from 'axios';
+import {getTopTracks} from '../lib/spotify';
+
+interface Artist {
+  name: string;
+}
+
+interface Track {
+  external_urls: Record<string, unknown>;
+  name: string;
+  artists: Artist[];
+}
 
 interface Track {
   title: string;
@@ -216,7 +226,7 @@ const About: NextPage = () => {
 
         <div>
           <div className="mt-6 flex flex-col gap-4 divide-y divide-grey-800">
-            {spotifyTopTracks?.tracks?.map((track: Track, index: number) => (
+            {spotifyTopTracks?.map((track: Track, index: number) => (
               <div key={index} className="flex flex-col pt-4">
                 <div className="flex items-start gap-3">
                   <p className="mt-1 text-[0.875rem] font-bold text-grey-400">
@@ -247,11 +257,20 @@ const About: NextPage = () => {
 
 export default About;
 
-function getSpotifyTopTracks() {
-  return axios.get('/api/spotify/top-tracks').then(res => res.data);
+async function getSpotifyTopTracks() {
+  const response = await getTopTracks();
+  const {items} = await response.json();
+
+  const tracks = items.slice(0, 10).map((track: Track) => ({
+    artist: track.artists.map((_artist: Artist) => _artist.name).join(', '),
+    songUrl: track.external_urls.spotify,
+    title: track.name,
+  }));
+
+  return tracks;
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['spotify-top-tracks'], getSpotifyTopTracks);
   return {
