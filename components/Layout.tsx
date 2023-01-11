@@ -4,7 +4,6 @@ import type {GetStaticProps} from 'next';
 import Link from 'next/link';
 import {useTheme} from 'next-themes';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
-import axios from 'axios';
 import Newsletter from './Newsletter';
 import {
   closeMenuDark,
@@ -15,6 +14,11 @@ import {
   menuLight,
   spotifyLogo,
 } from '../assets/images';
+import {getNowPlaying} from '../lib/spotify';
+
+interface Artist {
+  name: string;
+}
 
 const NAV_LINKS = [
   {
@@ -35,6 +39,29 @@ const NAV_LINKS = [
   },
 ];
 
+// to prevent hydration mismatch
+function ClientOnly({
+  children,
+  className,
+  ...delegated
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
+  return (
+    <div className={className} {...delegated}>
+      {children}
+    </div>
+  );
+}
+
 interface NavLinkProps {
   href: string;
   text: string;
@@ -45,16 +72,18 @@ interface NavLinkProps {
 function NavLink({href = '', text, className, onClick}: NavLinkProps) {
   const {theme} = useTheme();
   return (
-    <Link href={href} passHref shallow>
-      <a
-        className={`nav-link ${className} ${
-          theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-        }`}
-        onClick={onClick}
-      >
-        {text}
-      </a>
-    </Link>
+    <ClientOnly>
+      <Link href={href} passHref shallow>
+        <a
+          className={`nav-link ${className} ${
+            theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+          }`}
+          onClick={onClick}
+        >
+          {text}
+        </a>
+      </Link>
+    </ClientOnly>
   );
 }
 
@@ -65,7 +94,6 @@ interface Props {
 function Layout({children}: Props) {
   const {theme, setTheme} = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: '2-digit',
@@ -96,14 +124,6 @@ function Layout({children}: Props) {
       clearInterval(timer);
     };
   }, []);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   // https://embed.im/snow/
   function letItSnow() {
@@ -171,27 +191,29 @@ function Layout({children}: Props) {
             </button>
 
             <div className="flex items-center gap-6 md:gap-8">
-              <button
-                className="h-10 w-10 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA]"
-                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                title={
-                  theme === 'light'
-                    ? 'Activate dark mode'
-                    : 'Activate light mode'
-                }
-              >
-                <div className="w-full">
-                  <Image
-                    src={theme === 'light' ? darkMode : lightMode}
-                    alt="light/dark mode toggle"
-                    className="cursor-pointer"
-                    width={40}
-                    height={40}
-                    layout="responsive"
-                    priority
-                  />
-                </div>
-              </button>
+              <ClientOnly className="h-10 w-10">
+                <button
+                  className="h-10 w-10 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA]"
+                  onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                  title={
+                    theme === 'light'
+                      ? 'Activate dark mode'
+                      : 'Activate light mode'
+                  }
+                >
+                  <div className="w-full">
+                    <Image
+                      src={theme === 'light' ? darkMode : lightMode}
+                      alt="light/dark mode toggle"
+                      className="cursor-pointer"
+                      width={40}
+                      height={40}
+                      layout="responsive"
+                      priority
+                    />
+                  </div>
+                </button>
+              </ClientOnly>
               <button
                 className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -337,8 +359,26 @@ function Layout({children}: Props) {
 
 export default Layout;
 
-function getSpotifyNowPlaying() {
-  return axios.get('/api/spotify/now-playing').then(res => res.data);
+async function getSpotifyNowPlaying() {
+  const response = await getNowPlaying();
+  const song = await response.json();
+  const isPlaying = song.is_playing;
+  const title = song.item.name;
+  const artist = song.item.artists
+    .map((_artist: Artist) => _artist.name)
+    .join(', ');
+  const album = song.item.album.name;
+  const albumImageUrl = song.item.album.images[0].url;
+  const songUrl = song.item.external_urls.spotify;
+
+  return {
+    isPlaying,
+    title,
+    artist,
+    album,
+    albumImageUrl,
+    songUrl,
+  };
 }
 
 export const getStaticProps: GetStaticProps = async () => {
