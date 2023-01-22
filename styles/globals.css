@@ -98,3 +98,10 @@
     border-radius: 20px;
   }
 }
+
+/* tic tac toe styling */
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}

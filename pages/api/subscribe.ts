@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import type {NextApiRequest, NextApiResponse} from 'next';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 
