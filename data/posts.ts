@@ -35,11 +35,39 @@ export const posts = [
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664740/blog/fredrik-solli-wandem-uNnN7IBN9As-unsplash_nzmhas.jpg',
     imageDescription: 'The vast landscapes of Svalbard, Fredrik Solli Wandem',
   },
+  {
+    slug: 'how-i-built-this-website-my-process-technologies-and-much-more',
+    date: 'January 22nd, 2023',
+    postTitle:
+      'How I built this website - my process, technologies, and much more!',
+    time: '8 min read',
+    imageUrl:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
+    imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
+  },
   // {
-  //   slug: 'how-i-built-this-website-my-process-technologies-and-much-more',
+  //   slug: 'when-to-usestate-vs-usereducer-a-simple-guide-to-help-you-decide',
   //   date: 'January 4th, 2023',
   //   postTitle:
-  //     'How I built this website - my process, technologies, and much more!',
+  //     'When to useState vs useReducer - a simple guide to help you decide.',
+  //   time: '5 min read',
+  //   imageUrl:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
+  //   imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
+  // },
+  // {
+  //   slug: 'building-your-first-next-js-13-app-a-step-by-step-guide',
+  //   date: 'January 4th, 2023',
+  //   postTitle: 'Building your first Next js 13 app - a step by step guide.',
+  //   time: '5 min read',
+  //   imageUrl:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
+  //   imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
+  // },
+  // {
+  //   slug: 'stuck-in-z-index-hell-try-this',
+  //   date: 'January 4th, 2023',
+  //   postTitle: 'Stuck in z-index hell? Try this.',
   //   time: '5 min read',
   //   imageUrl:
   //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',

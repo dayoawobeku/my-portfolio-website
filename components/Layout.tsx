@@ -343,7 +343,7 @@ function Layout({children}: Props) {
                   href="https://github.com/dayoawobeku/"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-all duration-300 hover:text-[#EBFAFF]"
+                  className="transition-all duration-300 hover:text-body dark:hover:text-[#EBFAFF]"
                 >
                   github
                 </a>
