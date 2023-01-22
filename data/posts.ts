@@ -37,7 +37,7 @@ export const posts = [
   },
   {
     slug: 'how-i-built-this-website-my-process-technologies-and-much-more',
-    date: 'January 23rd, 2023',
+    date: 'January 22nd, 2023',
     postTitle:
       'How I built this website - my process, technologies, and much more!',
     time: '8 min read',
