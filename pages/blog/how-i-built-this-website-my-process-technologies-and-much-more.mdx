@@ -1,21 +1,22 @@
 import ServerStateWithReactQuery from '../../components/BlogPosts/Managing State/ServerStateWithReactQuery.tsx';
+import TicTacToe from '../../components/BlogPosts/HowIBuiltThisWebsite/TicTacToe.tsx';
 
 export const meta = {
   postTitle:
     'How I built this website - my process, technologies, and much more!',
-  date: 'January 4th, 2023',
-  time: '5 minute read',
+  date: 'January 23rd, 2023',
+  time: '8 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
   title: 'lady riding her bike, by Philippe Murray-Pietsch',
 };
 
 {<Text>Sometime in January last year along with all the new year fever, I
-thought it’d be cool to have a website of my own. <BoldText text='TL:DR' /> I
+thought it’d be cool to have a website of my own. <BoldText text='TL: DR' /> I
 completed and took it live in September.</Text>}
 
 {<Text>Have you tried toggling the dark/light mode? Depending on what time of
 the year you read this, have you clicked on the tiny snow (❄️) icon on the
-navigation? These are great, no doubt, but this blog post is majorly about the
+navigation? These are great, no doubt, but this blog post is majorly about {' '}
 
 <BoldText text="‘how’" /> I built the website.
 
@@ -32,7 +33,7 @@ all those fancy websites on {' '}
 <ExternalUrl href='https://awwwards.com/' text='awwwards.com' />. Most of all, I
 wanted it to be <BoldText text='unique' />. It’s my space on {' '}
 <ExternalUrl href='https://en.wikipedia.org/wiki/Tim_Berners-Lee' text='Sir
-Tim-Berners-Lee' />'s World Wide Web after all!</Text>} 
+Tim Berners-Lee' />'s World Wide Web after all!</Text>} 
 {<Text>Second, I paid
 someone to design a logo and brand identity. I still don’t have any.</Text>}
 
@@ -47,15 +48,15 @@ was proud of what I had done and I asked some of my friends for feedback. Boy, m
 on.</Text>}
 
 {<Text> That was more than enough feedback for me. One of my primary goals for
-the website was to provide recruiters a means to find and reach out to me. And
-since a large percentage of recruiters are non-technical, they’d probably find
-the website a little bit not too {' '}
+the website was to provide recruiters with a means to find and reach out to me.
+And since a large percentage of recruiters are non-technical, they’d probably
+find the website a little bit not too {' '}
 
 <ItalicizedText text="friendly" />.</Text>}
 
 {<Text>So, I went back to the drawing board and started designing the website
-from scratch. Did I mention that I already started to build the previous design?
-Yep. Had to throw all that away too. </Text>}
+from scratch. Did I mention that I already started to build (code) the previous
+design? Yep. Had to throw all that away too. </Text>}
 
 <AnchorTag text="The redesign" href="the-redesign" />
 
@@ -70,7 +71,7 @@ also wanted it to be unique. I wanted it to be me. </Text>}
 
 <ExternalUrl
   href="https://github.com/Evavic44/portfolio-ideas"
-  text="github repository"
+  text="GitHub repository"
 />
 that is a curation of really nice portfolio websites.
 I screenshotted a few and started to play around with them. By the end of April, I had a direction and I was happy with it. I created some
@@ -84,7 +85,7 @@ with the lightness value
   text="(from HSL)"
 />
 tweaked a little.</Text>}
-{<Text>For choice of font, my priority was something that was easy to read. And cute. I ended up choosing {''} <ExternalUrl href="https://www.fontshare.com/fonts/satoshi" text="Satoshi"/>. 
+{<Text>For the choice of font, my priority was easy to read. And cute. I ended up choosing {''} <ExternalUrl href="https://www.fontshare.com/fonts/satoshi" text="Satoshi"/>. {' '}
 <ExternalUrl href="https://displaay.net/typeface/matter-collection/matter/" text="Matter"/>
  is a great alternative too if you’re looking for something similar.</Text>}
 
@@ -93,4 +94,258 @@ August.</Text>}
 
 <AnchorTag text="The development" href="the-development" />
 
-export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
+{<Text>I used Nextjs + Typescript, and Tailwindcss for the styling.</Text>}
+
+{<Text>I think the most difficult part was building the blog. I was caught
+between using an external CMS like {''}
+
+<ExternalUrl href="https://www.sanity.io/" text="Sanity"/> or {''}
+<ExternalUrl href="https://mdxjs.com/" text="MDX"/>. MDX is a Markdown extension that allows you to add/use JSX inside markdown. Sleek, huh? </Text>}
+
+{<Text> After consulting some of the best devs I know and asking on the {''}
+
+<ExternalUrl
+  href="https://discord.com/invite/bUG2bvbtHy"
+  text="Nextjs discord channel"
+/>, I went with the latter. It was a pretty simple decision because I wanted my
+blog to have custom designs, components, demos, etc. An example is the simple
+to-do/post app in my article on {''}
+<LocalLink
+  text="managing server state"
+  href="/blog/simple-ways-to-manage-state-in-react-part-2"
+/> or this cool <BoldText text='tic-tac-toe' /> game below.
+</Text>}
+
+<TicTacToe />
+
+{<Text>I started by googling. I found a YouTube video that put me out of my
+misery in under a couple of hours. But for some reason, loading the blog posts
+on my local server was slow and I couldn't figure out why. I looked at the
+comments under the video and found that I wasn't alone.
+
+</Text>}
+{<Text>
+I spent the next couple of days trying to figure out what was going on. Oh, did I mention that I found a link to <ExternalUrl
+  href="https://nextjs.org/docs/advanced-features/using-mdx"
+  text="Nextjs docs on MDX"
+/> from the beginning? But like many other developers, we'd rather snack on strawberries than read documentation.
+
+</Text>}
+{<Text>
+Long story short, I went back to the docs. And it was goooood. The {''}
+<ExternalUrl
+  href="https://nextjs.org/docs/advanced-features/using-mdx"
+  text="Nextjs docs"
+/> {''}
+ and the {''}
+ <ExternalUrl
+  href="https://beta.reactjs.org/"
+  text="new React beta docs"
+/> are some of the best I've come across!
+</Text>}
+{<Text>
+I simply created a blog folder under my pages directory and added all the blog posts one after the other with <QuoteText quote=".mdx" /> extension at the end.
+
+And then at the top of each article, I exported this {''}
+
+<QuoteText quote="meta" /> object with the post title, date, and a few other properties.
+I had a dedicated folder for all the blog components too and all I needed to do was
+import them in the <QuoteText quote="_app.tsx" /> file.
+
+</Text>}
+
+{<Text>For example, this line is simply {''}
+
+<QuoteText quote="<Text>...</Text>" /></Text>}
+
+<InfoNote note="And this section is an <InfoNote /> component." />
+{
+  <Text>
+    Feel free to take a look at the {''}
+    <ExternalUrl
+      href="https://github.com/dayoawobeku/my-portfolio-website"
+      text="repository on GitHub"
+    />.
+  </Text>
+}
+
+{<Text>For the code snippets, I used {''} <ExternalUrl
+      href="https://codemirror.net/"
+      text="Codemirror"
+    />. Their API is pretty simple to set up. For instance, this is all that’s
+inside the component: </Text>}
+
+<CodeBlock
+  lang="tsx"
+  value={`import React from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+import {javascript} from '@codemirror/lang-javascript';
+import {useTheme} from 'next-themes';
+  
+interface Props {
+  value: string;
+  lang?: string;
+}
+  
+const options = {
+  foldGutter: false,
+};
+
+export default function CodeBlock({value, lang}: Props) {
+  const {theme} = useTheme();
+  return (
+    <pre className="relative mb-8 text-[0.875rem]">
+      <CodeMirror
+        value={value}
+        height="auto"
+        extensions={[javascript({jsx: true})]}
+        theme={theme === 'light' ? 'light' : 'dark'}
+        editable={false}
+        readOnly
+        basicSetup={options}
+      />
+      <span className="absolute bottom-4 right-8 text-[12px] lowercase text-grey-800 dark:text-white-400">
+        {lang ?? 'js'}
+      </span>
+    </pre>
+  );
+}
+`}
+/>
+
+{<Text>I may switch to something else in the future but this works.</Text>}
+
+<AnchorTag text="The rest of the website" href="the-rest-of-the-website" />
+
+{<Text>I love how simple the {''}
+
+<LocalLink text="contact form" href="/contact" />
+is. Sometimes I send myself emails just 'cause I love the interface. You should try
+it 😉. I used {''}
+
+<ExternalUrl href="https://nodemailer.com/about/" text="Nodemailer" />
+to handle sending the email. This is the exact code in my {''}
+<QuoteText quote="contact.ts" /> file within the <QuoteText quote="api" />
+folder.</Text>}
+
+<CodeBlock
+  lang="ts"
+  value={`import type {NextApiRequest, NextApiResponse} from 'next';
+import nodemailer from 'nodemailer';
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const {name, email, subject, body} = req.body;
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
+    },
+  });
+  try {
+    await transporter.sendMail({
+      from: email,
+      to: process.env.SMTP_USER,
+      subject: \`Contact form submission from \${name}\`,
+      html: \`<h1>You have a contact form submission.</h1><br>
+        <p><strong>Name: </strong> \${name}</p><br>
+        <p><strong>Email: </strong> 
+        \${email}</p><br>
+        <p><strong>Subject: </strong> \${subject}</p><br>
+        <p><strong>Body: </strong> \${body}</p><br>
+      \`,
+    });
+  } catch (error: unknown) {
+    const msg = error as Error;
+    return res.status(500).json({error: msg.message || msg.toString()});
+  }
+  return res.status(200).json({error: ''});
+}`} />
+
+{<Text>What I love the most about the {''}
+
+{' '}
+
+<LocalLink text="about page" href="/about" /> is the section where I add my top Spotify
+tracks updated weekly.
+
+</Text>}
+{<Text>Also, at the bottom of the website, you can see what I'm currently jamming to on
+Spotify.
+
+If you're looking to implement something similar, check the snippets section on
+{' '}
+
+<ExternalUrl href="https://leerob.io/snippets" text="Lee Rob's website" />.
+
+</Text>}
+{<Text>I have a form just before the footer where people can subscribe to my newsletter. Thanks to <ExternalUrl href="https://mailchimp.com/" text="Mailchimp" />. Here's the code if you're interested.
+</Text>}
+
+<CodeBlock
+  lang="ts"
+  value={`import type {NextApiRequest, NextApiResponse} from 'next';
+import mailchimp from '@mailchimp/mailchimp_marketing';
+  
+mailchimp.setConfig({
+  apiKey: process.env.MAILCHIMP_API_KEY,
+  server: process.env.MAILCHIMP_API_SERVER,
+});
+  
+const audienceId: string =
+  process.env.MAILCHIMP_AUDIENCE_ID !== undefined
+    ? process.env.MAILCHIMP_AUDIENCE_ID
+    : '';
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const {email} = req.body;
+  
+  if (!email) {
+    return res.status(400).json({error: 'Email is required'});
+  }
+  
+  try {
+    await mailchimp.lists.addListMember(audienceId, {
+      email_address: email,
+      status: 'subscribed',
+      merge_fields: {
+        FNAME: req.body.firstName,
+      },
+    });
+  
+    return res.status(201).json({error: ''});
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    if (error.response.body.title === 'Member Exists') {
+      return res.status(200).json({error: 'Already subscribed.'});
+    }
+    return res.status(500).json({error: error.message || error.toString()});
+  }
+}`} />
+
+<AnchorTag text="What next?" href="what-next" />
+
+{<Text>Now and then this voice in my head keeps telling me there's so much more
+that I can do to improve it. It's my imposter syndrome and it may be right. I'm
+thinking of adding a gallery instead of a single photo to my about page. I may
+also add a page that links to each project that I've worked on so that people
+can read and get an insight into my creative process and how I get stuff
+done.</Text>}
+
+<AnchorTag text="Conclusion" href="conclusion" />
+
+{<Text>This website is a big deal for me. Please subscribe to my newsletter
+below so you can get the latest updates. Thank you for reading. Live long and
+prosper!</Text>}
+
+export default ({children}) =>
+
+<BlogLayout meta={meta}>{children}</BlogLayout>;
