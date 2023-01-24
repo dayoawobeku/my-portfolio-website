@@ -178,8 +178,13 @@ function Layout({children}: Props) {
         <nav className="relative bg-white py-8 dark:bg-[#131920]">
           <div className="relative flex items-center justify-between">
             <Link href="/">
-              <a className="text-5md font-medium text-grey dark:text-white-800">
-                Dayo Awobeku
+              <a className="h-[31px] w-[180px]">
+                <Image
+                  src={theme === 'light' ? '/logo-dark.svg' : '/logo-light.svg'}
+                  width={180}
+                  height={31}
+                  alt="Logo"
+                />
               </a>
             </Link>
             <button
