@@ -13,7 +13,7 @@ module.exports = {
         30: '7.5rem',
       },
       animation: {
-        'spin-slow': 'spin 5s linear infinite',
+        'spin-slow': 'spin 3s linear infinite',
       },
     },
     colors: {
