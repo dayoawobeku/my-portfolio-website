@@ -13,6 +13,7 @@ import AnchorTag from './AnchorTag';
 import ExternalUrl from './ExternalUrl';
 import LocalLink from './LocalLink';
 import ListNumber from './ListNumber';
+import Codesandbox from './Codesandbox';
 
 export {
   Heading,
@@ -30,4 +31,5 @@ export {
   ExternalUrl,
   LocalLink,
   ListNumber,
+  Codesandbox,
 };
