@@ -1,0 +1,119 @@
+export const meta = {
+  postTitle:
+    'When to useState vs useReducer - a simple guide to help you decide.',
+  date: 'December 3rd, 2022',
+  time: '4 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1675521133/blog/william-bout-7cdFZmLlWOM-unsplash_1_dulewg.jpg',
+  title:
+    'gray lighthouse on islet with concrete pathway at daytime, William Bout',
+};
+
+{<Text>Have you ever wondered when to use the <QuoteText quote="useState"/> and
+{' '}<QuoteText quote="useReducer"/> {''} hooks? I have, and I've found that
+there's a simple way to decide. I'll show you how to use this simple rule to
+decide when to use either, or both.</Text>}
+
+{<Text>
+
+<ExternalUrl
+  text="Hooks"
+  href="https://reactjs.org/docs/hooks-overview.html#but-what-is-a-hook"
+/> {''}were first introduced into the React community in version 16.8.
+
+They’re basically functions that let you <BoldText text='“hook”'/> into a
+component’s state. Hooks work only inside functional components.
+
+</Text>}
+
+{<Text><QuoteText quote="useState"/> is the most common hook and it allows you
+to add state to a functional component. State is data, usually data that can
+change over time. <QuoteText quote="useState"/> is most useful when you have a
+single piece of state that is simple to update. For example, a boolean {''}
+
+<QuoteText quote="isOpen"/> value, or some other <ExternalUrl
+  text="primitive"
+  href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive"
+/>  value such as a text
+input.</Text>}
+
+{<Text><QuoteText quote="useReducer"/> is similar to {''}
+
+<QuoteText quote="useState"/>, but it's more useful when you have multiple
+pieces of state that are related to each other.</Text>}
+
+{<Text>Let's look at an example. Let's say we have a component that has a button
+that increments and decrements a counter. We can use {''}
+
+<QuoteText quote="useState"/> to manage the counter state.</Text>}
+
+{<Codesandbox src="https://codesandbox.io/embed/weathered-currying-vncl4b?fontsize=14&hidenavigation=1&theme=dark&codemirror=1&module=/src/App.jsx" />}
+
+{<Text>This is a contrived example, but it's a good place to start. Now, let’s
+get our simple counter to work with <QuoteText quote="useReducer"/> just to get
+familiar with the basics.
+
+</Text>}
+
+{<Codesandbox src="https://codesandbox.io/embed/aged-microservice-eqyp97?fontsize=14&hidenavigation=1&theme=dark&codemirror=1&module=/src/App.jsx" />}
+
+{<Text>Essentially, with <QuoteText quote="useState"/>, you <ExternalUrl
+  text="destructure"
+  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"
+/> 2 values: the current state (<ItalicizedText text='count' />); and a {''}
+
+<ExternalUrl
+  text="set/update function"
+  href="https://beta.reactjs.org/reference/react/useState#setstate"
+/>
+
+(<ItalicizedText text='setCount' />). Then in-between the {''}
+
+<QuoteText quote="useState" /> function, you pass in the initial state value (<ItalicizedText text="0" />
+).
+
+</Text>}
+
+{<Text><QuoteText quote="useReducer" /> on the other hand returns an array with
+exactly 2 items: the current state; and a
+
+<ExternalUrl
+  text="dispatch function."
+  href="https://beta.reactjs.org/reference/react/useReducer#dispatch"
+/> {''}
+Then in-between the {''}
+
+<QuoteText quote="useReducer" /> function, you pass 2 arguments: a reducer function;
+and the initial state value. There's a third, optional <ExternalUrl
+  text="init"
+  href="https://beta.reactjs.org/reference/react/useReducer#parameters"
+/> argument but it can be omitted.
+
+</Text>}
+
+{<Text>The reducer function takes 2 arguments: the current state value; and the
+action value passed to the dispatch function. Scroll back up and see if it makes
+more sense. Yeah? Nope? Keep reading.
+
+</Text>}
+
+<AnchorTag
+  text="Cool, so technically they do the same thing?"
+  href="cool-so-technically-they-do-the-same-thing"
+/>
+
+{<Text>Yes, exactly! They are equivalent. You can always convert between {''}
+
+<QuoteText quote="useState" /> and <QuoteText quote="useReducer" /> back and forth.
+Personally, I prefer to use <QuoteText quote="useReducer" /> when I have more complicated state because it's flexible and allows you to do more things. It's also a bit more complicated to use, but it's worth it. Let's look
+at another example.</Text>}
+
+{<Text>Let's create a todo list where we can add, edit, and delete todos. We'll
+use both <QuoteText quote="useState" /> and <QuoteText quote="useReducer" />.
+Ready? Let's go!</Text>}
+
+{<Text>
+
+  <QuoteText quote="useState" />:
+</Text>}
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

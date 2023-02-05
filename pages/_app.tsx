@@ -31,6 +31,7 @@ import {
   ExternalUrl,
   LocalLink,
   ListNumber,
+  Codesandbox,
 } from '../components/Blog';
 
 interface MyAppProps extends AppProps {
@@ -53,6 +54,7 @@ const components = {
   ExternalUrl,
   LocalLink,
   ListNumber,
+  Codesandbox,
 };
 
 function MyApp({Component, pageProps}: AppProps<MyAppProps>) {

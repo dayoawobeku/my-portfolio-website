@@ -4,6 +4,7 @@ import type {GetStaticProps} from 'next';
 import Link from 'next/link';
 import {useTheme} from 'next-themes';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
+const {countries, zones} = require('moment-timezone/data/meta/latest.json');
 import Newsletter from './Newsletter';
 import {
   closeMenuDark,
@@ -109,6 +110,26 @@ function Layout({children}: Props) {
     refetchInterval: 1000 * 60,
   });
 
+  // get users city & country
+  const timeZoneCityToCountry: {[key: string]: string} = {};
+
+  Object.keys(zones).forEach(z => {
+    const cityArr = z.split('/');
+    const city = cityArr[cityArr.length - 1];
+    timeZoneCityToCountry[city] = countries[zones[z].countries[0]].name;
+  });
+
+  let userCity;
+  let userCountry;
+  let userTimeZone;
+
+  if (Intl) {
+    userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const tzArr = userTimeZone.split('/');
+    userCity = tzArr[tzArr.length - 1];
+    userCountry = timeZoneCityToCountry[userCity];
+  }
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(
@@ -190,7 +211,7 @@ function Layout({children}: Props) {
             <button
               onClick={letItSnow}
               title="Snow away!"
-              className="animate-spin-slow"
+              className="motion-safe:animate-spin-slow"
             >
               ❄️
             </button>
@@ -290,6 +311,11 @@ function Layout({children}: Props) {
                   width={16}
                   height={16}
                   layout="fixed"
+                  className={`${
+                    !spotifyNowPlaying?.isPlaying
+                      ? ''
+                      : 'motion-safe:animate-spin-slow'
+                  }`}
                 />
               </div>
 
@@ -305,8 +331,10 @@ function Layout({children}: Props) {
               <p className="font-medium">-</p>
               <p className="text-grey-800 dark:text-grey-600">Spotify</p>
             </div>
-            <div className="inline-flex items-center gap-2 text-grey-800 dark:text-grey-600">
-              <p>{Intl.DateTimeFormat().resolvedOptions().timeZone},</p>
+            <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
+              <p>
+                {userCity}, {userCountry}
+              </p>
               <p>{currentTime}</p>
             </div>
           </div>
