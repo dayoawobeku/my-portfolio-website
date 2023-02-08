@@ -32,6 +32,8 @@ import {
   LocalLink,
   ListNumber,
   Codesandbox,
+  YellowNote,
+  BulletPoint,
 } from '../components/Blog';
 
 interface MyAppProps extends AppProps {
@@ -55,6 +57,8 @@ const components = {
   LocalLink,
   ListNumber,
   Codesandbox,
+  YellowNote,
+  BulletPoint,
 };
 
 function MyApp({Component, pageProps}: AppProps<MyAppProps>) {

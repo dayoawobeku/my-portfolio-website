@@ -45,17 +45,17 @@ export const posts = [
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
     imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
   },
-  // {
-  //   slug: 'when-to-usestate-vs-usereducer-a-simple-guide-to-help-you-decide',
-  //   date: 'January 4th, 2023',
-  //   postTitle:
-  //     'When to useState vs useReducer - a simple guide to help you decide.',
-  //   time: '5 min read',
-  //   imageUrl:
-  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1675521133/blog/william-bout-7cdFZmLlWOM-unsplash_1_dulewg.jpg',
-  //   imageDescription:
-  //     'gray lighthouse on islet with concrete pathway at daytime, William Bout',
-  // },
+  {
+    slug: 'when-to-usestate-vs-usereducer-a-simple-guide-to-help-you-decide',
+    date: 'February 9th, 2023',
+    postTitle:
+      'When to useState vs useReducer - a simple guide to help you decide.',
+    time: '10 min read',
+    imageUrl:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1675521133/blog/william-bout-7cdFZmLlWOM-unsplash_1_dulewg.jpg',
+    imageDescription:
+      'gray lighthouse on islet with concrete pathway at daytime, William Bout',
+  },
   // {
   //   slug: 'building-your-first-next-js-13-app-a-step-by-step-guide',
   //   date: 'January 4th, 2023',
