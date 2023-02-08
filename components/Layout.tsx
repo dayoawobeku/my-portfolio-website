@@ -331,12 +331,14 @@ function Layout({children}: Props) {
               <p className="font-medium">-</p>
               <p className="text-grey-800 dark:text-grey-600">Spotify</p>
             </div>
-            <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
-              <p>
-                {userCity}, {userCountry}
-              </p>
-              <p>{currentTime}</p>
-            </div>
+            <ClientOnly>
+              <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
+                <p>
+                  {userCity}, {userCountry}
+                </p>
+                <p>{currentTime}</p>
+              </div>
+            </ClientOnly>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown dark:text-grey-600">

@@ -14,6 +14,8 @@ import ExternalUrl from './ExternalUrl';
 import LocalLink from './LocalLink';
 import ListNumber from './ListNumber';
 import Codesandbox from './Codesandbox';
+import YellowNote from './YellowNote';
+import BulletPoint from './BulletPoint';
 
 export {
   Heading,
@@ -32,4 +34,6 @@ export {
   LocalLink,
   ListNumber,
   Codesandbox,
+  YellowNote,
+  BulletPoint,
 };
