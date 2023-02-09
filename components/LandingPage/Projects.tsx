@@ -3,6 +3,15 @@ import CustomLink from '../CustomLink';
 
 const PROJECT_ARRAY = [
   {
+    heading: 'Sitesnap',
+    // eslint-disable-next-line quotes
+    body: "The curated platform for African websites. Creatives searching for a burst of inspiration, you're in for a treat!",
+    image:
+      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1675981165/website-images/sitesnap_mlxszv.png',
+    url: 'https://sitesnap.design',
+    stack: ['next js', 'typescript', 'tailwindcss', 'strapi cms', 'cloudinary'],
+  },
+  {
     heading: 'Dojah Website',
     body: 'Built a fast, accessible, mobile responsive, and highly SEO-friendly landing page with sub-routes from start to finish.',
     image:
