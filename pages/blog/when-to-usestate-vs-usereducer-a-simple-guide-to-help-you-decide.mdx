@@ -1,7 +1,7 @@
 export const meta = {
   postTitle:
     'When to useState vs useReducer - a simple guide to help you decide.',
-  date: 'February 9th, 2023',
+  date: 'February 10th, 2023',
   time: '10 minute read',
   url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1675521133/blog/william-bout-7cdFZmLlWOM-unsplash_1_dulewg.jpg',
   title:
@@ -27,8 +27,14 @@ state. Hooks work only inside functional components.
 
 {<Text><QuoteText quote="useState"/> is the most common hook and it allows you
 to add state to a functional component. State is data, usually data that can
-change over time. <QuoteText quote="useState"/> is most useful when you have a
-single piece of state that is simple to update. For example, a boolean {''}
+change over time, that causes the component to re-render when it's updated. {''}
+
+</Text>}
+
+{<Text>
+
+<QuoteText quote="useState" /> is most useful when you have a single piece of state
+that is simple to update. For example, a boolean {''}
 
 <QuoteText quote="isOpen"/> value, or some other <ExternalUrl
   text="primitive"
@@ -80,7 +86,7 @@ exactly 2 items: the current state; and a {''}
   text="dispatch function."
   href="https://beta.reactjs.org/reference/react/useReducer#dispatch"
 /> {''}
-Then in-between the {''}
+Then in between the {''}
 
 <QuoteText quote="useReducer" /> function, you pass 2 arguments: a reducer function;
 and the initial state value. There's a third, optional <ExternalUrl
@@ -145,8 +151,7 @@ the switch statement because it's easier to read."
 {<Text>If you’re a Redux fanboy, you can think of {''}
 
 <QuoteText quote="useReducer" /> {''} as a local version of Redux. That said, you
-don't need to know Redux to use <QuoteText quote="useReducer" />. You don't even need to know Redux to
-use React. 
+don't need to know Redux to use <QuoteText quote="useReducer" />. You may not even need to use Redux at all while working with React.
 </Text>}
 
 {<Text>Notice that the {''} <QuoteText quote="useReducer" /> version has a bit
@@ -154,10 +159,11 @@ more code. While that is true, think of it this way.
 
 </Text>}
 
-{<Text>Assume our PM comes to us and says {''} “Hey, we need to add a couple of
+{<Text>Assume our PM comes to us and says {''}
+<ItalicizedText text='“Hey, we need to add a couple of
 new features to our todo app. We need to add a feature to filter todos by
 completed or incomplete. We also need to add a feature to sort todos by date
-created or date modified."
+created or date modified."'/>
 
 </Text>}
 

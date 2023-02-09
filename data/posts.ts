@@ -47,7 +47,7 @@ export const posts = [
   },
   {
     slug: 'when-to-usestate-vs-usereducer-a-simple-guide-to-help-you-decide',
-    date: 'February 9th, 2023',
+    date: 'February 10th, 2023',
     postTitle:
       'When to useState vs useReducer - a simple guide to help you decide.',
     time: '10 min read',
