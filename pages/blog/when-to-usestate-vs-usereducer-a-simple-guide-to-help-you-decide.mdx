@@ -27,8 +27,10 @@ state. Hooks work only inside functional components.
 
 {<Text><QuoteText quote="useState"/> is the most common hook and it allows you
 to add state to a functional component. State is data, usually data that can
-change over time. <QuoteText quote="useState"/> is most useful when you have a
-single piece of state that is simple to update. For example, a boolean {''}
+change over time, that causes the component to re-render when it's updated.
+
+<QuoteText quote="useState" /> is most useful when you have a single piece of state
+that is simple to update. For example, a boolean {''}
 
 <QuoteText quote="isOpen"/> value, or some other <ExternalUrl
   text="primitive"
@@ -145,8 +147,7 @@ the switch statement because it's easier to read."
 {<Text>If you’re a Redux fanboy, you can think of {''}
 
 <QuoteText quote="useReducer" /> {''} as a local version of Redux. That said, you
-don't need to know Redux to use <QuoteText quote="useReducer" />. You don't even need to know Redux to
-use React. 
+don't need to know Redux to use <QuoteText quote="useReducer" />. You may not even need to use Redux at all while working with React.
 </Text>}
 
 {<Text>Notice that the {''} <QuoteText quote="useReducer" /> version has a bit
