@@ -15,37 +15,37 @@ module.exports = {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },
-    },
-    colors: {
-      body: '#686868',
-      white: {
-        DEFAULT: '#FFF',
-        800: '#F9F9F9',
-        700: '#F7F7F7',
-        400: '#C2C2C2',
-      },
-      black: {
-        DEFAULT: '#000',
-      },
-      grey: {
-        DEFAULT: '#0D0D0D',
-        800: '#333442',
-        600: '#CECED2',
-        400: '#84858D',
-        100: '#E5E5E5',
-      },
-      brown: '#6C5146',
-      success: {
-        DEFAULT: '#30c85e',
-        200: '#30c85e20',
-      },
-      danger: {
-        DEFAULT: '#D53F41',
-        300: '#A13E3F30',
-      },
-      info: {
-        DEFAULT: '#3F7CDB',
-        100: '#3F7CDB10',
+      colors: {
+        body: '#686868',
+        white: {
+          DEFAULT: '#FFF',
+          800: '#F9F9F9',
+          700: '#F7F7F7',
+          400: '#C2C2C2',
+        },
+        black: {
+          DEFAULT: '#000',
+        },
+        grey: {
+          DEFAULT: '#0D0D0D',
+          800: '#333442',
+          600: '#CECED2',
+          400: '#84858D',
+          100: '#E5E5E5',
+        },
+        brown: '#6C5146',
+        success: {
+          DEFAULT: '#30c85e',
+          200: '#30c85e20',
+        },
+        danger: {
+          DEFAULT: '#D53F41',
+          300: '#A13E3F30',
+        },
+        info: {
+          DEFAULT: '#3F7CDB',
+          100: '#3F7CDB10',
+        },
       },
     },
     fontFamily: {
