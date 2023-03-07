@@ -34,6 +34,7 @@ import {
   Codesandbox,
   YellowNote,
   BulletPoint,
+  ListItems,
 } from '../components/Blog';
 
 interface MyAppProps extends AppProps {
@@ -59,6 +60,7 @@ const components = {
   Codesandbox,
   YellowNote,
   BulletPoint,
+  ListItems,
 };
 
 function MyApp({Component, pageProps}: AppProps<MyAppProps>) {

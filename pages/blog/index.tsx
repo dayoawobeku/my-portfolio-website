@@ -79,8 +79,6 @@ const Blog: NextPage = () => {
             height={387}
             layout="responsive"
             priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           />
         </div>
       </div>

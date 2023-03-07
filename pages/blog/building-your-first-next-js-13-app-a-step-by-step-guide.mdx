@@ -1,0 +1,159 @@
+export const meta = {
+  postTitle: 'Building your first Next.js 13 app - a step by step guide.',
+  date: 'February 24th, 2023',
+  time: '10 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1676990442/blog/koji-futami-gH-Lh2axCZw-unsplash_uzvwhr.jpg',
+  title: 'road, forest, and body of water during day by Koji Futami',
+};
+
+{<Text><ExternalUrl text='Next.js' href='https://nextjs.org/docs/getting-started' />
+{''} <BoldText text='13'/> is the latest version of the popular React framework,
+released in October 2022 at the annual {''}
+
+<ExternalUrl text='Next.js conference.' href='https://nextjs.org/conf' /></Text>}
+
+{<Text>It comes packed with exciting new features that make building web
+applications easier and more efficient, including:</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        'a new ',
+        <ExternalUrl
+          text="app directory"
+          href="https://nextjs.org/blog/next-13#new-app-directory-beta"
+        />,
+        ' that provides a clearer and more organized structure for Next.js projects.',
+      ],
+    },
+    {
+      text: [
+        'a brand new ',
+        <ExternalUrl
+          text="font system"
+          href="https://nextjs.org/blog/next-13#nextfont"
+        />,
+        ' that makes it simpler to manage and use custom fonts in your projects.',
+      ],
+    },
+    {
+      text: [
+        <ExternalUrl
+          text="Turbopack, "
+          href="https://nextjs.org/blog/next-13#introducing-turbopack-alpha"
+        />,
+        ' a x700 faster version of Webpack built with Rust, which can significantly reduce build times and improve overall performance.',
+      ],
+    },
+  ]}
+/>
+
+{<Text>These new features, along with other improvements, make Next.js 13 a
+must-have for developers looking to build high-quality web applications quickly
+and efficiently.</Text>}
+
+{<Text>One of the main selling points of Next.js 13 is its introduction of {''}
+
+<ExternalUrl text='Server Components' href='https://beta.nextjs.org/docs/rendering/server-and-client-components#server-components' />, a new feature that simplifies server-side rendering by
+allowing developers to write server-side logic using React components.</Text>}
+
+{<Text>In this blog post, we will not only explore the new features and
+improvements introduced in Next.js version 13 but also build a sample web
+application together to demonstrate their capabilities. We'll discuss how these
+features can benefit developers in building better web applications, while also
+highlighting the performance enhancements, security updates, and other changes
+that make Next.js 13 a significant upgrade from the previous versions.</Text>}
+
+{<Text>So, let's dive into the world of Next.js 13 and build a powerful web
+application with ease!</Text>}
+
+<AnchorTag text="Installation" href="installation" />
+
+{<Text>To automatically create a new Next.js 13 project:</Text>}
+
+<NoCodeBlock
+  codeSegments={[
+    {text: 'npx ', color: 'orange'},
+    {
+      text: 'create-next-app@latest --experimental-app',
+    },
+  ]}
+/>
+
+{<Text>To get our app running:</Text>}
+
+<ListItems
+  listType="number"
+  items={[
+    {
+      text: [
+        'Run ',
+        <QuoteText quote="npm run dev" />,
+        ' to start the development server.',
+      ],
+    },
+    {
+      text: [
+        'Visit ',
+        <QuoteText quote="http://localhost:3000" />,
+        ' to view your application.',
+      ],
+    },
+    {
+      text: [
+        'Edit ',
+        <QuoteText quote="app/layout.tsx" />,
+        'or ',
+        <QuoteText quote="app/page.tsx" />,
+        ' and save to see the updated result in your browser',
+      ],
+    },
+  ]}
+/>
+
+<AnchorTag text="The app directory" href="the-app-directory" />
+
+{<Text>Next.js 13 introduces a new app routing system that brings new
+possibilities and performance improvements to the framework. While the new app
+router works similarly to the previous pages router, it offers some key
+differences that make it a superior option.</Text>}
+
+{<Text>Firstly, the app router is built in such a way that it is 100%
+incrementally adoptable while still maintaining the pages router, all within the
+same application. This means that developers can migrate to the new router
+system at their own pace and without breaking their existing codebase.</Text>}
+
+{<Text>Inside our project's app directory, you'll find css files for styling the
+project, but we'll be using Tailwindcss instead. Additionally, you'll notice a
+head.tsx file, which was a temporary fix to do metadata inside of the new app
+router. However, a newer and better approach was introduced in Next.js 13.2, and
+the head.tsx file was deprecated. We'll cover how to migrate to the new API
+later on.</Text>}
+
+{<Text>The new app directory uses a file system-based routing system, but it's
+now all directory-based with various naming conventions for different use cases.
+To create a new page, simply create a directory with the name of the route and
+add a page.tsx file to it that exports the component you want to display. You
+can also colocate extra non-route components in the same directory instead of
+creating a separate components directory.</Text>}
+
+{<Text>In addition, the new app directory also includes error.tsx and
+loading.tsx files. The error.tsx file allows you to customize the error page
+that is displayed when there is a server-side error or a client-side navigation
+error, while the loading.tsx file allows you to customize the loading indicator
+that is displayed during page transitions. These files give you more control
+over the look and feel of your application, making it easier to provide a better
+user experience.</Text>}
+
+{<Text>Finally, the layout.tsx file wraps all of the pages with a layout, and
+each page can have its own unique layout. These changes in the app directory
+structure offer more flexibility and organization options for
+developers.</Text>}
+
+{<Text>All of these will come in handy when we start building out our project.
+So, enough talk, let's start building out our Next.js 13 app!</Text>}
+
+<AnchorTag text="What we're building" href="what-we-re-building" />
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

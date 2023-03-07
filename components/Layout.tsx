@@ -343,7 +343,7 @@ function Layout({children}: Props) {
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown dark:text-grey-600">
             <p>dayo awobeku</p>
-            <div className="flex items-center gap-5 underline">
+            <div className="flex items-center gap-5">
               <a
                 href="mailto: dayoawobeku@gmail.com"
                 className="transition-all duration-300 hover:text-danger"
