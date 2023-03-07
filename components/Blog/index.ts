@@ -16,6 +16,7 @@ import ListNumber from './ListNumber';
 import Codesandbox from './Codesandbox';
 import YellowNote from './YellowNote';
 import BulletPoint from './BulletPoint';
+import ListItems from './ListItems';
 
 export {
   Heading,
@@ -36,4 +37,5 @@ export {
   Codesandbox,
   YellowNote,
   BulletPoint,
+  ListItems,
 };

@@ -58,12 +58,13 @@ export const posts = [
   },
   // {
   //   slug: 'building-your-first-next-js-13-app-a-step-by-step-guide',
-  //   date: 'January 4th, 2023',
+  //   date: 'February 24th, 2023',
   //   postTitle: 'Building your first Next js 13 app - a step by step guide.',
   //   time: '5 min read',
   //   imageUrl:
-  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
-  //   imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1676990442/blog/koji-futami-gH-Lh2axCZw-unsplash_uzvwhr.jpg',
+  //   imageDescription:
+  //     'road, forest, and body of water during day by Koji Futami',
   // },
   // {
   //   slug: 'stuck-in-z-index-hell-try-this',
