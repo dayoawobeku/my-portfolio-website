@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background: #ffffff;
+  --color-text: #0d0d0d;
+}
+
+.dark {
+  --color-background: #0d0d0d;
+  --color-text: #ffffff;
+}
+
+body.light-mode {
+  background-color: #f9fafc;
+}
+
+body.dark-mode {
+  background-color: #1a1a1a;
+}
 @layer base {
   html {
     font-family: 'Satoshi', sans-serif;

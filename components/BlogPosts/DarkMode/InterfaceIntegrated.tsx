@@ -1,14 +1,15 @@
-import {useTheme} from 'next-themes';
+import {useContext} from 'react';
+import {ThemeContext} from '../../../context/ThemeContext';
 
 export default function InterfaceIntegrated() {
-  const {theme, setTheme} = useTheme();
+  const {theme, toggleTheme} = useContext(ThemeContext);
 
   return (
     <section className="my-8 flex basis-full flex-col items-start gap-6 rounded border-2 px-4 py-4 text-grey-800 dark:border-white-700 dark:text-white">
       <div className="flex items-center justify-between gap-5">
         <h1 className="text-md">Our Awesome dark mode app!</h1>
         <button
-          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          onClick={toggleTheme}
           className="flex items-center gap-2 text-[0.875rem] font-medium text-success"
         >
           <span>Toggle dark/light mode</span>

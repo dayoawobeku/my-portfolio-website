@@ -1,8 +1,7 @@
-import {ReactNode, useEffect, useState} from 'react';
+import {ReactNode, useContext, useEffect, useState} from 'react';
 import Image from 'next/image';
 import type {GetStaticProps} from 'next';
 import Link from 'next/link';
-import {useTheme} from 'next-themes';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 const {countries, zones} = require('moment-timezone/data/meta/latest.json');
 import Newsletter from './Newsletter';
@@ -16,6 +15,7 @@ import {
   spotifyLogo,
 } from '../assets/images';
 import {getNowPlaying} from '../lib/spotify';
+import {ThemeContext} from '../context/ThemeContext';
 
 interface Artist {
   name: string;
@@ -40,29 +40,6 @@ const NAV_LINKS = [
   },
 ];
 
-// to prevent hydration mismatch
-function ClientOnly({
-  children,
-  className,
-  ...delegated
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-  if (!hasMounted) {
-    return null;
-  }
-  return (
-    <div className={className} {...delegated}>
-      {children}
-    </div>
-  );
-}
-
 interface NavLinkProps {
   href: string;
   text: string;
@@ -71,20 +48,18 @@ interface NavLinkProps {
 }
 
 function NavLink({href = '', text, className, onClick}: NavLinkProps) {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
   return (
-    <ClientOnly>
-      <Link href={href} passHref shallow>
-        <a
-          className={`nav-link ${className} ${
-            theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-          }`}
-          onClick={onClick}
-        >
-          {text}
-        </a>
-      </Link>
-    </ClientOnly>
+    <Link href={href} passHref shallow>
+      <a
+        className={`nav-link ${className} ${
+          theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+        }`}
+        onClick={onClick}
+      >
+        {text}
+      </a>
+    </Link>
   );
 }
 
@@ -93,7 +68,6 @@ interface Props {
 }
 
 function Layout({children}: Props) {
-  const {theme, setTheme} = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString([], {
@@ -103,7 +77,7 @@ function Layout({children}: Props) {
       hourCycle: 'h23',
     }),
   );
-
+  const {theme, toggleTheme} = useContext(ThemeContext);
   const {data: spotifyNowPlaying} = useQuery({
     queryKey: ['spotify-now-playing'],
     queryFn: getSpotifyNowPlaying,
@@ -205,6 +179,7 @@ function Layout({children}: Props) {
                   width={180}
                   height={31}
                   alt="Logo"
+                  priority
                 />
               </a>
             </Link>
@@ -217,29 +192,27 @@ function Layout({children}: Props) {
             </button>
 
             <div className="flex items-center gap-6 md:gap-8">
-              <ClientOnly className="h-10 w-10">
-                <button
-                  className="h-10 w-10 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA]"
-                  onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                  title={
-                    theme === 'light'
-                      ? 'Activate dark mode'
-                      : 'Activate light mode'
-                  }
-                >
-                  <div className="w-full">
-                    <Image
-                      src={theme === 'light' ? darkMode : lightMode}
-                      alt="light/dark mode toggle"
-                      className="cursor-pointer"
-                      width={40}
-                      height={40}
-                      layout="responsive"
-                      priority
-                    />
-                  </div>
-                </button>
-              </ClientOnly>
+              <button
+                className="h-10 w-10 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA]"
+                onClick={toggleTheme}
+                title={
+                  theme === 'light'
+                    ? 'Activate dark mode'
+                    : 'Activate light mode'
+                }
+              >
+                <div className="w-full">
+                  <Image
+                    src={theme === 'light' ? darkMode : lightMode}
+                    alt="light/dark mode toggle"
+                    className="cursor-pointer"
+                    width={40}
+                    height={40}
+                    layout="responsive"
+                    priority
+                  />
+                </div>
+              </button>
               <button
                 className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -320,7 +293,7 @@ function Layout({children}: Props) {
               </div>
 
               {!spotifyNowPlaying?.isPlaying ? (
-                <p className="font-medium">Not Playing</p>
+                <p className="font-medium dark:text-white">Not Playing</p>
               ) : (
                 <Link href={spotifyNowPlaying.songUrl}>
                   <a target="_blank" className="font-medium hover:underline">
@@ -328,17 +301,15 @@ function Layout({children}: Props) {
                   </a>
                 </Link>
               )}
-              <p className="font-medium">-</p>
+              <p className="font-medium dark:text-grey-600">-</p>
               <p className="text-grey-800 dark:text-grey-600">Spotify</p>
             </div>
-            <ClientOnly>
-              <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
-                <p>
-                  {userCity}, {userCountry}
-                </p>
-                <p>{currentTime}</p>
-              </div>
-            </ClientOnly>
+            <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
+              <p>
+                {userCity}, {userCountry}
+              </p>
+              <p>{currentTime}</p>
+            </div>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown dark:text-grey-600">
@@ -384,7 +355,7 @@ function Layout({children}: Props) {
                 </a>
               </div>
             </div>
-            <p>2022 all rights reserved</p>
+            <p>{new Date().getFullYear()} all rights reserved</p>
           </div>
         </footer>
       </div>

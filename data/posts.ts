@@ -17,15 +17,15 @@ export const posts = [
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663533/blog/fanny-gustafsson-E_kbqdUZ4vU-unsplash_bzkf4o.jpg',
     imageDescription: 'Winter Wonderland in Sweden, by Fanny Gustafsson',
   },
-  {
-    slug: 'super-easy-way-to-integrate-dark-mode-in-your-nextjs-app',
-    date: 'August 15th, 2022',
-    postTitle: 'Super easy way to integrate dark mode in your Next js app.',
-    time: '5 min read',
-    imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663325/blog/sies-kranen-HOYiBqdiHx0-unsplash_hbz0i7.jpg',
-    imageDescription: 'Dramatic sky all the way, by Sies Kranen',
-  },
+  // {
+  //   slug: 'super-easy-way-to-integrate-dark-mode-in-your-nextjs-app',
+  //   date: 'August 15th, 2022',
+  //   postTitle: 'Super easy way to integrate dark mode in your Next js app.',
+  //   time: '5 min read',
+  //   imageUrl:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663325/blog/sies-kranen-HOYiBqdiHx0-unsplash_hbz0i7.jpg',
+  //   imageDescription: 'Dramatic sky all the way, by Sies Kranen',
+  // },
   {
     slug: 'why-i-now-use-tailwind-in-all-my-new-projects',
     date: 'December 3rd, 2022',
