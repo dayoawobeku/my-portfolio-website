@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import {javascript} from '@codemirror/lang-javascript';
-import {useTheme} from 'next-themes';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface Props {
   value: string;
@@ -13,7 +13,7 @@ const options = {
 };
 
 export default function CodeBlock({value, lang}: Props) {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
   return (
     <pre className="relative mb-8 text-[0.875rem]">
       <CodeMirror

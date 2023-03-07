@@ -218,7 +218,7 @@ const About: NextPage = () => {
       </section>
 
       <section className="mt-28">
-        <h2 className="text-4md font-bold">Top Tracks</h2>
+        <h2 className="text-4md font-bold dark:text-white-800">Top Tracks</h2>
         <p className="mt-4 text-md text-grey-800 dark:text-white-400">
           Curious what I'm currently jamming to? Here's my top tracks on Spotify
           updated daily.
