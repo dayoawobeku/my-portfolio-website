@@ -1,7 +1,8 @@
+import {useContext} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {useTheme} from 'next-themes';
 import {arrowDark, arrowLight} from '../assets/images';
+import {ThemeContext} from '../context/ThemeContext';
 
 interface Props {
   href?: string;
@@ -10,7 +11,7 @@ interface Props {
 }
 
 export default function CustomLink({href = '', externalUrl = '', text}: Props) {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
   if (href) {
     return (
       <Link href={href} passHref>

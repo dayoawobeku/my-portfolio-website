@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {useTheme} from 'next-themes';
 import {posts} from '../../data/posts';
 import {arrowLight} from '../../assets/images';
+import {ThemeContext} from '../../context/ThemeContext';
 
 const Blog: NextPage = () => {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
 
   const allPosts = posts.map(item => item);
 
@@ -79,8 +79,6 @@ const Blog: NextPage = () => {
             height={387}
             layout="responsive"
             priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           />
         </div>
       </div>

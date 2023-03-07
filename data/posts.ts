@@ -17,15 +17,15 @@ export const posts = [
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663533/blog/fanny-gustafsson-E_kbqdUZ4vU-unsplash_bzkf4o.jpg',
     imageDescription: 'Winter Wonderland in Sweden, by Fanny Gustafsson',
   },
-  {
-    slug: 'super-easy-way-to-integrate-dark-mode-in-your-nextjs-app',
-    date: 'August 15th, 2022',
-    postTitle: 'Super easy way to integrate dark mode in your Next js app.',
-    time: '5 min read',
-    imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663325/blog/sies-kranen-HOYiBqdiHx0-unsplash_hbz0i7.jpg',
-    imageDescription: 'Dramatic sky all the way, by Sies Kranen',
-  },
+  // {
+  //   slug: 'super-easy-way-to-integrate-dark-mode-in-your-nextjs-app',
+  //   date: 'August 15th, 2022',
+  //   postTitle: 'Super easy way to integrate dark mode in your Next js app.',
+  //   time: '5 min read',
+  //   imageUrl:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663325/blog/sies-kranen-HOYiBqdiHx0-unsplash_hbz0i7.jpg',
+  //   imageDescription: 'Dramatic sky all the way, by Sies Kranen',
+  // },
   {
     slug: 'why-i-now-use-tailwind-in-all-my-new-projects',
     date: 'December 3rd, 2022',
@@ -58,12 +58,13 @@ export const posts = [
   },
   // {
   //   slug: 'building-your-first-next-js-13-app-a-step-by-step-guide',
-  //   date: 'January 4th, 2023',
+  //   date: 'February 24th, 2023',
   //   postTitle: 'Building your first Next js 13 app - a step by step guide.',
   //   time: '5 min read',
   //   imageUrl:
-  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
-  //   imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1676990442/blog/koji-futami-gH-Lh2axCZw-unsplash_uzvwhr.jpg',
+  //   imageDescription:
+  //     'road, forest, and body of water during day by Koji Futami',
   // },
   // {
   //   slug: 'stuck-in-z-index-hell-try-this',
