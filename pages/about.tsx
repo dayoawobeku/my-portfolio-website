@@ -84,13 +84,10 @@ const About: NextPage = () => {
             />
           </div>
           <div className="about-text h-[662px] w-full overflow-y-auto pr-4 pb-4 lg:w-[49.32%]">
-            <h1 className="text-md font-medium text-grey dark:text-white-700">
-              Get to know Dayo...
-            </h1>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              Dayo is a graduate of Medical Laboratory Science at the University
-              of Ibadan in Nigeria. He currently works as a Frontend Engineer at{' '}
-              {''}
+            <p className="text-md leading-[31px] text-body dark:text-grey-600">
+              Meet Dayo, a Frontend Engineer with 3 years of industry experience
+              in building websites and web applications. He is currently working
+              at {''}
               <a
                 href="https://dojah.io"
                 target="_blank"
@@ -99,24 +96,24 @@ const About: NextPage = () => {
               >
                 Dojah
               </a>
-              , a Y Combinator startup in Nigeria, managing and working on
-              several projects across the company.
+              , a Y Combinator startup in Nigeria, where he manages and
+              contributes to several projects across the company.
             </p>
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
               At the height of the pandemic, while working at a government
-              hospital in Lagos, Nigeria, he went all in self-development and
-              building skills he always dreamed of having. He started learning
-              to code with {''}
+              hospital in Lagos, Nigeria, Dayo decided to invest in himself and
+              learn new skills he always dreamed of having. He started learning
+              to code on {''}
               <a
                 href="https://www.codecademy.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="font-medium text-grey hover:underline dark:text-white-800"
               >
-                Codecademy.
+                Codecademy
               </a>{' '}
-              He also started learning to design beautiful interfaces from the
-              YouTube channels of design experts like {''}
+              and designing beautiful interfaces by watching YouTube channels of
+              design experts such as {''}
               <a
                 href="https://www.youtube.com/c/DesignCourse"
                 target="_blank"
@@ -145,14 +142,13 @@ const About: NextPage = () => {
               </a>{' '}
             </p>
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              Before working at Dojah, he worked as a contract Product Designer
-              for Decasoft and Outlierz. He still designs user interfaces now
-              and then, and this portfolio website is the latest in that stack.
+              Before joining Dojah, Dayo worked as a contract Product Designer
+              for Decasoft and Outlierz. He still designs user interfaces and
+              this portfolio website is his latest creation.
             </p>
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              With almost 3 years experience as a Frontend Engineer, he's worked
-              on some fascinating projects including building Dojah's 3rd
-              version of their{' '}
+              Dayo has worked on fascinating projects, including building
+              Dojah's 3rd version of their {''}
               <a
                 href="https://dojah.io"
                 target="_blank"
@@ -169,16 +165,16 @@ const About: NextPage = () => {
                 className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 web app.
-              </a>
+              </a>{' '}
+              {''}
+              He ensures that the projects he works on are scalable, optimized,
+              and provide seamless user experiences.
             </p>
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              When he isn't working, he spends time on his Playstation or
-              YouTube watching criminal investigations.
-            </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              If you'd like to hire him, enquire about his rates or give him any
-              kind of feedback, he'll be delighted to hear from you. He's
-              hanging out a lot on {''}
+              When he's not working, Dayo spends time playing video games on his
+              PlayStation or watching criminal investigations on YouTube. He is
+              always happy to receive feedback, answer questions or discuss
+              rates, so feel free to get in touch with him on{' '}
               <a
                 href="https://twitter.com/dayoawobeku"
                 target="_blank"
@@ -186,18 +182,26 @@ const About: NextPage = () => {
                 className="font-medium text-grey hover:underline dark:text-white-800"
               >
                 Twitter{' '}
+              </a>{' '}
+              or through an {''}
+              <a
+                href="mailto: dayoawobeku@gmail.com"
+                className="font-medium text-grey hover:underline dark:text-white-800"
+              >
+                email
               </a>
-              these days, and will answer all your questions through a DM if
-              that is more practical for you!
+              .
             </p>
+
             <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              If you want to learn about Javascript and web development, he has
-              a blog on this website. Check it out{' '}
+              Check out {''}
               <Link href="/blog">
                 <a className="font-medium text-grey hover:underline dark:text-white-800">
-                  here!
+                  Dayo's blog {''}
                 </a>
               </Link>
+              on this website if you want to learn more about Javascript and web
+              development.
             </p>
           </div>
         </div>

@@ -12,13 +12,6 @@
   --color-text: #ffffff;
 }
 
-body.light-mode {
-  background-color: #f9fafc;
-}
-
-body.dark-mode {
-  background-color: #1a1a1a;
-}
 @layer base {
   html {
     font-family: 'Satoshi', sans-serif;

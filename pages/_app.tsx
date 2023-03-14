@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import type {AppProps} from 'next/app';
-import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import {MDXProvider} from '@mdx-js/react';
 import {Analytics} from '@vercel/analytics/react';
@@ -13,7 +12,6 @@ import {
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 import '../styles/globals.css';
 import '../styles/editor.css';
-const Layout = dynamic(() => import('../components/Layout'), {ssr: false});
 import {
   Heading,
   Text,
@@ -35,6 +33,7 @@ import {
   BulletPoint,
   ListItems,
 } from '../components/Blog';
+import Layout from '../components/Layout';
 import {ThemeProvider} from '../context/ThemeContext';
 
 interface MyAppProps extends AppProps {
