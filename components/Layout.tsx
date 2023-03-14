@@ -2,20 +2,31 @@ import {ReactNode, useContext, useEffect, useState} from 'react';
 import Image from 'next/image';
 import type {GetStaticProps} from 'next';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 const {countries, zones} = require('moment-timezone/data/meta/latest.json');
 import Newsletter from './Newsletter';
 import {
   closeMenuDark,
   closeMenuLight,
-  darkMode,
-  lightMode,
   menuDark,
   menuLight,
   spotifyLogo,
 } from '../assets/images';
 import {getNowPlaying} from '../lib/spotify';
 import {ThemeContext} from '../context/ThemeContext';
+const LogoWithNoSSR = dynamic(() => import('./LandingPage/Logo'), {
+  ssr: false,
+});
+const ThemeTogglerWithNoSSR = dynamic(
+  () => import('./LandingPage/ThemeToggler'),
+  {
+    ssr: false,
+  },
+);
+const NavLinkWithNoSSR = dynamic(() => import('./NavLink'), {
+  ssr: false,
+});
 
 interface Artist {
   name: string;
@@ -40,49 +51,34 @@ const NAV_LINKS = [
   },
 ];
 
-interface NavLinkProps {
-  href: string;
-  text: string;
-  className?: string;
-  onClick?: () => void;
-}
-
-function NavLink({href = '', text, className, onClick}: NavLinkProps) {
-  const {theme} = useContext(ThemeContext);
-  return (
-    <Link href={href} passHref shallow>
-      <a
-        className={`nav-link ${className} ${
-          theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-        }`}
-        onClick={onClick}
-      >
-        {text}
-      </a>
-    </Link>
-  );
-}
-
 interface Props {
   children?: ReactNode;
 }
 
+interface Placeholder {
+  width: number;
+  height: number;
+}
+
+function PlaceholderComponent({width, height}: Placeholder) {
+  return <div style={{width, height, backgroundColor: '#131920'}} />;
+}
+
 function Layout({children}: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZoneName: 'short',
-      hourCycle: 'h23',
-    }),
-  );
-  const {theme, toggleTheme} = useContext(ThemeContext);
+  const [currentTime, setCurrentTime] = useState('');
   const {data: spotifyNowPlaying} = useQuery({
     queryKey: ['spotify-now-playing'],
     queryFn: getSpotifyNowPlaying,
     refetchInterval: 1000 * 60,
   });
+
+  const {theme} = useContext(ThemeContext);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   // get users city & country
   const timeZoneCityToCountry: {[key: string]: string} = {};
@@ -172,17 +168,11 @@ function Layout({children}: Props) {
       <div className="mx-auto max-w-[1168px] px-4">
         <nav className="relative bg-white py-8 dark:bg-[#131920]">
           <div className="relative flex items-center justify-between">
-            <Link href="/">
-              <a className="h-[31px] w-[180px]">
-                <Image
-                  src={theme === 'light' ? '/logo-dark.svg' : '/logo-light.svg'}
-                  width={180}
-                  height={31}
-                  alt="Logo"
-                  priority
-                />
-              </a>
-            </Link>
+            {!isLoaded ? (
+              <PlaceholderComponent width={180} height={30.6} />
+            ) : (
+              <LogoWithNoSSR />
+            )}
             <button
               onClick={letItSnow}
               title="Snow away!"
@@ -190,29 +180,8 @@ function Layout({children}: Props) {
             >
               ❄️
             </button>
-
             <div className="flex items-center gap-6 md:gap-8">
-              <button
-                className="h-10 w-10 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA]"
-                onClick={toggleTheme}
-                title={
-                  theme === 'light'
-                    ? 'Activate dark mode'
-                    : 'Activate light mode'
-                }
-              >
-                <div className="w-full">
-                  <Image
-                    src={theme === 'light' ? darkMode : lightMode}
-                    alt="light/dark mode toggle"
-                    className="cursor-pointer"
-                    width={40}
-                    height={40}
-                    layout="responsive"
-                    priority
-                  />
-                </div>
-              </button>
+              <ThemeTogglerWithNoSSR />
               <button
                 className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -239,7 +208,7 @@ function Layout({children}: Props) {
                 } absolute top-20 left-4 -mx-4 flex w-full flex-col divide-y divide-grey-600 bg-white dark:divide-grey-800 dark:bg-[#131920]`}
               >
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLink
+                  <NavLinkWithNoSSR
                     className="py-6 text-md font-medium"
                     key={index}
                     href={href}
@@ -258,7 +227,7 @@ function Layout({children}: Props) {
               </div>
               <div className="hidden items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white md:flex">
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLink key={index} href={href} text={text} />
+                  <NavLinkWithNoSSR key={index} href={href} text={text} />
                 ))}
               </div>
               <Link href="/contact">
