@@ -16,7 +16,12 @@ interface Props {
 }
 
 export function ThemeProvider({children}: Props) {
-  const [theme, setTheme] = useState('dark');
+  const defaultTheme = 'dark';
+  const [theme, setTheme] = useState<string>(() => {
+    const savedTheme =
+      typeof window !== 'undefined' && localStorage.getItem('theme');
+    return savedTheme ? savedTheme : defaultTheme;
+  });
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
