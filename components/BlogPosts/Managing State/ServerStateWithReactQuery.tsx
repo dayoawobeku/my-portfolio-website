@@ -28,7 +28,7 @@ function Sidebar({setPostId}: Props) {
   return (
     <aside className="basis-1/4">
       <button
-        className="cursor-pointer border-b-2 border-white-400 pb-2 text-2md font-medium"
+        className="cursor-pointer border-b-2 border-white-400 pb-2 text-2md font-medium dark:text-white"
         onClick={e => {
           setPostId(-1);
           e.preventDefault();
@@ -36,7 +36,7 @@ function Sidebar({setPostId}: Props) {
       >
         All Posts
       </button>
-      <p className="mt-4">
+      <p className="mt-4 dark:text-white">
         Total posts:{' '}
         <span className="font-semibold text-success">{data?.length}</span>
       </p>
@@ -47,7 +47,7 @@ function Sidebar({setPostId}: Props) {
 function Main({postId, setPostId}: Props) {
   return (
     <main className="basis-3/4">
-      <h3 className="mb-4 text-2md font-medium">Posts</h3>
+      <h3 className="mb-4 text-2md font-medium dark:text-white">Posts</h3>
 
       <div className="flex flex-col gap-2">
         {postId > -1 ? (
@@ -89,9 +89,9 @@ function CreatePost() {
 
   return (
     <>
-      <h3 className="mb-4 text-2md font-medium">Create Post</h3>
+      <h3 className="mb-4 text-2md font-medium dark:text-white">Create Post</h3>
 
-      <form onSubmit={handleSubmit} className="flex flex-col">
+      <form onSubmit={handleSubmit} className="flex flex-col dark:text-white">
         <label htmlFor="title">Title</label>
         <input
           className="mt-1 rounded-sm bg-white-700 p-2 dark:bg-grey-800"
@@ -146,9 +146,9 @@ function EditPost({postId}: Props) {
 
   return (
     <>
-      <h3 className="mb-4 text-2md font-medium">Edit Post</h3>
+      <h3 className="mb-4 text-2md font-medium dark:text-white">Edit Post</h3>
 
-      <form onSubmit={handleSubmit} className="flex flex-col">
+      <form onSubmit={handleSubmit} className="flex flex-col dark:text-white">
         <label htmlFor="title">Title</label>
         <input
           className="mt-1 rounded-sm bg-white-700 p-2 dark:bg-grey-800"
@@ -188,7 +188,7 @@ function Posts({setPostId}: Props) {
   const {data, status} = usePosts();
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <p className="dark:text-white">Loading...</p>;
   }
 
   if (status === 'error') {
@@ -203,7 +203,7 @@ function Posts({setPostId}: Props) {
           className={`w-fit cursor-pointer text-start hover:underline ${
             queryClient.getQueryData(['post', post.id])
               ? 'font-bold text-info'
-              : ''
+              : 'dark:text-white'
           }`}
           onClick={e => {
             setPostId(post.id);
@@ -223,7 +223,7 @@ function Post({postId, setPostId}: Props) {
   return (
     <>
       <button
-        className="w-fit cursor-pointer text-[0.8125rem] font-medium hover:underline"
+        className="w-fit cursor-pointer text-[0.8125rem] font-medium hover:underline dark:text-white"
         onClick={e => {
           setPostId(-1);
           e.preventDefault();
@@ -237,11 +237,11 @@ function Post({postId, setPostId}: Props) {
         'There was an error'
       ) : (
         <>
-          <h1>{data.title}</h1>
+          <h1 className="dark:text-white-700">{data.title}</h1>
           <div>
-            <p>{data.body}</p>
+            <p className="dark:text-white-700">{data.body}</p>
           </div>
-          <p className="text-[0.8125rem] font-medium">
+          <p className="text-[0.8125rem] font-medium dark:text-white">
             {isFetching ? 'Background Updating...' : ''}
           </p>
         </>
