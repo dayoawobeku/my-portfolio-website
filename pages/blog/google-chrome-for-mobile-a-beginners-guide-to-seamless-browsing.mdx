@@ -1,0 +1,646 @@
+import {
+  addressBar,
+  iosTabBar,
+  androidTabBar,
+  content,
+  tabsList,
+  tabsMenu,
+  openAndroidMenu,
+  androidForward,
+  flags,
+  readingList,
+  relaunchFlags,
+  addToReadingList,
+  simpleMath,
+  currencyExchange,
+  temperatureConversion,
+  timer,
+} from '../../assets/images/chrome';
+
+export const meta = {
+  postTitle:
+    "Google Chrome for Mobile: A Beginner's Guide to Seamless Browsing",
+  date: 'March 23rd, 2023',
+  time: '8 minute read',
+  url: 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1679565950/blog/growtika-vTG2GFOb1iA-unsplash_bn5mbo.jpg',
+  title: 'a group of colorful cubes, by Growtika',
+};
+
+<Outline>
+  <a href="#introduction">Introduction</a>
+  <a href="#what-is-google-chrome">What is Google Chrome</a>
+  <a href="#why-google-chrome">Why Google Chrome</a>
+  <a href="#installing-google-chrome-on-mobile">
+    Installing Google Chrome on Mobile
+  </a>
+  <a href="#how-to-use-google-chrome">How To Use Google Chrome</a>
+  <a href="#browsing-tips-and-tricks">Browsing Tips and Tricks</a>
+  <a href="#syncing-chrome-across-devices">Syncing Chrome across Devices</a>
+  <a href="#google-chrome-alternatives">Google Chrome Alternatives</a>
+  <a href="#conclusion">Conclusion</a>
+</Outline>
+
+<AnchorTag text="Introduction" href="introduction" />
+
+{<Text>Mobile browsing has become a necessity in today’s world with more and
+more people relying on their smartphones and tablets to access the internet on
+the go. But with so many different browsers, it can be hard to pick one. That's
+why I'm here to help.</Text>}
+
+{<Text>In this guide, I'll take you through Google Chrome on mobile - how to
+install it, how to use it, and even some tips and tricks to get the most out of
+it. Finally, I'll show you some of the best Chrome alternatives so you can pick
+the one that's best for you.</Text>}
+
+{<Text>So, let's get started!</Text>}
+
+<AnchorTag text="What is Google Chrome" href="what-is-google-chrome" />
+
+{<Text><ExternalUrl
+  href="https://www.google.com/chrome/"
+  text="Google Chrome"
+/> is a cross-platform web browser designed by Google. It was first released in
+2008, and has since become one of the {' '}
+
+<ExternalUrl
+  href="https://gs.statcounter.com/"
+  text="most popular web browsers in the world,"
+/>
+with over 2 billion active users.</Text>}
+
+{<Text>Google Chrome is available for Windows, macOS, Linux, Android, and iOS.
+It is also available as a standalone app for Chrome OS, which is a lightweight
+operating system designed for use on Chromebooks.</Text>}
+
+{<Text>Google Chrome is fast, secure, and easy-to-use. Plus, it's got a really
+clean and minimal layout, making it great for casual and power users
+alike.</Text>}
+
+<AnchorTag text="Why Google Chrome" href="why-google-chrome" />
+
+{<Text>Google Chrome was introduced in 2008 as a lightweight alternative to
+other web browsers, such as Internet Explorer and Firefox. It was designed to be
+fast, secure, and easy-to-use, and has since become one of the most popular web
+browsers in the world.</Text>}
+
+{<Text>Here are some of the main reasons why Google Chrome is so popular:
+
+</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        <BoldText text="Speed:" />,
+        " Google Chrome's ",
+        <ExternalUrl text="V8" href="https://v8.dev/" />,
+        ' JavaScript engine lets it run complicated web apps seamlessly and quickly.',
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Security and Privacy:" />,
+        " Google Chrome has security and privacy features built in - like protection from phishing, malware, and viruses, plus an ad blocker and password manager. There's also an incognito mode to browse privately.",
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Integration:" />,
+        ' Google Chrome is tightly integrated with other Google services like Gmail, Google Drive, Google Play Store, and Google Docs - so you can access your accounts and other Google services easily.',
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Cross-platform compatibility:" />,
+        " You can use Google Chrome on Windows, macOS, Linux, Android, and iOS. Plus, it's simple to sync your browsing data across all your devices.",
+      ],
+    },
+  ]}
+/>
+
+<AnchorTag
+  text="Installing Google Chrome On Mobile"
+  href="installing-google-chrome-on-mobile"
+/>
+
+{<Text>If you want to get Google Chrome on your phone, simply click {' '}
+
+<ExternalUrl text='this link' href='https://www.google.com/chrome/go-mobile/'/> {' '}
+to download the app from the Google Play Store or the App Store.</Text>}
+
+{<Text>Or, if you want to install it manually, here's how:</Text>}
+
+<Text>For Android:</Text>
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Open the Google Play Store app and search for .',
+        <BoldText text="Google Chrome" />,
+      ],
+    },
+    {
+      text: [
+        'Then tap ',
+        <BoldText text="Install" />,
+        ' to download and install the app on your device.',
+      ],
+    },
+    {
+      text: [
+        "When it's done, tap ",
+        <BoldText text="Open" />,
+        ' to run the app.',
+      ],
+    },
+  ]}
+/>
+
+<Text>For iOS:</Text>
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Open the App Store app and search for .',
+        <BoldText text="Google Chrome" />,
+      ],
+    },
+    {
+      text: [
+        'Tap ',
+        <BoldText text="Get" />,
+        ' to download and install the app on your device.',
+      ],
+    },
+    {
+      text: [
+        "When it's done, tap ",
+        <BoldText text="Open" />,
+        ' to run the app on your device.',
+      ],
+    },
+  ]}
+/>
+
+<AnchorTag text="How To Use Google Chrome" href="how-to-use-google-chrome" />
+
+<AnchorTag text="Getting Started" href="getting-started" />
+
+{<Text>Once you've got Google Chrome installed, you'll want to make sure it's
+your go-to browser. This way, when you click on links from other apps they'll
+open up in Chrome, and your searches and browser data will be synced across all
+your devices.
+
+</Text>}
+
+{<Text>Here's how to do it on Android and iOS:
+
+</Text>}
+
+<Text>Android:</Text>
+
+<ListItems
+  items={[
+    {
+      text: 'Go to settings',
+    },
+    {
+      text: ['Tap ', <BoldText text="Apps" />],
+    },
+    {
+      text: [
+        'Under ',
+        '"General,"',
+        ' select ',
+        <BoldText text="Default apps" />,
+      ],
+    },
+    {
+      text: [
+        'Tap ',
+        <BoldText text="Browser app" />,
+        ' > ',
+        <BoldText text="Chrome" />,
+      ],
+    },
+  ]}
+/>
+
+<Text>iOS:</Text>
+
+<ListItems
+  items={[
+    {
+      text: 'Open settings',
+    },
+    {
+      text: 'Scroll to the list of installed apps and tap Chrome',
+    },
+    {
+      text: ['Select ', <BoldText text="Default Browser App" />],
+    },
+    {
+      text: ['Tap ', <BoldText text="Chrome" />],
+    },
+  ]}
+/>
+
+<AnchorTag text="Navigation" href="navigation" />
+
+{<Text> The browser window's divided into 32 main sections: the address bar
+(<ItalicizedText text='also called the Ombibox' />) at the top, the tab bar at
+the bottom (on iOS) or top (on Android), and the page content in the middle.
+
+</Text>}
+
+<Image
+  src={addressBar}
+  width={828}
+  height={414}
+  alt="google chrome address bar"
+/>
+
+{<Text>The tab bar is used to switch between open tabs. You can open a new tab
+by tapping the <BoldText text="'+'" /> button in the tab bar.</Text>}
+
+<SideBySideImage
+  src1={iosTabBar}
+  alt1="ios tab bar"
+  src2={androidTabBar}
+  alt2="android tab bar"
+/>
+
+{<Text>The page content is located in the middle of the browser window and is
+used to display the content of the current web page. You can scroll up and down
+to view the entire page, and you can zoom in and out by pinching the screen with
+two fingers.</Text>}
+
+<Image
+  src={content}
+  width={414}
+  height={896}
+  alt="google chrome page content"
+/>
+
+{<Text>Google Chrome allows you to open multiple tabs at the same time. This is
+a great way to keep track of multiple web pages at once and to easily switch
+between them. To view the list of open tabs, tap the square button in the tab
+bar <ItalicizedText text='(highlighted red below)' />.</Text>}
+
+<Image src={tabsList} width={828} height={414} alt="open tabs list" />
+
+{<Text>Once you've opened the list of open tabs, you can switch between tabs by
+tapping on them. You can also close tabs by tapping the <BoldText text="'x'" />
+button in the top right corner of each tab or by long-pressing on a tab and
+tapping <BoldText text="'Close tab'" />.</Text>}
+
+{<Text>The icon on the left of the tabs menu allows you to switch to incognito
+mode, and and if you want to check out your browsing history or recently closed
+tabs, there's an icon on the right you can use.</Text>}
+
+<Image src={tabsMenu} width={414} height={896} alt="google chrome tabs menu" />
+
+{<Text>On iOS, the back (<BoldText text="'<'" />) and forward
+(<BoldText text="'>'" />) buttons are in the bottom left corner of the browser
+window. These buttons allow you to navigate backward and forward through your
+browsing history. If you swipe left or right on the page content, you can also
+go back or forward.</Text>}
+
+{<Text>On Android, you have to press the phone's back button to go back a page
+and tap the menu button in the top right corner (<BoldText text="'⋮'" />) then
+tap {' '}
+
+<BoldText text="'>'" /> to go forward.</Text>}
+
+<SideBySideImage
+  src1={openAndroidMenu}
+  alt1="tap to open android menu"
+  src2={androidForward}
+  alt2="tap to go forward"
+/>
+
+{<Text>There are 4 other buttons in the top right of the opened menu. To reload
+the page, tap the <BoldText text="'⟳'" /> button. You can also save your
+favorite websites as bookmarks for easy access. To bookmark the page, tap the
+
+{' '}
+
+<BoldText text="'⭐'" /> button. To view the site info, tap the
+
+{' '}
+
+<BoldText text="'i'" /> button and to download the page, tap the
+{' '}
+<BoldText text="'⇩'" /> button. </Text>}
+
+{<Text>Tap the <BoldText text="'...'" /> button in the lower right corner of the
+browser window to open the menu on iOS and you'll see the same 4 buttons as on
+Android. There are a couple of extra buttons for managing your browser settings,
+history, downloads, etc.</Text>}
+
+{<Text>You can also reload by swiping down the page content on both iOS and
+Android.</Text>}
+
+{<Text>Next up, I'll show you some nifty tricks that will take you from a zero
+to hero Chrome user in no time.
+
+</Text>}
+
+<AnchorTag text="Browsing Tips and Tricks" href="browsing-tips-and-tricks" />
+
+{<Text>Chrome has a ton of awesome features that will make your browsing
+experience way more enjoyable. These are some of my favorite features that'll
+help you get the most out of Google Chrome on your mobile device.</Text>}
+
+{<Text>
+
+  <BoldText text="1. Find texts in page" />
+</Text>}
+{<Text>One of the most useful features in Google Chrome is the ability to search for text on a web page. To search for text, tap the{' '} <BoldText text="'...'" /> button in the lower right corner or tap the menu button in the top right corner of the browser window, and then tap <BoldText text="'Find in page'" />.</Text>
+}
+
+{<Text>You'll see a search bar, type in what you're looking for and then tap
+
+{' '}
+
+<BoldText text="'^'" /> or <BoldText text="'v'" /> to find the next or
+previous instance of that search.</Text>}
+
+{<Text>Tap {' '} <BoldText text="'x' / 'Done'" /> when you're good.</Text>}
+
+{<Text>
+
+  <BoldText text="2. Tab management" />
+</Text>}
+
+{<Text>Earlier, I showed you how to open multiple tabs at the same time. Chrome
+also offers a few other ways to manage your tabs more efficiently. For example,
+you can long-press on a link to open it in a new tab. You can also drag and drop
+tabs to rearrange them. Slick, <ItalicizedText text='huh?'/>
+
+</Text>}
+
+{<Text>
+
+  <BoldText text="3. Voice search" />
+</Text>}
+
+{<Text>Did you know that you can search for things using your voice? Just tap
+the microphone button in the search bar, say what you want and Chrome will turn
+it into text.</Text>}
+
+{<Text><BoldText text="4. Managing passwords" /></Text>}
+
+{<Text>Chrome's built-in password manager allows you to save and autofill
+passwords for websites. This can save you time and make it easier to manage your
+passwords. To access Chrome's password manager, go to the Settings menu and
+select <BoldText text="'Password Manager'" /> to see your saved passwords and
+manage them.</Text>}
+
+{<Text><BoldText text="5. Incognito mode" /></Text>}
+
+{<Text>Incognito mode is great for browsing without leaving a trace. Chrome
+won't save your browsing history, cookies or data when you're using incognito
+mode. To access incognito mode, tap the <BoldText text="'Incognito'" /> button
+in the left corner of the tabs menu or tap the <BoldText text="'...'" /> button
+and tap <BoldText text="'New incognito tab'" />.</Text>}
+
+{<Text><BoldText text="6. Reading list" /></Text>}
+
+{<Text>Using Chrome's reading list feature, you can save articles and web pages
+to read later. On iOS, tap the {' '}
+
+<BoldText text="'...'" /> button in the lower right corner and tap{' '}
+
+<BoldText text="'Add to reading list'" />.</Text>}
+
+{<Text>It's a little different on Android as the feature is still experimental.
+Here's how you can enable the reading list feature on your Android device:
+
+</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Type ',
+        <BoldText text="chrome://flags" />,
+        ' in the address bar and select the first option',
+        <Image src={flags} width={828} height={341} alt="chrome://flags" />,
+      ],
+    },
+    {
+      text: [
+        'Type ',
+        <BoldText text="'Reading list'" />,
+        ' in the search bar at the top of the page. ',
+        <Image
+          src={readingList}
+          width={828}
+          height={1099}
+          alt="chrome://flags search results"
+        />,
+      ],
+    },
+    {
+      text: [
+        'Tap the drop-down and change it from ',
+        <ItalicizedText text="default" />,
+        ' to ',
+        <ItalicizedText text="enabled" />,
+        ' as shown above.',
+      ],
+    },
+    {
+      text: [
+        'Chrome will ask you to restart the browser. Tap ',
+        <BoldText text="'Relaunch.'" />,
+        <Image
+          src={relaunchFlags}
+          width={828}
+          height={288}
+          alt="relaunch chrome"
+        />,
+      ],
+    },
+  ]}
+/>
+
+{<Text>Once you've enabled the reading list feature, you can save a page to your
+reading list by long-pressing on a link and selecting {' '}
+
+<BoldText text="'Add to reading list'" />.</Text>}
+
+<Image
+  src={addToReadingList}
+  width={394}
+  height={897}
+  alt="add to reading list"
+/>
+
+{<Text>To access your reading list on an iOS device, tap the {' '}
+
+<BoldText text="'Reading list'" /> button in the tabs menu.</Text>}
+
+{<Text>On Android, you can access your reading list by tapping the menu button
+in the top right corner of the browser window and selecting {' '}
+
+<BoldText text="'Bookmarks'" /> and then <BoldText text="'Reading list'" />.
+
+</Text>}
+
+{<Text>Once you've opened the reading list, you can tap on a saved article to
+open it in a new tab. You can also delete a saved article or mark it as read.
+
+</Text>}
+
+{<Text><BoldText text="7. Handy little tasks with the address bar (omnibox)" /></Text>}
+
+{<Text>The address bar is a great tool for doing all kinds of cool things. Here
+are some of my favorite things you can do with the address bar:</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        <BoldText text="Solving math problems:" />,
+        ' Type a math problem into the address bar and Chrome will solve it for you.',
+        <Image
+          src={simpleMath}
+          width={828}
+          height={414}
+          alt="solving simple math problems"
+        />,
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Currency exchange:" />,
+        <Image
+          src={currencyExchange}
+          width={828}
+          height={414}
+          alt="exchanging currencies"
+        />,
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Converting units:" />,
+        <Image
+          src={temperatureConversion}
+          width={828}
+          height={414}
+          alt="converting units"
+        />,
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Setting a timer:" />,
+        <Image src={timer} width={828} height={1026} alt="setting timer" />,
+      ],
+    },
+  ]}
+/>
+
+{<Text>There are a ton of other things you can do with the address bar. I'll let
+you discover them on your own. Happy hacking!</Text>}
+
+<AnchorTag
+  text="Syncing Chrome across Devices"
+  href="syncing-chrome-across-devices"
+/>
+
+{<Text>Syncing Chrome across devices is a great way to keep your bookmarks,
+passwords, and other data in sync across all your devices. To sync Chrome across
+devices, you'll need to sign in to Chrome with your Google account. Tap the menu
+button, then tap <BoldText text="'Settings'" /> and then{' '}
+
+<BoldText text="'Sign in to Chrome'" />. Enter your Google account credentials
+and then tap <BoldText text="'Sign in'" />. Chrome will sync your data across all
+your devices.
+
+</Text>}
+
+{<Text>Once you've signed in to Chrome, you can choose what data you want to
+sync. By default, Chrome will sync your bookmarks, passwords, and other data. To
+change what data you want to sync, tap the menu button, then tap {' '}
+
+<BoldText text="'Settings'" /> and then <BoldText text="'Sync'" />. Turn off the {' '}
+<BoldText text="'Sync everything'" /> button to {' '} <ItalicizedText text='un-sync' /> all your data and then select the options you want to sync.
+</Text>}
+
+{<Text>Now, whenever you sign in to Chrome on another device {' '}
+
+<BoldText text="with the same Google account," /> your data will be in sync. When
+you bookmark a page on one device, it will be available on all your devices. When
+you save a password on one device, it will be available on all your devices. You
+get the idea.
+
+</Text>}
+
+<AnchorTag
+  text="Google Chrome Alternatives"
+  href="google-chrome-alternatives"
+/>
+
+{<Text>If you're not a fan of Chrome, no worries! There are a bunch of great
+alternatives out there.</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        <ExternalUrl
+          text="Mozilla Firefox:"
+          href="https://www.mozilla.org/en-US/firefox/mobile/get-app/"
+        />,
+        " Firefox is a great alternative to Chrome. It has a lot of the same features as Chrome and it's been around a little longer.",
+      ],
+    },
+    {
+      text: [
+        <ExternalUrl
+          text="Opera:"
+          href="https://www.opera.com/browsers/opera#:~:text=Browsing%20the%20web%20is%20better,Windows%2C%20iOS%2C%20and%20Android."
+        />,
+        " Opera is a lesser-known browser that's been around since 1995. It has a built-in ad blocker and VPN, and loads of customization options. Impressive, right?",
+      ],
+    },
+    {
+      text: [
+        <ExternalUrl
+          text="Safari:"
+          href="https://apps.apple.com/no/app/safari/id1146562112"
+        />,
+        " Safari is Apple's web browser, and it's the default browser on Macs and iOS devices. It has a lot of the same features as Chrome such as tabs and password management, private browsing, etc. It is only available on Macs and iOS devices, though.",
+      ],
+    },
+  ]}
+/>
+
+{<Text>Whichever browser you decide to go with, I think you'll find that there's
+something out there for everyone. So what are you waiting for? Download one of
+these alternative browsers and start exploring the internet like never before!
+
+</Text>}
+
+<AnchorTag text="Conclusion" href="conclusion" />
+
+{<Text> Google Chrome is a great browser. It's fast, it's secure, and it has a
+ton of features to help you get things done. In this article, I've covered some
+of my favorite Chrome features. I hope you've learned something new and I hope
+you enjoy using Chrome as much as I do.
+
+Whether you're a casual web user or a power user, Google Chrome has something to
+offer. So why not download Chrome today and start exploring all it has to offer?
+
+</Text>}
+
+{<Text>Thanks for reading! If you enjoyed this article, please consider sharing.
+Sharing is caring, after all. See you next time!</Text>}
+
+export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

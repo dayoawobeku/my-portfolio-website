@@ -32,6 +32,9 @@ import {
   YellowNote,
   BulletPoint,
   ListItems,
+  Outline,
+  Image,
+  SideBySideImage,
 } from '../components/Blog';
 import Layout from '../components/Layout';
 import {ThemeProvider} from '../context/ThemeContext';
@@ -60,6 +63,9 @@ const components = {
   YellowNote,
   BulletPoint,
   ListItems,
+  Outline,
+  Image,
+  SideBySideImage,
 };
 
 function MyApp({Component, pageProps}: AppProps<MyAppProps>) {

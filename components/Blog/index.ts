@@ -17,6 +17,9 @@ import Codesandbox from './Codesandbox';
 import YellowNote from './YellowNote';
 import BulletPoint from './BulletPoint';
 import ListItems from './ListItems';
+import Outline from './Outline';
+import Image from './Image';
+import SideBySideImage from './SideBySideImage';
 
 export {
   Heading,
@@ -38,4 +41,7 @@ export {
   YellowNote,
   BulletPoint,
   ListItems,
+  Outline,
+  Image,
+  SideBySideImage,
 };
