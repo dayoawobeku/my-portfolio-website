@@ -8,7 +8,7 @@ const Outline = ({children}: Props) => {
   const headings = React.Children.toArray(children)
     .filter(child => React.isValidElement(child) && child.type === 'a')
     .map((anchor, index) => {
-      if (!React.isValidElement(anchor)) return null; // Add this check
+      if (!React.isValidElement(anchor)) return null;
       const id = (
         anchor as React.ReactElement<{href: string}>
       ).props.href.substring(1);

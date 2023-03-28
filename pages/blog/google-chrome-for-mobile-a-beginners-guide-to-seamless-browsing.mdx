@@ -15,6 +15,33 @@ import {
   currencyExchange,
   temperatureConversion,
   timer,
+  addressBarLayout,
+  topAddressBar,
+  iosNavigation,
+  iosIncognito,
+  androidBookmark,
+  androidBookmarked,
+  androidBookmarks,
+  iosMenu,
+  iosBookmarks,
+  iosMenuBtn,
+  androidHistoryBtn,
+  androidHistory,
+  androidClearHistory,
+  androidSearchHistory,
+  iosMenuHistory,
+  iosHistory,
+  iosClearHistory,
+  iosSearchHistory,
+  downloadUrl,
+  downloadItem,
+  iosDownloads,
+  androidDownloads,
+  androidOpenIncognito,
+  iosOpenIncognito,
+  androidIncognito,
+  androidTabMenu,
+  incognitoTab,
 } from '../../assets/images/chrome';
 
 export const meta = {
@@ -249,17 +276,52 @@ your devices.
 
 <AnchorTag text="Navigation" href="navigation" />
 
-{<Text> The browser window's divided into 32 main sections: the address bar
-(<ItalicizedText text='also called the Ombibox' />) at the top, the tab bar at
-the bottom (on iOS) or top (on Android), and the page content in the middle.
+{<Text>Chrome has 2 main navigation tools: the address bar and the tab bar.
 
 </Text>}
 
-<Image
-  src={addressBar}
-  width={828}
-  height={414}
-  alt="google chrome address bar"
+{<Text>Some browsers use an address bar for navigating to websites and a search
+bar for conducting web searches. Google Chrome combines these two elements into
+one bar, known as the <BoldText text="Omnibox" />. By integrating Google's
+search technology, the Omnibox offers suggestions for websites or potential web
+searches as you type, which makes navigating the Web faster and easier.
+
+</Text>}
+
+{<Text>Here's how the Omnibox works:</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Type a web address or search query into the omnibox at the top of the screen. You can also type into the ',
+        <BoldText text="'Search or type URL'" />,
+        ' field on the home screen.',
+        <SideBySideImage
+          src1={topAddressBar}
+          alt1="omnibox on the top of the screen"
+          src2={addressBarLayout}
+          alt2="omnibox on ios"
+        />,
+      ],
+    },
+    {
+      text: [
+        'Suggestions will appear below the omnibox.',
+        <Image
+          src={addressBar}
+          width={828}
+          height={414}
+          alt="omnibox with suggestions"
+        />,
+      ],
+    },
+    {
+      text: [
+        'Tap on one of these suggestions to navigate to the suggested website or search query.',
+      ],
+    },
+  ]}
 />
 
 {<Text>The tab bar is used to switch between open tabs. You can open a new tab
@@ -308,6 +370,13 @@ window. These buttons allow you to navigate backward and forward through your
 browsing history. If you swipe left or right on the page content, you can also
 go back or forward.</Text>}
 
+<Image
+  src={iosNavigation}
+  width={828}
+  height={325}
+  alt="navigation buttons on ios"
+/>
+
 {<Text>On Android, you have to press the phone's back button to go back a page
 and tap the menu button in the top right corner (<BoldText text="'⋮'" />) then
 tap {' '}
@@ -322,26 +391,284 @@ tap {' '}
 />
 
 {<Text>There are 4 other buttons in the top right of the opened menu. To reload
-the page, tap the <BoldText text="'⟳'" /> button. You can also save your
-favorite websites as bookmarks for easy access. To bookmark the page, tap the
+the page, tap the <BoldText text="'⟳'" /> button. You can also reload by swiping
+down the page content on either iOS and Android. To view the site info, tap the
 
 {' '}
 
-<BoldText text="'⭐'" /> button. To view the site info, tap the
-
-{' '}
-
-<BoldText text="'i'" /> button and to download the page, tap the
+<BoldText text="'i'" /> button. To download the page, tap the
 {' '}
 <BoldText text="'⇩'" /> button. </Text>}
 
-{<Text>Tap the <BoldText text="'...'" /> button in the lower right corner of the
-browser window to open the menu on iOS and you'll see the same 4 buttons as on
-Android. There are a couple of extra buttons for managing your browser settings,
-history, downloads, etc.</Text>}
+{<Text>You can also save your favorite websites as bookmarks for easy access. To
+bookmark a page on Android, tap the {' '}
 
-{<Text>You can also reload by swiping down the page content on both iOS and
-Android.</Text>}
+<BoldText text="'⭐'" /> button.{' '}
+
+</Text>}
+
+<Image
+  src={androidBookmark}
+  width={393}
+  height={206}
+  alt="bookmark button on android"
+/>
+
+{<Text>After you've bookmarked a page, you can view your bookmarks by tapping
+
+{' '} <BoldText text="'Bookmarks'" /> in the opened menu. <ItalicizedText text='
+Notice that the bookmark button has changed to a filled star. You can tap the filled star to remove the bookmark.'/>
+
+</Text>}
+
+<SideBySideImage
+  src1={androidBookmarked}
+  alt1="bookmarked page on android"
+  src2={androidBookmarks}
+  alt2="android bookmarks"
+/>
+
+{<Text>For iOS, it's a little different. Tap the <BoldText text="'...'" />
+button in the lower right corner of the browser window to open the menu.
+
+</Text>}
+
+<Image src={iosMenuBtn} width={828} height={325} alt="ios menu button" />
+
+{<Text>Tap <BoldText text="'Add to Bookmarks'" /> to bookmark the current
+page.{' '} And to view your bookmarks, tap <BoldText text="'Bookmarks'" /> in
+the opened menu.
+
+</Text>}
+
+<SideBySideImage
+  src1={iosMenu}
+  alt1="ios menu"
+  src2={iosBookmarks}
+  alt2="ios bookmarks"
+/>
+
+<AnchorTag text="Browsing History" href="browsing-history" />
+
+{<Text>Like every other browser, Google Chrome keeps detailed records of your
+browsing history. Chrome uses this information to make suggestions when you're
+in the omnibox and to help you find pages you've visited in the past. Chrome
+also uses some of this information to decrease load times for pages you've
+visited before.</Text>}
+
+{<Text>To view your browsing history:</Text>}
+
+{<Text>
+
+  <BoldText text="1. On Android" />
+</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Tap the menu button in the top right corner of the browser window.',
+        <Image
+          src={openAndroidMenu}
+          alt="tap to open android menu"
+          width={393}
+          height={206}
+        />,
+      ],
+    },
+    {
+      text: [
+        'Tap ',
+        <BoldText text="'History'." />,
+        <Image
+          src={androidHistoryBtn}
+          alt="tap to view history"
+          width={393}
+          height={895}
+        />,
+      ],
+    },
+    {
+      text: [
+        'The list of your full browsing history will appear. The list is sorted by date, with the most recent pages at the top.',
+        <Image
+          src={androidHistory}
+          alt="android history"
+          width={393}
+          height={895}
+        />,
+      ],
+    },
+    {
+      text: [
+        'To delete your browsing history, tap ',
+        <BoldText text="Clear browsing data." />,
+        <Image
+          src={androidClearHistory}
+          alt="android clear history"
+          width={393}
+          height={216}
+        />,
+      ],
+    },
+    {
+      text: [
+        "If you can't remember when you visited a page, or the exact URL, you can try searching the history. Tap the search icon in the top right corner of the history page.",
+        <Image
+          src={androidSearchHistory}
+          alt="android search history"
+          width={393}
+          height={216}
+        />,
+      ],
+    },
+  ]}
+/>
+
+{<Text>
+
+  <BoldText text="2. On iOS" />
+</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Tap the menu button in the bottom right corner of the browser window and tap ',
+        <BoldText text="'History'." />,
+        <Image
+          src={iosMenuHistory}
+          alt="tap to open history"
+          width={414}
+          height={896}
+        />,
+      ],
+    },
+    {
+      text: [
+        'The list of your full browsing history will appear. The list is sorted by date, with the most recent pages at the top.',
+        <Image src={iosHistory} alt="ios history" width={393} height={895} />,
+      ],
+    },
+    {
+      text: [
+        'To delete your browsing history, tap ',
+        <BoldText text="Clear browsing data." />,
+        <Image
+          src={iosClearHistory}
+          alt="ios clear history"
+          width={414}
+          height={216}
+        />,
+      ],
+    },
+    {
+      text: [
+        "If you can't remember when you visited a page, or the exact URL, you can try searching the history. Type the search term in the search bar at the top of the history page.",
+        <Image
+          src={iosSearchHistory}
+          alt="ios search history"
+          width={414}
+          height={328}
+        />,
+      ],
+    },
+  ]}
+/>
+
+<AnchorTag text="Downloading Files" href="downloading-files" />
+
+{<Text>Chrome can display a wide variety of file types, including PDFs, images,
+and videos. However, if you want to save a file to your device, you'll need to
+download it.</Text>}
+
+{<Text>To download a file:</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        'Navigate to the website that contains the file you want to download.',
+        <Image src={downloadUrl} alt="download url" width={393} height={895} />,
+      ],
+    },
+    {
+      text: [
+        'Tap on the download link for the file you want to download.',
+        <Image
+          src={downloadItem}
+          alt="download item"
+          width={393}
+          height={895}
+        />,
+      ],
+    },
+    {
+      text: [
+        'The file will be downloaded to your device. You can view your downloads by tapping the menu button in and then tapping ',
+        <BoldText text="'Downloads'." />,
+        <SideBySideImage
+          src1={androidDownloads}
+          alt1="android downloads"
+          src2={iosDownloads}
+          alt2="iOS downloads"
+        />,
+      ],
+    },
+  ]}
+/>
+
+<AnchorTag text="Incognito Mode" href="incognito-mode" />
+
+{<Text>Incognito mode is a private browsing mode that doesn't save your browsing
+history, cookies, or other site data. This means that when you're in incognito
+mode, Chrome won't remember the sites you visit, and it won't save your
+passwords or other information you enter on those sites.</Text>}
+
+{<Text>To open a new incognito tab, tap the menu button and then tap {' '}
+
+<BoldText text="'New incognito tab'" />.</Text>}
+
+<SideBySideImage
+  src1={androidOpenIncognito}
+  alt1="android open incognito"
+  src2={iosOpenIncognito}
+  alt2="iOS open incognito"
+/>
+
+{<Text>An alternative method to open an incognito tab on Android is to go to the
+tabs menu and tap the menu button on the top right corner {' '}
+
+<BoldText text="('⋮')" />. Then, tap {' '}
+<BoldText text="'New incognito tab'" />.</Text>}
+
+<SideBySideImage
+  src1={androidTabMenu}
+  alt1="android tab menu"
+  src2={androidIncognito}
+  alt2="android incognito"
+/>
+
+{<Text>Another alternative method to open an incognito tab on iOS is to go to
+the tabs menu and tap the icon on the top left corner. Then, tap the plus {' '}
+
+<BoldText text="'+'" /> icon at the bottom of the screen to open a new incognito
+tab.
+
+</Text>}
+
+<Image src={iosIncognito} alt="ios incognito" width={414} height={896} />
+
+{<Text>When you're in incognito mode, you'll see a <BoldText text="'G'" /> icon
+in the top left corner of the browser window. This icon indicates that you're in
+incognito mode.</Text>}
+
+<Image src={incognitoTab} alt="incognito tab" width={414} height={896} />
+
+<AnchorTag
+  text='Settings and Preferences'
+  href='settings-and-preferences'
+/>
 
 {<Text>Next up, I'll show you some nifty tricks that will take you from a zero
 to hero Chrome user in no time.
@@ -399,15 +726,7 @@ passwords. To access Chrome's password manager, go to the Settings menu and
 select <BoldText text="'Password Manager'" /> to see your saved passwords and
 manage them.</Text>}
 
-{<Text><BoldText text="5. Incognito mode" /></Text>}
-
-{<Text>Incognito mode is great for browsing without leaving a trace. Chrome
-won't save your browsing history, cookies or data when you're using incognito
-mode. To access incognito mode, tap the <BoldText text="'Incognito'" /> button
-in the left corner of the tabs menu or tap the <BoldText text="'...'" /> button
-and tap <BoldText text="'New incognito tab'" />.</Text>}
-
-{<Text><BoldText text="6. Reading list" /></Text>}
+{<Text><BoldText text="5. Reading list" /></Text>}
 
 {<Text>Using Chrome's reading list feature, you can save articles and web pages
 to read later. On iOS, tap the {' '}
@@ -496,7 +815,7 @@ open it in a new tab. You can also delete a saved article or mark it as read.
 
 </Text>}
 
-{<Text><BoldText text="7. Handy little tasks with the address bar (omnibox)" /></Text>}
+{<Text><BoldText text="6. Handy little tasks with the address bar (omnibox)" /></Text>}
 
 {<Text>The address bar is a great tool for doing all kinds of cool things. Here
 are some of my favorite things you can do with the address bar:</Text>}
