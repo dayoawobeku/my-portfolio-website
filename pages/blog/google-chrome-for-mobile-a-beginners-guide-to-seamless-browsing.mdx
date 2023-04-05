@@ -42,6 +42,18 @@ import {
   androidIncognito,
   androidTabMenu,
   incognitoTab,
+  androidSelectSettings,
+  iosSelectSettings,
+  settingsSync,
+  privacyAndSecurity,
+  privacyAndSecuritySettings,
+  addressesAndMore,
+  paymentMethods,
+  findInPage,
+  findInPageResult,
+  rearrangeTabs,
+  voiceSearch,
+  passwordManager,
 } from '../../assets/images/chrome';
 
 export const meta = {
@@ -276,15 +288,15 @@ your devices.
 
 <AnchorTag text="Navigation" href="navigation" />
 
-{<Text>Chrome has 2 main navigation tools: the address bar and the tab bar.
+{<Text>Chrome has two main navigation tools: the address bar and the tab bar.
 
 </Text>}
 
 {<Text>Some browsers use an address bar for navigating to websites and a search
-bar for conducting web searches. Google Chrome combines these two elements into
-one bar, known as the <BoldText text="Omnibox" />. By integrating Google's
-search technology, the Omnibox offers suggestions for websites or potential web
-searches as you type, which makes navigating the Web faster and easier.
+bar for conducting web searches. Google's version of these two elements is the
+{' '} <BoldText text="Omnibox," /> which combines searching and web addresses
+into one bar. As you type, the Omnibox will give you suggestions for websites or
+search queries to make web surfing faster and easier.
 
 </Text>}
 
@@ -294,25 +306,25 @@ searches as you type, which makes navigating the Web faster and easier.
   items={[
     {
       text: [
-        'Type a web address or search query into the omnibox at the top of the screen. You can also type into the ',
+        'Type a web address or search query into the Omnibox at the top of the screen. You can also type into the ',
         <BoldText text="'Search or type URL'" />,
         ' field on the home screen.',
         <SideBySideImage
           src1={topAddressBar}
-          alt1="omnibox on the top of the screen"
+          alt1="Omnibox on the top of the screen"
           src2={addressBarLayout}
-          alt2="omnibox on ios"
+          alt2="Omnibox on ios"
         />,
       ],
     },
     {
       text: [
-        'Suggestions will appear below the omnibox.',
+        'Suggestions will appear below the Omnibox.',
         <Image
           src={addressBar}
           width={828}
           height={414}
-          alt="omnibox with suggestions"
+          alt="Omnibox with suggestions"
         />,
       ],
     },
@@ -450,11 +462,11 @@ the opened menu.
 
 <AnchorTag text="Browsing History" href="browsing-history" />
 
-{<Text>Like every other browser, Google Chrome keeps detailed records of your
-browsing history. Chrome uses this information to make suggestions when you're
-in the omnibox and to help you find pages you've visited in the past. Chrome
-also uses some of this information to decrease load times for pages you've
-visited before.</Text>}
+{<Text>Chrome keeps track of your browsing history to give you suggestions when
+you're in the Omnibox and to help you find pages you've visited in the past. It
+can also decrease loading times for pages you've been to before.
+
+</Text>}
 
 {<Text>To view your browsing history:</Text>}
 
@@ -578,9 +590,9 @@ visited before.</Text>}
 
 <AnchorTag text="Downloading Files" href="downloading-files" />
 
-{<Text>Chrome can display a wide variety of file types, including PDFs, images,
-and videos. However, if you want to save a file to your device, you'll need to
-download it.</Text>}
+{<Text>Chrome can display a lot of file types, including PDFs, images, and
+videos, but you have to download them if you want to save them to your
+device.</Text>}
 
 {<Text>To download a file:</Text>}
 
@@ -620,10 +632,10 @@ download it.</Text>}
 
 <AnchorTag text="Incognito Mode" href="incognito-mode" />
 
-{<Text>Incognito mode is a private browsing mode that doesn't save your browsing
-history, cookies, or other site data. This means that when you're in incognito
-mode, Chrome won't remember the sites you visit, and it won't save your
-passwords or other information you enter on those sites.</Text>}
+{<Text>Incognito mode is a private browsing mode that doesn't store your
+browsing history, cookies, or other website data. This means that when you're in
+incognito mode, Chrome won't remember the sites you visit, and it won't save
+your passwords or other information you enter on those sites.</Text>}
 
 {<Text>To open a new incognito tab, tap the menu button and then tap {' '}
 
@@ -665,10 +677,91 @@ incognito mode.</Text>}
 
 <Image src={incognitoTab} alt="incognito tab" width={414} height={896} />
 
-<AnchorTag
-  text='Settings and Preferences'
-  href='settings-and-preferences'
+<AnchorTag text="Settings and Preferences" href="settings-and-preferences" />
+
+{<Text>There's also a settings menu in Chrome where you can customize your
+browsing experience, access your syncing settings, manage your Google account
+info, adjust your privacy and security settings, and manage your saved
+addresses. To access the settings, tap the menu button and then tap {' '}
+
+<BoldText text="'Settings'" />.
+
+</Text>}
+
+<SideBySideImage
+  src1={androidSelectSettings}
+  alt1="android settings"
+  src2={iosSelectSettings}
+  alt2="iOS settings"
 />
+
+{<Text>Here are some of my favorite settings that you can customize:</Text>}
+
+<ListItems
+  items={[
+    {
+      text: [
+        <BoldText text="Sync and Google Services:" />,
+        <Image
+          src={settingsSync}
+          alt="settings sync"
+          width={393}
+          height={895}
+        />,
+        ' This section lets you manage your Chrome syncing settings, as well as your Google account settings. You can adjust what data is synced between your devices, and you can also manage your Google account information. I talk more about syncing in the section on ',
+        <a
+          href="#syncing-chrome-across-devices"
+          className="font-bold underline"
+        >
+          Syncing Chrome across Devices.
+        </a>,
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Privacy and Security:" />,
+        <SideBySideImage
+          src1={privacyAndSecurity}
+          alt1="privacy and security"
+          src2={privacyAndSecuritySettings}
+          alt2="privacy and security settings"
+        />,
+        ' This section lets you adjust various privacy and security settings in Chrome. You can manage site settings, control how Chrome handles cookies, and even enable features like Safe Browsing to protect you from malicious websites.',
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Adresses and more:" />,
+        <Image
+          src={addressesAndMore}
+          alt="addresses and more"
+          width={393}
+          height={895}
+        />,
+        ' This section lets you manage your saved addresses. You can add new addresses, edit existing addresses, and delete addresses that you no longer need. It is particularly useful if you frequently shop online and want to save your shipping addresses. Or, if you frequently fill out forms on websites, you can save your addresses to make filling out forms easier.',
+      ],
+    },
+    {
+      text: [
+        <BoldText text="Payment methods:" />,
+        <Image
+          src={paymentMethods}
+          alt="payment methods"
+          width={393}
+          height={895}
+        />,
+        ' This is where you can manage your saved payment methods. You can add new payment methods, edit existing payment methods, and delete payment methods that you no longer need. It is similar to the address settings and is useful if you frequently shop online and want to save your payment methods.',
+      ],
+    },
+  ]}
+/>
+
+{<Text>There are a lot of other settings that you can customize such as the
+default search engine, the homepage, and the default download location. You can
+also customize the appearance of Chrome by changing the theme, font size, and
+more.
+
+</Text>}
 
 {<Text>Next up, I'll show you some nifty tricks that will take you from a zero
 to hero Chrome user in no time.
@@ -685,15 +778,24 @@ help you get the most out of Google Chrome on your mobile device.</Text>}
 
   <BoldText text="1. Find texts in page" />
 </Text>}
-{<Text>One of the most useful features in Google Chrome is the ability to search for text on a web page. To search for text, tap the{' '} <BoldText text="'...'" /> button in the lower right corner or tap the menu button in the top right corner of the browser window, and then tap <BoldText text="'Find in page'" />.</Text>
+{<Text>One of the most useful features in Google Chrome is the ability to search for text on a web page. To search for text, tap the menu button, and then tap <BoldText text="'Find in page'" />.</Text>
 }
 
-{<Text>You'll see a search bar, type in what you're looking for and then tap
+<Image src={findInPage} alt="find in page" width={393} height={895} />
+
+{<Text>Type in what you're looking for in the search bar and then tap
 
 {' '}
 
 <BoldText text="'^'" /> or <BoldText text="'v'" /> to find the next or
 previous instance of that search.</Text>}
+
+<Image
+  src={findInPageResult}
+  alt="find in page result"
+  width={393}
+  height={895}
+/>
 
 {<Text>Tap {' '} <BoldText text="'x' / 'Done'" /> when you're good.</Text>}
 
@@ -705,7 +807,11 @@ previous instance of that search.</Text>}
 {<Text>Earlier, I showed you how to open multiple tabs at the same time. Chrome
 also offers a few other ways to manage your tabs more efficiently. For example,
 you can long-press on a link to open it in a new tab. You can also drag and drop
-tabs to rearrange them. Slick, <ItalicizedText text='huh?'/>
+tabs to rearrange them.</Text>}
+
+<Image src={rearrangeTabs} alt="rearrange tabs" width={393} height={895} />
+
+{<Text> Slick, <ItalicizedText text="huh?" />
 
 </Text>}
 
@@ -718,6 +824,8 @@ tabs to rearrange them. Slick, <ItalicizedText text='huh?'/>
 the microphone button in the search bar, say what you want and Chrome will turn
 it into text.</Text>}
 
+<Image src={voiceSearch} alt="voice search" width={393} height={895} />
+
 {<Text><BoldText text="4. Managing passwords" /></Text>}
 
 {<Text>Chrome's built-in password manager allows you to save and autofill
@@ -725,6 +833,21 @@ passwords for websites. This can save you time and make it easier to manage your
 passwords. To access Chrome's password manager, go to the Settings menu and
 select <BoldText text="'Password Manager'" /> to see your saved passwords and
 manage them.</Text>}
+
+{<Text>Tap <BoldText text="'Settings'" />:</Text>}
+
+<SideBySideImage
+  src1={androidSelectSettings}
+  alt1="android settings"
+  src2={iosSelectSettings}
+  alt2="iOS settings"
+/>
+{
+  <Text>
+    Tap <BoldText text="'Password Manager'" />:
+  </Text>
+}
+<Image src={passwordManager} alt="password manager" width={393} height={895} />
 
 {<Text><BoldText text="5. Reading list" /></Text>}
 
@@ -815,7 +938,7 @@ open it in a new tab. You can also delete a saved article or mark it as read.
 
 </Text>}
 
-{<Text><BoldText text="6. Handy little tasks with the address bar (omnibox)" /></Text>}
+{<Text><BoldText text="6. Handy little tasks with the address bar (Omnibox)" /></Text>}
 
 {<Text>The address bar is a great tool for doing all kinds of cool things. Here
 are some of my favorite things you can do with the address bar:</Text>}
@@ -949,17 +1072,17 @@ these alternative browsers and start exploring the internet like never before!
 
 <AnchorTag text="Conclusion" href="conclusion" />
 
-{<Text> Google Chrome is a great browser. It's fast, it's secure, and it has a
-ton of features to help you get things done. In this article, I've covered some
-of my favorite Chrome features. I hope you've learned something new and I hope
-you enjoy using Chrome as much as I do.
+{<Text>Google Chrome is a great browser. It's fast, it's secure, and it has a
+ton of features to help you get things done. In this guide, I've covered some of
+my favorite Chrome features. I hope you've learned something new and I hope you
+enjoy using Chrome as much as I do.
 
 Whether you're a casual web user or a power user, Google Chrome has something to
 offer. So why not download Chrome today and start exploring all it has to offer?
 
 </Text>}
 
-{<Text>Thanks for reading! If you enjoyed this article, please consider sharing.
-Sharing is caring, after all. See you next time!</Text>}
+{<Text>Thanks for reading! If you enjoyed this user guide, please consider
+sharing. Sharing is caring, after all. See you next time!</Text>}
 
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;
