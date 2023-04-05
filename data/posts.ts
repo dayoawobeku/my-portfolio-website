@@ -81,7 +81,7 @@ export const posts = [
     postTitle:
       // eslint-disable-next-line quotes
       "Google Chrome for Mobile: A Beginner's Guide to Seamless Browsing",
-    time: '5 min read',
+    time: '14 min read',
     imageUrl:
       'https://res.cloudinary.com/dspbvhlt6/image/upload/v1679565950/blog/growtika-vTG2GFOb1iA-unsplash_bn5mbo.jpg',
     imageDescription: 'a group of colorful cubes, by Growtika',
