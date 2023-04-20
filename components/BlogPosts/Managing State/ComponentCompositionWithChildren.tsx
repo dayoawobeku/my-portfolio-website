@@ -27,17 +27,17 @@ export default function ComponentCompositionWithChildren() {
 }
 
 function Header() {
-  return <h1 className="font-bold">Header</h1>;
+  return <h1 className="font-bold dark:text-white">Header</h1>;
 }
 
 function Footer() {
-  return <h1 className="font-bold">Footer</h1>;
+  return <h1 className="font-bold dark:text-white">Footer</h1>;
 }
 
 function LoginScreen({onLogin}: {onLogin: () => void}) {
   return (
     <>
-      <h4 className="mt-2">Please login</h4>
+      <h4 className="mt-2 dark:text-white">Please login</h4>
       <button
         className="my-2 rounded bg-info p-1 text-[0.875rem] font-medium text-white"
         onClick={onLogin}
@@ -62,25 +62,25 @@ function LogoutButton({onLogout}: {onLogout: () => void}) {
 function Dashboard({children}: {children: React.ReactNode}) {
   return (
     <>
-      <h1 className="text-md">The Dashboard</h1>
+      <h1 className="text-md dark:text-white">The Dashboard</h1>
       {children}
     </>
   );
 }
 
 function DashboardNav() {
-  return <h2 className="text-[0.875rem]">Dashboard Nav</h2>;
+  return <h2 className="text-[0.875rem] dark:text-white">Dashboard Nav</h2>;
 }
 
 function DashboardContent({children}: {children: React.ReactNode}) {
   return (
     <>
-      <h2 className="text-[0.875rem]">Dashboard Content</h2>
+      <h2 className="text-[0.875rem] dark:text-white">Dashboard Content</h2>
       {children}
     </>
   );
 }
 
 function WelcomeMessage({user}: {user: {name: string}}) {
-  return <h3 className="font-medium">Welcome, {user.name}!</h3>;
+  return <h3 className="font-medium dark:text-white">Welcome, {user.name}!</h3>;
 }

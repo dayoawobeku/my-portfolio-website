@@ -19,7 +19,9 @@ export default function ListItems({items, listType}: ListItemProps) {
         <li
           key={index}
           className={`ml-8 ${
-            listType === ListType.number ? 'list-decimal' : 'list-disc'
+            listType === ListType.number
+              ? 'list-decimal dark:text-white-400'
+              : 'list-disc dark:text-white-400'
           }`}
         >
           {Array.isArray(text) ? (
