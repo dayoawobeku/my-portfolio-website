@@ -56,16 +56,16 @@ export const posts = [
     imageDescription:
       'gray lighthouse on islet with concrete pathway at daytime, William Bout',
   },
-  {
-    slug: 'building-your-first-next-js-13-app-a-step-by-step-guide',
-    date: 'February 24th, 2023',
-    postTitle: 'Building your first Next js 13 app - a step by step guide.',
-    time: '5 min read',
-    imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1676990442/blog/koji-futami-gH-Lh2axCZw-unsplash_uzvwhr.jpg',
-    imageDescription:
-      'road, forest, and body of water during day by Koji Futami',
-  },
+  // {
+  //   slug: 'building-your-first-next-js-13-app-a-step-by-step-guide',
+  //   date: 'February 24th, 2023',
+  //   postTitle: 'Building your first Next js 13 app - a step by step guide.',
+  //   time: '5 min read',
+  //   imageUrl:
+  //     'https://res.cloudinary.com/dspbvhlt6/image/upload/v1676990442/blog/koji-futami-gH-Lh2axCZw-unsplash_uzvwhr.jpg',
+  //   imageDescription:
+  //     'road, forest, and body of water during day by Koji Futami',
+  // },
   // {
   //   slug: 'stuck-in-z-index-hell-try-this',
   //   date: 'January 4th, 2023',
