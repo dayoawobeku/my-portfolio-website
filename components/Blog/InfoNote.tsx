@@ -1,7 +1,7 @@
 export default function InfoNote({note}: {note: string}) {
   return (
-    <div className="before:content-[''] before:w-1 before:h-full before:top-0 before:bg-info before:absolute mb-8 bg-info-100 relative rounded-r py-2">
-      <p className="pl-4 font-medium text-md text-info">{note}</p>
+    <div className="relative mb-8 rounded-r bg-info-100 py-2 before:absolute before:top-0 before:h-full before:w-1 before:bg-info before:content-['']">
+      <p className="pl-4 text-2md font-medium text-info">{note}</p>
     </div>
   );
 }

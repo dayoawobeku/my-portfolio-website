@@ -1,19 +1,36 @@
-import {ReactNode, useEffect, useState} from 'react';
+import {ReactNode, useContext, useEffect, useState} from 'react';
 import Image from 'next/image';
+import type {GetStaticProps} from 'next';
 import Link from 'next/link';
-import {useTheme} from 'next-themes';
-import {useQuery} from '@tanstack/react-query';
-import axios from 'axios';
+import dynamic from 'next/dynamic';
+import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
+const {countries, zones} = require('moment-timezone/data/meta/latest.json');
 import Newsletter from './Newsletter';
 import {
   closeMenuDark,
   closeMenuLight,
-  darkMode,
-  lightMode,
   menuDark,
   menuLight,
   spotifyLogo,
-} from '../assets/images/images';
+} from '../assets/images';
+import {getNowPlaying} from '../lib/spotify';
+import {ThemeContext} from '../context/ThemeContext';
+const LogoWithNoSSR = dynamic(() => import('./LandingPage/Logo'), {
+  ssr: false,
+});
+const ThemeTogglerWithNoSSR = dynamic(
+  () => import('./LandingPage/ThemeToggler'),
+  {
+    ssr: false,
+  },
+);
+const NavLinkWithNoSSR = dynamic(() => import('./NavLink'), {
+  ssr: false,
+});
+
+interface Artist {
+  name: string;
+}
 
 const NAV_LINKS = [
   {
@@ -34,46 +51,54 @@ const NAV_LINKS = [
   },
 ];
 
-interface NavLinkProps {
-  href: string;
-  text: string;
-  className?: string;
-  onClick?: () => void;
-}
-
-function NavLink({href = '', text, className, onClick}: NavLinkProps) {
-  const {theme} = useTheme();
-  return (
-    <Link href={href} passHref shallow>
-      <a
-        className={`nav-link ${className} ${
-          theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
-        }`}
-        onClick={onClick}
-      >
-        {text}
-      </a>
-    </Link>
-  );
-}
-
 interface Props {
   children?: ReactNode;
 }
 
-function Layout({children}: Props) {
-  const {theme, setTheme} = useTheme();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString([], {
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZoneName: 'short',
-      hourCycle: 'h23',
-    }),
-  );
+interface Placeholder {
+  width: number;
+  height: number;
+}
 
-  const {data: spotifyNowPlaying} = useSpotifyNowPlaying();
+function PlaceholderComponent({width, height}: Placeholder) {
+  return <div style={{width, height, backgroundColor: '#131920'}} />;
+}
+
+function Layout({children}: Props) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
+  const {data: spotifyNowPlaying} = useQuery({
+    queryKey: ['spotify-now-playing'],
+    queryFn: getSpotifyNowPlaying,
+    refetchInterval: 1000 * 60,
+  });
+
+  const {theme} = useContext(ThemeContext);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  // get users city & country
+  const timeZoneCityToCountry: {[key: string]: string} = {};
+
+  Object.keys(zones).forEach(z => {
+    const cityArr = z.split('/');
+    const city = cityArr[cityArr.length - 1];
+    timeZoneCityToCountry[city] = countries[zones[z].countries[0]].name;
+  });
+
+  let userCity;
+  let userCountry;
+  let userTimeZone;
+
+  if (Intl) {
+    userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const tzArr = userTimeZone.split('/');
+    userCity = tzArr[tzArr.length - 1];
+    userCountry = timeZoneCityToCountry[userCity];
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -91,41 +116,74 @@ function Layout({children}: Props) {
     };
   }, []);
 
+  // https://embed.im/snow/
+  function letItSnow() {
+    let embedimSnow = document.getElementById('embedim--snow');
+    function embRand(a: number, b: number) {
+      return Math.floor(Math.random() * (b - a + 1)) + a;
+    }
+    if (embedimSnow) {
+      embedimSnow.remove();
+      return;
+    }
+
+    let embCSS =
+      '.embedim-snow{position: absolute;width: 10px;height: 10px;background: white;border-radius: 50%;margin-top:-10px}.light .embedim-snow{background: #d1edff}';
+    let embHTML = '';
+    for (let i = 1; i < 200; i++) {
+      embHTML += '<i class="embedim-snow"></i>';
+      const rndX = embRand(0, 1000000) * 0.0001;
+      const rndO = embRand(-100000, 100000) * 0.0001;
+      const rndT = (embRand(3, 8) * 10).toFixed(2);
+      const rndS = (embRand(0, 10000) * 0.0001).toFixed(2);
+      embCSS +=
+        `.embedim-snow:nth-child(${i}){` +
+        `opacity:${(embRand(1, 10000) * 0.0001).toFixed(2)};` +
+        `transform:translate(${rndX.toFixed(2)}vw,-10px) scale(${rndS});` +
+        `animation:fall-${i} ${embRand(10, 30)}s -${embRand(
+          0,
+          30,
+        )}s linear infinite` +
+        '}' +
+        `@keyframes fall-${i}{${rndT}%{` +
+        `transform:translate(${(rndX + rndO).toFixed(
+          2,
+        )}vw,${rndT}vh) scale(${rndS})` +
+        '}' +
+        'to{' +
+        `transform:translate(${(rndX + rndO / 2).toFixed(
+          2,
+        )}vw, 105vh) scale(${rndS})` +
+        '}' +
+        '}';
+    }
+    embedimSnow = document.createElement('div');
+    embedimSnow.id = 'embedim--snow';
+    embedimSnow.innerHTML = `<style>#embedim--snow{position:fixed;left:0;top:0;bottom:0;width:100vw;height:100vh;overflow:hidden;z-index:9999999;pointer-events:none}${embCSS}</style>${embHTML}`;
+    document.body.appendChild(embedimSnow);
+  }
+
   return (
     <div className="dark:bg-[#131920]">
-      <div className="max-w-[1168px] mx-auto px-4">
-        <nav className="py-8 relative bg-white dark:bg-[#131920]">
-          <div className="flex items-center justify-between">
-            <Link href="/">
-              <a className="font-medium text-grey dark:text-white-800 text-5md">
-                Dayo Awobeku
-              </a>
-            </Link>
-
+      <div className="mx-auto max-w-[1168px] px-4">
+        <nav className="relative bg-white py-8 dark:bg-[#131920]">
+          <div className="relative flex items-center justify-between">
+            {!isLoaded ? (
+              <PlaceholderComponent width={180} height={30.6} />
+            ) : (
+              <LogoWithNoSSR />
+            )}
+            <button
+              onClick={letItSnow}
+              title="Snow away!"
+              className="motion-safe:animate-spin-slow"
+            >
+              ❄️
+            </button>
             <div className="flex items-center gap-6 md:gap-8">
+              <ThemeTogglerWithNoSSR />
               <button
-                className="w-10 h-10 outline-none outline-offset-4 transition-all duration-300 focus:outline-[#d1d1d1] hover:outline-[#d1d1d1] focus:dark:outline-[#EAEAEA] hover:dark:outline-[#EAEAEA] rounded-full"
-                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                title={
-                  theme === 'light'
-                    ? 'Activate dark mode'
-                    : 'Activate light mode'
-                }
-              >
-                <div className="w-full">
-                  <Image
-                    src={theme === 'light' ? darkMode : lightMode}
-                    alt="light/dark mode toggle"
-                    className="cursor-pointer"
-                    width={40}
-                    height={40}
-                    layout="responsive"
-                    priority
-                  />
-                </div>
-              </button>
-              <button
-                className="w-8 h-8 md:hidden outline-none outline-offset-4 transition-all duration-300 focus:outline-[#d1d1d1] hover:outline-[#d1d1d1] focus:dark:outline-[#EAEAEA] hover:dark:outline-[#EAEAEA] rounded-full"
+                className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
                 {menuOpen ? (
@@ -146,11 +204,11 @@ function Layout({children}: Props) {
               </button>
               <div
                 className={`z-50 md:hidden ${
-                  menuOpen ? 'min-h-[400px]' : 'h-0 hidden'
-                } top-20 flex flex-col divide-y divide-grey-600 dark:divide-grey-800 absolute left-4 w-full -mx-4 bg-white dark:bg-[#131920]`}
+                  menuOpen ? 'min-h-[400px]' : 'hidden h-0'
+                } absolute top-20 left-4 -mx-4 flex w-full flex-col divide-y divide-grey-600 bg-white dark:divide-grey-800 dark:bg-[#131920]`}
               >
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLink
+                  <NavLinkWithNoSSR
                     className="py-6 text-md font-medium"
                     key={index}
                     href={href}
@@ -160,20 +218,20 @@ function Layout({children}: Props) {
                 ))}
                 <Link href="/contact">
                   <button
-                    className="inline-flex w-fit px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
+                    className="inline-flex w-fit rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
                     onClick={() => setMenuOpen(false)}
                   >
                     Let's talk
                   </button>
                 </Link>
               </div>
-              <div className="hidden md:flex items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white">
+              <div className="hidden items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white md:flex">
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLink key={index} href={href} text={text} />
+                  <NavLinkWithNoSSR key={index} href={href} text={text} />
                 ))}
               </div>
               <Link href="/contact">
-                <button className="hidden md:block px-6 py-4 text-white rounded-sm dark:text-grey text-md bg-grey dark:bg-white outline-none outline-offset-4 transition-all outline-[3px] duration-300 focus:outline-grey hover:outline-grey hover:dark:outline-white-700 focus:dark:outline-white-700">
+                <button className="hidden rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700 md:block">
                   Let's talk
                 </button>
               </Link>
@@ -183,83 +241,93 @@ function Layout({children}: Props) {
 
         <main>{children}</main>
 
-        <footer className="pb-16 mt-18 md:mt-40">
+        <footer className="mt-18 pb-16 md:mt-40">
           <Newsletter />
 
-          <div className="flex justify-between gap-2 flex-wrap mt-18">
+          <div className="mt-18 flex flex-wrap justify-between gap-2">
             <div className="inline-flex items-center gap-2">
-              <div className="w-4 h-4">
+              <div className="h-4 w-4">
                 <Image
                   src={spotifyLogo}
                   alt="spotify icon logo"
                   width={16}
                   height={16}
                   layout="fixed"
+                  className={`${
+                    !spotifyNowPlaying?.isPlaying
+                      ? ''
+                      : 'motion-safe:animate-spin-slow'
+                  }`}
                 />
               </div>
 
               {!spotifyNowPlaying?.isPlaying ? (
-                <p className="font-medium">Not Playing</p>
+                <p className="font-medium dark:text-grey-600">Not Playing</p>
               ) : (
                 <Link href={spotifyNowPlaying.songUrl}>
-                  <a target="_blank" className="font-medium hover:underline">
+                  <a
+                    target="_blank"
+                    className="font-medium hover:underline dark:text-white"
+                  >
                     {spotifyNowPlaying.title}, {spotifyNowPlaying.artist}
                   </a>
                 </Link>
               )}
-              <p className="font-medium">-</p>
+              <p className="font-medium dark:text-grey-600">-</p>
               <p className="text-grey-800 dark:text-grey-600">Spotify</p>
             </div>
-            <div className="inline-flex items-center gap-2 text-grey-800 dark:text-grey-600">
-              <p>{Intl.DateTimeFormat().resolvedOptions().timeZone},</p>
+            <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
+              <p>
+                {userCity}, {userCountry}
+              </p>
               <p>{currentTime}</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown mt-10 dark:text-grey-600">
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 font-medium uppercase text-brown dark:text-grey-600">
             <p>dayo awobeku</p>
-            <div className="flex items-center gap-5 underline">
+            <div className="flex items-center gap-5">
               <a
                 href="mailto: dayoawobeku@gmail.com"
-                className="hover:text-danger transition-all duration-300"
+                className="transition-all duration-300 hover:text-danger"
               >
                 mail
               </a>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <span className="absolute -left-3 top-1/2 h-1 w-1 rounded-full bg-brown dark:bg-grey-600" />
                 <a
                   href="https://twitter.com/dayoawobeku"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-success transition-all duration-300"
+                  className="transition-all duration-300 hover:text-success"
                 >
                   twitter
                 </a>
               </div>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <span className="absolute -left-3 top-1/2 h-1 w-1 rounded-full bg-brown dark:bg-grey-600" />
                 <a
                   href="https://linkedin.com/in/dayoawobeku/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-info transition-all duration-300"
+                  className="transition-all duration-300 hover:text-info"
                 >
                   linkedin
                 </a>
               </div>
               <div className="relative">
-                <span className="absolute w-1 h-1 rounded-full bg-brown dark:bg-grey-600 -left-3 top-1/2" />
+                <span className="absolute -left-3 top-1/2 h-1 w-1 rounded-full bg-brown dark:bg-grey-600" />
                 <a
                   href="https://github.com/dayoawobeku/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-[#EBFAFF] transition-all duration-300"
+                  className="transition-all duration-300 hover:text-body dark:hover:text-orange-400"
                 >
                   github
                 </a>
               </div>
             </div>
-            <p>2022 all rights reserved</p>
+            <p>{new Date().getFullYear()} all rights reserved</p>
           </div>
         </footer>
       </div>
@@ -269,12 +337,37 @@ function Layout({children}: Props) {
 
 export default Layout;
 
-function useSpotifyNowPlaying() {
-  return useQuery(
-    ['spotify-now-playing'],
-    () => axios.get('/api/spotify/now-playing').then(res => res.data),
-    {
-      refetchInterval: 1000 * 60,
-    },
-  );
+async function getSpotifyNowPlaying() {
+  const response = await getNowPlaying();
+  const song = await response.json();
+  const isPlaying = song.is_playing;
+  const title = song.item.name;
+  const artist = song.item.artists
+    .map((_artist: Artist) => _artist.name)
+    .join(', ');
+  const album = song.item.album.name;
+  const albumImageUrl = song.item.album.images[0].url;
+  const songUrl = song.item.external_urls.spotify;
+
+  return {
+    isPlaying,
+    title,
+    artist,
+    album,
+    albumImageUrl,
+    songUrl,
+  };
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(
+    ['spotify-now-playing'],
+    getSpotifyNowPlaying,
+  );
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};

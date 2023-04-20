@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {useTheme} from 'next-themes';
 import {posts} from '../../data/posts';
-import {arrowLight} from '../../assets/images/images';
+import {arrowLight} from '../../assets/images';
+import {ThemeContext} from '../../context/ThemeContext';
 
 const Blog: NextPage = () => {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
 
   const allPosts = posts.map(item => item);
 
   const firstPost = allPosts?.shift();
+
+  // reverse the array so that the latest post is first
+  const latestPosts = allPosts.reverse();
 
   const router = useRouter();
   if (router.isFallback) {
@@ -76,25 +79,23 @@ const Blog: NextPage = () => {
             height={387}
             layout="responsive"
             priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           />
         </div>
       </div>
 
-      <div className="mt-20 rounded bg-white-700 outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
+      <div className="rounded bg-white-700 outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info md:mt-20">
         <Link href={`/blog/${firstPost?.slug}`}>
           <a className="group flex items-center justify-between p-6 md:p-20">
             <article>
               <p className="text-md font-medium text-grey">Featured article</p>
-              <h2 className="mt-6 max-w-lg text-2lg text-grey md:mt-8 md:text-xl md:leading-[56px]">
+              <h2 className="mt-4 max-w-lg text-4md font-medium text-grey md:mt-8 md:text-xl md:font-normal md:leading-[56px]">
                 {firstPost?.postTitle}
               </h2>
-              <p className="mt-6 text-3md font-medium text-body md:mt-8">
+              <p className="mt-4 text-md font-medium text-body md:mt-8">
                 {firstPost?.date} - {firstPost?.time}
               </p>
-              <div className="mt-10 inline-flex items-center gap-4 md:mt-16">
-                <span className="mb-1 text-4md font-medium text-grey">
+              <div className="mt-4 inline-flex items-center gap-4 md:mt-16">
+                <span className="mb-1 text-2md font-medium text-grey">
                   Read full article
                 </span>
                 <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
@@ -124,8 +125,8 @@ const Blog: NextPage = () => {
           </a>
         </Link>
       </div>
-      <div className="mt-8 flex flex-col gap-8 sm:mt-16 sm:gap-16">
-        {allPosts.map((post, i) => (
+      <div className="mt-6 flex flex-col gap-6 sm:mt-16 sm:gap-16">
+        {latestPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
             <a className="group rounded outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
               <article className="flex items-center gap-10 rounded bg-white-800 py-6 pl-4 pr-10 sm:h-80 sm:py-0 sm:pl-0">
@@ -133,8 +134,6 @@ const Blog: NextPage = () => {
                   <Image
                     alt={post.imageDescription}
                     src={post.imageUrl}
-                    width={389}
-                    height={320}
                     layout="fill"
                     objectFit="cover"
                     className="rounded-l"
@@ -145,10 +144,10 @@ const Blog: NextPage = () => {
                 </div>
 
                 <div className="flex flex-col gap-4 sm:gap-8">
-                  <p className="text-2md font-medium text-body dark:text-grey-400">
+                  <p className="text-md font-medium text-body dark:text-grey-400 md:text-2md">
                     {post.date} - <span>{post.time}</span>
                   </p>
-                  <h3 className="max-w-[530px] text-lg font-medium text-grey dark:text-grey-800">
+                  <h3 className="max-w-[530px] text-3md font-medium leading-normal text-grey dark:text-grey-800 md:text-lg">
                     {post.postTitle}
                   </h3>
                   <div className="flex items-center gap-2">

@@ -1,8 +1,6 @@
-const {
-  SPOTIFY_CLIENT_ID: client_id,
-  SPOTIFY_CLIENT_SECRET: client_secret,
-  SPOTIFY_REFRESH_TOKEN: refresh_token,
-} = process.env;
+const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
+const client_secret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
+const refresh_token = process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 const NOW_PLAYING_ENDPOINT =

@@ -39,20 +39,20 @@ export default function Newsletter() {
 
   return (
     <div className="flex flex-col">
-      <p className="font-medium text-4md text-grey dark:text-white">
+      <p className="text-4md font-medium text-grey dark:text-white">
         Stay up to date
       </p>
-      <p className="max-w-xl mt-4 text-md text-body dark:text-grey-600">
+      <p className="mt-4 max-w-xl text-md text-body dark:text-grey-600">
         A part of my goal for this website is to create helpful content for
         front-end web devs, and my newsletter is no different!
       </p>
-      <p className="mt-6 font-medium text-2md text-grey dark:text-grey-100">
+      <p className="mt-6 text-2md font-medium text-grey dark:text-grey-100">
         No spam, unsubscribe at any time.
       </p>
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-start gap-6 mt-10 md:flex-row md:items-end"
+        className="mt-10 flex flex-col items-start gap-6 md:flex-row md:items-end"
       >
         <SmallerInput
           id="newsletter_first_name"
@@ -69,12 +69,12 @@ export default function Newsletter() {
           onChange={e => setEmail(e.target.value)}
           required
         />
-        <button className="h-16 btn" disabled={isLoading}>
+        <button className="btn h-16" disabled={isLoading}>
           Subscribe
         </button>
       </form>
 
-      <p className="mt-4 font-medium text-md text-info">{message}</p>
+      <p className="mt-4 text-md font-medium text-info">{message}</p>
     </div>
   );
 }

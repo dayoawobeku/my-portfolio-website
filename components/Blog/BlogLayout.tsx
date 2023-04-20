@@ -1,9 +1,9 @@
-import {ReactNode} from 'react';
+import {ReactNode, useContext} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {arrowBack, arrowBackDark} from '../../assets/images/images';
 import Head from 'next/head';
-import {useTheme} from 'next-themes';
+import {arrowBack, arrowBackDark} from '../../assets/images';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface MetaProps {
   postTitle: string;
@@ -21,8 +21,9 @@ interface Props {
 }
 
 export default function Layout({meta, children}: Props) {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
 
+  console.log(meta);
   return (
     <>
       <Head>
@@ -79,7 +80,9 @@ export default function Layout({meta, children}: Props) {
           </a>
         </Link>
         <div className="mx-auto mt-[104px] text-center">
-          <h1 className="text-2lg md:text-xl">{meta.postTitle}</h1>
+          <h1 className="text-2lg dark:text-white-800 md:text-xl">
+            {meta.postTitle}
+          </h1>
           <p className="mt-6 text-2md font-medium text-body dark:text-white-400">
             {meta.date} - {meta.time}
           </p>

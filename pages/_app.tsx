@@ -1,11 +1,17 @@
 import {useState} from 'react';
-import '../styles/editor.css';
-import '../styles/globals.css';
 import type {AppProps} from 'next/app';
-import {ThemeProvider} from 'next-themes';
+import Script from 'next/script';
 import {MDXProvider} from '@mdx-js/react';
 import {Analytics} from '@vercel/analytics/react';
-import Layout from '../components/Layout';
+import {
+  QueryClientProvider,
+  QueryClient,
+  Hydrate,
+  DehydratedState,
+} from '@tanstack/react-query';
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
+import '../styles/globals.css';
+import '../styles/editor.css';
 import {
   Heading,
   Text,
@@ -22,8 +28,17 @@ import {
   ExternalUrl,
   LocalLink,
   ListNumber,
+  Codesandbox,
+  YellowNote,
+  BulletPoint,
+  ListItems,
 } from '../components/Blog';
-import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
+import Layout from '../components/Layout';
+import {ThemeProvider} from '../context/ThemeContext';
+
+interface MyAppProps extends AppProps {
+  dehydratedState: DehydratedState;
+}
 
 const components = {
   BlogLayout,
@@ -41,9 +56,13 @@ const components = {
   ExternalUrl,
   LocalLink,
   ListNumber,
+  Codesandbox,
+  YellowNote,
+  BulletPoint,
+  ListItems,
 };
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -56,16 +75,36 @@ function MyApp({Component, pageProps}: AppProps) {
   );
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="system">
-        <Layout>
-          <MDXProvider components={components}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </Layout>
-      </ThemeProvider>
-      <Analytics />
-    </QueryClientProvider>
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        strategy="lazyOnload"
+      />
+      <Script id="gtag" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ThemeProvider>
+            <Layout>
+              <MDXProvider components={components}>
+                <Component {...pageProps} />
+              </MDXProvider>
+            </Layout>
+          </ThemeProvider>
+          <ReactQueryDevtools />
+        </Hydrate>
+        <Analytics />
+      </QueryClientProvider>
+    </>
   );
 }
 

@@ -1,7 +1,8 @@
+import {useContext} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {useTheme} from 'next-themes';
-import {arrowDark, arrowLight} from '../assets/images/images';
+import {arrowDark, arrowLight} from '../assets/images';
+import {ThemeContext} from '../context/ThemeContext';
 
 interface Props {
   href?: string;
@@ -10,15 +11,15 @@ interface Props {
 }
 
 export default function CustomLink({href = '', externalUrl = '', text}: Props) {
-  const {theme} = useTheme();
+  const {theme} = useContext(ThemeContext);
   if (href) {
     return (
       <Link href={href} passHref>
-        <a className="inline-flex items-center gap-4 mt-8 group">
-          <span className="font-medium text-4md text-grey dark:text-white mb-1">
+        <a className="group mt-8 inline-flex items-center gap-4">
+          <span className="mb-1 text-4md font-medium text-grey dark:text-white">
             {text}
           </span>
-          <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
+          <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
             <Image
               alt=""
               src={theme === 'light' ? arrowLight : arrowDark}
@@ -36,12 +37,12 @@ export default function CustomLink({href = '', externalUrl = '', text}: Props) {
       href={externalUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-4 mt-8 group"
+      className="group mt-8 inline-flex items-center gap-4"
     >
-      <span className="font-medium text-4md text-grey dark:text-white underline mb-1">
+      <span className="mb-1 text-4md font-medium text-grey underline dark:text-white">
         {text}
       </span>
-      <div className="w-5 h-5 transition-all duration-300 group-hover:translate-x-2">
+      <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
         <Image
           alt=""
           src={theme === 'light' ? arrowLight : arrowDark}

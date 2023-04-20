@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background: #ffffff;
+  --color-text: #0d0d0d;
+}
+
+.dark {
+  --color-background: #0d0d0d;
+  --color-text: #ffffff;
+}
+
 @layer base {
   html {
     font-family: 'Satoshi', sans-serif;
@@ -9,9 +19,9 @@
 
   @font-face {
     font-family: 'Satoshi';
-    src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2'),
-      url('../assets/fonts/Satoshi-Regular.woff') format('woff'),
-      url('../assets/fonts/Satoshi-Regular.ttf') format('truetype');
+    src: url('/fonts/Satoshi-Regular.woff2') format('woff2'),
+      url('/fonts/Satoshi-Regular.woff') format('woff'),
+      url('/fonts/Satoshi-Regular.ttf') format('truetype');
     font-weight: 400;
     font-display: swap;
     font-style: normal;
@@ -19,9 +29,9 @@
 
   @font-face {
     font-family: 'Satoshi';
-    src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2'),
-      url('../assets/fonts/Satoshi-Medium.woff') format('woff'),
-      url('../assets/fonts/Satoshi-Medium.ttf') format('truetype');
+    src: url('/fonts/Satoshi-Medium.woff2') format('woff2'),
+      url('/fonts/Satoshi-Medium.woff') format('woff'),
+      url('/fonts/Satoshi-Medium.ttf') format('truetype');
     font-weight: 500;
     font-display: swap;
     font-style: normal;
@@ -29,9 +39,9 @@
 
   @font-face {
     font-family: 'Satoshi';
-    src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2'),
-      url('../assets/fonts/Satoshi-Bold.woff') format('woff'),
-      url('../assets/fonts/Satoshi-Bold.ttf') format('truetype');
+    src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+      url('/fonts/Satoshi-Bold.woff') format('woff'),
+      url('/fonts/Satoshi-Bold.ttf') format('truetype');
     font-weight: 700;
     font-display: swap;
     font-style: normal;
@@ -97,4 +107,11 @@
     background-color: #d6dee1;
     border-radius: 20px;
   }
+}
+
+/* tic tac toe styling */
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
 }

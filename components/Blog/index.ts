@@ -13,6 +13,10 @@ import AnchorTag from './AnchorTag';
 import ExternalUrl from './ExternalUrl';
 import LocalLink from './LocalLink';
 import ListNumber from './ListNumber';
+import Codesandbox from './Codesandbox';
+import YellowNote from './YellowNote';
+import BulletPoint from './BulletPoint';
+import ListItems from './ListItems';
 
 export {
   Heading,
@@ -30,4 +34,8 @@ export {
   ExternalUrl,
   LocalLink,
   ListNumber,
+  Codesandbox,
+  YellowNote,
+  BulletPoint,
+  ListItems,
 };
