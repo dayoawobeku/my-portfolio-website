@@ -33,17 +33,17 @@ export default function StateManagementWithContext() {
 }
 
 function Header() {
-  return <h1 className="font-bold">Header</h1>;
+  return <h1 className="font-bold dark:text-white">Header</h1>;
 }
 
 function Footer() {
-  return <h1 className="font-bold">Footer</h1>;
+  return <h1 className="font-bold dark:text-white">Footer</h1>;
 }
 
 function LoginScreen({onLogin}: {onLogin: () => void}) {
   return (
     <>
-      <h4 className="mt-2">Please login</h4>
+      <h4 className="mt-2 dark:text-white">Please login</h4>
       <button
         className="my-2 rounded bg-info p-1 text-[0.875rem] font-medium text-white"
         onClick={onLogin}
@@ -57,7 +57,7 @@ function LoginScreen({onLogin}: {onLogin: () => void}) {
 function Dashboard() {
   return (
     <>
-      <h1 className="text-md">The Dashboard</h1>
+      <h1 className="text-md dark:text-white">The Dashboard</h1>
       <DashboardNav />
       <DashboardContent />
     </>
@@ -65,13 +65,13 @@ function Dashboard() {
 }
 
 function DashboardNav() {
-  return <h2 className="text-[0.875rem]">Dashboard Nav</h2>;
+  return <h2 className="text-[0.875rem] dark:text-white">Dashboard Nav</h2>;
 }
 
 function DashboardContent() {
   return (
     <>
-      <h2 className="text-[0.875rem]">Dashboard Content</h2>
+      <h2 className="text-[0.875rem] dark:text-white">Dashboard Content</h2>
       <WelcomeMessage />
     </>
   );
@@ -79,5 +79,9 @@ function DashboardContent() {
 
 function WelcomeMessage() {
   const {currentUser} = useContext(Context);
-  return <h3 className="font-medium">Welcome, {currentUser.name}!</h3>;
+  return (
+    <h3 className="font-medium dark:text-white">
+      Welcome, {currentUser.name}!
+    </h3>
+  );
 }

@@ -20,7 +20,9 @@ export default function NavLink({
     <Link href={href} passHref shallow>
       <a
         className={`nav-link ${className} ${
-          theme === 'light' ? 'before:bg-grey' : 'before:bg-white-800'
+          theme === 'light'
+            ? 'before:bg-grey'
+            : 'text-white-800 before:bg-white-800'
         }`}
         onClick={onClick}
       >

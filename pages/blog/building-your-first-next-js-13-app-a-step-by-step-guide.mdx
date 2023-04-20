@@ -156,4 +156,48 @@ So, enough talk, let's start building out our Next.js 13 app!</Text>}
 
 <AnchorTag text="What we're building" href="what-we-re-building" />
 
+{<Text>Notice that in the sources tab, none of the server components that we've
+built so far is included in the client-side bundle. This is because the client
+bundle is only for the client-side code. Same as the date dependency that we
+installed, we still don't see it in the client bundle. That's really cool,
+because it means that we can use server components to do all of the heavy
+lifting, and the client bundle will be much smaller.</Text>}
+
+{<Text>Let's add some interactivity to our journal. Let's toggle the content
+state when the user clicks on a dropdown icon.</Text>}
+
+{<Text>By default, server components cannot have any interactivity. That means
+we can't do things like useState or event listeners. </Text>}
+
+{<Text> Fortunately, we can import client components from the client-side bundle
+and use them inside of server components.
+
+</Text>}
+
+{<Text> So, we need to use a client-side component to handle the interactivity
+and then import the client-side component into our server component.
+
+</Text>}
+
+{<Text> Let's implement the preview pane. When we click on each journal, we want
+the ability to tell our server to rerender the server component tree with the
+selected note rendered to the preview pane.
+
+</Text>}
+
+{<Text>One thing I've found with the Next.js 13 is that it does a lot of
+server-side caching for you. So, if you're certain that you've done something
+right and it still doesn't work, it's probably because of the caching. So, you
+can try to clear the cache and see if that fixes the problem. Learnt this the
+hard way btw.</Text>}
+
+<AnchorTag
+  text="The case for Server Components"
+  href="the-case-for-server-components"
+/>
+
+{<Text>Server components cannot have any interactivity. That means we can't do
+things like useState or event listeners.</Text>} {<Text>Server components don't
+render into HTML. They render into a special format.</Text>}
+
 export default ({children}) => <BlogLayout meta={meta}>{children}</BlogLayout>;

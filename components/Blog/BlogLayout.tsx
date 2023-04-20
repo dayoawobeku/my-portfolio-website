@@ -23,6 +23,7 @@ interface Props {
 export default function Layout({meta, children}: Props) {
   const {theme} = useContext(ThemeContext);
 
+  console.log(meta);
   return (
     <>
       <Head>
