@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import type {AppProps} from 'next/app';
-import Script from 'next/script';
 import {MDXProvider} from '@mdx-js/react';
 import {Analytics} from '@vercel/analytics/react';
 import {
@@ -76,21 +75,6 @@ function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
 
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-        strategy="lazyOnload"
-      />
-      <Script id="gtag" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}', {
-            page_path: window.location.pathname,
-          });
-        `}
-      </Script>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider>
