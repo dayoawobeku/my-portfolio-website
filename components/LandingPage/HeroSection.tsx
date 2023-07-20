@@ -9,15 +9,9 @@ export default function HeroSection() {
           I create quality websites that engage and convert.
         </h1>
         <p className="mt-4 text-2md text-grey dark:text-grey-600 lg:mt-8 lg:text-3md">
-          I bring your digital vision to life with high-quality, pixel-perfect
-          applications built with {''}
-          <span className="text-grey-800 dark:text-white">
-            React JS
-          </span> and {''}
-          <span className="text-grey-800 dark:text-white">Next JS</span> {''}
-          <br />
-          By prioritizing user experience and crafting code with care, I help
-          you achieve your business goals.
+          I'll bring your digital dreams to life with high-quality websites that
+          prioritize user experience. By crafting code with care and attention
+          to detail, I'll help you achieve your business goals.
         </p>
         <CustomLink href="/contact" text="Contact me" />
       </div>
