@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <meta
           name="description"
           content="Hi, I'm Dayo.
-          I build websites that your customers will love to use and pay for."
+          I create quality websites that engage and convert."
         />
         <link rel="icon" href="/favicon.ico" />
         {/* Open Graph / Facebook */}
@@ -25,13 +25,13 @@ const Home: NextPage = () => {
           name="description"
           property="og:description"
           content="Hi, I'm Dayo.
-          I build websites that your customers will love to use and pay for."
+          I create quality websites that engage and convert."
         />
         <meta property="og:site_name" content="Dayo Awobeku" />
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665675249/website-images/og-image_lct9wy.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1689864391/meta_image_iko09f.png"
         />
 
         {/* Twitter */}
@@ -42,11 +42,11 @@ const Home: NextPage = () => {
         <meta
           property="twitter:description"
           content="Hi, I'm Dayo.
-          I build websites that your customers will love to use and pay for."
+          I create quality websites that engage and convert."
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1665675249/website-images/og-image_lct9wy.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1689864391/meta_image_iko09f.png"
         />
       </Head>
       <HeroSection />
