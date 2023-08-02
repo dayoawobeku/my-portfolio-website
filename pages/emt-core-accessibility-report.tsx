@@ -224,7 +224,7 @@ const EmtCoreAccessibilityReport: NextPage = () => {
             disabilities relying on assistive technologies to access website
             content.
           </p>
-          <figure className="w-max">
+          <figure className="w-full">
             <Image
               src={metasHomepage}
               alt="Meta’s homepage showing the Skip to content control"
@@ -254,12 +254,14 @@ const EmtCoreAccessibilityReport: NextPage = () => {
             current location, leaving me uncertain about my position on the
             page.
           </p>
-          <div className="relative h-[599px] w-[1168px]">
-            <Image
-              src="/emt-core-gif.gif"
-              alt="gif representing challenge with tabbing"
-              layout="fill"
-              className="w-max"
+          <div className="relative w-full">
+            <video
+              src="/emt-core-gif.mp4"
+              loop
+              preload="true"
+              playsInline
+              muted
+              autoPlay
             />
           </div>
           <p className="font-bold">Recommendations:</p>
