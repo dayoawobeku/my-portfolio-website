@@ -7,7 +7,11 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>500 - Server-side error occurred</title>
-        <meta name="title" property="og:title" content="404 - Page Not Found" />
+        <meta
+          name="title"
+          property="og:title"
+          content="500 - Server-side error occurred"
+        />
         <meta name="description" content="500 - Server-side error occurred" />
         <link rel="icon" href="/favicon.ico" />
         {/* Open Graph / Facebook */}
@@ -23,7 +27,7 @@ const Home: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1689864391/meta_image_iko09f.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
         />
 
         {/* Twitter */}
@@ -37,12 +41,14 @@ const Home: NextPage = () => {
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1689864391/meta_image_iko09f.png"
+          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
         />
       </Head>
       <section className="flex flex-col items-center">
-        <p className="my-8 text-md font-medium">Server-side error occurred</p>
-        <h1 className="text-[10rem] font-bold">500</h1>
+        <p className="my-8 text-md font-medium dark:text-white">
+          Server-side error occurred
+        </p>
+        <h1 className="text-[10rem] font-bold dark:text-white">500</h1>
         <CustomLink text="Go back home" href="/" />
       </section>
     </div>
