@@ -2,8 +2,7 @@ import type {NextPage} from 'next';
 import Head from 'next/head';
 import HeroSection from '../components/LandingPage/HeroSection';
 import Projects from '../components/LandingPage/Projects';
-// import Testimonials from '../components/LandingPage/Testimonials';
-import AboutMe from '../components/LandingPage/AboutMe';
+import Testimonials from '../components/LandingPage/Testimonials';
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +15,10 @@ const Home: NextPage = () => {
           content="Hi, I'm Dayo.
           I create quality websites that engage and convert."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com" />
@@ -51,8 +53,7 @@ const Home: NextPage = () => {
       </Head>
       <HeroSection />
       <Projects />
-      {/* <Testimonials /> */}
-      <AboutMe />
+      <Testimonials />
     </div>
   );
 };

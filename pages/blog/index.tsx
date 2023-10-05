@@ -1,19 +1,13 @@
-import React, {useContext} from 'react';
 import {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import {posts} from '../../data/posts';
-import {arrowLight} from '../../assets/images';
-import {ThemeContext} from '../../context/ThemeContext';
+import {arrowDark} from '../../assets/images';
 
 const Blog: NextPage = () => {
-  const {theme} = useContext(ThemeContext);
-
   const allPosts = posts.map(item => item);
-
-  const firstPost = allPosts?.shift();
 
   // reverse the array so that the latest post is first
   const latestPosts = allPosts.reverse();
@@ -32,7 +26,10 @@ const Blog: NextPage = () => {
           name="description"
           content="Learn web development and get to know more about me here."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com/blog" />
@@ -64,100 +61,47 @@ const Blog: NextPage = () => {
       </Head>
 
       <div className="mt-10 flex basis-full flex-wrap items-center justify-between gap-4 md:mt-20 md:flex-nowrap lg:gap-8">
-        <h1 className="mb-10 text-2lg text-grey dark:text-white md:basis-2/3 md:text-2xl lg:max-w-lg lg:basis-auto lg:text-4xl">
-          Learn web development and get to know more about me here.
+        <h1 className="mb-10 text-2lg font-bold text-grey dark:text-white md:text-2xl lg:text-xl">
+          Blog
         </h1>
-        <div className="h-[387px] w-[506px]">
-          <Image
-            src={
-              theme === 'light'
-                ? 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664933/website-images/blog-hero_hxpyqo.svg'
-                : 'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664933/website-images/blog-hero-dark_b5o1xe.svg'
-            }
-            alt="illustration of someone reading a book"
-            width={506}
-            height={387}
-            layout="responsive"
-            priority
-          />
-        </div>
       </div>
 
-      <div className="rounded bg-white-700 outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info md:mt-20">
-        <Link href={`/blog/${firstPost?.slug}`}>
-          <a className="group flex items-center justify-between p-6 md:p-20">
-            <article>
-              <p className="text-md font-medium text-grey">Featured article</p>
-              <h2 className="mt-4 max-w-lg text-4md font-medium text-grey md:mt-8 md:text-xl md:font-normal md:leading-[56px]">
-                {firstPost?.postTitle}
-              </h2>
-              <p className="mt-4 text-md font-medium text-body md:mt-8">
-                {firstPost?.date} - {firstPost?.time}
-              </p>
-              <div className="mt-4 inline-flex items-center gap-4 md:mt-16">
-                <span className="mb-1 text-2md font-medium text-grey">
-                  Read full article
-                </span>
-                <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
-                  <Image
-                    alt=""
-                    src={arrowLight}
-                    width={20}
-                    height={20}
-                    layout="fixed"
-                  />
-                </div>
-              </div>
-            </article>
-            <div className="relative hidden h-[401px] w-[342px] md:block">
-              {firstPost?.imageUrl && (
-                <Image
-                  alt={firstPost?.imageDescription}
-                  src={firstPost?.imageUrl}
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-                />
-              )}
-            </div>
-          </a>
-        </Link>
-      </div>
-      <div className="mt-6 flex flex-col gap-6 sm:mt-16 sm:gap-16">
+      <div className="mt-6 grid grid-cols-2 gap-6 pb-10 sm:mt-10 sm:gap-8">
         {latestPosts.map((post, i) => (
           <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a className="group rounded outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
-              <article className="flex items-center gap-10 rounded bg-white-800 py-6 pl-4 pr-10 sm:h-80 sm:py-0 sm:pl-0">
-                <div className="relative hidden h-80 w-[389px] sm:block">
+            <a className="group rounded-xl outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
+              <article className="flex h-full flex-col gap-6 rounded-xl bg-[#19202A] p-8">
+                <div className="relative hidden h-[300px] w-full sm:block">
                   <Image
                     alt={post.imageDescription}
                     src={post.imageUrl}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-l"
+                    className="rounded-lg"
                     quality={100}
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
                   />
                 </div>
 
-                <div className="flex flex-col gap-4 sm:gap-8">
-                  <p className="text-md font-medium text-body dark:text-grey-400 md:text-2md">
+                <div className="flex flex-col gap-4">
+                  <p className="font-medium text-body dark:text-white-400">
                     {post.date} - <span>{post.time}</span>
                   </p>
-                  <h3 className="max-w-[530px] text-3md font-medium leading-normal text-grey dark:text-grey-800 md:text-lg">
+                  <h3 className="text-3md font-semibold leading-normal text-grey dark:text-white md:text-lg">
                     {post.postTitle}
                   </h3>
+                  <p className="font-medium text-body dark:text-white-700">
+                    A short description of the post here to give you an idea of
+                  </p>
                   <div className="flex items-center gap-2">
-                    <span className="w-fit text-base font-medium text-grey">
+                    <span className="w-fit text-base font-medium text-white">
                       Continue reading
                     </span>
                     <div className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2">
                       <Image
                         alt=""
-                        src={arrowLight}
+                        src={arrowDark}
                         width={16}
                         height={16}
                         layout="fixed"

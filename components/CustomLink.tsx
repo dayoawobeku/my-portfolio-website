@@ -15,8 +15,8 @@ export default function CustomLink({href = '', externalUrl = '', text}: Props) {
   if (href) {
     return (
       <Link href={href} passHref>
-        <a className="group mt-8 inline-flex items-center gap-4">
-          <span className="mb-1 text-4md font-medium text-grey dark:text-white">
+        <a className="group inline-flex w-fit items-center gap-4">
+          <span className="mb-1 text-2md font-medium text-grey dark:text-white">
             {text}
           </span>
           <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
@@ -37,9 +37,9 @@ export default function CustomLink({href = '', externalUrl = '', text}: Props) {
       href={externalUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group mt-8 inline-flex items-center gap-4"
+      className="group inline-flex items-center gap-4"
     >
-      <span className="mb-1 text-4md font-medium text-grey underline dark:text-white">
+      <span className="mb-1 text-md font-medium text-grey underline dark:text-white">
         {text}
       </span>
       <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">

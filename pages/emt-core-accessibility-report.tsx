@@ -90,7 +90,7 @@ const EmtCoreAccessibilityReport: NextPage = () => {
           content="EMT Core Accessibility Report"
         />
         <meta name="description" content="EMT Core Accessibility Report" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png" />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta

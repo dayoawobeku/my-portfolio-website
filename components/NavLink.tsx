@@ -12,7 +12,7 @@ interface NavLinkProps {
 export default function NavLink({
   href = '',
   text,
-  className,
+  className = '',
   onClick,
 }: NavLinkProps) {
   const {theme} = useContext(ThemeContext);

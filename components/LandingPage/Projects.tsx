@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import CustomLink from '../CustomLink';
+import Link from 'next/link';
+import {externalLink} from '../../assets/images';
 
 const PROJECT_ARRAY = [
   {
@@ -44,9 +45,9 @@ interface ProjectProps {
   url?: string;
 }
 
-function Project({projectImg, heading, body, stack, url}: ProjectProps) {
+function Project({projectImg, heading, body, url}: ProjectProps) {
   return (
-    <div>
+    <div className="group rounded-xl bg-[#19202A] p-8 outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
       <div className="w-full">
         <Image
           alt=""
@@ -55,29 +56,42 @@ function Project({projectImg, heading, body, stack, url}: ProjectProps) {
           width={1168}
           height={800}
           placeholder="blur"
+          className="rounded-lg"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
         />
       </div>
-      <div className="mt-10">
-        <h5 className="text-4md font-medium text-grey dark:text-white">
+      <div className="mt-4">
+        <h5 className="text-4md font-bold text-grey dark:text-white">
           {heading}
         </h5>
-        <p className="mt-6 max-w-lg text-2md text-body dark:text-grey-600">
-          {body}
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4">
+        <p className="mt-4 text-body dark:text-grey-600">{body}</p>
+        {/* <div className="mt-4 flex flex-wrap gap-4">
           {stack.map((r, index) => (
             <div
               key={index}
-              className="w-fit rounded-lg bg-grey p-2 dark:bg-white-700"
+              className="w-fit rounded-full bg-grey px-2 pb-1 dark:bg-white-700"
             >
-              <span className="text-[0.875rem] font-medium text-white dark:text-grey">
+              <span className="text-[0.8125rem] font-semibold text-white dark:text-grey">
                 {r}
               </span>
             </div>
           ))}
+        </div> */}
+        <div className="mt-6 flex items-center gap-6">
+          {url && (
+            <Link href={url}>
+              <a className="nav-link flex items-center gap-3 text-md font-semibold text-grey before:bg-white dark:text-white">
+                <span>Visit site</span>
+                <Image alt="" src={externalLink} width={16} height={16} />
+              </a>
+            </Link>
+          )}
+          <Link href="/">
+            <a className="nav-link text-md font-semibold text-grey before:bg-white dark:text-white">
+              Project details
+            </a>
+          </Link>
         </div>
-        {url && <CustomLink externalUrl={url} text="Visit site" />}
       </div>
     </div>
   );
@@ -85,12 +99,12 @@ function Project({projectImg, heading, body, stack, url}: ProjectProps) {
 
 export default function Projects() {
   return (
-    <section id="portfolio" className="py-30">
-      <h2 className="text-2lg font-medium text-grey dark:text-white md:text-2xl md:font-normal">
-        Selected Projects
+    <section id="portfolio" className="py-16">
+      <h2 className="text-2lg font-bold text-grey dark:text-white md:text-xl">
+        Projects
       </h2>
 
-      <div className="mt-10 flex flex-col gap-20 md:mt-14">
+      <div className="mt-10 grid grid-cols-2 gap-10">
         {PROJECT_ARRAY.map((project, index) => (
           <Project
             key={index}

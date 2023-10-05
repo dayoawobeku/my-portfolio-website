@@ -29,7 +29,7 @@ const About: NextPage = () => {
   });
 
   return (
-    <div>
+    <div className="px-[16%] pb-20">
       <Head>
         <title>Dayo Awobeku - About me</title>
         <meta
@@ -38,7 +38,10 @@ const About: NextPage = () => {
           content="Dayo Awobeku - About me"
         />
         <meta name="description" content="Get to know more about Dayo." />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com/about" />
@@ -70,8 +73,19 @@ const About: NextPage = () => {
         />
       </Head>
 
-      <section>
-        <div className="mt-10 flex w-full flex-wrap items-stretch justify-between gap-8 md:mt-20 lg:flex-nowrap">
+      <section className="mt-10 md:mt-20">
+        <h1 className="text-xl font-bold text-white">Hi, I'm Dayo.</h1>
+        <p className="mt-4 text-3md text-grey-600">
+          I'm a frontend developer with over 3 years of experience and a
+          background in product design. I am the primary UI Engineer at{' '}
+          <span className="font-bold">Dojah</span> where I work alongside a team
+          focused on building an advanced AI-powered technology that makes it
+          easy for businesses to onboard users at scale. My work involves
+          building and maintaining the company's design system, creating and
+          maintaining the company's website, and building and maintaining the
+          company's internal tools.
+        </p>
+        <div className="mt-10 flex w-full flex-wrap items-center justify-between gap-8 lg:flex-nowrap">
           <div className="w-full md:w-[47.69%]">
             <Image
               src="https://res.cloudinary.com/dspbvhlt6/image/upload/v1664732973/website-images/dayo-about_k5zazt.png"
@@ -83,121 +97,95 @@ const About: NextPage = () => {
               priority
             />
           </div>
-          <div className="about-text h-[662px] w-full overflow-y-auto pr-4 pb-4 lg:w-[49.32%]">
-            <p className="text-md leading-[31px] text-body dark:text-grey-600">
-              Hey there! I'm Dayo, a passionate Frontend Developer with a knack
-              for creating websites and web applications that captivate and
-              engage users.
+          <div className="w-full lg:w-[49.32%]">
+            <p className="text-3md text-body dark:text-grey-600">
+              I studied Medical Laboratory Science at the University of Ibadan,
+              Nigeria, but I found my passion in building software.
             </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
+            <p className="mt-8 text-3md text-body dark:text-grey-600">
               My journey into the tech world began with a simple yet magical
               idea: building "our" own games. From that moment, I was hooked.
             </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              Over the years, I've honed my skills, becoming proficient in
-              JavaScript, React.js, Next.js, Gatsby, SCSS, and TypeScript. Armed
-              with this toolkit, I transform visions into reality, crafting
-              pixel-perfect, high-quality applications.
+            <p className="mt-8 text-3md text-body dark:text-grey-600">
+              TL:DR; Today, I'm a bit of a unicorn. I'm a frontend developer but
+              I also identify as a product designer. I'm a designer who codes.
+              I'm an engineer who designs.
             </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              With 3 years of industry experience under my belt, I've worked on
-              fascinating projects, including building Dojah's 3rd version of
-              their{' '}
-              <a
-                href="https://dojah.io"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-grey hover:underline dark:text-white-800"
-              >
-                website
-              </a>{' '}
-              and{' '}
-              <a
-                href="https://app.dojah.io"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-grey hover:underline dark:text-white-800"
-              >
-                web app.
-              </a>{' '}
-              {''}
-            </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              As a dedicated developer, I prioritize user experience and
-              meticulously craft each line of code. Recently, I found joy in
-              contributing to open-source projects, fostering creativity, and
-              curating an innovative collection of African websites at{' '}
-              <a
-                href="https://sitesnap.design"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-grey hover:underline dark:text-white-800"
-              >
-                Sitesnap.
-              </a>{' '}
-              Beyond creating impressive interfaces, I actively incorporate web
-              accessibility principles into my work, making technology a bridge
-              of connection for all.
-            </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              My passion extends to the transformative potential of AI. I love
-              exploring powerful, user-centric solutions, leveraging
-              cutting-edge technologies to unlock new possibilities for digital
-              experiences.
-            </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              With a background in healthcare, I've learned the importance of
-              precision and effective communication. This unique blend of skills
-              ensures I consistently deliver seamless, intuitive, and
-              pixel-perfect implementations.
-            </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              When I'm not coding, you can find me indulging in video games on
-              my PlayStation or diving into intriguing criminal investigations
-              on YouTube. I'm always open to feedback, answering questions, or
-              discussing exciting new projects. Connect with me on{' '}
-              <a
-                href="https://twitter.com/dayoawobeku"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-grey hover:underline dark:text-white-800"
-              >
-                Twitter
-              </a>{' '}
-              or shoot me an{' '}
-              <a
-                href="mailto: dayoawobeku@gmail.com"
-                className="font-medium text-grey hover:underline dark:text-white-800"
-              >
-                email
-              </a>
-              !
-            </p>
-            <p className="mt-8 text-md leading-[31px] text-body dark:text-grey-600">
-              If you're looking for a frontend developer who started with the
-              dream of creating games and now stands ready to create exceptional
-              user experiences, let's collaborate and explore the endless
-              possibilities that lie ahead. The best is yet to come!
+            <p className="mt-8 text-3md text-body dark:text-grey-600">
+              And even though I no longer practice as a medical professional (I
+              failed you, mom 😅), I still find myself applying the same
+              principles of research and experimentation to my work as a
+              developer.
             </p>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center gap-6 sm:mt-10 sm:flex-row sm:gap-9">
+        <p className="mt-10 text-3md text-body dark:text-grey-600">
+          I started out as a self-taught developer. I learned the basics of HTML
+          and CSS from freeCodeCamp and Codecademy and then moved on to
+          JavaScript three different times before I finally got it. I just
+          couldn't wrap my head around it. I was so frustrated that I almost
+          gave up. But I didn't. I kept pushing. And I pushed myself to
+          believing that{' '}
+          <span className="font-semibold italic">
+            "Product Design is probably easier than this JavaScript thing
+            anyway."
+          </span>{' '}
+          And boy, was I wrong!
+        </p>
+        <p className="mt-10 text-3md text-body dark:text-grey-600">
+          I persevered and learnt the basics of UI/UX design in a few months. I
+          was able to design a few projects and got a few freelance gigs. But I
+          still wasn't satisfied. I wanted to{' '}
+          <span className="font-bold">build</span> more. So I went back to
+          JavaScript. And this time, I was able to learn it. I was able to build
+          more complex projects. I was able to build products that people would
+          use. And I was able to get a job as a frontend developer.
+        </p>
+        <p className="mt-10 text-3md text-body dark:text-grey-600">
+          My passion for this craft has driven me to co-found two open-source
+          projects: album colors (a visual directory that draws colour palette
+          inspiration from music album covers); and Sitesnap.design (a curated
+          collection of websites designed by Africans), write technical
+          articles, and mentor aspiring developers. These initiatives show my
+          commitment to the developer community and my ability to build
+          practical tools that make the world a better place through quality
+          software.
+        </p>
+        <p className="mt-10 text-3md text-body dark:text-grey-600">
+          I have experience working with a variety of technologies, including
+          JavaScript, TypeScript, React, Next.js, Tailwind CSS, and Node.js. I
+          also have experience working with design tools and methodologies
+          including Figma, Adobe XD, and user research techniques. My ability to
+          work seamlessly across the stack and my passion for building
+          inclusive, user-friendly, and intuitive user experiences makes me a
+          great fit for any team.
+        </p>
+        <p className="mt-10 text-3md text-body dark:text-grey-600">
+          When I'm not coding, you can find me playing FIFA, listening to music,
+          reading self-help books, or helping other developers solve problems on
+          Discord. I also enjoy playing the acoustic guitar and watching horror
+          movies. Whether it's web development, design, or just a friendly chat
+          about coding and music, feel free to connect with me on{' '}
           <a
-            href="/dayo-awobeku-resume.pdf"
-            download
-            className="btn inline-flex w-full items-center justify-center rounded-full"
+            href="https://twitter.com/dayoawobeku"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-grey hover:underline dark:text-white-800"
           >
-            Download my Resume
+            Twitter
+          </a>{' '}
+          or shoot me an{' '}
+          <a
+            href="mailto: dayoawobeku@gmail.com"
+            className="font-medium text-grey hover:underline dark:text-white-800"
+          >
+            email
           </a>
-          <Link href="/contact">
-            <a className="btn inline-flex w-full items-center justify-center rounded-full">
-              Contact me
-            </a>
-          </Link>
-        </div>
+          .
+        </p>
       </section>
 
-      <section className="mt-28">
+      <section className="mt-16">
         <h2 className="text-4md font-bold dark:text-white-800">Top Tracks</h2>
         <p className="mt-4 text-md text-grey-800 dark:text-white-400">
           Curious what I'm currently jamming to? Here's my top tracks on Spotify

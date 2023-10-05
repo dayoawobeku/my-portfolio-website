@@ -1,9 +1,8 @@
-import {ReactNode, useContext} from 'react';
+import {ReactNode} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
-import {arrowBack, arrowBackDark} from '../../assets/images';
-import {ThemeContext} from '../../context/ThemeContext';
+import {arrowBackDark} from '../../assets/images';
 
 interface MetaProps {
   postTitle: string;
@@ -21,8 +20,6 @@ interface Props {
 }
 
 export default function Layout({meta, children}: Props) {
-  const {theme} = useContext(ThemeContext);
-
   console.log(meta);
   return (
     <>
@@ -30,7 +27,10 @@ export default function Layout({meta, children}: Props) {
         <title>{meta.postTitle}</title>
         <meta name="title" property="og:title" content={meta.postTitle} />
         <meta name="description" content={meta.description} />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta
@@ -67,20 +67,15 @@ export default function Layout({meta, children}: Props) {
         <Link href="/blog">
           <a className="group mt-18 inline-flex items-center gap-3">
             <div className="h-6 w-6 transition-all duration-300 group-hover:-translate-x-2">
-              <Image
-                alt=""
-                src={theme === 'light' ? arrowBack : arrowBackDark}
-                width={24}
-                height={24}
-              />
+              <Image alt="" src={arrowBackDark} width={24} height={24} />
             </div>
             <span className="text-2md text-grey dark:text-white">
               Back to posts
             </span>
           </a>
         </Link>
-        <div className="mx-auto mt-[104px] text-center">
-          <h1 className="text-2lg dark:text-white-800 md:text-xl">
+        <div className="mx-auto mt-[104px] px-[20%] text-center">
+          <h1 className="text-2lg font-bold dark:text-white-800 md:text-xl">
             {meta.postTitle}
           </h1>
           <p className="mt-6 text-2md font-medium text-body dark:text-white-400">
@@ -96,13 +91,12 @@ export default function Layout({meta, children}: Props) {
             objectFit="cover"
             objectPosition="center"
             quality={100}
-            className="rounded"
             title={meta.title}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
           />
         </div>
-        <div className="mx-auto max-w-[848px]">{children}</div>
+        <div className="mx-auto max-w-[848px] pb-20">{children}</div>
       </div>
     </>
   );

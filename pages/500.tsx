@@ -13,7 +13,7 @@ const Home: NextPage = () => {
           content="500 - Server-side error occurred"
         />
         <meta name="description" content="500 - Server-side error occurred" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png" />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com" />

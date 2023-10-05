@@ -18,12 +18,7 @@ import {ThemeContext} from '../context/ThemeContext';
 const LogoWithNoSSR = dynamic(() => import('./LandingPage/Logo'), {
   ssr: false,
 });
-const ThemeTogglerWithNoSSR = dynamic(
-  () => import('./LandingPage/ThemeToggler'),
-  {
-    ssr: false,
-  },
-);
+
 const NavLinkWithNoSSR = dynamic(() => import('./NavLink'), {
   ssr: false,
 });
@@ -165,7 +160,7 @@ function Layout({children}: Props) {
 
   return (
     <div className="dark:bg-[#131920]">
-      <div className="mx-auto max-w-[1168px] px-4">
+      <div className="px-[8%]">
         <nav className="relative bg-white py-8 dark:bg-[#131920]">
           <div className="relative flex items-center justify-between">
             {!isLoaded ? (
@@ -176,12 +171,11 @@ function Layout({children}: Props) {
             <button
               onClick={letItSnow}
               title="Snow away!"
-              className="motion-safe:animate-spin-slow"
+              className="absolute left-1/2 motion-safe:animate-spin-slow"
             >
               ❄️
             </button>
             <div className="flex items-center gap-6 md:gap-8">
-              <ThemeTogglerWithNoSSR />
               <button
                 className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -225,7 +219,7 @@ function Layout({children}: Props) {
                   </button>
                 </Link>
               </div>
-              <div className="hidden items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white md:flex">
+              <div className="hidden items-center gap-8 text-md leading-[21.6px] text-grey dark:text-white md:flex">
                 {NAV_LINKS.map(({href, text}, index) => (
                   <NavLinkWithNoSSR key={index} href={href} text={text} />
                 ))}
@@ -241,7 +235,7 @@ function Layout({children}: Props) {
 
         <main>{children}</main>
 
-        <footer className="mt-18 pb-16 md:mt-40">
+        <footer className="mt-18 pb-16 md:mt-10">
           <Newsletter />
 
           <div className="mt-18 flex flex-wrap justify-between gap-2">
@@ -262,7 +256,9 @@ function Layout({children}: Props) {
               </div>
 
               {!spotifyNowPlaying?.isPlaying ? (
-                <p className="font-medium dark:text-grey-600">Not Playing</p>
+                <p className="font-medium dark:text-grey-600">
+                  Not listening to anything right now
+                </p>
               ) : (
                 <Link href={spotifyNowPlaying.songUrl}>
                   <a

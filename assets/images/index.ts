@@ -17,6 +17,7 @@ export {default as closeMenuLight} from './close-menu-light.svg';
 export {default as closeMenuDark} from './close-menu-dark.svg';
 export {default as menuDark} from './menu-dark.svg';
 export {default as spotifyLogo} from './spotify-logo.svg';
+export {default as externalLink} from './external-link.svg';
 
 // PNGs
 export {default as emtCoreLogo} from './emt-core-logo.png';

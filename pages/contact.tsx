@@ -48,7 +48,10 @@ const Contact: NextPage = () => {
           name="description"
           content="If you'd like to hire me, enquire about my rates or give me any kind of feedback, I'll be delighted to hear from you."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com/contact" />
@@ -83,7 +86,7 @@ const Contact: NextPage = () => {
         />
       </Head>
 
-      <div className="mt-10 flex flex-wrap items-start justify-between gap-12 lg:mt-24 lg:flex-nowrap lg:gap-6">
+      <div className="mt-10 flex flex-wrap items-start justify-between gap-12 px-[16%] pb-20 lg:mt-24 lg:flex-nowrap lg:gap-6">
         <div>
           <h1 className="text-4xl text-grey dark:text-white-700">
             Get in touch

@@ -9,7 +9,10 @@ const Home: NextPage = () => {
         <title>404 - Page Not Found</title>
         <meta name="title" property="og:title" content="404 - Page Not Found" />
         <meta name="description" content="404 - Page Not Found" />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com" />
