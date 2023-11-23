@@ -9,7 +9,6 @@ import {arrowDark} from '../../assets/images';
 const Blog: NextPage = () => {
   const allPosts = posts.map(item => item);
 
-  // reverse the array so that the latest post is first
   const latestPosts = allPosts.reverse();
 
   const router = useRouter();
@@ -28,7 +27,7 @@ const Blog: NextPage = () => {
         />
         <link
           rel="icon"
-          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
         />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -43,7 +42,7 @@ const Blog: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
@@ -56,7 +55,7 @@ const Blog: NextPage = () => {
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
       </Head>
 
@@ -66,51 +65,53 @@ const Blog: NextPage = () => {
         </h1>
       </div>
 
-      <div className="mt-6 grid grid-cols-2 gap-6 pb-10 sm:mt-10 sm:gap-8">
+      <div className="grid grid-cols-1 gap-6 pb-10 sm:mt-10 sm:gap-8 md:grid-cols-2">
         {latestPosts.map((post, i) => (
-          <Link href={`/blog/${post.slug}`} key={i} passHref>
-            <a className="group rounded-xl outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info">
-              <article className="flex h-full flex-col gap-6 rounded-xl bg-[#19202A] p-8">
-                <div className="relative hidden h-[300px] w-full sm:block">
-                  <Image
-                    alt={post.imageDescription}
-                    src={post.imageUrl}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
-                    quality={100}
-                    placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-                  />
-                </div>
+          <Link
+            href={`/blog/${post.slug}`}
+            key={i}
+            className="group rounded-xl outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-info"
+          >
+            <article className="flex h-full flex-col gap-6 rounded-xl bg-[#19202A] p-8">
+              <div className="relative hidden h-[300px] w-full sm:block">
+                <Image
+                  alt={post.imageDescription}
+                  src={post.imageUrl}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="rounded-lg object-cover"
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+                />
+              </div>
 
-                <div className="flex flex-col gap-4">
-                  <p className="font-medium text-body dark:text-white-400">
-                    {post.date} - <span>{post.time}</span>
-                  </p>
-                  <h3 className="text-3md font-semibold leading-normal text-grey dark:text-white md:text-lg">
-                    {post.postTitle}
-                  </h3>
-                  <p className="font-medium text-body dark:text-white-700">
-                    A short description of the post here to give you an idea of
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <span className="w-fit text-base font-medium text-white">
-                      Continue reading
-                    </span>
-                    <div className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2">
-                      <Image
-                        alt=""
-                        src={arrowDark}
-                        width={16}
-                        height={16}
-                        layout="fixed"
-                      />
-                    </div>
+              <div className="flex flex-col gap-4">
+                <p className="text-[0.625rem] text-body dark:text-white-400 sm:text-base sm:font-medium">
+                  {post.date} - <span>{post.time}</span>
+                </p>
+                <h3 className="font-medium leading-normal text-grey dark:text-white sm:text-3md xl:text-lg">
+                  {post.postTitle}
+                </h3>
+                {/* <p className="text-body dark:text-grey-100">
+                  A short description of the post here to give you an idea of
+                </p> */}
+                <div className="flex items-center gap-2">
+                  <span className="w-fit text-[0.8125rem] font-medium text-white sm:text-base">
+                    Continue reading
+                  </span>
+                  <div className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2">
+                    <Image
+                      alt=""
+                      src={arrowDark}
+                      width={16}
+                      height={16}
+                      className="h-full w-full"
+                    />
                   </div>
                 </div>
-              </article>
-            </a>
+              </div>
+            </article>
           </Link>
         ))}
       </div>

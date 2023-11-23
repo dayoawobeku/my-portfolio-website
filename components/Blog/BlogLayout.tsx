@@ -20,7 +20,6 @@ interface Props {
 }
 
 export default function Layout({meta, children}: Props) {
-  console.log(meta);
   return (
     <>
       <Head>
@@ -29,7 +28,7 @@ export default function Layout({meta, children}: Props) {
         <meta name="description" content={meta.description} />
         <link
           rel="icon"
-          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
         />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
@@ -64,21 +63,22 @@ export default function Layout({meta, children}: Props) {
       </Head>
 
       <div>
-        <Link href="/blog">
-          <a className="group mt-18 inline-flex items-center gap-3">
-            <div className="h-6 w-6 transition-all duration-300 group-hover:-translate-x-2">
-              <Image alt="" src={arrowBackDark} width={24} height={24} />
-            </div>
-            <span className="text-2md text-grey dark:text-white">
-              Back to posts
-            </span>
-          </a>
+        <Link
+          href="/blog"
+          className="group mt-18 inline-flex items-center gap-3"
+        >
+          <div className="h-6 w-6 transition-all duration-300 group-hover:-translate-x-2">
+            <Image alt="" src={arrowBackDark} width={24} height={24} />
+          </div>
+          <span className="text-grey dark:text-white sm:text-2md">
+            Back to posts
+          </span>
         </Link>
-        <div className="mx-auto mt-[104px] px-[20%] text-center">
-          <h1 className="text-2lg font-bold dark:text-white-800 md:text-xl">
+        <div className="mx-auto mt-16 max-w-[800px] text-center sm:mt-[104px]">
+          <h1 className="text-4md font-bold dark:text-white-800 sm:text-2lg md:text-xl">
             {meta.postTitle}
           </h1>
-          <p className="mt-6 text-2md font-medium text-body dark:text-white-400">
+          <p className="mt-6 font-medium text-body dark:text-white-400 sm:text-2md">
             {meta.date} - {meta.time}
           </p>
         </div>
@@ -87,13 +87,13 @@ export default function Layout({meta, children}: Props) {
             alt={meta.title}
             priority
             src={meta.url}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             quality={100}
             title={meta.title}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
+            className="object-cover"
           />
         </div>
         <div className="mx-auto max-w-[848px] pb-20">{children}</div>

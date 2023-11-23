@@ -17,17 +17,18 @@ export default function NavLink({
 }: NavLinkProps) {
   const {theme} = useContext(ThemeContext);
   return (
-    <Link href={href} passHref shallow>
-      <a
-        className={`nav-link ${className} ${
-          theme === 'light'
-            ? 'before:bg-grey'
-            : 'text-white-800 before:bg-white-800'
-        }`}
-        onClick={onClick}
-      >
-        {text}
-      </a>
+    <Link
+      href={href}
+      passHref
+      shallow
+      className={`nav-link ${className} ${
+        theme === 'light'
+          ? 'before:bg-grey'
+          : 'text-white-800 before:bg-white-800'
+      }`}
+      onClick={onClick}
+    >
+      {text}
     </Link>
   );
 }

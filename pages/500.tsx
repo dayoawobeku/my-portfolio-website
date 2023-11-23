@@ -13,7 +13,10 @@ const Home: NextPage = () => {
           content="500 - Server-side error occurred"
         />
         <meta name="description" content="500 - Server-side error occurred" />
-        <link rel="icon" href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com" />
@@ -27,7 +30,7 @@ const Home: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
 
         {/* Twitter */}
@@ -41,7 +44,7 @@ const Home: NextPage = () => {
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
       </Head>
       <section className="flex flex-col items-center">

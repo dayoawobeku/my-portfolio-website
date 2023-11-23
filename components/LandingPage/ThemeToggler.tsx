@@ -18,7 +18,7 @@ export default function ThemeToggler() {
           className="cursor-pointer"
           width={40}
           height={40}
-          layout="responsive"
+          responsive="true"
           priority
         />
       </div>

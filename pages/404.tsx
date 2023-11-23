@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <meta name="description" content="404 - Page Not Found" />
         <link
           rel="icon"
-          href="https://res.cloudinary.com/dspbvhlt6/image/upload/v1696540318/website-images/favicon_fjsnqx.png"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
         />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
 
         {/* Twitter */}
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <meta property="twitter:description" content="404 - Page Not Found" />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
       </Head>
       <section className="flex flex-col items-center">

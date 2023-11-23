@@ -9,20 +9,14 @@ interface Props {
 
 function Testimonial({body, name, job}: Props) {
   return (
-    <div className="rounded-xl bg-[#19202A] p-8">
+    <div className="rounded-xl bg-[#19202A] p-6 lg:p-8">
       <p className="mt-4 text-body dark:text-grey-600">
         {body ??
           'Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor.'}
       </p>
       <div className="mt-4 flex items-center gap-4">
         <div className="h-12 w-12">
-          <Image
-            alt="portrait of ..."
-            src={avatar}
-            width={48}
-            height={48}
-            layout="responsive"
-          />
+          <Image alt="portrait of ..." src={avatar} width={48} height={48} />
         </div>
         <div>
           <p className="font-semibold text-grey dark:text-grey-100">
@@ -39,8 +33,11 @@ function Testimonial({body, name, job}: Props) {
 
 export default function Testimonials() {
   return (
-    <section className="pt-16 pb-30" id="testimonials" tabIndex={-1}>
-      <div className="grid grid-cols-3 gap-10">
+    <section className="pb-30 pt-16" id="testimonials" tabIndex={-1}>
+      <h2 className="text-2lg font-bold text-grey dark:text-white lg:text-xl">
+        What People are saying about me
+      </h2>
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
         {Array.from({length: 6}).map((_, index) => (
           <Testimonial key={index} />
         ))}

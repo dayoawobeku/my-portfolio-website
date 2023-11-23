@@ -15,7 +15,7 @@ export default function Expertise() {
                 src={rectangles}
                 width={17}
                 height={18}
-                layout="fixed"
+                className="h-full w-full"
               />
             </div>
             <div className="max-w-[498px]">
@@ -37,7 +37,7 @@ export default function Expertise() {
                 src={rectangles}
                 width={17}
                 height={18}
-                layout="fixed"
+                className="h-full w-full"
               />
             </div>
             <div className="max-w-[498px]">
@@ -61,7 +61,7 @@ export default function Expertise() {
                 src={rectangles}
                 width={17}
                 height={18}
-                layout="fixed"
+                className="h-full w-full"
               />
             </div>
             <div className="max-w-[498px]">
@@ -82,7 +82,8 @@ export default function Expertise() {
                 src={rectangles}
                 width={17}
                 height={18}
-                layout="fixed"
+                className="h-full w-full"
+
               />
             </div>
             <div className="max-w-[498px]">

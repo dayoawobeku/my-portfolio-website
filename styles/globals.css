@@ -14,36 +14,36 @@
 
 @layer base {
   html {
-    font-family: 'TomatoGrotesk', sans-serif;
+    font-family: 'OpenSauceSans', sans-serif;
   }
 
   @font-face {
-    font-family: 'TomatoGrotesk';
-    src: url('/fonts/TomatoGrotesk-Regular.woff2') format('woff2');
+    font-family: 'OpenSauceSans';
+    src: url('/fonts/OpenSauceSans-Regular.woff2') format('woff2');
     font-weight: 400;
     font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'TomatoGrotesk';
-    src: url('/fonts/TomatoGrotesk-Medium.woff2') format('woff2');
+    font-family: 'OpenSauceSans';
+    src: url('/fonts/OpenSauceSans-Medium.woff2') format('woff2');
     font-weight: 500;
     font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'TomatoGrotesk';
-    src: url('/fonts/TomatoGrotesk-SemiBold.woff2') format('woff2');
+    font-family: 'OpenSauceSans';
+    src: url('/fonts/OpenSauceSans-SemiBold.woff2') format('woff2');
     font-weight: 600;
     font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'TomatoGrotesk';
-    src: url('/fonts/TomatoGrotesk-Bold.woff2') format('woff2');
+    font-family: 'OpenSauceSans';
+    src: url('/fonts/OpenSauceSans-Bold.woff2') format('woff2');
     font-weight: 700;
     font-display: swap;
     font-style: normal;
@@ -54,10 +54,6 @@
   input,
   textarea {
     @apply font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-grey-800 dark:focus-visible:outline-white-800;
-  }
-
-  input[data-emt-core] {
-    @apply font-medium placeholder:text-grey-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-grey-800 dark:focus-visible:outline-body;
   }
 
   label {

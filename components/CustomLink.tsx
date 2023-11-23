@@ -1,8 +1,6 @@
-import {useContext} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {arrowDark, arrowLight} from '../assets/images';
-import {ThemeContext} from '../context/ThemeContext';
+import {arrowDark} from '../assets/images';
 
 interface Props {
   href?: string;
@@ -11,24 +9,25 @@ interface Props {
 }
 
 export default function CustomLink({href = '', externalUrl = '', text}: Props) {
-  const {theme} = useContext(ThemeContext);
   if (href) {
     return (
-      <Link href={href} passHref>
-        <a className="group inline-flex w-fit items-center gap-4">
-          <span className="mb-1 text-2md font-medium text-grey dark:text-white">
-            {text}
-          </span>
-          <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
-            <Image
-              alt=""
-              src={theme === 'light' ? arrowLight : arrowDark}
-              width={20}
-              height={20}
-              layout="fixed"
-            />
-          </div>
-        </a>
+      <Link
+        href={href}
+        passHref
+        className="group inline-flex w-fit items-center gap-4"
+      >
+        <span className="mb-1 font-medium text-grey dark:text-white lg:text-2md">
+          {text}
+        </span>
+        <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
+          <Image
+            alt=""
+            src={arrowDark}
+            width={20}
+            height={20}
+            className="h-full w-full"
+          />
+        </div>
       </Link>
     );
   }
@@ -45,10 +44,10 @@ export default function CustomLink({href = '', externalUrl = '', text}: Props) {
       <div className="h-5 w-5 transition-all duration-300 group-hover:translate-x-2">
         <Image
           alt=""
-          src={theme === 'light' ? arrowLight : arrowDark}
+          src={arrowDark}
           width={20}
           height={20}
-          layout="fixed"
+          className="h-full w-full"
         />
       </div>
     </a>

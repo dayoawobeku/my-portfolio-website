@@ -49,7 +49,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['TomatoGrotesk', 'sans-serif'],
+      sans: ['OpenSauceSans', 'sans-serif'],
     },
     fontSize: {
       base: ['1rem', '24px'], // 16px

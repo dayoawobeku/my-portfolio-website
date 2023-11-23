@@ -34,7 +34,6 @@ import {
   ListItems,
 } from '../components/Blog';
 import Layout from '../components/Layout';
-import {ThemeProvider} from '../context/ThemeContext';
 
 interface MyAppProps extends AppProps {
   dehydratedState: DehydratedState;
@@ -93,13 +92,11 @@ function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
       </Script>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ThemeProvider>
-            <Layout>
-              <MDXProvider components={components}>
-                <Component {...pageProps} />
-              </MDXProvider>
-            </Layout>
-          </ThemeProvider>
+          <Layout>
+            <MDXProvider components={components}>
+              <Component {...pageProps} />
+            </MDXProvider>
+          </Layout>
           <ReactQueryDevtools />
         </Hydrate>
         <Analytics />

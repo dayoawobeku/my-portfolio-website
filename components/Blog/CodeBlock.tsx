@@ -1,7 +1,5 @@
-import React, {useContext} from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import {javascript} from '@codemirror/lang-javascript';
-import {ThemeContext} from '../../context/ThemeContext';
 
 interface Props {
   value: string;
@@ -13,14 +11,13 @@ const options = {
 };
 
 export default function CodeBlock({value, lang}: Props) {
-  const {theme} = useContext(ThemeContext);
   return (
     <pre className="relative mb-8 text-[0.875rem]">
       <CodeMirror
         value={value}
         height="auto"
         extensions={[javascript({jsx: true})]}
-        theme={theme === 'light' ? 'light' : 'dark'}
+        theme={'dark'}
         editable={false}
         readOnly
         basicSetup={options}
