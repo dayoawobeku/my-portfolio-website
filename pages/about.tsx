@@ -39,7 +39,7 @@ const About: NextPage = () => {
         <meta name="description" content="Get to know more about Dayo." />
         <link
           rel="icon"
-          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
         />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
