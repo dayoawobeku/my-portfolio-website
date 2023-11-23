@@ -2,15 +2,12 @@ import {ReactNode, useEffect, useState} from 'react';
 import Image from 'next/image';
 import type {GetStaticProps} from 'next';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 const {countries, zones} = require('moment-timezone/data/meta/latest.json');
 import Newsletter from './Newsletter';
 import {closeMenuDark, menuDark, spotifyLogo} from '../assets/images';
 import {getNowPlaying} from '../lib/spotify';
-const NavLinkWithNoSSR = dynamic(() => import('./NavLink'), {
-  ssr: false,
-});
+import NavLink from './NavLink';
 
 interface Artist {
   name: string;
@@ -174,7 +171,7 @@ function Layout({children}: Props) {
                 } absolute left-4 top-20 -mx-4 flex w-full flex-col divide-y divide-grey-600 bg-white dark:divide-grey-800 dark:bg-[#131920]`}
               >
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLinkWithNoSSR
+                  <NavLink
                     className="py-6 text-md font-medium"
                     key={index}
                     href={href}
@@ -192,7 +189,7 @@ function Layout({children}: Props) {
               </div>
               <div className="hidden items-center gap-8 text-md leading-[21.6px] text-grey dark:text-white md:flex">
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLinkWithNoSSR key={index} href={href} text={text} />
+                  <NavLink key={index} href={href} text={text} />
                 ))}
               </div>
               <Link
