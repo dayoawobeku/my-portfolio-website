@@ -1,32 +1,13 @@
-import {ReactNode, useContext, useEffect, useState} from 'react';
+import {ReactNode, useEffect, useState} from 'react';
 import Image from 'next/image';
 import type {GetStaticProps} from 'next';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 const {countries, zones} = require('moment-timezone/data/meta/latest.json');
 import Newsletter from './Newsletter';
-import {
-  closeMenuDark,
-  closeMenuLight,
-  menuDark,
-  menuLight,
-  spotifyLogo,
-} from '../assets/images';
+import {closeMenuDark, menuDark, spotifyLogo} from '../assets/images';
 import {getNowPlaying} from '../lib/spotify';
-import {ThemeContext} from '../context/ThemeContext';
-const LogoWithNoSSR = dynamic(() => import('./LandingPage/Logo'), {
-  ssr: false,
-});
-const ThemeTogglerWithNoSSR = dynamic(
-  () => import('./LandingPage/ThemeToggler'),
-  {
-    ssr: false,
-  },
-);
-const NavLinkWithNoSSR = dynamic(() => import('./NavLink'), {
-  ssr: false,
-});
+import NavLink from './NavLink';
 
 interface Artist {
   name: string;
@@ -55,15 +36,6 @@ interface Props {
   children?: ReactNode;
 }
 
-interface Placeholder {
-  width: number;
-  height: number;
-}
-
-function PlaceholderComponent({width, height}: Placeholder) {
-  return <div style={{width, height, backgroundColor: '#131920'}} />;
-}
-
 function Layout({children}: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
@@ -72,13 +44,6 @@ function Layout({children}: Props) {
     queryFn: getSpotifyNowPlaying,
     refetchInterval: 1000 * 60,
   });
-
-  const {theme} = useContext(ThemeContext);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   // get users city & country
   const timeZoneCityToCountry: {[key: string]: string} = {};
@@ -165,14 +130,18 @@ function Layout({children}: Props) {
 
   return (
     <div className="dark:bg-[#131920]">
-      <div className="mx-auto max-w-[1168px] px-4">
+      <div className="px-4 sm:px-6 xl:px-[5%]">
         <nav className="relative bg-white py-8 dark:bg-[#131920]">
           <div className="relative flex items-center justify-between">
-            {!isLoaded ? (
-              <PlaceholderComponent width={180} height={30.6} />
-            ) : (
-              <LogoWithNoSSR />
-            )}
+            <Link href="/">
+              <Image
+                src="/logo-light.svg"
+                alt="Logo"
+                width={180}
+                height={30.6}
+                className="h-[30.6px] w-[180px]"
+              />
+            </Link>
             <button
               onClick={letItSnow}
               title="Snow away!"
@@ -181,34 +150,28 @@ function Layout({children}: Props) {
               ❄️
             </button>
             <div className="flex items-center gap-6 md:gap-8">
-              <ThemeTogglerWithNoSSR />
               <button
                 className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
                 {menuOpen ? (
                   <Image
-                    src={theme === 'light' ? closeMenuLight : closeMenuDark}
+                    src={closeMenuDark}
                     alt="menu"
                     width={32}
                     height={32}
                   />
                 ) : (
-                  <Image
-                    src={theme === 'light' ? menuLight : menuDark}
-                    alt="menu"
-                    width={32}
-                    height={32}
-                  />
+                  <Image src={menuDark} alt="menu" width={32} height={32} />
                 )}
               </button>
               <div
                 className={`z-50 md:hidden ${
                   menuOpen ? 'min-h-[400px]' : 'hidden h-0'
-                } absolute top-20 left-4 -mx-4 flex w-full flex-col divide-y divide-grey-600 bg-white dark:divide-grey-800 dark:bg-[#131920]`}
+                } absolute left-4 top-20 -mx-4 flex w-full flex-col divide-y divide-grey-600 bg-white dark:divide-grey-800 dark:bg-[#131920]`}
               >
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLinkWithNoSSR
+                  <NavLink
                     className="py-6 text-md font-medium"
                     key={index}
                     href={href}
@@ -216,24 +179,24 @@ function Layout({children}: Props) {
                     onClick={() => setMenuOpen(false)}
                   />
                 ))}
-                <Link href="/contact">
-                  <button
-                    className="inline-flex w-fit rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Let's talk
-                  </button>
+                <Link
+                  href="/contact"
+                  className="inline-flex w-fit rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Let's talk
                 </Link>
               </div>
-              <div className="hidden items-center gap-5 text-md leading-[21.6px] text-grey dark:text-white md:flex">
+              <div className="hidden items-center gap-8 text-md leading-[21.6px] text-grey dark:text-white md:flex">
                 {NAV_LINKS.map(({href, text}, index) => (
-                  <NavLinkWithNoSSR key={index} href={href} text={text} />
+                  <NavLink key={index} href={href} text={text} />
                 ))}
               </div>
-              <Link href="/contact">
-                <button className="hidden rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700 md:block">
-                  Let's talk
-                </button>
+              <Link
+                href="/contact"
+                className="hidden rounded-sm bg-grey px-6 py-4 text-md text-white outline-none outline-[3px] outline-offset-4 transition-all duration-300 hover:outline-grey focus:outline-grey dark:bg-white dark:text-grey hover:dark:outline-white-700 focus:dark:outline-white-700 md:block"
+              >
+                Let's talk
               </Link>
             </div>
           </div>
@@ -241,10 +204,10 @@ function Layout({children}: Props) {
 
         <main>{children}</main>
 
-        <footer className="mt-18 pb-16 md:mt-40">
+        <footer className="mt-18 pb-16 md:mt-10">
           <Newsletter />
 
-          <div className="mt-18 flex flex-wrap justify-between gap-2">
+          <div className="mt-18 flex flex-wrap justify-between gap-4">
             <div className="inline-flex items-center gap-2">
               <div className="h-4 w-4">
                 <Image
@@ -252,7 +215,6 @@ function Layout({children}: Props) {
                   alt="spotify icon logo"
                   width={16}
                   height={16}
-                  layout="fixed"
                   className={`${
                     !spotifyNowPlaying?.isPlaying
                       ? ''
@@ -262,19 +224,25 @@ function Layout({children}: Props) {
               </div>
 
               {!spotifyNowPlaying?.isPlaying ? (
-                <p className="font-medium dark:text-grey-600">Not Playing</p>
+                <p className="text-[0.8125rem] font-medium dark:text-grey-600">
+                  Not listening to anything right now
+                </p>
               ) : (
-                <Link href={spotifyNowPlaying.songUrl}>
-                  <a
-                    target="_blank"
-                    className="font-medium hover:underline dark:text-white"
-                  >
-                    {spotifyNowPlaying.title}, {spotifyNowPlaying.artist}
-                  </a>
-                </Link>
+                <a
+                  href={spotifyNowPlaying.songUrl}
+                  target="_blank"
+                  className="text-[0.8125rem] font-medium hover:underline dark:text-white"
+                  rel="noreferrer"
+                >
+                  {spotifyNowPlaying.title}, {spotifyNowPlaying.artist}
+                </a>
               )}
-              <p className="font-medium dark:text-grey-600">-</p>
-              <p className="text-grey-800 dark:text-grey-600">Spotify</p>
+              <p className="text-[0.8125rem] font-medium dark:text-grey-600">
+                -
+              </p>
+              <p className="text-[0.8125rem] text-grey-800 dark:text-grey-600">
+                Spotify
+              </p>
             </div>
             <div className="inline-flex items-center gap-4 text-grey-800 dark:text-grey-600">
               <p>

@@ -2,8 +2,6 @@ import type {NextPage} from 'next';
 import Head from 'next/head';
 import HeroSection from '../components/LandingPage/HeroSection';
 import Projects from '../components/LandingPage/Projects';
-// import Testimonials from '../components/LandingPage/Testimonials';
-import AboutMe from '../components/LandingPage/AboutMe';
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +14,10 @@ const Home: NextPage = () => {
           content="Hi, I'm Dayo.
           I create quality websites that engage and convert."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com" />
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
 
         {/* Twitter */}
@@ -46,13 +47,12 @@ const Home: NextPage = () => {
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
       </Head>
       <HeroSection />
       <Projects />
       {/* <Testimonials /> */}
-      <AboutMe />
     </div>
   );
 };

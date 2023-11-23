@@ -49,18 +49,18 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Satoshi'],
+      sans: ['OpenSauceSans', 'sans-serif'],
     },
     fontSize: {
       base: ['1rem', '24px'], // 16px
 
-      md: ['1.125rem', '28px'], // 18px
+      md: ['1.125rem', '32px'], // 18px
 
-      '2md': ['1.25rem', '28px'], // 20px
+      '2md': ['1.25rem', '32px'], // 20px
 
-      '3md': ['1.375rem', '32px'], // 22px
+      '3md': ['1.375rem', '38px'], // 22px
 
-      '4md': ['1.5rem', '32px'], // 24px
+      '4md': ['1.5rem', '38px'], // 24px
 
       '5md': ['1.5625rem'], // 25px
 
@@ -68,7 +68,7 @@ module.exports = {
 
       '2lg': ['2rem', '42px'], // 32px h4
 
-      xl: ['2.5rem', '48px'], // 40px h3
+      xl: ['2.5rem', '54px'], // 40px h3
 
       '2xl': ['3rem', '57.6px'], // 48px h2
 

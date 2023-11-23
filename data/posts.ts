@@ -5,7 +5,7 @@ export const posts = [
     postTitle: 'Simple ways to manage state in react - Client state.',
     time: '13 min read',
     imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1662995946/blog/kit-suman-WQwtk_t4oJI-unsplash_2_1_vixke5.jpg',
+      'https://res.cloudinary.com/dedywga3v/image/upload/v1700572335/high-building_ljfvms.png',
     imageDescription: 'gray high-rise building, by Kit Suman',
   },
   {
@@ -14,7 +14,7 @@ export const posts = [
     postTitle: 'Simple ways to manage state in react - Server state.',
     time: '4 min read',
     imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663533/blog/fanny-gustafsson-E_kbqdUZ4vU-unsplash_bzkf4o.jpg',
+      'https://res.cloudinary.com/dedywga3v/image/upload/v1700572335/winter-wonderland_friade.png',
     imageDescription: 'Winter Wonderland in Sweden, by Fanny Gustafsson',
   },
   // {
@@ -32,7 +32,7 @@ export const posts = [
     postTitle: 'Why I now use Tailwind in all my new projects.',
     time: '4 min read',
     imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664664740/blog/fredrik-solli-wandem-uNnN7IBN9As-unsplash_nzmhas.jpg',
+      'https://res.cloudinary.com/dedywga3v/image/upload/v1700572335/landscape_fezxbx.png',
     imageDescription: 'The vast landscapes of Svalbard, Fredrik Solli Wandem',
   },
   {
@@ -42,7 +42,7 @@ export const posts = [
       'How I built this website - my process, technologies, and much more!',
     time: '8 min read',
     imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1664663329/blog/philippe-murray-pietsch-vRF_Ud0LHSo-unsplash_1_vzl06r.jpg',
+      'https://res.cloudinary.com/dedywga3v/image/upload/v1700572336/lady-riding-bike_fedvaf.png',
     imageDescription: 'lady riding her bike, by Philippe Murray-Pietsch',
   },
   {
@@ -52,7 +52,7 @@ export const posts = [
       'When to useState vs useReducer - a simple guide to help you decide.',
     time: '10 min read',
     imageUrl:
-      'https://res.cloudinary.com/dspbvhlt6/image/upload/v1675521133/blog/william-bout-7cdFZmLlWOM-unsplash_1_dulewg.jpg',
+      'https://res.cloudinary.com/dedywga3v/image/upload/v1700572335/gray-lighthouse_tcvopf.png',
     imageDescription:
       'gray lighthouse on islet with concrete pathway at daytime, William Bout',
   },

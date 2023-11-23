@@ -48,7 +48,10 @@ const Contact: NextPage = () => {
           name="description"
           content="If you'd like to hire me, enquire about my rates or give me any kind of feedback, I'll be delighted to hear from you."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dedywga3v/image/upload/v1700732816/favicon_pcbddk.png"
+        />
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://dayoawobeku.com/contact" />
@@ -62,7 +65,7 @@ const Contact: NextPage = () => {
         <meta
           name="image"
           property="og:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
 
         {/* Twitter */}
@@ -79,20 +82,20 @@ const Contact: NextPage = () => {
         />
         <meta
           property="twitter:image"
-          content="https://res.cloudinary.com/dspbvhlt6/image/upload/v1690995706/meta_image_ggiapp.png"
+          content="https://res.cloudinary.com/dedywga3v/image/upload/v1700571149/meta_image_dwxlym.png"
         />
       </Head>
 
-      <div className="mt-10 flex flex-wrap items-start justify-between gap-12 lg:mt-24 lg:flex-nowrap lg:gap-6">
+      <div className="mt-10 flex flex-wrap items-start justify-start gap-10 pb-20 lg:mt-24 lg:flex-nowrap lg:justify-center xl:gap-20">
         <div>
-          <h1 className="text-4xl text-grey dark:text-white-700">
+          <h1 className="text-xl text-grey dark:text-white-700 sm:text-4xl">
             Get in touch
           </h1>
           <p className="mt-4 text-2md text-grey dark:text-white-700">
             By filling the contact form
           </p>
           <div className="mt-12">
-            <div className="text-2md">
+            <div className="sm:text-2md">
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="mailto: dayoawobeku@gmail.com"
@@ -101,7 +104,7 @@ const Contact: NextPage = () => {
                 dayoawobeku@gmail.com
               </a>
             </div>
-            <div className="mt-6 text-2md">
+            <div className="mt-6 sm:text-2md">
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="https://linkedin.com/in/dayoawobeku/"
@@ -112,7 +115,7 @@ const Contact: NextPage = () => {
                 LinkedIn
               </a>
             </div>
-            <div className="mt-6 text-2md">
+            <div className="mt-6 sm:text-2md">
               <span className="text-body dark:text-white-400">Or: </span>
               <a
                 href="tel: +234-818-194-2332"
