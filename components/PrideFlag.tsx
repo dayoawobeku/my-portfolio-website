@@ -1,5 +1,5 @@
 import React from 'react';
-import range from 'lodash/range';
+import range from 'lodash.range';
 
 const COLORS: Record<string, string[]> = {
   rainbow: [
