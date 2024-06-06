@@ -117,3 +117,34 @@
   content: '';
   display: table;
 }
+
+/* pride month flag styling */
+@keyframes oscillate {
+  from {
+    transform: translateY(var(--billow));
+  }
+  to {
+    transform: translateY(calc(var(--billow) * -1));
+  }
+}
+
+.flag {
+  display: flex;
+  aspect-ratio: 3 / 2;
+  animation-duration: 600ms;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  animation: oscillate 500ms alternate infinite ease-in-out both;
+}
+.column:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.column:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

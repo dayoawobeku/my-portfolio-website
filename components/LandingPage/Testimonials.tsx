@@ -7,6 +7,39 @@ interface Props {
   job?: string;
 }
 
+const TESTIMONIALS = [
+  {
+    name: 'Jerry Asih',
+    job: 'Senior Software Engineer',
+    body: 'Dayo is a very hardworking and dedicated individual. He is a great team player and is always willing to help others. He is a great asset to any team.',
+  },
+  {
+    name: 'Ayomide Oso',
+    job: 'Co-founder at Dojah',
+    body: 'Dayo is a very hardworking and dedicated individual. He is a great team player and is always willing to help others. He is a great asset to any team.',
+  },
+  {
+    name: 'Aanuoluwapo Sebiomo',
+    job: 'Software Product Designer',
+    body: 'Dayo is a very hardworking and dedicated individual. He is a great team player and is always willing to help others. He is a great asset to any team.',
+  },
+  {
+    name: 'Jolaade Philips',
+    job: 'Content Marketing Manager at eqtble',
+    body: 'Dayo is a very hardworking and dedicated individual. He is a great team player and is always willing to help others. He is a great asset to any team.',
+  },
+  {
+    name: 'Oyindamola Ajibike',
+    job: 'Product Designer',
+    body: 'Dayo is a very hardworking and dedicated individual. He is a great team player and is always willing to help others. He is a great asset to any team.',
+  },
+  {
+    name: 'Pinheiro Samuel',
+    job: 'Senior Software Engineer',
+    body: 'Dayo is a very hardworking and dedicated individual. He is a great team player and is always willing to help others. He is a great asset to any team.',
+  },
+];
+
 function Testimonial({body, name, job}: Props) {
   return (
     <div className="rounded-xl bg-[#19202A] p-6 lg:p-8">
