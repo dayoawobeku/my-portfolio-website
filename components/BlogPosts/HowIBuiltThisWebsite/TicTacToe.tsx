@@ -46,7 +46,7 @@ function Board({xIsNext, squares, onPlay}: BoardProps) {
 
   return (
     <>
-      <div className="mb-[10px]">{status}</div>
+      <div className="mb-[10px] text-white-700">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -88,7 +88,7 @@ export default function Game() {
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <button onClick={restart} className="font-medium">
+      <button onClick={restart} className="font-medium text-grey-600">
         Restart
       </button>
     </div>

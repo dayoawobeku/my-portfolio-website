@@ -8,6 +8,7 @@ import Newsletter from './Newsletter';
 import {closeMenuDark, menuDark, spotifyLogo} from '../assets/images';
 import {getNowPlaying} from '../lib/spotify';
 import NavLink from './NavLink';
+import PrideFlag from './PrideFlag';
 
 interface Artist {
   name: string;
@@ -82,51 +83,51 @@ function Layout({children}: Props) {
   }, []);
 
   // https://embed.im/snow/
-  function letItSnow() {
-    let embedimSnow = document.getElementById('embedim--snow');
-    function embRand(a: number, b: number) {
-      return Math.floor(Math.random() * (b - a + 1)) + a;
-    }
-    if (embedimSnow) {
-      embedimSnow.remove();
-      return;
-    }
+  // function letItSnow() {
+  //   let embedimSnow = document.getElementById('embedim--snow');
+  //   function embRand(a: number, b: number) {
+  //     return Math.floor(Math.random() * (b - a + 1)) + a;
+  //   }
+  //   if (embedimSnow) {
+  //     embedimSnow.remove();
+  //     return;
+  //   }
 
-    let embCSS =
-      '.embedim-snow{position: absolute;width: 10px;height: 10px;background: white;border-radius: 50%;margin-top:-10px}.light .embedim-snow{background: #d1edff}';
-    let embHTML = '';
-    for (let i = 1; i < 200; i++) {
-      embHTML += '<i class="embedim-snow"></i>';
-      const rndX = embRand(0, 1000000) * 0.0001;
-      const rndO = embRand(-100000, 100000) * 0.0001;
-      const rndT = (embRand(3, 8) * 10).toFixed(2);
-      const rndS = (embRand(0, 10000) * 0.0001).toFixed(2);
-      embCSS +=
-        `.embedim-snow:nth-child(${i}){` +
-        `opacity:${(embRand(1, 10000) * 0.0001).toFixed(2)};` +
-        `transform:translate(${rndX.toFixed(2)}vw,-10px) scale(${rndS});` +
-        `animation:fall-${i} ${embRand(10, 30)}s -${embRand(
-          0,
-          30,
-        )}s linear infinite` +
-        '}' +
-        `@keyframes fall-${i}{${rndT}%{` +
-        `transform:translate(${(rndX + rndO).toFixed(
-          2,
-        )}vw,${rndT}vh) scale(${rndS})` +
-        '}' +
-        'to{' +
-        `transform:translate(${(rndX + rndO / 2).toFixed(
-          2,
-        )}vw, 105vh) scale(${rndS})` +
-        '}' +
-        '}';
-    }
-    embedimSnow = document.createElement('div');
-    embedimSnow.id = 'embedim--snow';
-    embedimSnow.innerHTML = `<style>#embedim--snow{position:fixed;left:0;top:0;bottom:0;width:100vw;height:100vh;overflow:hidden;z-index:9999999;pointer-events:none}${embCSS}</style>${embHTML}`;
-    document.body.appendChild(embedimSnow);
-  }
+  //   let embCSS =
+  //     '.embedim-snow{position: absolute;width: 10px;height: 10px;background: white;border-radius: 50%;margin-top:-10px}.light .embedim-snow{background: #d1edff}';
+  //   let embHTML = '';
+  //   for (let i = 1; i < 200; i++) {
+  //     embHTML += '<i class="embedim-snow"></i>';
+  //     const rndX = embRand(0, 1000000) * 0.0001;
+  //     const rndO = embRand(-100000, 100000) * 0.0001;
+  //     const rndT = (embRand(3, 8) * 10).toFixed(2);
+  //     const rndS = (embRand(0, 10000) * 0.0001).toFixed(2);
+  //     embCSS +=
+  //       `.embedim-snow:nth-child(${i}){` +
+  //       `opacity:${(embRand(1, 10000) * 0.0001).toFixed(2)};` +
+  //       `transform:translate(${rndX.toFixed(2)}vw,-10px) scale(${rndS});` +
+  //       `animation:fall-${i} ${embRand(10, 30)}s -${embRand(
+  //         0,
+  //         30,
+  //       )}s linear infinite` +
+  //       '}' +
+  //       `@keyframes fall-${i}{${rndT}%{` +
+  //       `transform:translate(${(rndX + rndO).toFixed(
+  //         2,
+  //       )}vw,${rndT}vh) scale(${rndS})` +
+  //       '}' +
+  //       'to{' +
+  //       `transform:translate(${(rndX + rndO / 2).toFixed(
+  //         2,
+  //       )}vw, 105vh) scale(${rndS})` +
+  //       '}' +
+  //       '}';
+  //   }
+  //   embedimSnow = document.createElement('div');
+  //   embedimSnow.id = 'embedim--snow';
+  //   embedimSnow.innerHTML = `<style>#embedim--snow{position:fixed;left:0;top:0;bottom:0;width:100vw;height:100vh;overflow:hidden;z-index:9999999;pointer-events:none}${embCSS}</style>${embHTML}`;
+  //   document.body.appendChild(embedimSnow);
+  // }
 
   return (
     <div className="dark:bg-[#131920]">
@@ -142,13 +143,14 @@ function Layout({children}: Props) {
                 className="h-[30.6px] w-[180px]"
               />
             </Link>
-            <button
+            {/* <button
               onClick={letItSnow}
               title="Snow away!"
               className="motion-safe:animate-spin-slow"
             >
               ❄️
-            </button>
+            </button> */}
+            <PrideFlag />
             <div className="flex items-center gap-6 md:gap-8">
               <button
                 className="h-8 w-8 rounded-full outline-none outline-offset-4 transition-all duration-300 hover:outline-[#d1d1d1] focus:outline-[#d1d1d1] hover:dark:outline-[#EAEAEA] focus:dark:outline-[#EAEAEA] md:hidden"
