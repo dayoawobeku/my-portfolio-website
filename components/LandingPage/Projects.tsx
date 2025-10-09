@@ -7,7 +7,7 @@ const PROJECT_ARRAY = [
   {
     heading: 'Album Colors',
     // eslint-disable-next-line quotes
-    body: "A unique platform that provides color palette inspiration based on users' favorite albums.",
+    body: 'A platform for discovering color palettes inspired by album artwork. Browse, extract, and apply color schemes from your favorite music.',
     image:
       'https://res.cloudinary.com/dedywga3v/image/upload/v1700569225/album-colors-cover_lpr8hf.png',
     url: 'https://albumcolors.co',
@@ -17,7 +17,7 @@ const PROJECT_ARRAY = [
   {
     heading: 'Sitesnap',
     // eslint-disable-next-line quotes
-    body: "The curated platform for African websites. Creatives searching for a burst of inspiration, you're in for a treat!",
+    body: 'A curated collection of African websites showcasing innovative web design. Discover inspiration and learn from the best.',
     image:
       'https://res.cloudinary.com/dedywga3v/image/upload/v1700569224/sitesnap-cover_jl6knp.png',
     url: 'https://sitesnap.design',
@@ -26,7 +26,7 @@ const PROJECT_ARRAY = [
   },
   {
     heading: 'Dojah (YC22) User Application',
-    body: 'Built a fast, reliable, accessible, and UX-friendly user application to enable users carry out actions with ease.',
+    body: 'A fast, accessible application built for identity verification and compliance workflows. Designed for reliability and ease of use.',
     image:
       'https://res.cloudinary.com/dedywga3v/image/upload/v1700569223/dojah-app-cover_fyv8ba.png',
     url: 'https://app.dojah.io',
@@ -34,7 +34,8 @@ const PROJECT_ARRAY = [
   },
   {
     heading: 'Dojah (YC22) Website',
-    body: 'Built a fast, accessible, mobile responsive, and highly SEO-friendly landing page with sub-routes from start to finish.',
+    // eslint-disable-next-line quotes
+    body: "A landing page for Dojah's identity verification platform. Built for performance, accessibility, and conversion optimization.",
     image:
       'https://res.cloudinary.com/dedywga3v/image/upload/v1700569224/dojah-web-cover_qzdl9x.png',
     url: 'https://dojah.io',

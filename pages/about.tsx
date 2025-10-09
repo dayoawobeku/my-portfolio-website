@@ -1,6 +1,5 @@
 import type {GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import {useQuery, dehydrate, QueryClient} from '@tanstack/react-query';
 import {getTopTracks} from '../lib/spotify';
 
@@ -30,7 +29,7 @@ const About: NextPage = () => {
   return (
     <div className="pb-20 lg:px-[16%]">
       <Head>
-        <title>Dayo Awobeku - About me</title>
+        <title>About Dayo Awobeku</title>
         <meta
           name="title"
           property="og:title"
@@ -77,41 +76,8 @@ const About: NextPage = () => {
           Hi, I'm Dayo.
         </h1>
         <p className="mt-4 text-grey-600 md:text-md">
-          I'm a frontend developer with over 3 years of experience and a
-          background in product design. I am the primary UI Engineer at{' '}
-          <span className="font-bold">Dojah</span> where I work alongside a team
-          focused on building an advanced AI-powered technology that makes it
-          easy for businesses to onboard users at scale. My work involves
-          building and maintaining the company's design system, creating and
-          maintaining the company's website, and building and maintaining the
-          company's internal tools.
+          I'm a frontend engineer with a background in product design.
         </p>
-        <div className="mt-8 flex w-full flex-wrap items-center justify-between gap-4 sm:flex-nowrap sm:gap-8">
-          <div className="group w-full md:w-1/2">
-            <Image
-              src="https://res.cloudinary.com/dedywga3v/image/upload/v1700571639/me_2_etbwxf.png"
-              width={557}
-              height={662}
-              alt="Dayo at Scoop'd to get some ice cream"
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-              priority
-              className="transform transition-all duration-500 ease-in-out group-hover:scale-105"
-            />
-          </div>
-          <div className="group w-full md:w-1/2">
-            <Image
-              src="https://res.cloudinary.com/dedywga3v/image/upload/v1700571639/me_dsxsgc.png"
-              width={557}
-              height={662}
-              alt="Dayo in a suit"
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xg8AAnMBeJQW2OIAAAAASUVORK5CYII="
-              priority
-              className="transform transition-all duration-500 ease-in-out group-hover:scale-105"
-            />
-          </div>
-        </div>
         <div className="mt-8 w-full">
           <p className="text-body dark:text-grey-600 md:text-md">
             I studied Medical Laboratory Science at the University of Ibadan,
@@ -120,44 +86,84 @@ const About: NextPage = () => {
             "our" own games. From that moment, I was hooked.
           </p>
           <p className="mt-8 text-body dark:text-grey-600 md:text-md">
-            Today, I'm a bit of a unicorn. I'm a frontend developer but I also
+            Today, I'm a bit of a unicorn. I'm a frontend engineer but I also
             identify as a product designer. I'm a designer who codes. I'm an
             engineer who designs. I learned how to code because I wanted to
             build things that people would love to use. And I learned how to
-            design because I wanted to participate in the entire product
+            design because I wanted to be involved in the entire product
             development process.
           </p>
           <p className="mt-8 text-body dark:text-grey-600 md:text-md">
             And even though I no longer practice as a medical professional (I
             failed you, mom 😅), I still find myself applying the same
-            principles of research and experimentation to my work as a
-            developer.
+            principles of research and experimentation to my work as an
+            engineer.
           </p>
         </div>
         <p className="mt-8 text-body dark:text-grey-600 md:text-md">
-          My passion for this craft has driven me to co-found two open-source
-          projects: album colors (a visual directory that draws colour palette
-          inspiration from music album covers); and Sitesnap.design (a curated
-          collection of websites designed by Africans), write technical
-          articles, and mentor aspiring developers. These initiatives show my
-          commitment to the developer community and my ability to build
-          practical tools that improve people's lives through quality software.
+          I've shipped products at{' '}
+          <a
+            href="https://casperstudios.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-grey hover:underline dark:text-white-800"
+          >
+            Casper Studios
+          </a>
+          ,{' '}
+          <a
+            href="https://moniepoint.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-grey hover:underline dark:text-white-800"
+          >
+            Moniepoint
+          </a>
+          , and{' '}
+          <a
+            href="https://dojah.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-grey hover:underline dark:text-white-800"
+          >
+            Dojah (YC W22)
+          </a>{' '}
+          . Beyond client work, I've built open-source projects like{' '}
+          <a
+            href="https://albumcolors.co/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-grey hover:underline dark:text-white-800"
+          >
+            Album Colors {''}
+          </a>
+          and{' '}
+          <a
+            href="https://sitesnap.design/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-grey hover:underline dark:text-white-800"
+          >
+            Sitesnap
+          </a>
+          , tools now used by thousands, and I also write technical articles and
+          mentor developers.
         </p>
         <p className="mt-8 text-body dark:text-grey-600 md:text-md">
-          I have experience working with a variety of technologies, including
-          JavaScript, TypeScript, React, Next.js, Tailwind CSS, and Node.js. I
-          also have experience working with design tools and methodologies
-          including Figma, Adobe XD, and user research techniques. My ability to
-          work seamlessly across the stack and my passion for building
-          inclusive, user-friendly, and intuitive user experiences makes me a
-          great fit for any team.
+          I work across the full stack: JavaScript, TypeScript, React, Next.js,
+          Tailwind CSS, and Node.js on the engineering side, and Figma, design
+          systems, and user research on the product side. What matters most to
+          me is building inclusive, intuitive experiences that actually solve
+          problems.
         </p>
         <p className="mt-8 text-body dark:text-grey-600 md:text-md">
-          When I'm not coding, you can find me playing FIFA, listening to music,
-          reading self-help books, or helping other developers solve problems on
-          Discord. I also enjoy playing the acoustic guitar and watching horror
-          movies. Whether it's web development, design, or just a friendly chat
-          about coding and music, feel free to connect with me on{' '}
+          When I'm not coding, you can find me playing FIFA (yes, I still call
+          it FIFA), listening to music, reading self-help books, or helping
+          other engineers solve problems on Discord. I'm also working on
+          learning the acoustic guitar. My logic: if I can learn to code, I can
+          learn to play. (Still working on that logic.). Whether it's web
+          development, design, or just a friendly chat about coding and music,
+          feel free to connect with me on{' '}
           <a
             href="https://twitter.com/dayoawobeku"
             target="_blank"
